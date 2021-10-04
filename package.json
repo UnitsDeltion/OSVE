@@ -1,6 +1,10 @@
 {
     "private": true,
     "scripts": {
+        "serve": "php artisan serve",
+        "migrate": "php artisan migrate",
+        "migrate:fresh": "php artisan migrate:fresh",
+        "db:seed": "php artisan db:seed",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
