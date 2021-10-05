@@ -1,0 +1,258 @@
+/* Colors */
+:root{
+    --dd-primary: #00b295;
+    --dd-secondary: #008a73;
+    --dd-hover: #14937e;
+}
+
+.dd-primary{
+    background-color: var(--dd-primary) !important;
+}
+
+/*Header, footer*/
+.dd-primary-global{
+    background-color: var(--dd-primary) !important;
+}
+
+.dd-primary:hover{
+    background-color: var(--dd-hover) !important;
+    color: white;
+}
+
+.dd-primary-hover{
+    background-color: var(--dd-hover) !important;
+}
+
+.dd-secondary{
+    background-color: var(--dd-secondary) !important;
+    color: white !important;
+}
+
+.fc-dd-secondary-hover:hover{
+    color: var(--dd-secondary) !important;
+}
+
+/* Font colors */
+.fc-white{color: white !important;}
+.fc-black{color: black !important;}
+.fc-red{color: red !important;}
+.fc-dd-primary{color: var(--dd-primary) !important;}
+.fc-dd-primary:hover{color: var(--dd-hover) !important;}
+.fc-dd-secondary{color: var(--dd-secondary) !important;}
+.fc-dd-secondary:hover{color: var(--dd-primary) !important;}
+
+/* Font size*/
+.fz-10{font-size: 10px;}
+.fz-11{font-size: 11px;}
+.fz-12{font-size: 12px;}
+.fz-13{font-size: 13px;}
+.fz-14{font-size: 14px;}
+.fz-15{font-size: 15px;}
+.fz-16{font-size: 16px;}
+.fz-17{font-size: 17px;}
+.fz-18{font-size: 18px;}
+.fz-19{font-size: 19px;}
+.fz-20{font-size: 20px;}
+.fz-22{font-size: 22px;}
+.fz-26{font-size: 26px;}
+.fz-40{font-size: 40px;}
+.fz-50{font-size: 50px;}
+
+/*Border radius*/
+.br-5{border-radius: 5px !important;}
+.br-7{border-radius: 7px !important;}
+.br-10{border-radius: 10px !important;}
+.br-15{border-radius: 15px !important;}
+
+/*Breedte*/
+.w-10{width: 10% !important;}
+.w-15{width: 15% !important;}
+.w-20{width: 20% !important;}
+.w-25{width: 25% !important;}
+.w-35{width: 35% !important;}
+.w-50{width: 50% !important;}
+.w-75{width: 75% !important;}
+.w-90{width: 90% !important;}
+.w-100{width: 100% !important;}
+
+/*Hoogte*/
+.h-2{height: 2px !important;}
+.h-13{height: 3.25rem!important;}
+.h-15{height: 15px !important;}
+.h-16{height: 4rem !important;}
+.h-17{height: 4.5rem !important;}
+.py-7{
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+}
+
+/*Margin top*/
+.mt-3{margin-top: 3px !important}
+.mt-5{margin-top: 5px !important}
+.mt-10{margin-top: 10px !important}
+.mt-15{margin-top: 15px !important}
+.mt-20{margin-top: 20px !important}
+.mt-25{margin-top: 25px !important}
+.mt-30{margin-top: 30px !important}
+.mt-35{margin-top: 35px !important}
+.mt-40{margin-top: 40px !important}
+.mt-45{margin-top: 45px !important}
+.mt-50{margin-top: 50px !important}
+.mt-100{margin-top: 100px !important}
+.mt-150{margin-top: 150px !important}
+
+/*Margin right*/
+.mr-0{margin-right: 0px !important}
+.mr-5{margin-right: 5px !important}
+.mr-10{margin-right: 10px !important}
+.mr-15{margin-right: 15px !important}
+.mr-20{margin-right: 20px !important}
+.mr-25{margin-right: 25px !important}
+.mr-30{margin-right: 30px !important}
+.mr-35{margin-right: 35px !important}
+.mr-40{margin-right: 40px !important}
+.mr-45{margin-right: 45px !important}
+.mr-50{margin-right: 50px !important}
+
+/*Margin bottom*/
+.mb-0{margin-bottom: 0px !important;}
+.mb-3{margin-bottom: 3px !important}
+.mb-5{margin-bottom: 5px !important}
+.mb-10{margin-bottom: 10px !important}
+.mb-15{margin-bottom: 15px !important}
+.mb-20{margin-bottom: 20px !important}
+.mb-25{margin-bottom: 25px !important}
+.mb-30{margin-bottom: 30px !important}
+.mb-35{margin-bottom: 35px !important}
+.mb-40{margin-bottom: 40px !important}
+.mb-45{margin-bottom: 45px !important}
+.mb-50{margin-bottom: 50px !important}
+.mb-100{margin-bottom: 100px !important}
+
+/*Margin left*/
+.ml-3{margin-left: 3px !important}
+.ml-5{margin-left: 5px !important}
+.ml-10{margin-left: 10px !important}
+.ml-15{margin-left: 15px !important}
+.ml-20{margin-left: 20px !important}
+.ml-25{margin-left: 25px !important}
+.ml-30{margin-left: 30px !important}
+.ml-35{margin-left: 35px !important}
+.ml-40{margin-left: 40px !important}
+.ml-45{margin-left: 45px !important}
+.ml-50{margin-left: 50px !important}
+.ml-120{margin-left: 120px !important}
+.ml-250{margin-left: 250px !important}
+
+/*Padding left*/
+.pl-0{padding-left: 0px !important;}
+.pl-2{padding-left: 2px !important;}
+.pl-4{padding-left: 4px !important;}
+.pl-6{padding-left: 6px !important;}
+
+/*Padding-right*/
+.pr-0{padding-right: 0rem!important;}
+.pr-5{padding-right: 1rem!important;}
+
+/*Achtergrond*/
+.bg-white{background-color: white !important;}
+.bg-red{background-color: red !important;}
+
+/*Float*/
+.float-right{float: right !important};
+.float-left{float: left !important};
+.float-center{float: center !important};
+
+/* Global */
+.justify-content-center{justify-content: center;}
+.center{margin: 0 auto !important;}
+.form-group {margin-bottom: 1rem;}
+.a-clear{text-decoration: none !important;}
+.nav-wrapper{height: 74px !important;}
+
+h1{
+    color: var(--dd-primary);
+    font-family: Tisa Sans Pro Regular;
+}
+
+h5{
+    color: var(--dd-primary);
+    font-family: Tisa Sans Pro Regular;
+}
+
+.disabled{
+    background-color: #e9ecef;
+    opacity: 1;
+}
+
+.content{
+    min-height: 70vh;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+hr{
+    height:2px;
+    border-width:0;
+    color:black;
+    background-color:var(--dd-primary)
+}
+
+/*Footer*/
+.footer-content a{color: var(--dd-primary) !important;}
+.footer-content a:hover{color: var(--dd-secondary) !important;}
+.btn:hover {background-color: var(--dd-hover) !important;}
+
+/*Privacy verklaring*/
+.privacy-policy-content > h3{color: var(--dd-secondary);}
+.privacy-policy-content a{color: var(--dd-primary) !important;}
+.privacy-policy-content a:hover{color: var(--dd-secondary) !important;}
+.privacy-policy-content li{list-style-type: circle;}
+
+/*Home*/
+.background-image-home{
+    background: url("/images/paginas/home/caravan-home.jpg");
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 500px;  
+}
+
+.home-content{
+    margin-top: 50px!important; 
+    height:50px;
+}
+
+.home > .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.img{
+    height: 150px;
+}
+
+/*Cards*/
+.card-header, .card-footer{
+    background-color: rgba(0,0,0,0) !important;
+}
+
+.card-title{
+    margin-bottom: 0.25rem !important;
+    margin-top: 0.25rem !important;
+    margin-block-end: 0px !important;
+}
+.card-text{height: auto !important;}
+.card-footer p{margin-bottom: 0px !important;}
+
+
+
+.fc-day:hover{
+    background-color: var(--dd-primary)
+}
+
+.fc-highlight{ 
+    background-color: var(--dd-primary) !important;
+    opacity: .7 !important;
+}
