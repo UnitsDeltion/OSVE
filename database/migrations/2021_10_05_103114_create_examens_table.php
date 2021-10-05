@@ -17,9 +17,10 @@ class CreateExamensTable extends Migration
             $table->integer('crebo_nr');
             $table->string('examen')->unique('examen');
             $table->integer('plaatsen');
-            $table->string('geplande_docenten')->index('examens_ibfk_3');
+            $table->string('geplande_docenten');
             
-            $table->foreign('crebo_nr', 'examens_ibfk_1')->references('crebo_nr')->on('opleidingen');
+            $table->foreign('crebo_nr', 'examens_ibfk_1')->references('crebo_nr')->on('opleidingen')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('geplande_docenten', 'examens_ibfk_3')->references('e-mail')->on('accounts');
         });
     }
 
