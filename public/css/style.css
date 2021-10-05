@@ -1,45 +1,25 @@
+/*
+Theme Name:   YeetCss
+Description:  Mooie handige CSS
+Author:       Martijn Schuman
+Version:      1.2.3
+*/
+
 /* Colors */
 :root{
-    --dd-primary: #33296A;
-    --dd-secondary: #F58220;
-    --dd-hover: #14937e;
-}
-
-.dd-primary{
-    background-color: var(--dd-primary) !important;
-}
-
-/*Header, footer*/
-.dd-primary-global{
-    background-color: var(--dd-primary) !important;
-}
-
-.dd-primary:hover{
-    background-color: var(--dd-hover) !important;
-    color: white;
-}
-
-.dd-primary-hover{
-    background-color: var(--dd-hover) !important;
-}
-
-.dd-secondary{
-    background-color: var(--dd-secondary) !important;
-    color: white !important;
-}
-
-.fc-dd-secondary-hover:hover{
-    color: var(--dd-secondary) !important;
+    --primary: #33296A;
+    --secondary: #F58220;
+    --hover: #14937e;
 }
 
 /* Font colors */
 .fc-white{color: white !important;}
 .fc-black{color: black !important;}
 .fc-red{color: red !important;}
-.fc-dd-primary{color: var(--dd-primary) !important;}
-.fc-dd-primary:hover{color: var(--dd-hover) !important;}
-.fc-dd-secondary{color: var(--dd-secondary) !important;}
-.fc-dd-secondary:hover{color: var(--dd-primary) !important;}
+.fc-primary{color: var(--primary) !important;}
+.fc-primary:hover{color: var(--hover) !important;}
+.fc-secondary{color: var(--secondary) !important;}
+.fc-secondary:hover{color: var(--hover) !important;}
 
 /* Font size*/
 .fz-10{font-size: 10px;}
@@ -157,11 +137,15 @@
 /*Achtergrond*/
 .bg-white{background-color: white !important;}
 .bg-red{background-color: red !important;}
+.bg-primary{background-color: var(--primary) !important;}
+.bg-primary:hover{background-color: var(--hover) !important; color: white !important;}
+.bg-secondary{background-color: var(--secondary) !important; color: white !important;}
+.bg-secondary:hover{background-color: var(--hover) !important; color: white !important;}
 
 /*Float*/
-.float-right{float: right !important};
 .float-left{float: left !important};
 .float-center{float: center !important};
+.float-right{float: right !important};
 
 /* Global */
 .justify-content-center{justify-content: center;}
@@ -171,12 +155,12 @@
 .nav-wrapper{height: 74px !important;}
 
 h1{
-    color: var(--dd-primary);
+    color: var(--primary);
     font-family: Tisa Sans Pro Regular;
 }
 
 h5{
-    color: var(--dd-primary);
+    color: var(--primary);
     font-family: Tisa Sans Pro Regular;
 }
 
@@ -195,43 +179,19 @@ hr{
     height:2px;
     border-width:0;
     color:black;
-    background-color:var(--dd-primary)
+    background-color:var(--primary)
 }
 
 /*Footer*/
-.footer-content a{color: var(--dd-primary) !important;}
-.footer-content a:hover{color: var(--dd-secondary) !important;}
-.btn:hover {background-color: var(--dd-hover) !important;}
+.footer-content a{color: var(--primary) !important;}
+.footer-content a:hover{color: var(--secondary) !important;}
+.btn:hover {background-color: var(--hover) !important;}
 
 /*Privacy verklaring*/
-.privacy-policy-content > h3{color: var(--dd-secondary);}
-.privacy-policy-content a{color: var(--dd-primary) !important;}
-.privacy-policy-content a:hover{color: var(--dd-secondary) !important;}
+.privacy-policy-content > h3{color: var(--secondary);}
+.privacy-policy-content a{color: var(--primary) !important;}
+.privacy-policy-content a:hover{color: var(--secondary) !important;}
 .privacy-policy-content li{list-style-type: circle;}
-
-/*Home*/
-.background-image-home{
-    background: url("/images/paginas/home/caravan-home.jpg");
-    background-position: center;
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    height: 500px;  
-}
-
-.home-content{
-    margin-top: 50px!important; 
-    height:50px;
-}
-
-.home > .card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
-}
-
-.img{
-    height: 150px;
-}
 
 /*Cards*/
 .card-header, .card-footer{
@@ -243,16 +203,6 @@ hr{
     margin-top: 0.25rem !important;
     margin-block-end: 0px !important;
 }
+
 .card-text{height: auto !important;}
 .card-footer p{margin-bottom: 0px !important;}
-
-
-
-.fc-day:hover{
-    background-color: var(--dd-primary)
-}
-
-.fc-highlight{ 
-    background-color: var(--dd-primary) !important;
-    opacity: .7 !important;
-}
