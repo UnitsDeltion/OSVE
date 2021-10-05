@@ -1,29 +1,60 @@
-<div>
+<!-- <div>
     <footer class="text-center text-lg-start bg-light text-muted footer-content">
-        <!-- <div class="container text-center text-md-start mt-5 border-top">
-            <div class="row mt-3">
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <img class="h-12 mb-2" src="{{ asset('images/logos/deDisselPrimary.webp') }}" />
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae in rerum cupiditate, pariatur ea placeat sequi fuga saepe inventore adipisci quo sit obcaecati.</p>
-                </div>
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4">Verhuur</h6>
-                    <p><a href="#!" class="text-reset">Campers</a></p>
-                    <p><a href="#!" class="text-reset">Caravans</a></p>
-                </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4">Handige pagina's</h6>
-                    <p><a href="#!" class="text-reset">Contact</a></p>
-                    <p><a href="#!" class="text-reset">Over ons</a></p>
-                </div>
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                    <p><i class="fas fa-home me-3"></i> Schoenmaker 30, 5104DD, Dongen, Noord-Brabant</p>
-                    <p><i class="fas fa-envelope me-3"></i> support@dedissel.nl</p>
-                    <p><i class="fas fa-phone me-3"></i> +31 123456789</p>
+        <div class="text-center p-4 bg-primary-nh">© <?php echo date("Y"); ?> Deltion - Alle rechten voorbehouden || <a style="color: rgb(108, 117, 125) !important" href="{{ route('privacy-policy') }}">Privacyverklaring</a></div>
+    </footer>
+</div> -->
+<div>
+    <div class="container">
+        <footer class="footer">
+            <div class="wrap">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="footer__contact">
+                            <div class="row align-items-center-xs">
+                                <div class="col-md-3"></div>
+                                <div class="col-sm-2"></div>
+                                <div class="col-xs-12 col-sm-8 col-md-6 col-xl-3">
+                                    <div class="footer__contact-logo"><img src="{{ asset('images/logos/logo-invert.svg') }}" alt="Deltion"></div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-xl-3">
+                                    <div class="footer__contact-item">
+                                        <p class="footer__contact-label mt-4 mb-10-n">Telefonisch contact</p>
+                                        <p class="footer__contact-value"><a href="tel:+038 850 30 00">038 850 30 00</a></p>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-xl-3">
+                                    <div class="footer__contact-item">
+                                        <p class="footer__contact-label mt-4 mb-10-n">Mail contact</p>
+                                        <p class="footer__contact-value"><a href="mailto:ssc@deltion.nl">ssc@deltion.nl</a></p>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-xl-3">
+                                    <ul class="footer__social mb-0 pl-0">
+                                        <li class="footer__social-item"><a href="https://www.twitter.com/deltion" target="_blank"><i class="fz-23 fc-white fab fa-twitter"></i></a></li>
+                                        <li class="footer__social-item"><a href="https://www.youtube.com/channel/UCLVqRDE4Y6hNKLbpKAi15YQ" target="_blank"><i class="fz-23 fc-white fab fa-youtube"></i></a></li>
+                                        <li class="footer__social-item"><a href="https://www.instagram.com/deltion_college/" target="_blank"><i class="fz-23 fc-white fab fa-instagram"></i></a></li>
+                                        <li class="footer__social-item"><a href="https://www.facebook.com/deltioncollege" target="_blank"><i class="fz-23 fc-white fab fa-facebook-f"></i></a></li>
+                                        <li class="footer__social-item"><a href="https://nl.linkedin.com/school/deltion-college/" target="_blank"><i class="fz-23 fc-white fab fa-linkedin-in"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="footer__legal">
+                            <nav class="footer__legal-navigation">
+                                <ul class="footer__legal-list">
+                                    <li class="footer__legal-item"><a class="footer__legal-link" href="https://www.deltion.nl/privacy">Privacyverklaring</a></li>
+                                    <li class="footer__legal-item"><a class="footer__legal-link" href="https://www.deltion.nl/disclaimer">Disclaimer</a></li>
+                                    <li class="footer__legal-item"><a class="footer__legal-link" href="https://www.deltion.nl/responsible-disclosure">Responsible disclosure</a>
+                                    <li class="footer__legal-item"><a class="footer__legal-link" href="https://www.deltion.nl/cert">CERT</a>
+                                    <li class="footer__legal-item"><a class="footer__legal-link" href="https://www.deltion.nl/cookieverklaring">Cookieverklaring</a>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div> -->
-        <div class="text-center p-4 bg-primary-nh">© <?php echo date("Y"); ?> De Dissel - Alle rechten voorbehouden || <a style="color: rgb(108, 117, 125) !important" href="{{ route('privacy-policy') }}">Privacyverklaring</a> || <a style="color: rgb(108, 117, 125) !important" href="{{ route('sitemap') }}">Sitemap</a></div>
-    </footer>
+        </footer>
+    </div>
 </div>

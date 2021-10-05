@@ -6,25 +6,25 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                        <img class="h-13" src="{{ asset('images/logos/deDisselDark.webp') }}" />
+                        <img class="h-13" src="{{ asset('images/logos/logo.svg') }}" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="nav-wrapper hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')" class="fc-white fc-secondary-hover a-clear fz-16">
+                    <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')" class="fc-white a-clear fz-16">
                         {{ __('Home') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="#" :active="request()->routeIs('home')" class="fc-white fc-secondary-hover a-clear fz-16">
+                    <x-jet-nav-link href="#" :active="request()->routeIs('home')" class="fc-white a-clear fz-16">
                         {{ __('#') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="#" :active="request()->routeIs('home')" class="fc-white fc-secondary-hover a-clear fz-16">
+                    <x-jet-nav-link href="#" :active="request()->routeIs('home')" class="fc-white a-clear fz-16">
                         {{ __('#') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="#" :active="request()->routeIs('home')" class="fc-white fc-secondary-hover a-clear fz-16">
+                    <x-jet-nav-link href="#" :active="request()->routeIs('home')" class="fc-white a-clear fz-16">
                         {{ __('#') }}
                     </x-jet-nav-link>
                 </div>
@@ -111,11 +111,11 @@
 
                                 <div class="border-t border-gray-100"></div>
 
-                                <x-jet-dropdown-link href="#" class="fc-primary">
+                                <x-jet-dropdown-link href="{{ route('dashboard') }}" class="fc-primary">
                                     {{ __('Dashboard') }}
                                 </x-jet-dropdown-link>
 
-                                <x-jet-dropdown-link href="#" class="fc-primary">
+                                <x-jet-dropdown-link href="{{ route('profile.show') }}" class="fc-primary">
                                     {{ __('Mijn profiel') }}
                                 </x-jet-dropdown-link>
 
@@ -139,17 +139,6 @@
                                 </form>
                             </x-slot>
                         </x-jet-dropdown>
-                    </div>
-
-                <!-- Als gebruiker niet is ingelogd -->
-                @else
-                    <div class="nav-wrapper hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ads">
-                        <x-jet-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')" class="fc-white fc-secondary-hover a-clear fz-16">
-                            {{ __('Inloggen') }}
-                        </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')" class="fc-white fc-secondary-hover a-clear fz-16">
-                            {{ __('Registreren') }}
-                        </x-jet-nav-link>
                     </div>
                 @endif
 

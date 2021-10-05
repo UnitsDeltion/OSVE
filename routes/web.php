@@ -28,4 +28,4 @@ Route::get('/p3', function () {
 Route::get('/home', function () {return view('home');})->name('home');
 Route::get('/sitemap', function () {return view('paginas.sitemap');})->name('sitemap');
 Route::get('/over-ons', function () {return view('paginas.about-us');})->name('over-ons');
-Route::get('/privacy-policy', function () {return view('paginas.policy');})->name('privacy-policy');
+Route::get('/privacy-policy', function () {return redirect('https://www.deltion.nl/privacy');})->name('privacy-policy');
