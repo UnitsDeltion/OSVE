@@ -19,7 +19,7 @@ class CreateExamenMomentTable extends Migration
             $table->string('datum');
             $table->string('tijd');
             
-            $table->foreign('examenid', 'examen_moment_ibfk_1')->references('crebo_nr')->on('examens');
+            $table->foreign('examenid', 'examen_moment_ibfk_1')->references('crebo_nr')->on('examens')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 
