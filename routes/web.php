@@ -24,3 +24,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/p3', function () {
     return view('p3');
 });
+
+Route::get('/sitemap', function () {return view('paginas.sitemap');})->name('sitemap');
+Route::get('/over-ons', function () {return view('paginas.about-us');})->name('over-ons');
+Route::get('/privacy-policy', function () {return view('paginas.policy');})->name('privacy-policy');
