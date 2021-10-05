@@ -9,42 +9,29 @@
     @livewire('includes.content.top.content-normal-top') 
 
         <div class="privacy-policy-content">
-            <p>De Dissel, gevestigd aan Schoenmaker 30, 5104DD, Dongen, Noord-Brabant, is verantwoordelijk voor de verwerking van persoonsgegevens zoals weergegeven in deze privacyverklaring.</p>
+            <p>Deltion College gaat zorgvuldig om met jouw gegevens. Hieronder vertellen we hoe we dat doen.</p>
 
-            <h3>Contactgegevens:</h3>
+            <h3>Cookies, of vergelijkbare technieken</h3>
+            <p class="mb-0">Een cookie is een bestandje dat op de harde schijf van je computer wordt opgeslagen. Deltion maakt gebruik van cookies op haar websites. We mogen volgens de wet cookies op je apparaat opslaan als ze strikt noodzakelijk zijn. Daarom staat deze optie al aangevinkt. Voor alle andere soorten cookies hebben we je toestemming nodig. Deze toestemming gaat om het gebruiken van marketing en statistieken cookies. Zo kunnen we onze informatie zo goed mogelijk op jou afstemmen. Via onze pagina over cookies kun je je toestemming op elk moment weer wijzigen of intrekken.</p>
+            <p>Het gebeurt soms dat cookies worden verzameld via media van derden, zoals bij het bekijken van een YouTube-film die via onze site wordt getoond. Deltion is niet verantwoordelijk voor de inhoud van websites van derden. Maar, als we filmpjes in deze site tonen, schakelen we daar wel de privacyvriendelijke instellingen in.</p>
+            <p>Je kunt cookies ook zelf blokkeren en verwijderen via je internetbrowser. Ook kun je je internetbrowser zo instellen dat je een bericht ontvangt als er een cookie wordt geplaatst. Je kunt ook aangeven dat bepaalde cookies niet geplaatst mogen worden. Bekijk voor deze mogelijkheid de helpfunctie van je browser. Als je de cookies in je browser verwijdert, kan dat gevolgen hebben voor het gebruik van deze website. Op youronlinechoices.com/nl/ lees je meer over cookies en hoe je ze centraal kunt verwijderen.</p>
+
+            <h3>Beeldmateriaal</h3>
+            <p>Bij evenementen en schoolactiviteiten van Deltion wordt soms beeldmateriaal door ons gemaakt, dat op onze website of sociale media kan worden geplaatst. Het gaat daarbij steeds om algemene beelden (geen close-up’s). Als je bezwaar hebt tegen een foto op de website, stuur dan een bericht aan privacy@deltion.nl.</p>
+            
+            <h3>Studenten</h3>
+            <p>Als je bij Deltion komt studeren, hebben wij gegevens van je nodig. Hier lees je hoe dat precies gaat en wat wij met je gegevens doen. Alle persoonlijke gegevens die wij van je nodig hebben, worden zorgvuldig verwerkt volgens de geldende wetgeving (Algemene Verordening Gegevensbescherming).</p>
+
+            <h3>Persoonsgegevens die wij van je verwerken</h3>
+            <p class="mb-0">Als je bij ons studeert, hebben we voor verschillende doeleinden persoonsgegevens van je nodig. Dat gaat om:</p>
             <ul>
-                <li><a href="mailto:https://www.dedissel.nl">https://www.dedissel.nl</a></li>
-                <li>Schoenmaker 30, 5104DD, Dongen, Noord-Brabant</li>
-                <li><a href="tel:+31 123456789">+31 123456789</a></li>
-            </ul>
-
-            <h3>Persoonsgegevens die wij verwerken</h3>
-            <p class="mb-0">De Dissel verwerkt uw persoonsgegevens doordat u gebruik maakt van onze diensten en/of omdat u deze zelf aan ons verstrekt. Hieronder vindt u een overzicht van de persoonsgegevens die wij verwerken:</p>
-            <ul>
-                <li>Voor- en achternaam</li>
-                <li>Adresgegevens</li>
-                <li>Telefoonnummer</li>
-                <li>E-mailadres</li>
-                <li>IP-adres</li>
-                <li>Locatiegegevens</li>
-                <li>Gegevens over uw activiteiten op onze website</li>
-                <li>Gegevens over uw surfgedrag over verschillende websites heen (bijvoorbeeld omdat dit bedrijf onderdeel is van een advertentienetwerk)</li>
-                <li>Internetbrowser en apparaat type</li>
-            </ul>
-
-            <h3>Bijzondere en/of gevoelige persoonsgegevens die wij verwerken</h3>
-            <p>Onze website en/of dienst heeft niet de intentie gegevens te verzamelen over websitebezoekers die jonger zijn dan 16 jaar. Tenzij ze toestemming hebben van ouders of voogd. We kunnen echter niet controleren of een bezoeker ouder dan 16 is. Wij raden ouders dan ook aan betrokken te zijn bij de online activiteiten van hun kinderen, om zo te voorkomen dat er gegevens over kinderen verzameld worden zonder ouderlijke toestemming. Als u er van overtuigd bent dat wij zonder die toestemming persoonlijke gegevens hebben verzameld over een minderjarige, neem dan contact met ons op via support@dedissel.nl, dan verwijderen wij deze informatie.</p>
-
-            <h3>Met welk doel en op basis van welke grondslag wij persoonsgegevens verwerken</h3>
-            <p class="mb-0">De Dissel verwerkt uw persoonsgegevens voor de volgende doelen:</p>
-            <ul>
-                <li>Het afhandelen van uw betaling</li>
-                <li>Verzenden van onze nieuwsbrief en/of reclamefolder</li>
-                <li>U te kunnen bellen of e-mailen indien dit nodig is om onze dienstverlening uit te kunnen voeren</li>
-                <li>U te informeren over wijzigingen van onze diensten en producten</li>
-                <li>U de mogelijkheid te bieden een account aan te maken</li>
-                <li>Om goederen en diensten bij u af te leveren</li>
-                <li>De Dissel analyseert uw gedrag op de website om daarmee de website te verbeteren en het aanbod van producten en diensten af te stemmen op uw voorkeuren.</li>
+                <li>naw- en contactgegevens</li>
+                <li>opleidings- en inschrijfgegevens</li>
+                <li>stage- en BPV-gegevens</li>
+                <li>gegevens over de studievoortgang</li>
+                <li>bijzondere en gevoelige persoonsgegevens</li>
+                <li>ICT-gegevens</li>
+                <li>foto’s en videobeelden</li>
             </ul>
 
             <h3>Hoe lang we persoonsgegevens bewaren</h3>
