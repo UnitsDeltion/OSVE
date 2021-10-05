@@ -144,7 +144,6 @@
 .bg-secondary:hover{background-color: var(--hover) !important; color: white !important;}
 .bg-secondary-nh{background-color: var(--secondary) !important; color: white !important;}
 
-
 /*Float*/
 .float-left{float: left !important};
 .float-center{float: center !important};
@@ -158,6 +157,11 @@
 .nav-wrapper{height: 74px !important;}
 
 h1{
+    color: var(--primary);
+    font-family: Tisa Sans Pro Regular;
+}
+
+h3{
     color: var(--primary);
     font-family: Tisa Sans Pro Regular;
 }
