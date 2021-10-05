@@ -8,18 +8,15 @@
 /* Colors */
 :root{
     --primary: #33296A;
+    --fc-primary: #343469;
     --secondary: #F58220;
-    --hover: #3a2f79;
+    --hover: #F58220;
 }
 
-/* Font colors */
-.fc-white{color: white !important;}
-.fc-black{color: black !important;}
-.fc-red{color: red !important;}
-.fc-primary{color: var(--primary) !important;}
-.fc-primary:hover{color: var(--hover) !important;}
-.fc-secondary{color: var(--secondary) !important;}
-.fc-secondary:hover{color: var(--hover) !important;}
+::selection {
+    color: white !important;
+    background-color: var(--secondary) !important;
+}
 
 /* Font size*/
 .fz-10{font-size: 10px;}
@@ -33,7 +30,11 @@
 .fz-18{font-size: 18px;}
 .fz-19{font-size: 19px;}
 .fz-20{font-size: 20px;}
+.fz-21{font-size: 21px;}
 .fz-22{font-size: 22px;}
+.fz-23{font-size: 23px;}
+.fz-24{font-size: 24px;}
+.fz-25{font-size: 25px;}
 .fz-26{font-size: 26px;}
 .fz-40{font-size: 40px;}
 .fz-50{font-size: 50px;}
@@ -61,12 +62,10 @@
 .h-15{height: 15px !important;}
 .h-16{height: 4rem !important;}
 .h-17{height: 4.5rem !important;}
-.py-7{
-    padding-top: 1.25rem !important;
-    padding-bottom: 1.25rem !important;
-}
 
 /*Margin top*/
+.mt-0-r{margin-top: 0px !important; margin-block-start: 0px !important;}
+.mt-0{margin-top: 0px !important}
 .mt-3{margin-top: 3px !important}
 .mt-5{margin-top: 5px !important}
 .mt-10{margin-top: 10px !important}
@@ -95,6 +94,9 @@
 .mr-50{margin-right: 50px !important}
 
 /*Margin bottom*/
+.mb-10-n{margin-bottom: -10px !important}
+.mb-15-n{margin-bottom: -15px !important}
+.mb-0-r{margin-bottom: 0px !important; margin-block-end: 0px !important;}
 .mb-0{margin-bottom: 0px !important;}
 .mb-3{margin-bottom: 3px !important}
 .mb-5{margin-bottom: 5px !important}
@@ -134,12 +136,23 @@
 .pr-0{padding-right: 0rem!important;}
 .pr-5{padding-right: 1rem!important;}
 
+/* Font colors */
+.fc-white{color: white !important;}
+.fc-white:hover{color: var(--hover) !important}
+.fc-black{color: black !important;}
+.fc-red{color: red !important;}
+.fc-primary{color: var(--fc-primary) !important;}
+.fc-primary:hover{color: var(--hover) !important;}
+.fc-secondary{color: var(--secondary) !important;}
+.fc-secondary:hover{color: var(--hover) !important;}
+
 /*Achtergrond*/
 .bg-white{background-color: white !important;}
 .bg-red{background-color: red !important;}
+.bg-gray{background-color: rgb(245, 244, 247) !important;}
 .bg-primary{background-color: var(--primary) !important;}
 .bg-primary:hover{background-color: var(--hover) !important; color: white !important;}
-.bg-primary-nh{background-color: var(--primary) !important;}
+.bg-primary-nh{background-color: var(--primary) !important; color: white !important;}
 .bg-secondary{background-color: var(--secondary) !important; color: white !important;}
 .bg-secondary:hover{background-color: var(--hover) !important; color: white !important;}
 .bg-secondary-nh{background-color: var(--secondary) !important; color: white !important;}
@@ -149,20 +162,30 @@
 .float-center{float: center !important};
 .float-right{float: right !important};
 
+/*Anchors*/
+a{color: var(--fc-primary) !important; transition: color .2s; font-weight: 600;}
+a:hover{color: var(--hover) !important;}
+.a-clear{text-decoration: none !important;}
+
 /* Global */
 .justify-content-center{justify-content: center;}
 .center{margin: 0 auto !important;}
 .form-group {margin-bottom: 1rem;}
-.a-clear{text-decoration: none !important;}
 .nav-wrapper{height: 74px !important;}
-
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
 h1{
     color: var(--primary);
     font-family: Tisa Sans Pro Regular;
 }
 
 h3{
-    color: var(--primary);
+    color: var(--fc-primary);
     font-family: Tisa Sans Pro Regular;
 }
 
@@ -195,10 +218,9 @@ hr{
 .btn:hover {background-color: var(--hover) !important;}
 
 /*Privacy verklaring*/
-.privacy-policy-content > h3{color: var(--secondary);}
-.privacy-policy-content a{color: var(--primary) !important;}
-.privacy-policy-content a:hover{color: var(--secondary) !important;}
-.privacy-policy-content li{list-style-type: circle;}
+.privacy-policy-content p, .privacy-policy-content li{color: rgba(52,52,105,.75); font-weight: 400;}
+.privacy-policy-content li{list-style-type:disc}
+.privacy-policy-content li::marker {color: var(--secondary) !important};
 
 /*Cards*/
 .card-header, .card-footer{
@@ -213,3 +235,4 @@ hr{
 
 .card-text{height: auto !important;}
 .card-footer p{margin-bottom: 0px !important;}
+
