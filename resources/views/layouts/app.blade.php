@@ -52,7 +52,7 @@
             </main>
         </div>
 
-        @stack('modals')
+        @livewire('includes.footer') 
 
         @livewireScripts
     </body>
