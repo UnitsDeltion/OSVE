@@ -1,15 +1,15 @@
 /*
-Theme Name:   YeetCss
-Description:  Mooie handige CSS
-Author:       Martijn Schuman
-Version:      1.2.3
+    Theme Name:   YeetCss
+    Description:  Mooie handige CSS
+    Author:       Martijn Schuman
+    Version:      1.2.3
 */
 
 /* Colors */
 :root{
     --primary: #33296A;
     --secondary: #F58220;
-    --hover: #14937e;
+    --hover: #3a2f79;
 }
 
 /* Font colors */
@@ -139,8 +139,11 @@ Version:      1.2.3
 .bg-red{background-color: red !important;}
 .bg-primary{background-color: var(--primary) !important;}
 .bg-primary:hover{background-color: var(--hover) !important; color: white !important;}
+.bg-primary-nh{background-color: var(--primary) !important;}
 .bg-secondary{background-color: var(--secondary) !important; color: white !important;}
 .bg-secondary:hover{background-color: var(--hover) !important; color: white !important;}
+.bg-secondary-nh{background-color: var(--secondary) !important; color: white !important;}
+
 
 /*Float*/
 .float-left{float: left !important};

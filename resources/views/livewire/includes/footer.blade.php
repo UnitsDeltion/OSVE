@@ -1,6 +1,6 @@
 <div>
     <footer class="text-center text-lg-start bg-light text-muted footer-content">
-        <div class="container text-center text-md-start mt-5 border-top">
+        <!-- <div class="container text-center text-md-start mt-5 border-top">
             <div class="row mt-3">
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <img class="h-12 mb-2" src="{{ asset('images/logos/deDisselPrimary.webp') }}" />
@@ -23,7 +23,7 @@
                     <p><i class="fas fa-phone me-3"></i> +31 123456789</p>
                 </div>
             </div>
-        </div>
-        <div class="text-center p-4 dd-primary-global">© <?php echo date("Y"); ?> De Dissel - Alle rechten voorbehouden || <a style="color: rgb(108, 117, 125) !important" href="{{ route('privacy-policy') }}">Privacyverklaring</a> || <a style="color: rgb(108, 117, 125) !important" href="{{ route('sitemap') }}">Sitemap</a></div>
+        </div> -->
+        <div class="text-center p-4 bg-primary-nh">© <?php echo date("Y"); ?> De Dissel - Alle rechten voorbehouden || <a style="color: rgb(108, 117, 125) !important" href="{{ route('privacy-policy') }}">Privacyverklaring</a> || <a style="color: rgb(108, 117, 125) !important" href="{{ route('sitemap') }}">Sitemap</a></div>
     </footer>
 </div>
