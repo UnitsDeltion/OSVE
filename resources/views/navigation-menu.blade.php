@@ -31,7 +31,7 @@
                             <x-slot name="content">
                                 <!-- Account Management -->
                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('#') }}
+                                    {{ __('Beheer') }}
                                 </div>
 
                                 <div class="border-t border-gray-100"></div>
