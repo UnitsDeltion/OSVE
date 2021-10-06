@@ -8,14 +8,12 @@
 
     @livewire('includes.content.top.content-normal-top')  
 
-    <div class="containter mt-5">
+        <div class="containter mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-7">
                     <h3>Opleidingen</h3>
                     @error('opleiding')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                    <form method="POST" action="{{ route('p3') }}">
-                        @csrf
-
+                    <form method="GET" action="{{ route('p3') }}">
                         <table class="table">
                             @foreach($opleidingen as $opleiding)
                                 <tr>
@@ -26,18 +24,16 @@
                             @endforeach
                         </table>
 
-                        <div class="flex">
-                            <x-jet-button class="button float-right">
+                        <a href="{{ route('p1') }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">
+                            <i class="fas fa-backward mr-2"></i> Terug
+                        </a>
+
+                        <div class="form-group">
+                            <x-jet-button class="button" style="float: right">
                                 Verder <i class="fas fa-forward ml-2"></i> 
                             </x-jet-button>
                         </div>
                     </form> 
-
-                    <a href="{{ route('p1') }}" class="a-clear float-left mb-2">
-                        <x-jet-button class="button mb-2">
-                            <i class="fas fa-backward mr-2"></i> Terug
-                        </x-jet-button>
-                    </a>
                 </div>
             </div>
         </div>
