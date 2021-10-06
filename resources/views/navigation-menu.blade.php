@@ -9,25 +9,6 @@
                         <img class="h-13" src="{{ asset('images/logos/logo.svg') }}" />
                     </a>
                 </div>
-
-                <!-- Navigation Links -->
-                <div class="nav-wrapper hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')" class="fc-white a-clear fz-16">
-                        {{ __('Home') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="#" :active="request()->routeIs('home')" class="fc-white a-clear fz-16">
-                        {{ __('#') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="#" :active="request()->routeIs('home')" class="fc-white a-clear fz-16">
-                        {{ __('#') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="#" :active="request()->routeIs('home')" class="fc-white a-clear fz-16">
-                        {{ __('#') }}
-                    </x-jet-nav-link>
-                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
