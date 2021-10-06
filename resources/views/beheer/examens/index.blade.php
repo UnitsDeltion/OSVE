@@ -23,10 +23,10 @@
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
-                                        @foreach ($exams as $exam)
+                                        @foreach ($examens as $examen)
                                         <tr>
                                         <td class="px-6 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $exam->name }}
+                                                    {{ $examen->examen }}
                                                 </td>
                                         </tr>
                                         @endforeach

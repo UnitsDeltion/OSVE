@@ -38,7 +38,11 @@ class Examen extends Model
 	protected $fillable = [
 		'crebo_nr',
 		'plaatsen',
-		'geplande_docenten'
+		'geplande_docenten',
+		'examen_type',
+		'examen_opgeven_begin',
+		'examen_opgeven_eind',
+		'uitleg'
 	];
 
 	public function opleidingen()
