@@ -11,7 +11,13 @@ class ExamenController extends Controller
         return view('p1');
     }
 
-    public function p2(){
+    public function p2(Request $request){
+        $validated = $request->validate([
+            'voornaam' => 'required|max:255|string',
+            'achternaam' => 'required|max:255|string',
+            'studentnummer' => 'required|max:9|string',
+        ]);
+
         return view('p2');
     }
 
