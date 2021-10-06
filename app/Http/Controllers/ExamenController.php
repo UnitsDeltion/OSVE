@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Examen;
 
 class ExamenController extends Controller
 {
@@ -15,7 +16,9 @@ class ExamenController extends Controller
     }
 
     public function p3(){
-        return view('p3');
+        $examens = Examen::all();
+        //dd($examen);
+        return view('p3', compact('examens'));
     }
 
     public function p4(){
