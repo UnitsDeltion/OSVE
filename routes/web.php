@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ExamenBeheerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +31,5 @@ Route::get('/home', function () {return view('home');})->name('home');
 Route::get('/sitemap', function () {return view('paginas.sitemap');})->name('sitemap');
 Route::get('/over-ons', function () {return view('paginas.about-us');})->name('over-ons');
 Route::get('/privacy-policy', function () {return redirect('https://www.deltion.nl/privacy');})->name('privacy-policy');
+
+Route::resource('/beheer/examens', ExamenBeheerController::class);
