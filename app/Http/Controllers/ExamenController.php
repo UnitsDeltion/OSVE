@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Examen;
+use App\Models\Opleidingen;
+use Illuminate\Support\Facades\Validator;
 
 class ExamenController extends Controller
 {
@@ -18,12 +20,20 @@ class ExamenController extends Controller
             'studentnummer' => 'required|max:9|string',
         ]);
 
-        return view('p2');
+        $opleidingen = Opleidingen::get();
+        return view('p2', compact('opleidingen'));
     }
 
-    public function p3(){
-        $examens = Examen::all();
-        //dd($examen);
+    public function p3(Request $request){
+        $validator = Validator::make($request->all(), [
+            'opleiding' => 'required'
+        ]);
+
+        if($validator->fails()) {
+            return redirect()->back()->withInput();
+        }
+
+        dd($request->all());
         return view('p3', compact('examens'));
     }
 

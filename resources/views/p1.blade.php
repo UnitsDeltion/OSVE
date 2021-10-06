@@ -11,6 +11,7 @@
         <div class="containter mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-7">
+                    <h3>Inloggen</h3>
                     <form method="POST" action="{{ route('p2') }}">
                         @csrf
 
@@ -38,8 +39,8 @@
                         </div> -->
 
                         <div class="flex justify-center mt-4">
-                            <x-jet-button class="button ml-4">
-                                {{ __('Inloggen') }}
+                            <x-jet-button class="button float-right ml-4">
+                                Verder <i class="fas fa-forward ml-2"></i> 
                             </x-jet-button>
                         </div>
                     </form>

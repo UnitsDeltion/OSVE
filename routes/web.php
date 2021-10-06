@@ -23,8 +23,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/', [ExamenController::class, 'p1'])->name('p1');
 
 Route::POST('/p2', [ExamenController::class, 'p2'])->name('p2');
-
-Route::get('/p3', [ExamenController::class, 'p3'])->name('p3');
+Route::POST('/p3', [ExamenController::class, 'p3'])->name('p3');
 Route::get('/p4', [ExamenController::class, 'p4'])->name('p4');
 Route::get('/p5', [ExamenController::class, 'p5'])->name('p5');
 
