@@ -13,30 +13,24 @@
             <div class="card-header">
                 Examens
             </div>
-            <div class="card-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-4 col-md-6 col-xl-3" style="border-width:1px;border-color:orange;">
-                            <p>Engels</p>
-                            <ol>
-                                <li>Schrijven <input type="radio" class="ml-15"></li>
-                                <li>Lezen <input type="radio" class="ml-15"></li>
-                                <li>Spreken <input type="radio" class="ml-15"></li>
-                            </ol>
-                        </div>
-                        <div class="ccol-xs-6 col-sm-4 col-md-6 col-xl-3" style="border-width:1px;border-color:orange;">
-                            <p>Duits</p>
-                            <ol>
-                                <li>Schrijven <input type="radio" class="ml-15"></li>
-                                <li>Lezen <input type="radio" class="ml-15"></li>
-                                <li>Spreken <input type="radio" class="ml-15"></li>
-                            </ol>
+            @foreach ($examens as $examen)
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-4 col-md-6 col-xl-3" style="border-width:1px;border-color:orange;">
+                                <p>{{ $examen['examen'] }}</p>
+                                <ol>
+                                    <li>{{ $examen['schrijf_examen'] }}<input type="radio" class="ml-15"></li>
+                                    <li>{{ $examen['lees_examen'] }}<input type="radio" class="ml-15"></li>
+                                    <li>{{ $examen['spreek_examen'] }}<input type="radio" class="ml-15"></li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- <a href="#" class="btn btn-primary right">Go somewhere</a> -->
-            </div>
+                    <!-- <a href="#" class="btn btn-primary right">Go somewhere</a> -->
+                </div>
+            @endforeach
             <div class="card-footer text-muted">
                 Je kunt maar 1 examen tegelijk kiezen.
             </div>
