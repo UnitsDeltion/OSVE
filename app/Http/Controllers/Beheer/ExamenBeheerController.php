@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Beheer;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ExamenBeheerController extends Controller
 {
@@ -13,7 +14,7 @@ class ExamenBeheerController extends Controller
      */
     public function index()
     {
-        return view('beheer.examens.index')->with(compact('exams'));
+        return view('beheer.examens.index')->with(compact('examens'));
     }
 
     /**
