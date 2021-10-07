@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Beheer;
+namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
@@ -55,7 +55,7 @@ class UsersBeheerController extends Controller{
         }
         $user->roles()->sync($request->input('roles', []));
 
-        return redirect()->route('beheer.users.index')->with('success','Gebruiker bijgewerkt');
+        return redirect()->route('dashboard')->with('success','Gebruiker bijgewerkt');
     }
 
     public function destroy(User $user){

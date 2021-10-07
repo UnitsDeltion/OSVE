@@ -18,7 +18,7 @@
                                     <p class="mb-0">{{$message}}</p>
                                 </div>
                             @endif
-                                <table class="w-full dd-primary-global fc-white fz-14 br-5">
+                                <table class="w-full fz-14 br-5 background">
                                     <thead>
                                         <tr>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
@@ -41,9 +41,9 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-white divide-y divide-gray-200">
+                                    <tbody class="divide-y divide-gray-200">
                                         @foreach ($users as $user)
-                                            <tr class="<?php if($user->status == 0){echo 'alert alert-warning';} ?>">
+                                            <tr>
                                                 <td class="px-6 whitespace-nowrap text-sm text-gray-900">
                                                     {{ $user->id }}
                                                 </td>
@@ -93,8 +93,9 @@
                                                                     {{ __('Activeer') }}
                                                                 </x-jet-button>
                                                             @endif
-                                                        
+                                        
                                                     </form>
+                                                    
                                                 </td>
                                             </tr>
                                         @endforeach
