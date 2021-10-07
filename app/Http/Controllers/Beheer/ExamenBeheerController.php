@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Beheer;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 use App\Http\Controllers\Controller;
 use App\Models\Examen;
 
@@ -40,6 +42,8 @@ class ExamenBeheerController extends Controller
      */
     public function store(Request $request)
     {
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $this->validate($request, [
             'examen' => 'required',
             'credo_nr' => 'required|integer|digits:5',
