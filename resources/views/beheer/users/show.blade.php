@@ -13,7 +13,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-12">
                             <div class="content">
-                                <table class="min-w-full divide-y divide-gray-200 w-full dd-primary-global fc-white ">
+                                <table class="min-w-full divide-y divide-gray-200 w-full">
                                     <tr class="border-b">
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider w-20">
                                             ID
@@ -23,7 +23,7 @@
                                         </td>
                                     </tr>
                                     <tr class="border-b">
-                                        <th scope="col" class="px-6 py-3text-left text-xs font-medium uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                             Gebruikersnaam
                                         </th>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
@@ -31,7 +31,7 @@
                                         </td>
                                     </tr>
                                     <tr class="border-b">
-                                        <th scope="col" class="px-6 py-3text-left text-xs font-medium uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                             Voornaam
                                         </th>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
@@ -39,7 +39,7 @@
                                         </td>
                                     </tr>
                                     <tr class="border-b">
-                                        <th scope="col" class="px-6 py-3text-left text-xs font-medium uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                             Achternaam
                                         </th>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
@@ -47,7 +47,7 @@
                                         </td>
                                     </tr>
                                     <tr class="border-b">
-                                        <th scope="col" class="px-6 py-3text-left text-xs font-medium uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                             Adres
                                         </th>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
@@ -55,7 +55,7 @@
                                         </td>
                                     </tr>
                                     <tr class="border-b">
-                                        <th scope="col" class="px-6 py-3text-left text-xs font-medium uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                             Plaatsnaam
                                         </th>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
@@ -63,7 +63,7 @@
                                         </td>
                                     </tr>
                                     <tr class="border-b">
-                                        <th scope="col" class="px-6 py-3text-left text-xs font-medium uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                             Land
                                         </th>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
@@ -71,7 +71,7 @@
                                         </td>
                                     </tr>
                                     <tr class="border-b">
-                                        <th scope="col" class="px-6 py-3text-left text-xs font-medium uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                             Telefoonnummer
                                         </th>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
@@ -79,7 +79,7 @@
                                         </td>
                                     </tr>
                                     <tr class="border-b">
-                                        <th scope="col" class="px-6 py-3text-left text-xs font-medium uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                             Email
                                         </th>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
@@ -87,7 +87,7 @@
                                         </td>
                                     </tr>
                                     <tr class="border-b">
-                                        <th scope="col" class="px-6 py-3text-left text-xs font-medium uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                             Rollen
                                         </th>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
@@ -101,12 +101,12 @@
                                 </table>
 
                                 <a href="{{ route('users.index') }}" class="a-clear">
-                                    <x-jet-button class="dd-primary mt-3 center">
+                                    <x-jet-button class="mt-3 center">
                                         {{ __('Terug naar gebruiker beheer') }}
                                     </x-jet-button>
                                 </a>
                                 <a href="{{ route('users.edit', $user->id) }}" class="a-clear">
-                                    <x-jet-button class="dd-primary mt-3 center">
+                                    <x-jet-button class="mt-3 center">
                                         {{ __('Gebruiker bewerken') }}
                                     </x-jet-button>
                                 </a>

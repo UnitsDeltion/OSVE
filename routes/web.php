@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ExamenController;
+use App\Http\Controllers\UsersBeheerController;
 use App\Http\Controllers\ExamenBeheerController;
 
 /*

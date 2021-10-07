@@ -101,7 +101,7 @@
                                             </div>
                                         </div>
 
-                                        <x-jet-button class="dd-primary mt-3 ml-3 align-center w-15">
+                                        <x-jet-button class="mt-3 ml-3 align-center w-15">
                                             {{ __('Opslaan') }}
                                         </x-jet-button>
                                     </div>
