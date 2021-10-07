@@ -21,8 +21,8 @@
             <div class="row">
             <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="vak" class="block font-medium text-sm text-gray-700">Vak</lable>
-                        <input id="vak" class="block mt-1 w-full form-control" type="text" name="Vak" required/>
+                        <lable for="examen" class="block font-medium text-sm text-gray-700">Vak</lable>
+                        <input id="examen" class="block mt-1 w-full form-control" type="text" name="Examen" required/>
                     </div>
                 </div>
 
@@ -35,22 +35,22 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="datums" class="block font-medium text-sm text-gray-700">Datums</lable>
-                        <input id="datums" class="block mt-1 w-full form-control" type="text" name="Datums" required/>
+                        <lable for="datum" class="block font-medium text-sm text-gray-700">Datums</lable>
+                        <input id="datum" class="block mt-1 w-full form-control" type="text" name="Datum" required/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="tijdstippen" class="block font-medium text-sm text-gray-700">Tijdstippen</lable>
-                        <input id="tijdstippen" class="block mt-1 w-full form-control" type="text" name="Tijdstippen" required/>
+                        <lable for="tijd" class="block font-medium text-sm text-gray-700">Tijdstippen</lable>
+                        <input id="tijd" class="block mt-1 w-full form-control" type="text" name="Tijd" required/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="datums" class="block font-medium text-sm text-gray-700">Beschikbare plekken</lable>
-                        <input id="datums" class="block mt-1 w-full form-control" type="select" name="Vak" required/>
+                        <lable for="plaatsen" class="block font-medium text-sm text-gray-700">Beschikbare plekken</lable>
+                        <input id="plaatsen" class="block mt-1 w-full form-control" type="number" name="Plaatsen" required/>
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="form-group">
-                    <x-jet-button class="dd-primary mb-2">
+                    <x-jet-button class="mb-2">
                         {{ __('Examen toevoegen') }}
                     </x-jet-button>
                 </div>

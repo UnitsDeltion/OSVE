@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Beheer;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Examen;
+
 
 class ExamenBeheerController extends Controller
 {
@@ -14,6 +16,9 @@ class ExamenBeheerController extends Controller
      */
     public function index()
     {
+        $examens = Examen::all();
+
+
         return view('beheer.examens.index')->with(compact('examens'));
     }
 
@@ -35,7 +40,20 @@ class ExamenBeheerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'examen' => 'required',
+            'credo_nr' => 'required|integer|digits:5',
+            'datum' => 'required',
+            'tijd' => 'required',
+            'plaatsen' => 'required|integer|digits:2',
+            'geplande_docenten' => 'required',
+            'opgeven_examen_begin' => 'required',
+            'opgeven_examen_eind' => 'required',
+            ]);
+
+        Examen::create($request->all());
+
+        return redirect()->route('examens.index')->with('success','Examen toegevoegd.');
     }
 
     /**
