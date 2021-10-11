@@ -148,6 +148,7 @@
 .fc-secondary{color: var(--secondary) !important;}
 .fc-secondary:hover{color: var(--hover) !important;}
 .fc-h-white:hover{color: white !important;}
+.fc-h-white-fa > i{color: var(--secondary) !important;}
 
 /*Achtergrond*/
 .bg-white{background-color: white !important;}
