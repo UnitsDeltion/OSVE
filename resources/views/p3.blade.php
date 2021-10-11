@@ -13,16 +13,16 @@
             <div class="card-header">
                 Examens
             </div>
+            <?php dd($examens);?>
             @foreach ($examens as $examen)
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-6 col-sm-4 col-md-6 col-xl-3" style="border-width:1px;border-color:orange;">
-                                <p>{{ $examen['examen'] }}</p>
+                                <p><?php //dd($examen);?></p>
                                 <ol>
-                                    <li>{{ $examen['schrijf_examen'] }}<input type="radio" class="ml-15"></li>
-                                    <li>{{ $examen['lees_examen'] }}<input type="radio" class="ml-15"></li>
-                                    <li>{{ $examen['spreek_examen'] }}<input type="radio" class="ml-15"></li>
+                                    <!-- <li>{{ $examen['schrijf_examen'] }}<input type="radio" class="ml-15"></li> -->
+                    
                                 </ol>
                             </div>
                         </div>
