@@ -62,6 +62,8 @@
 .h-15{height: 15px !important;}
 .h-16{height: 4rem !important;}
 .h-17{height: 4.5rem !important;}
+.h-100{height: 100px !important;}
+.h-500{height: 500px !important;}
 
 /*Margin top*/
 .mt-0-r{margin-top: 0px !important; margin-block-start: 0px !important;}
@@ -145,6 +147,7 @@
 .fc-primary:hover{color: var(--hover) !important;}
 .fc-secondary{color: var(--secondary) !important;}
 .fc-secondary:hover{color: var(--hover) !important;}
+.fc-h-white:hover{color: white !important;}
 
 /*Achtergrond*/
 .bg-white{background-color: white !important;}
@@ -168,7 +171,9 @@ a:hover{color: var(--hover) !important;}
 .a-clear{text-decoration: none !important;}
 
 /* Global */
-.justify-content-center{justify-content: center;}
+.button{background-color: var(--primary) !important;}
+.button:hover{background-color: var(--hover) !important;}
+.justify-content-center{justify-content: center !important;}
 .center{margin: 0 auto !important;}
 .form-group {margin-bottom: 1rem;}
 .nav-wrapper{height: 74px !important;}
@@ -185,7 +190,7 @@ h1{
 }
 
 h3{
-    color: var(--fc-primary);
+    color: var(--secondary);
     font-family: Tisa Sans Pro Regular;
 }
 

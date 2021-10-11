@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Beheer\ExamenBeheerController;
+use App\Http\Controllers\ExamenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,17 +16,16 @@ use App\Http\Controllers\Beheer\ExamenBeheerController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/p3', function () {
-    return view('p3');
-});
+Route::get('/', [ExamenController::class, 'p1'])->name('p1');
+
+Route::get('/p2', [ExamenController::class, 'p2'])->name('p2');
+Route::get('/p3', [ExamenController::class, 'p3'])->name('p3');
+Route::get('/p4', [ExamenController::class, 'p4'])->name('p4');
+Route::get('/p5', [ExamenController::class, 'p5'])->name('p5');
 
 Route::get('/home', function () {return view('home');})->name('home');
 Route::get('/sitemap', function () {return view('paginas.sitemap');})->name('sitemap');
