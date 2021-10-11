@@ -18,20 +18,23 @@
             </thead>
             <tbody>
                 @foreach($opleidingen as $opleiding)
-                    <tr class="">
+                    <tr>
                         <td>{{$opleiding['crebo_nr']}}</td>
                         <td>{{$opleiding['opleiding_naam']}}</td>
-                        <td class="px-6 whitespace-nowrap text-sm font-medium">
-                            <a href="#" class="mb-2 mr-2 a-clear">
+                        <td class="px-6 whitespace-nowrap text-sm font-medium d-flex">
+                            <a href="{{ route('opleidingen.edit', $opleiding['crebo_nr'] ) }}" class="mr-2 a-clear">
                                 <x-jet-button class="button">
                                     <i class="fas fa-edit"></i>
                                 </x-jet-button>
                             </a>
-                            <a href="#" class="mb-2 mr-2 a-clear">
+                            <form action="{{ route('opleidingen.destroy', $opleiding['crebo_nr']) }}" method="POST" onsubmit="return confirm('Weet u het zeker?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                                 <x-jet-button class="button">
                                     <i class="fas fa-trash"></i>
                                 </x-jet-button>
-                            </a>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

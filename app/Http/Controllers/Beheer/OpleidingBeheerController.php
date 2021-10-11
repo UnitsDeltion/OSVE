@@ -1,10 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Beheer;
 
 use Illuminate\Http\Request;
+use App\Models\Opleidingen;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
-class ExamenBeheerController extends Controller
+class OpleidingBeheerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +17,11 @@ class ExamenBeheerController extends Controller
      */
     public function index()
     {
-        return view('beheer.examens.index')->with(compact('exams'));
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $opleidingen = Opleidingen::all();
+
+        return view('beheer.opleidingen.index', compact('opleidingen'));
     }
 
     /**
@@ -23,7 +31,9 @@ class ExamenBeheerController extends Controller
      */
     public function create()
     {
-        return view('beheer.examens.create');
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+
     }
 
     /**
@@ -34,18 +44,9 @@ class ExamenBeheerController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        
     }
 
     /**
@@ -54,9 +55,10 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($crebo_nr)
     {
-        //
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
     }
 
     /**
@@ -66,9 +68,10 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $crebo_nr)
     {
-        //
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
     }
 
     /**
@@ -77,8 +80,9 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($crebo_nr)
     {
-        //
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
     }
 }

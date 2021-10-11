@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Beheer;
 
 use Illuminate\Http\Request;
-use App\Models\Opleidingen;
 
-class OpleidingController extends Controller
+class ExamenBeheerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class OpleidingController extends Controller
      */
     public function index()
     {
-        $opleidingen = Opleidingen::all();
-
-        return view('beheer.opleidingen.index', compact('opleidingen'));
+        return view('beheer.examens.index')->with(compact('exams'));
     }
 
     /**
@@ -26,7 +23,7 @@ class OpleidingController extends Controller
      */
     public function create()
     {
-        //
+        return view('beheer.examens.create');
     }
 
     /**
