@@ -36,6 +36,7 @@ class Examen extends Model
 	];
 
 	protected $fillable = [
+		'examen',
 		'crebo_nr',
 		'plaatsen',
 		'geplande_docenten',
