@@ -25,15 +25,15 @@
                                             
                                             <div class="col-xs-5 mr-10 examen-input">
                                                 <div class="row">
+                                                @foreach($examens as $examen)
                                                     <div class="col-xs-8">
-                                                    @foreach($examens as $examen)
                                                         <?php
                                                             //dd($examen);
                                                             $examenVak = "";
 
                                                             
                                                             
-                                                            if($examen->vak != $examenVak)
+                                                            if($examen->vak != $examenVak )
                                                             {
                                                                 $examenVak = $examen->vak;
                                                                 echo $examenVak;
@@ -50,11 +50,10 @@
                                                     <div class="col-xs-2">
                                                         {{ $examen->plaatsen }}
                                                     </div>
-                                                    @endforeach
-
                                                     <div class="col-xs-2">
                                                         <input type="radio" name="examen" value="{{ $examen->examen }}">
                                                     </div>
+                                                    @endforeach
                                                 </div>
                                             </div>  
                                                 
