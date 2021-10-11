@@ -33,7 +33,7 @@ class OpleidingBeheerController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-
+        return view('beheer.opleidingen.create');
     }
 
     /**
@@ -46,7 +46,21 @@ class OpleidingBeheerController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        
+        $validated = $request->validate([
+            'name' => 'required|String',
+            'phonenumber' => 'required|String',
+            'email' => 'required|Email',
+            'klas' => 'required|String',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required|min:8',
+        ]);
+
+        Opleidingen::create([
+            'crebo_nr' => $request->crebo_nr,
+            'opleiding_naam' => $request->opleiding_naam,
+        ]);
+
+        return redirect()->route('beheer.index')->with('','');
     }
 
     /**
