@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\Model;
 class Examen extends Model 
 {
 	protected $table = 'examens';
-	protected $primaryKey = 'examen';
+	// protected $primaryKey = 'examen';
 	public $timestamps = false;
 
 	protected $casts = [

@@ -56,12 +56,24 @@ class ExamenController extends Controller
 
         $examens = Examen::all();
         $soort = ExamenSoort::all();
-        //dd($examens, $soort);
+
+        // dd($examens[0]->examen);
 
         return view('p3', compact('examens', 'soort'));
     }
 
-    public function p4(){
+    public function p4(Request $request){
+        $validated = $request->validate([
+            'examen' => 'required',
+        ]);
+
+        $request->session()->put('examen', $request->examen);
+
+        if(null == $request->session()->get('voornaam') || null == $request->session()->get('achternaam') || null == $request->session()->get('studentnummer') || null == $request->session()->get('opleiding') || null == $request->session()->get('examen')){
+            $request->session()->flush();
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
         return view('p4');
     }
     
