@@ -148,7 +148,6 @@
 .fc-secondary{color: var(--secondary) !important;}
 .fc-secondary:hover{color: var(--hover) !important;}
 .fc-h-white:hover{color: white !important;}
-.fc-h-white-fa:hover{color: var(--secondary) !important;}
 
 /*Achtergrond*/
 .bg-white{background-color: white !important;}
@@ -174,6 +173,8 @@ a:hover{color: var(--hover) !important;}
 /* Global */
 .button{background-color: var(--primary) !important;}
 .button:hover{background-color: var(--hover) !important;}
+.button > i{color: var(--secondary) !important;}
+.button:hover > i{color: var(--primary) !important;}
 .justify-content-center{justify-content: center !important;}
 .center{margin: 0 auto !important;}
 .form-group {margin-bottom: 1rem;}
