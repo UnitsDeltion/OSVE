@@ -50,18 +50,18 @@
                                             </td>
 
                                             <td class="px-6 pr-0 d-flex">
-                                                <a href="{{ route('examens.show', $caravan['id'] ) }}" class="mb-2 mr-2 a-clear">
+                                                <a href="{{ route('examens.show', $examens['id'] ) }}" class="mb-2 mr-2 a-clear">
                                                     <x-jet-button class="dd-primary" title="Bekijken">
                                                         <i class="fas fa-eye fc-white"></i>
                                                     </x-jet-button>
                                                 </a>
-                                                <a href="{{ route('examens.edit', $caravan['id']) }}" class="mb-2 mr-2 a-clear">
+                                                <a href="{{ route('examens.edit', $examens['id']) }}" class="mb-2 mr-2 a-clear">
                                                     <x-jet-button class="dd-primary" title="Bewerken">
                                                         <i class="fas fa-edit fc-white"></i>
                                                     </x-jet-button>
                                                 </a>
 
-                                                <form action="{{ route('examens.destroy', $caravan['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
+                                                <form action="{{ route('examens.destroy', $examens['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
