@@ -60,7 +60,7 @@ class OpleidingBeheerController extends Controller
             'opleiding_naam' => $request->opleiding_naam,
         ]);
 
-        return redirect()->route('beheer.index')->with('','');
+        return redirect()->route('beheer.opleidingen.index')->with('success','Gebruiker aangemaakt');
     }
 
     /**
@@ -72,7 +72,7 @@ class OpleidingBeheerController extends Controller
     public function edit($crebo_nr)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
+        
     }
 
     /**
