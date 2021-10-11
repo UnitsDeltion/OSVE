@@ -33,14 +33,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $this->updateVerifiedUser($user, $input);
         } else {
             $user->forceFill([
-                //'name' => $input['name'],
                 'voornaam' => $input['voornaam'],
                 'achternaam' => $input['achternaam'],
-                'achternaam' => $input['achternaam'],
-                'adres' => $input['adres'],
-                'postcode' => $input['postcode'],
-                'plaatsnaam' => $input['plaatsnaam'],
-                'land' => $input['land'],
                 'telefoonnummer' => $input['telefoonnummer'],
                 'email' => $input['email'],
             ])->save();

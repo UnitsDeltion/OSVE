@@ -52,13 +52,6 @@
             </div>
         @endif
 
-        <!-- Gebruikersnaam -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name" value="Gebruikersnaam" />
-            <x-jet-input id="name" type="text" class="mt-1 block w-full disabled" wire:model.defer="state.name" autocomplete="name" disabled/>
-            <x-jet-input-error for="name" class="mt-2" />
-        </div>
-
         <!-- Voornaam -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="voornaam" value="Voornaam" />
@@ -71,34 +64,6 @@
             <x-jet-label for="achternaam" value="Achternaam" />
             <x-jet-input id="achternaam" type="text" class="mt-1 block w-full" wire:model.defer="state.achternaam" autocomplete="achternaam"/>
             <x-jet-input-error for="achternaam" class="mt-2" />
-        </div>  
-
-        <!-- Adres -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="adres" value="Adres" />
-            <x-jet-input id="adres" type="text" class="mt-1 block w-full" wire:model.defer="state.adres" autocomplete="adres"/>
-            <x-jet-input-error for="adres" class="mt-2" />
-        </div>  
-
-        <!-- Postcode -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="postcode" value="Postcode" />
-            <x-jet-input id="postcode" type="text" class="mt-1 block w-full" wire:model.defer="state.postcode" autocomplete="postcode"/>
-            <x-jet-input-error for="postcode" class="mt-2" />
-        </div>  
-
-        <!-- Plaatsnaam -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="plaatsnaam" value="Plaatsnaam" />
-            <x-jet-input id="plaatsnaam" type="text" class="mt-1 block w-full" wire:model.defer="state.plaatsnaam" autocomplete="plaatsnaam"/>
-            <x-jet-input-error for="plaatsnaam" class="mt-2" />
-        </div>  
-
-        <!-- Land -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="land" value="Land" />
-            <x-jet-input id="land" type="text" class="mt-1 block w-full" wire:model.defer="state.land" autocomplete="land"/>
-            <x-jet-input-error for="land" class="mt-2" />
         </div>  
 
         <!-- Telefoonnummer -->
