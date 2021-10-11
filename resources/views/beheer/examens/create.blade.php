@@ -22,64 +22,74 @@
             <div class="col-md-6">
                     <div class="form-group">
                         <lable for="examen" class="block font-medium text-sm text-gray-700">Vak</lable>
-                        <input id="examen" class="block mt-1 w-full form-control" type="text" name="Examen" required/>
+                        @error('examen')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="examen" class="block mt-1 w-full form-control" type="text" name="examen" required/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="crebo_nr" class="block font-medium text-sm text-gray-700">crebo nummer</lable>
-                        <input id="crebo_nr" class="block mt-1 w-full form-control" type="number" name="Crebo_nr" required/>
+                        @error('crebo_nr')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="crebo_nr" class="block mt-1 w-full form-control" type="number" name="crebo_nr" required/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="datum" class="block font-medium text-sm text-gray-700">Datums</lable>
-                        <input id="datum" class="block mt-1 w-full form-control" type="text" name="Datum" required/>
+                        @error('datum')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="datum" class="block mt-1 w-full form-control" type="date" name="datum" required/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="tijd" class="block font-medium text-sm text-gray-700">Tijdstippen</lable>
-                        <input id="tijd" class="block mt-1 w-full form-control" type="text" name="Tijd" required/>
+                        @error('tijd')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="tijd" class="block mt-1 w-full form-control" type="text" name="tijd" required/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="plaatsen" class="block font-medium text-sm text-gray-700">Beschikbare plekken</lable>
-                        <input id="plaatsen" class="block mt-1 w-full form-control" type="number" name="Plaatsen" required/>
+                        @error('plaatsen')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="plaatsen" class="block mt-1 w-full form-control" type="number" name="plaatsen" required/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="examen_type" class="block font-medium text-sm text-gray-700">Type examen</lable>
-                        <input id="examen_type" class="block mt-1 w-full form-control" type="text" name="Examen_type" required/>
+                        @error('examen_type')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="examen_type" class="block mt-1 w-full form-control" type="text" name="examen_type" required/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="geplande_docenten" class="block font-medium text-sm text-gray-700">Examinerende docenten</lable>
-                        <input id="geplande_docenten" class="block mt-1 w-full form-control" type="number" name="Geplande_docenten" required/>
+                        @error('geplande_docenten')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="geplande_docenten" class="block mt-1 w-full form-control" type="number" name="geplande_docenten" required/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="opgeven_examen" class="block font-medium text-sm text-gray-700">Opgeven examen</lable>
-                        <input id="opgeven_examen_begin" class="block mt-1 w-full form-control" type="text" name="Opgeven_examen_begin" required/>
-                        <input id="opgeven_examen_eind" class="block mt-1 w-full form-control" type="text" name="Opgeven_examen_eind" required/>
+                        @error('opgeven_examen_begin')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="opgeven_examen_begin" class="block mt-1 w-full form-control" type="date" name="opgeven_examen_begin" required/>
+                        @error('opgeven_examen_eind')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="opgeven_examen_eind" class="block mt-1 w-full form-control" type="date" name="opgeven_examen_eind" required/>
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
                         <lable for="uitleg" class="block font-medium text-sm text-gray-700">Uitleg</lable>
-                        <textarea id="uitleg" class="block mt-1 w-full form-control" type="text" name="Uitleg" rows="4"></textarea>
+                        @error('uitleg')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <textarea id="uitleg" class="block mt-1 w-full form-control" type="text" name="uitleg" rows="4"></textarea>
                     </div>
                 </div>
 
