@@ -1,18 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2>
-            @section('title', 'Nieuwe gebruiker toevoegen')
-            @yield('title')
-        </h2>
+        <div class="d-flex" style="width: 100%;">
+            <h2 class="align-self-start font-semibold text-xl text-gray-800 leading-tight row">
+                @section('title', 'Nieuwe gebruiker toevoegen')
+                @yield('title')
+            </h2>
+            <a href="{{ route('users.index') }}" class="a-clear" style="margin-right: 0; margin-left: auto; font-size: 12px!important;">
+                <x-jet-button>
+                    {{ __('Terug naar dashboard') }}
+                </x-jet-button>
+            </a>
+        </div>
     </x-slot>
 
     @livewire('includes.content.top.content-normal-top') 
-
-        <a href="{{ route('examens.index') }}" class="a-clear mb-2">
-            <x-jet-button class="dd-primary mb-2">
-                {{ __('Terug naar dashboard') }}
-            </x-jet-button>
-        </a>
 
         <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
 
