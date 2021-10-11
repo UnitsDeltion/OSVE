@@ -22,17 +22,6 @@ class CreateExamensTable extends Migration
             $table->foreign('crebo_nr', 'examens_ibfk_1')->references('crebo_nr')->on('opleidingen')->onDelete('restrict')->onUpdate('restrict');
             $table->foreign('geplande_docenten', 'examens_ibfk_3')->references('email')->on('users');
         });
-
-        Schema::create('soort_examen', function (Blueprint $table){
-            $table->increments('id');
-            $table->string('examen_naam');
-            $table->string('soort_examen');
-
-            $table->foreign('examen_naam')
-                ->references('examen')
-                ->on('examens')
-                ->onDelete('cascade');
-        });
     }
 
     /**

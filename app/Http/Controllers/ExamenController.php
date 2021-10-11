@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Examen;
 use App\Models\Opleidingen;
-use App\Models\ExamenSoort;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Gate;
 
@@ -55,11 +54,10 @@ class ExamenController extends Controller
         //$studentData = $request->session()->all();
 
         $examens = Examen::all();
-        $soort = ExamenSoort::all();
-
-        // dd($examens[0]->examen);
-
-        return view('p3', compact('examens', 'soort'));
+    
+        //dd($examens);
+        
+        return view('p3', compact('examens'));
     }
 
     public function p4(Request $request){
