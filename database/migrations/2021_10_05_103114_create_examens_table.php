@@ -20,10 +20,10 @@ class CreateExamensTable extends Migration
             $table->string('vak');
             $table->integer('plaatsen');
             $table->string('geplande_docenten');
-            $table->string('examen_type');
+            $table->string('examen_type')->nullable();
             $table->string('examen_opgeven_begin');
             $table->string('examen_opgeven_eind');
-            $table->string('uitleg');
+            $table->string('uitleg')->nullable();
             
             $table->foreign('crebo_nr', 'examens_ibfk_1')->references('crebo_nr')->on('opleidingen')->onDelete('restrict')->onUpdate('restrict');
             $table->foreign('geplande_docenten', 'examens_ibfk_3')->references('email')->on('users');
