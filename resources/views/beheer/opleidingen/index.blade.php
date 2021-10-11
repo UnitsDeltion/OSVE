@@ -14,13 +14,14 @@
                                 <tr>
                                     <th>Crebo nummer</th>
                                     <th>Opleiding</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             @foreach($opleidingen as $opleiding)
                                 <tr class="">
                                     <td>{{$opleiding['crebo_nr']}}</td>
                                     <td>{{$opleiding['opleiding_naam']}}</td>
-                                    <td class="px-6 whitespace-nowrap text-sm font-medium">
+                                    <td class="px-6 whitespace-nowrap text-sm font-medium d-flex flex-row-reverse">
                                     <a href="#" class="mb-2 mr-2 a-clear">
                                         <x-jet-button class="button">
                                             <i class="fas fa-edit fc-secondary fc-h-white"></i>
@@ -31,9 +32,6 @@
                                             <i class="fas fa-trash fc-secondary fc-h-white"></i>
                                         </x-jet-button>
                                     </a>
-
-                                    <form action="#" method="POST" onsubmit="return confirm('Weet je het zeker');">
-                                        <input type="hidden" name="_method" value="DELETE">
                                 </tr>
                             @endforeach
                         </table>
