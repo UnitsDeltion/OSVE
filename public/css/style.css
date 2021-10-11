@@ -241,3 +241,10 @@ hr{
 .card-text{height: auto !important;}
 .card-footer p{margin-bottom: 0px !important;}
 
+/*P3*/
+.examen-input{
+    border-width: 1px;
+    border-color: var(--secondary);
+    padding: 10px;
+    border-radius: 3px;
+}

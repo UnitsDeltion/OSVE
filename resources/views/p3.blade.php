@@ -8,34 +8,61 @@
 
     @livewire('includes.content.top.content-normal-top')  
 
-    <div class="">
-        <div class="card">
+    <div class="card">
             <div class="card-header">
                 Examens
             </div>
-            <?php dd($examens);?>
-            @foreach ($examens as $examen)
-                <div class="card-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-4 col-md-6 col-xl-3" style="border-width:1px;border-color:orange;">
-                                <p><?php //dd($examen);?></p>
-                                <ol>
-                                    <!-- <li>{{ $examen['schrijf_examen'] }}<input type="radio" class="ml-15"></li> -->
-                    
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- <a href="#" class="btn btn-primary right">Go somewhere</a> -->
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        @error('examen')<div class="fc-red text-sm mb-2">{{ $message }}</div>@enderror
+                        <form action="{{ route('p4') }}" method="get">
+                            <div class="mb-20">
+                                <div class="container mb-10">
+                                    <div class="row justify-content-center">
+                                        @foreach($examens as $examen)
+                                            
+                                            <div class="col-xs-5 mr-10 examen-input">
+                                                <div class="row">
+                                                    <div class="col-xs-8">
+                                                        {{ $examen->examen }}
+                                                    </div>
+                                                    
+                                                    <div class="col-xs-2">
+                                                        {{ $examen->plaatsen }}
+                                                    </div>
+
+                                                    <div class="col-xs-2">
+                                                        <input type="radio" name="examen" value="{{ $examen->examen }}">
+                                                    </div>
+                                                </div>
+                                            </div>  
+                                                
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="{{ route('p2') }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">
+                                <i class="fas fa-backward mr-2"></i> Terug
+                            </a>
+
+                            <div class="form-group">
+                                <x-jet-button class="button" style="float: right">
+                                    Verder <i class="fas fa-forward ml-2"></i> 
+                                </x-jet-button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            @endforeach
+            </div>
+
             <div class="card-footer text-muted">
                 Je kunt maar 1 examen tegelijk kiezen.
             </div>
         </div>
-    </div>
+    </form>
 
     @livewire('includes.content.bottom.content-bottom') 
 
