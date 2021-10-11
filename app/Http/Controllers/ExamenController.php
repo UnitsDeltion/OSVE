@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Examen;
 use App\Models\Opleidingen;
+use App\Models\ExamenSoort;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Gate;
 
@@ -51,11 +52,13 @@ class ExamenController extends Controller
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
-        // $studentData = $request->session()->all();
+        //$studentData = $request->session()->all();
 
-        $examens = '';
+        $examens = Examen::all();
+        $soort = ExamenSoort::all();
+        //dd($examens, $soort);
 
-        return view('p3', compact('examens'));
+        return view('p3', compact('examens', 'soort'));
     }
 
     public function p4(){
