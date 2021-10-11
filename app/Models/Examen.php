@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $geplande_docenten
  * 
  * @property Opleidingen $opleidingen
+ * @property Examen
  * @property User $user
  * @property Collection|ExamenMoment[] $examen_moments
  *
@@ -26,7 +27,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Examen extends Model 
 {
-	protected $table = 'examens';
 	// protected $primaryKey = 'examen';
 	public $timestamps = false;
 
@@ -42,6 +42,7 @@ class Examen extends Model
 		'geplande_docenten'
 	];
 
+
 	public function opleidingen()
 	{
 		return $this->belongsTo(Opleidingen::class, 'crebo_nr', 'crebo_nr');
@@ -52,20 +53,6 @@ class Examen extends Model
 		return $this->belongsTo(User::class, 'geplande_docenten', 'email');
 	}
 
-	// public function examen_koppel_soort()
-	// {
-	// 	return $this->hasMany(ExamenKoppelSoort::class);
-	// }
-
-	// public function examen_soort()
-	// {
-	// 	return $this->belongsTo(SoortExaman::class)->using(ExamenKoppelSoort::class);
-	// }
-
-	public function examensoorten()
-	{
-		return $this->hasMany(ExamenSoort::class);
-	}
 
 	public function examen_moments()
 	{
