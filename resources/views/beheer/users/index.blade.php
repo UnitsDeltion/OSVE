@@ -1,9 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            @section('title', 'Alle gebruikers')
-            @yield('title')
-        </h2>
+        <div class="d-flex" style="width: 100%;">
+            <h2 class="align-self-start font-semibold text-xl text-gray-800 leading-tight row">
+                @section('title', 'Alle gebruikers')
+                @yield('title')
+            </h2>
+            <a href="{{ route('users.create') }}" class="a-clear" style="margin-right: 0; margin-left: auto; font-size: 12px!important;">
+                <x-jet-button>
+                    {{ __('Toevoegen') }}
+                </x-jet-button>
+            </a>
+        </div>
     </x-slot>
 
     <div class="py-12">
