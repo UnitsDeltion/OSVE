@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
-use Symfony\Component\HttpFoundation\Response;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+use Symfony\Component\HttpFoundation\Response;
 
 class UsersBeheerController extends Controller{
     
@@ -25,6 +25,40 @@ class UsersBeheerController extends Controller{
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('beheer.users.show', compact('user'));
+    }
+
+    public function create(Request $request, User $user)
+    {
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('beheer.users.create');
+    }
+
+    public function store(Request $request, User $user) 
+    {
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
+        $validated = $request->validate([
+            'voornaam' => 'required|max:255|string',
+            'achternaam' => 'required|max:255|string',
+            'password' => 'required|max:9|string',
+            'passwordconfirm' => 'required|max:9|string|same:password',
+        ]);
+
+        $user->voornaam = $request->voornaam;
+        $user->achternaam = $request->achternaam;
+        $user->adres = $request->adres;
+        $user->plaatsnaam = $request->plaatsnaam;
+        $user->land = $request->land;
+        $user->telefoonnummer = $request->telefoonnummer;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = $request->role;
+        $user->save();
+
+        $user->roles()->sync($request->input('roles', []));
+
+        return redirect()->route('dashboard')->with('success','Gebruiker aangemaakt');
     }
 
     public function edit(User $user){
