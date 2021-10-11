@@ -46,15 +46,15 @@ class ExamenBeheerController extends Controller
 
         $this->validate($request, [
             'examen' => 'required',
-            'credo_nr' => 'required|integer|digits:5',
+            'crebo_nr' => 'required|integer|digits:5',
             'datum' => 'required',
             'tijd' => 'required',
             'plaatsen' => 'required|integer|digits:2',
             'geplande_docenten' => 'required',
             'opgeven_examen_begin' => 'required',
             'opgeven_examen_eind' => 'required',
-            ]);
-            dd($request);
+        ]);
+        
         Examen::create($request->all());
 
         return redirect()->route('examens.index')->with('success','Examen toegevoegd.');
