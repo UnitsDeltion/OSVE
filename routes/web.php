@@ -32,5 +32,6 @@ Route::get('/sitemap', function () {return view('paginas.sitemap');})->name('sit
 Route::get('/over-ons', function () {return view('paginas.about-us');})->name('over-ons');
 Route::get('/privacy-policy', function () {return redirect('https://www.deltion.nl/privacy');})->name('privacy-policy');
 
+Route::resource('/beheer/users', UsersBeheerController::class);
 Route::resource('/beheer/examens', ExamenBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
