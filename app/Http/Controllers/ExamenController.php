@@ -43,20 +43,17 @@ class ExamenController extends Controller
         $validated = $request->validate([
             'opleiding' => 'required|max:255|string',
         ]);
-
+        $opleiding = Opleidingen::where('opleiding_naam', $request->opleiding);
         $request->session()->put('opleiding', $request->opleiding);
+        $request->session()->put('crebo_nr', $opleiding['crebo_nr']);
 
         if(null == $request->session()->get('voornaam') || null == $request->session()->get('achternaam') || null == $request->session()->get('studentnummer') || null == $request->session()->get('opleiding')){
             $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
-        //$studentData = $request->session()->all();
-
-       // $examens = Examen::all()->sortBy('vak',1)->get();
-    
-       $examens = Examen::orderBy('vak', 'asc')->get();
-        //dd($examens);
+       $examens = Examen::where('crebo_nr', $request->session()->get('crebo_nr') )->orderBy('vak', 'asc')->get();
+        dd($examens);
         
         return view('p3', compact('examens'));
     }
