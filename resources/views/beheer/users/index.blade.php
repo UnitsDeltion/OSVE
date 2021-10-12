@@ -32,7 +32,7 @@
                                                 <strong>ID</strong>
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
-                                                <strong>Gebruikersnaam</strong>
+                                                <strong>Naam</strong>
                                             </th>
                                             <th scope="col" class="py-3 text-left font-medium uppercase tracking-wider">
                                                 <strong>Email</strong>
@@ -56,7 +56,7 @@
                                                 </td>
 
                                                 <td class="px-6 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $user->name }}
+                                                    {{ $user->voornaam }} {{ $user->achternaam }}
                                                 </td>
 
                                                 <td class="px-6whitespace-nowrap text-sm text-gray-900">
@@ -76,11 +76,6 @@
                                                 </td>
 
                                                 <td class="px-6 whitespace-nowrap text-sm font-medium">
-                                                    <a href="{{ route('users.show', $user->id) }}" class="mb-2 mr-2 a-clear">
-                                                        <x-jet-button class="dd-primary">
-                                                            {{ __('Bekijken') }}
-                                                        </x-jet-button>
-                                                    </a>
                                                     <a href="{{ route('users.edit', $user->id) }}" class="mb-2 mr-2 a-clear">
                                                         <x-jet-button class="dd-primary">
                                                             {{ __('Bewerken') }}
@@ -90,17 +85,9 @@
                                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                                                            @if($user->status == 1)
-                                                                <x-jet-button class="bg-red">
-                                                                    {{ __('Deactiveer') }}
-                                                                </x-jet-button>
-                                                            @elseif($user->status == 0)
-                                                                <x-jet-button class="dd-primary">
-                                                                    {{ __('Activeer') }}
-                                                                </x-jet-button>
-                                                            @endif
-                                        
+                                                            <x-jet-button class="bg-red">
+                                                                {{ __('Verwijder') }}
+                                                            </x-jet-button>
                                                     </form>
                                                     
                                                 </td>

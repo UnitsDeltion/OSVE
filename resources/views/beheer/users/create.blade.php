@@ -15,6 +15,16 @@
 
     @livewire('includes.content.top.content-normal-top') 
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
         <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
 
             @csrf
@@ -24,36 +34,30 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="voornaam" class="block font-medium text-sm text-gray-700">Voornaam</label>
-                        <input id="voornaam" class="block mt-1 w-full form-control" type="text" name="Voornaam" required/>
+                        <input id="voornaam" class="block mt-1 w-full form-control" type="text" name="voornaam" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefoonnummer" class="block font-medium text-sm text-gray-700">Telefoonnummer</label>
+                        <input id="telefoonnummer" class="block mt-1 w-full form-control" type="text" name="telefoonnummer" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="block font-medium text-sm text-gray-700">Wachtwoord</label>
+                        <input id="password" class="block mt-1 w-full form-control" type="password" name="password" required/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="achternaam" class="block font-medium text-sm text-gray-700">Achternaam</label>
-                        <input id="achternaam" class="block mt-1 w-full form-control" type="text" name="Achternaam" required/>
+                        <input id="achternaam" class="block mt-1 w-full form-control" type="text" name="achternaam" required/>
                     </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="telefoonnummer" class="block font-medium text-sm text-gray-700">Telefoonnummer</label>
-                        <input id="telefoonnummer" class="block mt-1 w-full form-control" type="text" name="Telefoonnummer" required/>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="block font-medium text-sm text-gray-700">Wachtwoord</label>
-                        <input id="password" class="block mt-1 w-full form-control" type="password" name="Email" required/>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
                     <div class="form-group">
                         <label for="email" class="block font-medium text-sm text-gray-700">E-mail</label>
-                        <input id="email" class="block mt-1 w-full form-control" type="email" name="Email" required/>
+                        <input id="email" class="block mt-1 w-full form-control" type="email" name="email" required/>
                     </div>
                     <div class="form-group">
                         <label for="passwordconfirm" class="block font-medium text-sm text-gray-700">Wachtwoord Bevestiging</label>
-                        <input id="passwordconfirm" class="block mt-1 w-full form-control" type="passwordconfirm" name="Passwordconfirm" required/>
+                        <input id="passwordconfirm" class="block mt-1 w-full form-control" type="password" name="passwordconfirm" required/>
                     </div>
                 </div>
 

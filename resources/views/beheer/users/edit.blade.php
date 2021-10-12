@@ -20,67 +20,32 @@
 
                                     <div class="row">
                                         <!--Gebruiker gegevens -->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <lable for="name" class="block font-medium text-sm text-gray-700">Gebruikersnaam</lable>
-                                                <input id="name" class="block mt-1 w-full form-control" type="text" name="name" value="{{ $user->name }}" required autofocus disabled/>
-                                            </div>
-                                        </div>
 
                                         <div class="col-md-6 pr-2">
                                             <div class="form-group">
-                                                <lable for="voornaam" class="block font-medium text-sm text-gray-700">Voornaam</lable>
+                                                <label for="voornaam" class="block font-medium text-sm text-gray-700">Voornaam</label>
                                                 <input id="voornaam" class="block mt-1 w-full form-control" type="text" name="voornaam" value="{{ $user->voornaam }}" required autofocus/>
                                             </div>
                                         </div>  
 
                                         <div class="col-md-6 pl-2">
                                             <div class="form-group">
-                                                <lable for="achternaam" class="block font-medium text-sm text-gray-700">Achternaam</lable>
+                                                <label for="achternaam" class="block font-medium text-sm text-gray-700">Achternaam</label>
                                                 <input id="achternaam" class="block mt-1 w-full form-control" type="text" name="achternaam" value="{{ $user->achternaam }}" required autofocus/>
                                             </div>
                                         </div>  
 
-                                        <!--Adres gegevens -->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <lable for="adres" class="block font-medium text-sm text-gray-700">Adres</lable>
-                                                <input id="adres" class="block mt-1 w-full form-control" type="text" name="adres" value="{{ $user->adres }}" required autofocus/>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 pr-2">
-                                            <div class="form-group">
-                                                <lable for="postcode" class="block font-medium text-sm text-gray-700">Postcode</lable>
-                                                <input id="postcode" class="block mt-1 w-full form-control" type="text" name="postcode" value="{{ $user->postcode }}" required autofocus/>
-                                            </div>
-                                        </div>  
-
-                                        <div class="col-md-6 pl-2">
-                                            <div class="form-group">
-                                                <lable for="plaatsnaam" class="block font-medium text-sm text-gray-700">Plaatsnaam</lable>
-                                                <input id="plaatsnaam" class="block mt-1 w-full form-control" type="text" name="plaatsnaam" value="{{ $user->plaatsnaam }}" required autofocus />
-                                            </div>
-                                        </div> 
-
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <lable for="land" class="block font-medium text-sm text-gray-700">Land</lable>
-                                                <input id="land" class="block mt-1 w-full form-control" type="text" name="land" value="{{ $user->land }}" required autofocus>
-                                            </div>
-                                        </div>
-
                                         <!--Gebruiker gegevens -->
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <lable for="telefoonnummer" class="block font-medium text-sm text-gray-700">Telefoonnummer</lable>
+                                                <label for="telefoonnummer" class="block font-medium text-sm text-gray-700">Telefoonnummer</label>
                                                 <input id="telefoonnummer" class="block mt-1 w-full form-control" type="telefoonnummer" name="telefoonnummer" value="{{ $user->telefoonnummer }}" required autofocus/>
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <lable for="email" class="block font-medium text-sm text-gray-700">Email</lable>
+                                                <label for="email" class="block font-medium text-sm text-gray-700">Email</label>
                                                 <input id="email" class="block mt-1 w-full form-control" type="email" name="email" value="{{ $user->email }}" required autofocus/>
                                             </div>
                                         </div>
