@@ -21,22 +21,21 @@
                             <div class="mb-20">
                                 <div class="container mb-10">
                                     <div class="row justify-content-center">
-                                       
-                                            
-                                            <div class="col-xs-5 mr-10 examen-input">
-                                                <div class="row">
+                                                <?php    
+                                                    $examenVak = "";
+                                                ?>
                                                 @foreach($examens as $examen)
-                                                    <div class="col-xs-8">
-                                                        <?php
+                                                <?php
                                                             //dd($examen);
-                                                            $examenVak = "";
 
-                                                            
-                                                            
                                                             if($examen->vak != $examenVak )
                                                             {
-                                                                $examenVak = $examen->vak;
-                                                                echo $examenVak;
+                                                                if ($examenVak != "")
+                                                                {
+                                                                    echo "</div>";
+                                                                }
+                                                                echo "<div class=\"col-xs-5 mr-10 examen-input\">";
+                                                                echo "<h3>" . $examen->vak . "</h3>";
                                                             }
 
                                                             
@@ -44,14 +43,17 @@
                                                             //dd($examenVak);
                                                     
                                                         ?>
-                                                        {{ $examen->examen }}
-                                                    </div>
-                                                    
-                                                    <div class="col-xs-2">
-                                                        {{ $examen->plaatsen }}
-                                                    </div>
-                                                    <div class="col-xs-2">
-                                                        <input type="radio" name="examen" value="{{ $examen->examen }}">
+                                                    <div class="row">
+                                                        <div class="col-xs-8">
+                                                            {{ $examen->examen }}
+                                                        </div>
+                                                        
+                                                        <div class="col-xs-2">
+                                                            {{ $examen->plaatsen }}
+                                                        </div>
+                                                        <div class="col-xs-2">
+                                                            <input type="radio" name="examen" value="{{ $examen->examen }}">
+                                                        </div>
                                                     </div>
                                                     @endforeach
                                                 </div>
