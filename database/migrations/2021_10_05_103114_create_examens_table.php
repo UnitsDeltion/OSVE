@@ -14,13 +14,12 @@ class CreateExamensTable extends Migration
     public function up()
     {
         Schema::create('examens', function (Blueprint $table) {
+            $table->integer('id')->primary('id');
             $table->integer('crebo_nr');
             $table->string('examen')->unique('examen');
+            $table->string('vak');
             $table->integer('plaatsen');
             $table->string('geplande_docenten');
-            $table->string('schrijf_examen');
-            $table->string('lees_examen');
-            $table->string('spreek_examen');
             
             $table->foreign('crebo_nr', 'examens_ibfk_1')->references('crebo_nr')->on('opleidingen')->onDelete('restrict')->onUpdate('restrict');
             $table->foreign('geplande_docenten', 'examens_ibfk_3')->references('email')->on('users');

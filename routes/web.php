@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ExamenController;
-use App\Http\Controllers\ExamenBeheerController;
+use App\Http\Controllers\Beheer\ExamenBeheerController;
+use App\Http\Controllers\Beheer\OpleidingBeheerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/', [ExamenController::class, 'p1'])->name('p1');
-
 Route::get('/p2', [ExamenController::class, 'p2'])->name('p2');
 Route::get('/p3', [ExamenController::class, 'p3'])->name('p3');
 Route::get('/p4', [ExamenController::class, 'p4'])->name('p4');
@@ -33,3 +33,4 @@ Route::get('/over-ons', function () {return view('paginas.about-us');})->name('o
 Route::get('/privacy-policy', function () {return redirect('https://www.deltion.nl/privacy');})->name('privacy-policy');
 
 Route::resource('/beheer/examens', ExamenBeheerController::class);
+Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
