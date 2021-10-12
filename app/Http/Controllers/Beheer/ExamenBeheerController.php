@@ -57,7 +57,7 @@ class ExamenBeheerController extends Controller
             'examen_opgeven_begin' => 'required',
             'examen_opgeven_eind' => 'required',
         ]);
-       
+
         Examen::create($request->all());
 
         return redirect()->route('examens.index')->with('success','Examen toegevoegd.');
