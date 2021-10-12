@@ -9,41 +9,41 @@
     @livewire('includes.content.top.content-normal-top')  
         <div class="container">
             <div class="row">
-                @error('examen')<div class="fc-red text-sm mb-2">{{ $message }}</div>@enderror
                 <form method="GET" action="{{ route('p4') }}">
                     <div class="mb-20">
                         <div class="container mb-10 ">
                             <div class="row">
+                            @error('examen')<div class="fc-red text-sm mb-2 text-center">{{ $message }}</div>@enderror
                                     <?php    
                                         $examenVak = "";
                                     ?>
-                                    @foreach($examens as $examen)
-                                        <?php
-                                            if($examen->vak != $examenVak )
-                                            {
-                                                if ($examenVak != "")
+                                        @foreach($examens as $examen)
+                                            <?php
+                                                if($examen->vak != $examenVak )
                                                 {
-                                                    echo "</div>";
+                                                    if ($examenVak != "")
+                                                    {
+                                                        echo "</div>";
+                                                    }
+                                                    echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow\">";
+                                                    echo "<h3>" . $examen->vak . "</h3>";
                                                 }
-                                                echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow\">";
-                                                echo "<h3>" . $examen->vak . "</h3>";
-                                            }
-                                            
-                                            $examenVak = $examen->vak;                                    
-                                        ?>
-                                        <div class="row">
-                                            <div class="col-xs-8">
-                                                {{ $examen->examen }}
+                                                
+                                                $examenVak = $examen->vak;                                    
+                                            ?>
+                                            <div class="row">
+                                                <div class="col-xs-8">
+                                                    {{ $examen->examen }}
+                                                </div>
+                                                
+                                                <div class="col-xs-2">
+                                                    <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }}
+                                                </div>
+                                                <div class="col-xs-2">
+                                                    <input type="radio" name="examen" value="{{ $examen->examen }}">
+                                                </div>
                                             </div>
-                                            
-                                            <div class="col-xs-2">
-                                                <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }}
-                                            </div>
-                                            <div class="col-xs-2">
-                                                <input type="radio" name="examen" value="{{ $examen->examen }}">
-                                            </div>
-                                        </div>
-                                        @endforeach
+                                            @endforeach
                                     </div>
                                 </div>  
                             </div>
