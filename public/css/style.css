@@ -248,3 +248,7 @@ hr{
     padding: 10px;
     border-radius: 3px;
 }
+
+.shadowp3 {
+    box-shadow: 5px 5px 5px 5px #888888;
+  }

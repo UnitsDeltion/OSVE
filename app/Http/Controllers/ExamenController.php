@@ -53,8 +53,9 @@ class ExamenController extends Controller
 
         //$studentData = $request->session()->all();
 
-        $examens = Examen::all();
+       // $examens = Examen::all()->sortBy('vak',1)->get();
     
+       $examens = Examen::orderBy('vak', 'asc')->get();
         //dd($examens);
         
         return view('p3', compact('examens'));
