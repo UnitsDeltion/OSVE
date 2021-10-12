@@ -47,12 +47,8 @@ class OpleidingBeheerController extends Controller
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $validated = $request->validate([
-            'name' => 'required|String',
-            'phonenumber' => 'required|String',
-            'email' => 'required|Email',
-            'klas' => 'required|String',
-            'password' => 'required|min:8|confirmed',
-            'password_confirmation' => 'required|min:8',
+            'crebo_nr' => 'required|String',
+            'opleiding_naam' => 'required|String',
         ]);
 
         Opleidingen::create([
@@ -73,6 +69,8 @@ class OpleidingBeheerController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         
+        $opleidingen = Opleidingen::find($id);
+        return view('beheer.opleidingen.edit', compact('opleidingen'));
     }
 
     /**
@@ -86,6 +84,17 @@ class OpleidingBeheerController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        if (Opleidingen::where('id', $crebo_nr)->exists()) {
+            $opleiding = Opleidingen::find($crebo_nr);
+
+            $opleiding->crebo_nr = is_null($request->crebo_nr) ? $opleiding->crebo_nr : $request->crebo_nr;
+            $opleiding->opleiding_naam = is_null($request->opleiding_naam) ? $opleiding->opleiding_naam : $request->opleiding_naam;
+            $opleiding->save();
+
+            return redirect()->route('beheer.opleidingen.index')->with('success','Opleiding aangepast');
+        }else {
+            return redirect()->route('beheer.opleidingen.index')->with('error','Opleiding niet gevonden.');
+        }
     }
 
     /**
@@ -98,5 +107,9 @@ class OpleidingBeheerController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $opleiding = Opleidingen::find($crebo_nr);
+        $opleiding->delete();
+
+        return redirect()->route('beheer.opleidingen.index')->with('success','Opleiding verwijderd');
     }
 }
