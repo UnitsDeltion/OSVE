@@ -148,6 +148,7 @@
 .fc-secondary{color: var(--secondary) !important;}
 .fc-secondary:hover{color: var(--hover) !important;}
 .fc-h-white:hover{color: white !important;}
+.fc-h-white-fa:hover > .fa{color: var(--secondary) !important;}
 
 /*Achtergrond*/
 .bg-white{background-color: white !important;}
@@ -242,3 +243,14 @@ hr{
 .card-text{height: auto !important;}
 .card-footer p{margin-bottom: 0px !important;}
 
+/*P3*/
+.examen-input{
+    border-width: 1px;
+    border-color: var(--secondary);
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.shadowp3 {
+    box-shadow: 5px 5px 5px 5px #888888;
+  }
