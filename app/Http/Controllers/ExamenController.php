@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Session;
 use App\Models\Examen;
 use App\Models\Opleidingen;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Gate;
-
 
 class ExamenController extends Controller
 {
@@ -18,6 +18,12 @@ class ExamenController extends Controller
     }
 
     public function p2(Request $request){
+        if(null != $request->session()->get('opleiding') || null != $request->session()->get('crebo_nr')){
+            Session::forget('opleiding');
+            $opleidingen = Opleidingen::get();
+            return view('p2', compact('opleidingen'));
+        };
+
         $validated = $request->validate([
             'voornaam' => 'required|max:255|string',
             'achternaam' => 'required|max:255|string',
@@ -43,6 +49,7 @@ class ExamenController extends Controller
         $validated = $request->validate([
             'opleiding' => 'required|max:255|string',
         ]);
+
         $opleiding = Opleidingen::where('opleiding_naam', $request->opleiding)->get();
         $request->session()->put('opleiding', $request->opleiding);
         $request->session()->put('crebo_nr', $opleiding[0]['crebo_nr']);
