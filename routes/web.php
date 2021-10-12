@@ -34,5 +34,4 @@ Route::get('/over-ons', function () {return view('paginas.about-us');})->name('o
 Route::get('/privacy-policy', function () {return redirect('https://www.deltion.nl/privacy');})->name('privacy-policy');
 
 Route::resource('/beheer/examens', ExamenBeheerController::class);
-
 Route::resource('/beheer/users', UsersBeheerController::class);
