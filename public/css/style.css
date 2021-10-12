@@ -173,6 +173,8 @@ a:hover{color: var(--hover) !important;}
 /* Global */
 .button{background-color: var(--primary) !important;}
 .button:hover{background-color: var(--hover) !important;}
+.button > i{color: var(--secondary) !important;}
+.button:hover > i{color: var(--primary) !important;}
 .justify-content-center{justify-content: center !important;}
 .center{margin: 0 auto !important;}
 .form-group {margin-bottom: 1rem;}
