@@ -18,12 +18,6 @@ class ExamenController extends Controller
     }
 
     public function p2(Request $request){
-        if(null != $request->session()->get('opleiding') || null != $request->session()->get('crebo_nr')){
-            Session::forget('opleiding');
-            $opleidingen = Opleidingen::get();
-            return view('p2', compact('opleidingen'));
-        };
-
         $validated = $request->validate([
             'voornaam' => 'required|max:255|string',
             'achternaam' => 'required|max:255|string',
@@ -38,8 +32,6 @@ class ExamenController extends Controller
         $request->session()->put('voornaam', $request->voornaam);
         $request->session()->put('achternaam', $request->achternaam);
         $request->session()->put('studentnummer', $request->studentnummer);
-
-        // $studentData = $request->session()->all();
 
         $opleidingen = Opleidingen::get();
         return view('p2', compact('opleidingen'));
@@ -65,28 +57,36 @@ class ExamenController extends Controller
 
         $crebo_nr = $request->session()->get('crebo_nr');
         $examens = Examen::where('crebo_nr', $crebo_nr)->orderBy('vak', 'asc')->get();
-        
+
         return view('p3', compact('examens'));
     }
 
     public function p4(Request $request){
         $validated = $request->validate([
+            'vak' => 'required',
             'examen' => 'required',
         ]);
-
+        
+        $request->session()->put('vak', $request->vak);
         $request->session()->put('examen', $request->examen);
-
+        
         if(null == $request->session()->get('voornaam') 
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer') 
         || null == $request->session()->get('opleiding') 
         || null == $request->session()->get('crebo_nr') 
+        || null == $request->session()->get('vak') 
         || null == $request->session()->get('examen')){
             $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
-        return view('p4');
+        $vak = $request->session()->get('vak');
+        $examen = $request->session()->get('examen');
+
+        return view('p4')
+            ->with(compact('vak'))
+            ->with(compact('examen'));
     }
     
     public function p5(){

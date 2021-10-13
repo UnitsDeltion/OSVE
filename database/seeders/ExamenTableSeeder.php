@@ -85,6 +85,13 @@ class ExamenTableSeeder extends Seeder
                 'plaatsen'          =>      '30',
                 'geplande_docenten'   =>      '97071583@st.deltion.nl',
             ],
+            [
+                'crebo_nr'          =>      25352,
+                'examen'            =>      'Luisteren',
+                'vak'               =>      'Duits',
+                'plaatsen'          =>      '30',
+                'geplande_docenten'   =>    '97071583@st.deltion.nl',
+            ],
 
         ];
 
