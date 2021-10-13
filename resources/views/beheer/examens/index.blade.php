@@ -29,7 +29,7 @@
 
                                             <th>
                                                 <a href="{{ route('examens.create') }}" class="a-clear">
-                                                    <x-jet-button class="mb-2 float-right mt-10 mr-10">
+                                                    <x-jet-button class="mb-2 float-right mt-10 mr-10 button">
                                                         {{ __('Examen toevoegen') }}
                                                     </x-jet-button>
                                                 </a>
@@ -57,21 +57,21 @@
 
                                             <td class="px-6 pr-0 d-flex">
                                                 <a href="{{ route('examens.show', $examen['id'] ) }}" class="mb-2 mr-2 a-clear">
-                                                    <x-jet-button title="Bekijken">
+                                                    <x-jet-button title="Bekijken" class="button">
                                                         <i class="fas fa-eye fc-white"></i>
                                                     </x-jet-button>
                                                 </a>
                                                 <a href="{{ route('examens.edit', $examen['id']) }}" class="mb-2 mr-2 a-clear">
-                                                    <x-jet-button title="Bewerken">
+                                                    <x-jet-button title="Bewerken" class="button">
                                                         <i class="fas fa-edit fc-white"></i>
                                                     </x-jet-button>
                                                 </a>
 
-                                                <form action="{{ route('examens.destroy', $examen['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
+                                                <form action="{{ route('examens.destroy', $examen->id) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                                                    <x-jet-button class="mr-2" title="Verwijderen">
+                                                    <x-jet-button class="mr-2 button" title="Verwijderen">
                                                         <i class="fas fa-trash fc-red"></i>
                                                     </x-jet-button>
                                                 </form>
