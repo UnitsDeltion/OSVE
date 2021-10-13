@@ -10,8 +10,9 @@
 
         <div class="containter mt-5">
             <div class="row justify-content-center">
-                <div class="col-md-7">
+                <div class="col-md-8">
                     <h3>Inloggen</h3>
+
                     <form method="GET" action="{{ route('p2') }}">
                         <div class="mb-3">
                             <x-jet-label for="voornaam" value="{{ __('Voornaam') }}" />
@@ -31,21 +32,16 @@
                             <x-jet-input id="studentnummer" class="block mt-1 w-full" type="number" name="studentnummer" :value="old('studentnummer')"/>
                         </div>
 
-                        <!-- <div>
-                            <x-jet-label for="studentEmail" value="{{ __('Student e-mail') }}" />
-                            <x-jet-input id="studentEmail" class="block mt-1 w-full" type="email" name="studentEmail" :value="old('studentEmail')"/>
-                        </div> -->
-
-                        <div class="flex justify-center mt-4">
-                            <x-jet-button class="button float-right ml-4">
+                        <div class="mt-4">
+                            <x-jet-button class="button" style="float: right">
                                 Verder <i class="fas fa-forward ml-2"></i> 
                             </x-jet-button>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>
-            
+        </div>   
+        
     @livewire('includes.content.bottom.content-bottom') 
 
 </x-app-layout>

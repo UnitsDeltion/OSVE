@@ -145,8 +145,10 @@
 .fc-red{color: red !important;}
 .fc-primary{color: var(--fc-primary) !important;}
 .fc-primary:hover{color: var(--hover) !important;}
+.fc-primary-nh{color: var(--fc-primary) !important;}
 .fc-secondary{color: var(--secondary) !important;}
 .fc-secondary:hover{color: var(--hover) !important;}
+.fc-secondary-nh{color: var(--secondary) !important;}
 .fc-h-white:hover{color: white !important;}
 .fc-h-white-fa:hover > .fa{color: var(--secondary) !important;}
 
@@ -172,6 +174,8 @@ a:hover{color: var(--hover) !important;}
 .a-clear{text-decoration: none !important;}
 
 /* Global */
+.selectInput:hover{cursor: pointer;}
+.align-center{text-align: center !important;}
 .button{background-color: var(--primary) !important;}
 .button:hover{background-color: var(--hover) !important;}
 .justify-content-center{justify-content: center !important;}
