@@ -14,7 +14,7 @@ class CreateExamensTable extends Migration
     public function up()
     {
         Schema::create('examens', function (Blueprint $table) {
-            $table->integer('id')->primary('id');
+            $table->id();
             $table->integer('crebo_nr');
             $table->string('examen')->unique('examen');
             $table->string('vak');

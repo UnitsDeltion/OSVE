@@ -37,6 +37,7 @@ class Examen extends Model
 
 	protected $fillable = [
 		'examen',
+		'vak',
 		'crebo_nr',
 		'plaatsen',
 		'geplande_docenten',

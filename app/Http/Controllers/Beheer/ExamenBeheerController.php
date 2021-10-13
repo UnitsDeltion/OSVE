@@ -84,13 +84,14 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( Request $request, $id)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $examens = Examen::all();
-
-        return view('beheer.examens.edit')->with(compact('examens'));
+        $examen = Examen::where('id', $id)->get();
+        $examen = $examen[0];
+                 
+        return view('beheer.examens.edit')->with(compact('examen'));
         
     }
 
@@ -106,7 +107,7 @@ class ExamenBeheerController extends Controller
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $this->validate($request, [
-            'examen' => 'required',
+            'vak' => 'required',
             'crebo_nr' => 'required|integer|digits:5',
             'datum' => 'required',
             'tijd' => 'required',
@@ -127,11 +128,12 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Examen $id)
+    public function destroy(Request $request, $id)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $id->delete();
+        $examen = Examen::where('id', $id)->get();
+        $examen->delete();
 
         return redirect()->route('examens.index')->with('success','Examen verwijderd.');
     }

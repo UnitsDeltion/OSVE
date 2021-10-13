@@ -12,13 +12,16 @@
                                     <thead>
                                         <tr>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
-                                                <strong>Examens</strong>
+                                                <strong>Vak</strong>
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
-                                                <strong>Type</strong>
+                                                <strong>Soort examen</strong>
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
-                                                <strong>Datums</strong>
+                                                <strong>Datum</strong>
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
+                                                <strong>tijd</strong>
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
                                                 <strong>Beschikbare plekken</strong>
@@ -37,35 +40,38 @@
                                         @foreach ($examens as $examen)
                                         <tr>
                                             <td class="px-6 text-sm text-gray-900">
+                                                {{ $examen['vak'] }}
+                                            </td>
+                                            <td class="px-6 text-sm text-gray-900">
                                                 {{ $examen['examen'] }}
                                             </td>
                                             <td class="px-6 text-sm text-gray-900">
-                                                {{ $examen['examen_type'] }}
+                                                {{ $examen['datum'] }}
                                             </td>
                                             <td class="px-6 text-sm text-gray-900">
-                                                {{ $examen['datum'] }}
+                                                {{ $examen['tijd'] }}
                                             </td>
                                             <td class="px-6 text-sm text-gray-900">
                                                 {{ $examen['plaatsen'] }}
                                             </td>
 
                                             <td class="px-6 pr-0 d-flex">
-                                                <a href="{{ route('examens.show', $examens['id'] ) }}" class="mb-2 mr-2 a-clear">
-                                                    <x-jet-button class="dd-primary" title="Bekijken">
+                                                <a href="{{ route('examens.show', $examen['id'] ) }}" class="mb-2 mr-2 a-clear">
+                                                    <x-jet-button title="Bekijken">
                                                         <i class="fas fa-eye fc-white"></i>
                                                     </x-jet-button>
                                                 </a>
-                                                <a href="{{ route('examens.edit', $examens['id']) }}" class="mb-2 mr-2 a-clear">
-                                                    <x-jet-button class="dd-primary" title="Bewerken">
+                                                <a href="{{ route('examens.edit', $examen['id']) }}" class="mb-2 mr-2 a-clear">
+                                                    <x-jet-button title="Bewerken">
                                                         <i class="fas fa-edit fc-white"></i>
                                                     </x-jet-button>
                                                 </a>
 
-                                                <form action="{{ route('examens.destroy', $examens['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
+                                                <form action="{{ route('examens.destroy', $examen['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                                                    <x-jet-button class="dd-primary mr-2" title="Verwijderen">
+                                                    <x-jet-button class="mr-2" title="Verwijderen">
                                                         <i class="fas fa-trash fc-red"></i>
                                                     </x-jet-button>
                                                 </form>
