@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Beheer;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ExamenBeheerController extends Controller
 {

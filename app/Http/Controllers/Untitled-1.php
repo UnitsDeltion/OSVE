@@ -13,22 +13,28 @@ use Illuminate\Support\Facades\Gate;
 class ExamenController extends Controller
 {
     public function p1(Request $request){
-        $request->session()->forget('voornaam');
-        $request->session()->forget('achternaam');
-        $request->session()->forget('studentnummer');
-        $request->session()->forget('opleiding');
-        $request->session()->forget('crebo_nr');
-        $request->session()->forget('vak');
-        $request->session()->forget('examen');
+        $request->session()->flush();
         return view('p1');
     }
 
     public function p2(Request $request){
         if(null == $request->session()->get('voornaam')
-        || null == $request->session()->get('achternaam') 
+        || null == $request->session()->get('achternaam')
         || null == $request->session()->get('studentnummer')){
-            $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+            $validated = $request->validate([
+                'voornaam' => 'required|max:255|string',
+                'achternaam' => 'required|max:255|string',
+                'studentnummer' => 'required|max:9|string',
+            ]);
+
+            if(!isset($request->voornaam) && !isset($request->achternaam) && !isset($request->studentnummer)){
+                $request->session()->flush();
+                abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+            }
+    
+            $request->session()->put('voornaam', $request->voornaam);
+            $request->session()->put('achternaam', $request->achternaam);
+            $request->session()->put('studentnummer', $request->studentnummer);
         }
 
         $opleidingen = Opleidingen::get();
@@ -37,7 +43,42 @@ class ExamenController extends Controller
     }
 
     public function p3(Request $request){
-        
+        if(null == $request->session()->get('voornaam')
+        || null == $request->session()->get('achternaam')
+        || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('opleiding')
+        || null == $request->session()->get('crebo_nr')){
+            $validated = $request->validate([
+                'opleiding' => 'required|max:255|string',
+            ]);
+
+            $opleiding = Opleidingen::where('opleiding_naam', $request->opleiding)->get();
+            $request->session()->put('opleiding', $request->opleiding);
+            $request->session()->put('crebo_nr', $opleiding[0]['crebo_nr']);
+
+            if(null == $request->session()->get('voornaam') 
+            || null == $request->session()->get('achternaam') 
+            || null == $request->session()->get('studentnummer') 
+            || null == $request->session()->get('opleiding')
+            || null == $request->session()->get('crebo_nr')){
+                $request->session()->flush();
+                abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+            }
+        }
+
+        $validated = $request->validate([
+            'opleiding' => 'required|max:255|string',
+        ]);
+
+        $opleiding = Opleidingen::where('opleiding_naam', $request->opleiding)->get();
+        $request->session()->put('opleiding', $request->opleiding);
+        $request->session()->put('crebo_nr', $opleiding[0]['crebo_nr']);
+
+        if(null == $request->session()->get('opleiding')
+        || null == $request->session()->get('crebo_nr')){
+            $request->session()->flush();
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
 
         $crebo_nr = $request->session()->get('crebo_nr');
         $examens = Examen::where('crebo_nr', $crebo_nr)->orderBy('vak', 'asc')->get();

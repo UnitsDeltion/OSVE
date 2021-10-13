@@ -13,7 +13,8 @@
                 <div class="col-md-8">
                     <h3>Inloggen</h3>
 
-                    <form method="GET" action="{{ route('p2') }}">
+                    <form method="POST" action="{{ url('f2') }}">
+                    @csrf
                         <div class="mb-3">
                             <x-jet-label for="voornaam" value="{{ __('Voornaam') }}" />
                             @error('voornaam')<div class="fc-red text-sm">{{ $message }}</div>@enderror
