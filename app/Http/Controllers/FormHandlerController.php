@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Opleidingen;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
@@ -33,6 +34,9 @@ class FormHandlerController extends Controller
     public function f3(Request $request){
         $validated = $request->validate([
             'crebo_nr' => 'required|max:255|string',
+        ],
+        [
+            'crebo_nr.required' => 'Het opleidingen veld is verplicht!',
         ]);
         
         if(!isset($request->crebo_nr) 
@@ -43,10 +47,10 @@ class FormHandlerController extends Controller
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
-        
+        $opleiding = Opleidingen::where('crebo_nr', $request->crebo_nr)->get();
 
         $request->session()->put('crebo_nr', $request->crebo_nr);
-        $request->session()->put('opleiding_naam', $request->opleiding_naam);
+        $request->session()->put('opleiding_naam', $opleiding[0]->opleiding_naam);
 
         return redirect('p3');
     }

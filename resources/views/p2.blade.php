@@ -14,7 +14,7 @@
                     <h3>Opleidingen</h3>
                     <p class="fc-primary-nh">Kies onderstaand de juist opleiding. Staat je opleiding er niet bij? Neem dan contact op met je docent.</p>
 
-                    @error('opleiding')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                    @error('crebo_nr')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                     <form method="POST" action="{{ route('f3') }}">
                         @csrf
                         <table class="table">
@@ -22,7 +22,7 @@
                                 <tr class="selectInput" onclick="selectInput({{ $opleiding->crebo_nr }})">
                                     <td>{{$opleiding['crebo_nr']}}</td>
                                     <td>{{$opleiding['opleiding_naam']}}</td>
-                                    <td><input type="radio" name="opleiding" id="{{$opleiding['crebo_nr']}}" value="{{$opleiding['crebo_nr']}}"></td>
+                                    <td><input type="radio" name="crebo_nr" id="{{$opleiding['crebo_nr']}}" value="{{$opleiding['crebo_nr']}}"></td>
                                 </tr>
                             @endforeach
                         </table>
