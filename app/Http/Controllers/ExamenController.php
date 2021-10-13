@@ -37,7 +37,14 @@ class ExamenController extends Controller
     }
 
     public function p3(Request $request){
-        
+        if(null == $request->session()->get('voornaam')
+        || null == $request->session()->get('achternaam') 
+        || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('crebo_nr')
+        || null == $request->session()->get('opleiding')){
+            $request->session()->flush();
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
 
         $crebo_nr = $request->session()->get('crebo_nr');
         $examens = Examen::where('crebo_nr', $crebo_nr)->orderBy('vak', 'asc')->get();
