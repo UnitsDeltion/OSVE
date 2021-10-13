@@ -10,18 +10,19 @@
 
         <div class="container">
             <div class="row">
-                <form method="GET" action="{{ route('p4') }}">
+                <form method="POST" action="{{ route('f4') }}">
+                    @csrf
                     <div class="mb-40">
                         <h3>Examens</h3>
 
                         @if(!isset($examens[0]))
                             <div class="mt-50">
-                                <h3 class="align-center">Momenten zijn er geen examens beschikbaar.</h3>
-                                <h5 class="align-center">Neem contact op met je docent of kies een andere opleiding.</h5>
+                                <h3 class="align-center">Momenten zijn er geen examens ingepland.</h3>
+                                <h5 class="align-center">Neem contact op met je docent voor meer informatie.</h5>
                             </div>
                         @else
 
-                        <p class="fc-primary-nh">Kies uit de onderstaande luist het juiste examen. Staat het gewenste examen er niet bij? Neem dan contact op met je docent.</p>
+                        <p class="fc-primary-nh mb-0-r">Kies uit de onderstaande lijst het juiste examen. Staat het juiste examen er niet bij? Neem dan contact op met je docent.</p>
                         <div class="container mb-10">
                             <div class="row justify-content-center">
                                 @error('examen')<h6 class="fc-red mb-2 text-center">{{ $message }}</h6>@enderror
@@ -39,8 +40,8 @@
                                         
                                         $examenVak = $examen->vak;                                    
                                     ?>
-                                    <div class="row selectInput" onclick="selectInput({{ $examen->id }})">
-                                        <div class="col-xs-8">
+                                    <div class="row selectInput pb-1" onclick="selectInput({{ $examen->id }})">
+                                        <div class="col-xs-8 fc-primary-nh">
                                             {{ $examen->examen }}
                                         </div>
                                         
@@ -48,8 +49,7 @@
                                             <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }}
                                         </div>
                                         <div class="col-xs-2">
-                                            <input type="hidden" name="vak" value="{{ $examen->vak }}">
-                                            <input type="radio" name="examen" id="{{ $examen->id }}" value="{{ $examen->examen }}">
+                                            <input type="radio" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
                                         </div>
                                     </div>
                                     @endforeach

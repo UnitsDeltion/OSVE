@@ -11,7 +11,7 @@
         <div class="containter mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <h3>Inloggen</h3>
+                    <h3>Persoonlijke gegevens</h3>
 
                     <form method="POST" action="{{ url('f2') }}">
                     @csrf

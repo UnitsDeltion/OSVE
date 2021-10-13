@@ -2,7 +2,7 @@
     Theme Name:   YeetCss
     Description:  Mooie handige CSS
     Author:       Martijn Schuman
-    Version:      1.2.3
+    Version:      2.0
 */
 
 /* Colors */
@@ -174,7 +174,7 @@ a:hover{color: var(--hover) !important;}
 .a-clear{text-decoration: none !important;}
 
 /* Global */
-.selectInput:hover{cursor: pointer;}
+.selectInput:hover{cursor: pointer; box-shadow: 0 0 .35rem rgba(51, 41, 106,.2)!important; transition: 0.1s;}
 .align-center{text-align: center !important;}
 .button{background-color: var(--primary) !important;}
 .button:hover{background-color: var(--hover) !important;}

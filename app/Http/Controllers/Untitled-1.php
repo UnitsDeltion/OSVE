@@ -52,7 +52,7 @@ class ExamenController extends Controller
                 'opleiding' => 'required|max:255|string',
             ]);
 
-            $opleiding = Opleidingen::where('opleiding_naam', $request->opleiding)->get();
+            $opleiding = Opleidingen::where('opleiding', $request->opleiding)->get();
             $request->session()->put('opleiding', $request->opleiding);
             $request->session()->put('crebo_nr', $opleiding[0]['crebo_nr']);
 
@@ -70,7 +70,7 @@ class ExamenController extends Controller
             'opleiding' => 'required|max:255|string',
         ]);
 
-        $opleiding = Opleidingen::where('opleiding_naam', $request->opleiding)->get();
+        $opleiding = Opleidingen::where('opleiding', $request->opleiding)->get();
         $request->session()->put('opleiding', $request->opleiding);
         $request->session()->put('crebo_nr', $opleiding[0]['crebo_nr']);
 

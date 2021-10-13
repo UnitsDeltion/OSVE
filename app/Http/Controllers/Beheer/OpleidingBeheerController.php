@@ -48,12 +48,12 @@ class OpleidingBeheerController extends Controller
 
         $validated = $request->validate([
             'crebo_nr' => 'required|String',
-            'opleiding_naam' => 'required|String',
+            'opleiding' => 'required|String',
         ]);
 
         Opleidingen::create([
             'crebo_nr' => $request->crebo_nr,
-            'opleiding_naam' => $request->opleiding_naam,
+            'opleiding' => $request->opleiding,
         ]);
 
         return redirect()->route('opleidingen.index')->with('success','Gebruiker aangemaakt');
@@ -86,14 +86,14 @@ class OpleidingBeheerController extends Controller
 
         $validated = $request->validate([
             'crebo_nr' => 'required|max:5|string',
-            'opleiding_naam' => 'required|max:255|string',
+            'opleiding' => 'required|max:255|string',
         ]);
 
         if (Opleidingen::where('crebo_nr', $crebo_nr)->exists()) {
             $opleiding = Opleidingen::find($crebo_nr);
 
             $opleiding->crebo_nr = is_null($request->crebo_nr) ? $opleiding->crebo_nr : $request->crebo_nr;
-            $opleiding->opleiding_naam = is_null($request->opleiding_naam) ? $opleiding->opleiding_naam : $request->opleiding_naam;
+            $opleiding->opleiding = is_null($request->opleiding) ? $opleiding->opleiding : $request->opleiding;
             $opleiding->save();
 
             return redirect()->route('opleidingen.index')->with('success','Opleiding aangepast');

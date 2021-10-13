@@ -21,7 +21,7 @@
                 @foreach($opleidingen as $opleiding)
                     <tr>
                         <td>{{$opleiding['crebo_nr']}}</td>
-                        <td>{{$opleiding['opleiding_naam']}}</td>
+                        <td>{{$opleiding['opleiding']}}</td>
                         <td class="px-6 whitespace-nowrap text-sm font-medium align-right">
                             <a href="{{ route('opleidingen.edit', $opleiding['crebo_nr'] ) }}" class="mr-2 a-clear">
                                 <x-jet-button class="button">
