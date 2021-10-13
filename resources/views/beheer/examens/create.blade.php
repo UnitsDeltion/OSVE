@@ -9,7 +9,7 @@
     @livewire('includes.content.top.content-normal-top') 
 
         <a href="{{ route('examens.index') }}" class="a-clear mb-2">
-            <x-jet-button class="dd-primary mb-2">
+            <x-jet-button class="mb-2 button">
                 {{ __('Terug naar dashboard') }}
             </x-jet-button>
         </a>
@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="form-group">
-                    <x-jet-button class="mb-2">
+                    <x-jet-button class="mb-2 button">
                         {{ __('Examen toevoegen') }}
                     </x-jet-button>
                 </div>
