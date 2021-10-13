@@ -21,9 +21,9 @@
             <div class="row">
             <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="examen" class="block font-medium text-sm text-gray-700">Vak</lable>
-                        @error('examen')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="examen" class="block mt-1 w-full form-control" type="text" name="examen" :value="old('examen')"/>
+                        <lable for="vak" class="block font-medium text-sm text-gray-700">Vak</lable>
+                        @error('vak')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="vak" class="block mt-1 w-full form-control" type="text" name="vak" :value="old('vak')"/>
                     </div>
                 </div>
 
@@ -61,9 +61,9 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="examen_type" class="block font-medium text-sm text-gray-700">Type examen</lable>
-                        @error('examen_type')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="examen_type" class="block mt-1 w-full form-control" type="text" name="examen_type" :value="old('examen_type')"/>
+                        <lable for="examen" class="block font-medium text-sm text-gray-700">Type examen</lable>
+                        @error('examen')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="examen" class="block mt-1 w-full form-control" type="text" name="examen" :value="old('examen')"/>
                     </div>
                 </div>
 
