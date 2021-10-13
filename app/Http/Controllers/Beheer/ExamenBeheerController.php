@@ -69,13 +69,14 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $examens = Examen::all();
+        $examen = Examen::where('id', $id)->get();
+        $examen = $examen[0];
 
-        return view('beheer.examens.show')->with(compact('examens'));
+        return view('beheer.examens.show')->with(compact('examen'));
     }
 
     /**
