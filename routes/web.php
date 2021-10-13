@@ -24,12 +24,16 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/', [ExamenController::class, 'p1'])->name('p1');
-Route::POST('/f2', [FormHandlerController::class, 'f2'])->name('f2');
 Route::get('/p2', [ExamenController::class, 'p2'])->name('p2');
-Route::POST('/f3', [FormHandlerController::class, 'f3'])->name('f3');
 Route::get('/p3', [ExamenController::class, 'p3'])->name('p3');
 Route::get('/p4', [ExamenController::class, 'p4'])->name('p4');
 Route::get('/p5', [ExamenController::class, 'p5'])->name('p5');
+
+Route::POST('/f2', [FormHandlerController::class, 'f2'])->name('f2');
+Route::POST('/f3', [FormHandlerController::class, 'f3'])->name('f3');
+Route::POST('/f4', [FormHandlerController::class, 'f4'])->name('f4');
+Route::POST('/f5', [FormHandlerController::class, 'f5'])->name('f5');
+Route::POST('/f6', [FormHandlerController::class, 'f6'])->name('f6');
 
 Route::get('/home', function () {return view('home');})->name('home');
 Route::get('/sitemap', function () {return view('paginas.sitemap');})->name('sitemap');

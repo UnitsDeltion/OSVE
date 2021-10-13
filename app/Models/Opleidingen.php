@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Opleidingen
  * 
  * @property int $crebo_nr
- * @property string $opleiding_naam
+ * @property string $opleiding
  * 
  * @property Collection|Examen[] $examens
  *
@@ -32,7 +32,7 @@ class Opleidingen extends Model
 
 	protected $fillable = [
 		'crebo_nr',
-		'opleiding_naam'
+		'opleiding'
 	];
 
 	public function examens()

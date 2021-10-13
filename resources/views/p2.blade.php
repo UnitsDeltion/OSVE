@@ -21,7 +21,7 @@
                             @foreach($opleidingen as $opleiding)
                                 <tr class="selectInput" onclick="selectInput({{ $opleiding->crebo_nr }})">
                                     <td>{{$opleiding['crebo_nr']}}</td>
-                                    <td>{{$opleiding['opleiding_naam']}}</td>
+                                    <td>{{$opleiding['opleiding']}}</td>
                                     <td><input type="radio" name="crebo_nr" id="{{$opleiding['crebo_nr']}}" value="{{$opleiding['crebo_nr']}}"></td>
                                 </tr>
                             @endforeach
