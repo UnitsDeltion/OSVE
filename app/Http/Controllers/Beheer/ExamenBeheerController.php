@@ -129,10 +129,11 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Examen $examen)
+    public function destroy(Examen $examen, Request $request, $id)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $examen = Examen::where('id', $id)->get();
         $examen->delete();
 
         return redirect()->route('examens.index')->with('success','Examen verwijderd.');
