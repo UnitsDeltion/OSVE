@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
             OpleidingenTableSeeder::class,
+            ExamenTableSeeder::class,
         ]);
     }
 }

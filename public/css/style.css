@@ -2,7 +2,7 @@
     Theme Name:   YeetCss
     Description:  Mooie handige CSS
     Author:       Martijn Schuman
-    Version:      1.2.3
+    Version:      2.0
 */
 
 /* Colors */
@@ -145,9 +145,12 @@
 .fc-red{color: red !important;}
 .fc-primary{color: var(--fc-primary) !important;}
 .fc-primary:hover{color: var(--hover) !important;}
+.fc-primary-nh{color: var(--fc-primary) !important;}
 .fc-secondary{color: var(--secondary) !important;}
 .fc-secondary:hover{color: var(--hover) !important;}
+.fc-secondary-nh{color: var(--secondary) !important;}
 .fc-h-white:hover{color: white !important;}
+.fc-h-white-fa:hover > .fa{color: var(--secondary) !important;}
 
 /*Achtergrond*/
 .bg-white{background-color: white !important;}
@@ -171,14 +174,15 @@ a:hover{color: var(--hover) !important;}
 .a-clear{text-decoration: none !important;}
 
 /* Global */
+.selectInput:hover{cursor: pointer; box-shadow: 0 0 .35rem rgba(51, 41, 106,.2)!important; transition: 0.1s;}
+.align-center{text-align: center !important;}
 .button{background-color: var(--primary) !important;}
 .button:hover{background-color: var(--hover) !important;}
-.button > i{color: var(--secondary) !important;}
-.button:hover > i{color: var(--primary) !important;}
 .justify-content-center{justify-content: center !important;}
 .center{margin: 0 auto !important;}
 .form-group {margin-bottom: 1rem;}
 .nav-wrapper{height: 74px !important;}
+.align-right{text-align: right !important;}
 p {
     display: block;
     margin-block-start: 1em;
@@ -243,3 +247,14 @@ hr{
 .card-text{height: auto !important;}
 .card-footer p{margin-bottom: 0px !important;}
 
+/*P3*/
+.examen-input{
+    border-width: 1px;
+    border-color: var(--secondary);
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.shadowp3 {
+    box-shadow: 5px 5px 5px 5px #888888;
+  }

@@ -30,9 +30,9 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="opleiding_naam" class="block font-medium text-sm text-gray-700">Opleiding naam</lable>
-                        @error('opleiding_naam')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="opleiding_naam" class="block mt-1 w-full form-control" type="text" name="opleiding_naam" value="{{ $opleiding['opleiding_naam'] }}"/>
+                        <lable for="opleiding" class="block font-medium text-sm text-gray-700">Opleiding naam</lable>
+                        @error('opleiding')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="opleiding" class="block mt-1 w-full form-control" type="text" name="opleiding" value="{{ $opleiding['opleiding'] }}"/>
                     </div>
                 </div>  
 

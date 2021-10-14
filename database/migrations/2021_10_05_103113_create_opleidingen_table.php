@@ -15,7 +15,7 @@ class CreateOpleidingenTable extends Migration
     {
         Schema::create('opleidingen', function (Blueprint $table) {
             $table->integer('crebo_nr')->index('crebo_nr');
-            $table->string('opleiding_naam');
+            $table->string('opleiding');
         });
     }
 

@@ -13,21 +13,21 @@ use Illuminate\Database\Eloquent\Model;
  * Class Examen
  * 
  * @property int $crebo_nr
+ * @property int $examen_id
  * @property string $examen
  * @property int $plaatsen
  * @property string $geplande_docenten
  * 
  * @property Opleidingen $opleidingen
- * @property Account $account
+ * @property Examen
+ * @property User $user
  * @property Collection|ExamenMoment[] $examen_moments
  *
  * @package App\Models
  */
-class Examen extends Model
+class Examen extends Model 
 {
-	protected $table = 'examens';
-	protected $primaryKey = 'examen';
-	public $incrementing = false;
+	// protected $primaryKey = 'examen';
 	public $timestamps = false;
 
 	protected $casts = [
@@ -39,6 +39,7 @@ class Examen extends Model
 		'examen',
 		'vak',
 		'crebo_nr',
+		'examen',
 		'plaatsen',
 		'geplande_docenten',
 		'examen_type',
@@ -47,15 +48,17 @@ class Examen extends Model
 		'uitleg'
 	];
 
+
 	public function opleidingen()
 	{
 		return $this->belongsTo(Opleidingen::class, 'crebo_nr', 'crebo_nr');
 	}
 
-	public function account()
+	public function user()
 	{
-		return $this->belongsTo(Account::class, 'geplande_docenten');
+		return $this->belongsTo(User::class, 'geplande_docenten', 'email');
 	}
+
 
 	public function examen_moments()
 	{
