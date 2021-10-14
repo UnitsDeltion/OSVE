@@ -79,12 +79,6 @@ class FormHandlerController extends Controller
     }
 
     public function f5(Request $request){
-        $validated = $request->validate([
-            'faciliteitenpas' => 'max:255|string',
-            'bijzonderheden' => 'max:255|string',
-            'opmerking' => 'max:255|string',
-        ]);
-
         if(null == $request->session()->get('voornaam')
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer')
@@ -96,14 +90,34 @@ class FormHandlerController extends Controller
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
-        $request->session()->put('faciliteitenpas', $request->faciliteitenpas);
-        $request->session()->put('bijzonderheden', $request->bijzonderheden);
-        $request->session()->put('opmerking', $request->opmerking);
-
         return redirect('p5');
     }
 
     public function f6(Request $request){
-        
+        $validated = $request->validate([
+            'faciliteitenpas' => 'required|max:3',
+            'opmerkingen' => 'max:1000',
+        ]);
+
+        if(isset($request->faciliteitenpas)){$request->session()->put('faciliteitenpas', $request->faciliteitenpas);}
+        if(isset($request->opmerkingen)){$request->session()->put('opmerkingen', $request->opmerkingen);}
+
+        return redirect('p6');
+    }
+
+    public function f7(Request $request){
+        if(null == $request->session()->get('voornaam')
+        || null == $request->session()->get('achternaam') 
+        || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('crebo_nr')
+        || null == $request->session()->get('opleiding')
+        || null == $request->session()->get('vak')
+        || null == $request->session()->get('examen')
+        || null == $request->session()->get('datum')
+        || null == $request->session()->get('tijd')
+        || null == $request->session()->get('faciliteitenpas')){
+            $request->session()->flush();
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
     }
 }

@@ -10,7 +10,7 @@
 
         <div class="containter mt-5">
             <div class="row justify-content-center">
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <h3>Opleidingen</h3>
                     <p class="fc-primary-nh">Kies onderstaand de juist opleiding. Staat je opleiding er niet bij? Neem dan contact op met je docent.</p>
 

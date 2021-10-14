@@ -10,7 +10,7 @@
 
         <div class="containter mt-5">
             <div class="row justify-content-center">
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <form method="POST" action="{{ route('f6') }}">
                         @csrf
                             <h3>Overige informatie</h3>
@@ -18,19 +18,16 @@
                             <div class="mb-3">
                                 <x-jet-label for="faciliteitenpas" value="{{ __('Faciliteitenpas') }}" />
                                 @error('Faciliteitenpas')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                                <x-jet-input id="faciliteitenpas" class="block mt-1 w-full" type="text" name="faciliteitenpas" :value="old('faciliteitenpas')" autofocus />
+                                <select name="faciliteitenpas" id="faciliteitenpas" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                                    <option value="Nee" selected>Nee</option>
+                                    <option value="Ja">Ja</option>
+                                </select>
                             </div>
 
                             <div class="mb-3">
-                                <x-jet-label for="bijzonderheden" value="{{ __('Bijzonderheden') }}" />
-                                @error('bijzonderheden')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                                <x-jet-input id="bijzonderheden" class="block mt-1 w-full" type="text" name="bijzonderheden" :value="old('bijzonderheden')"/>
-                            </div>
-
-                            <div class="mb-3">
-                                <x-jet-label for="opmerking" value="{{ __('Opmerking') }}" />
-                                @error('opmerking')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                                <x-jet-input id="studentnopmerkingummer" class="block mt-1 w-full" type="text" name="opmerking" :value="old('opmerking')"/>
+                                <x-jet-label for="opmerkingen" value="{{ __('Opmerkingen') }}" />
+                                @error('opmerkingen')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                                <textarea name="opmerkingen" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" id="opmerkingen" rows="5" :value="old('opmerkingen')"></textarea>
                             </div>
 
                         <div class="mt-4">
