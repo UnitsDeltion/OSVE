@@ -14,7 +14,7 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @can('user_access')
                     <!--Beheer-->
-                    <div class="ml-3 relative">
+                    <div class="mr-10 relative">
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <span class="inline-flex rounded-md">
@@ -30,7 +30,7 @@
 
                             <x-slot name="content">
                                 <!-- Account Management -->
-                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                <div class="block px-4 py-2 text-xs text-gray-400>
                                     {{ __('Beheer') }}
                                 </div>
 
