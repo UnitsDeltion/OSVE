@@ -78,7 +78,22 @@ class ExamenController extends Controller
             ->with(compact('examen'));
     }
     
-    public function p5(){
+    public function p5(Request $request){
+        if(null == $request->session()->get('voornaam')
+        || null == $request->session()->get('achternaam') 
+        || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('crebo_nr')
+        || null == $request->session()->get('opleiding')
+        || null == $request->session()->get('vak')
+        || null == $request->session()->get('examen')){
+            $request->session()->flush();
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
         return view('p5');
+    }
+    
+    public function p6(){
+        return view('p6');
     }
 }

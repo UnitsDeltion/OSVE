@@ -10,7 +10,8 @@
     
         <div class="container">
             <div class="row">
-                <form method="GET" action="{{ route('p5') }}">
+                <form method="POST" action="{{ route('f5') }}">
+                    @csrf
                     <div class="mb-40">
                         <h3>Examen moment</h3>
 
@@ -29,14 +30,12 @@
                         <a href="{{ route('p3') }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">
                             <i class="fas fa-backward mr-2"></i> Terug
                         </a>
-
-                        @if(isset($examens[0]))
-                            <div class="form-group">
-                                <x-jet-button class="button" style="float: right">
-                                    Verder <i class="fas fa-forward ml-2"></i> 
-                                </x-jet-button>
-                            </div>
-                        @endif
+                        
+                        <div class="form-group">
+                            <x-jet-button class="button" style="float: right">
+                                Verder <i class="fas fa-forward ml-2"></i> 
+                            </x-jet-button>
+                        </div>
                     </div>
                 </form>
             </div>

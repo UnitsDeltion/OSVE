@@ -74,12 +74,33 @@ class FormHandlerController extends Controller
 
         $request->session()->put('vak', $data[0]);
         $request->session()->put('examen', $data[1]);
-
+        
         return redirect('p4');
     }
 
     public function f5(Request $request){
+        $validated = $request->validate([
+            'faciliteitenpas' => 'max:255|string',
+            'bijzonderheden' => 'max:255|string',
+            'opmerking' => 'max:255|string',
+        ]);
 
+        if(null == $request->session()->get('voornaam')
+        || null == $request->session()->get('achternaam') 
+        || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('crebo_nr')
+        || null == $request->session()->get('opleiding')
+        || null == $request->session()->get('vak')
+        || null == $request->session()->get('examen')){
+            $request->session()->flush();
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
+        $request->session()->put('faciliteitenpas', $request->faciliteitenpas);
+        $request->session()->put('bijzonderheden', $request->bijzonderheden);
+        $request->session()->put('opmerking', $request->opmerking);
+
+        return redirect('p5');
     }
 
     public function f6(Request $request){
