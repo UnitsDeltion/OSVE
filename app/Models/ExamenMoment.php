@@ -41,7 +41,7 @@ class ExamenMoment extends Model
 
 	public function examen()
 	{
-		return $this->belongsTo(Examen::class, 'examenid', 'crebo_nr');
+		return $this->belongsTo(Examen::class, 'examenid', 'id');
 	}
 
 	public function geplande_examen()

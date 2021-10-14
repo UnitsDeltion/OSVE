@@ -59,6 +59,6 @@ class Examen extends Model
 
 	public function examen_moments()
 	{
-		return $this->hasMany(ExamenMoment::class, 'examenid', 'crebo_nr');
+		return $this->hasMany(ExamenMoment::class, 'examenid', 'id');
 	}
 }
