@@ -1,8 +1,3 @@
-<!-- <div>
-    <footer class="text-center text-lg-start bg-light text-muted footer-content">
-        <div class="text-center p-4 bg-primary-nh">© <?php echo date("Y"); ?> Deltion - Alle rechten voorbehouden || <a style="color: rgb(108, 117, 125) !important" href="{{ route('privacy-policy') }}">Privacyverklaring</a></div>
-    </footer>
-</div> -->
 <div>
     <div class="container">
         <footer class="footer">

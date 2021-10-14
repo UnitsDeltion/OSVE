@@ -17,23 +17,23 @@ class OpleidingenTableSeeder extends Seeder
         $opleidingen = [
             [
                 'crebo_nr'          =>      25351,
-                'opleiding_naam'    =>      'Leidinggevende Leisure & Hospitality',
+                'opleiding'    =>      'Leidinggevende Leisure & Hospitality',
             ],
             [
                 'crebo_nr'          =>      25352,
-                'opleiding_naam'    =>      'Leidinggevende Travel & Hospitality',
+                'opleiding'    =>      'Leidinggevende Travel & Hospitality',
             ],
             [
                 'crebo_nr'          =>      25352,
-                'opleiding_naam'    =>      'Leidinggevende Travel & Hospitality (Internationaal)',
+                'opleiding'    =>      'Leidinggevende Travel & Hospitality (Internationaal)',
             ],
             [
                 'crebo_nr'          =>      25353,
-                'opleiding_naam'    =>      'Zelfstandig medewerker Leisure & Hospitality',
+                'opleiding'    =>      'Zelfstandig medewerker Leisure & Hospitality',
             ],
             [
                 'crebo_nr'          =>      25354,
-                'opleiding_naam'    =>      'Zelfstandig medewerker Travel & Hospitality',
+                'opleiding'    =>      'Zelfstandig medewerker Travel & Hospitality',
             ],
 
         ];
