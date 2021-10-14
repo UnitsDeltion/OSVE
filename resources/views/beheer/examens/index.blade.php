@@ -67,12 +67,12 @@
                                                     </x-jet-button>
                                                 </a>
 
-                                                <form action="{{ route('examens.destroy', $examen->id) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
+                                                <form action="{{ route('examens.destroy', $examen['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                                     <x-jet-button class="mr-2 button" title="Verwijderen">
-                                                        <i class="fas fa-trash fc-red"></i>
+                                                        <i class="fas fa-trash"></i>
                                                     </x-jet-button>
                                                 </form>
                                             </td>
