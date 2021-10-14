@@ -133,6 +133,7 @@ class ExamenBeheerController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        
         $examen = Examen::where('id', $id)->get();
         $examen->delete();
 
