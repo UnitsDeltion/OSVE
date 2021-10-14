@@ -1,5 +1,5 @@
 /*
-    Theme Name:   YeetCss
+    Theme Name:   GoodCSS
     Description:  Mooie handige CSS
     Author:       Martijn Schuman
     Version:      2.0
@@ -162,6 +162,9 @@
 .bg-secondary{background-color: var(--secondary) !important; color: white !important;}
 .bg-secondary:hover{background-color: var(--hover) !important; color: white !important;}
 .bg-secondary-nh{background-color: var(--secondary) !important; color: white !important;}
+
+/*Vertical align*/
+.va-middle{vertical-align: middle !important;}
 
 /*Float*/
 .float-left{float: left !important};

@@ -40,6 +40,7 @@ class UsersBeheerController extends Controller{
         $validated = $request->validate([
             'voornaam' => 'required|max:255|string',
             'achternaam' => 'required|max:255|string',
+            'telefoonnummer' => 'required|max:255|string',
             'email'=> 'required|unique:users|email',
             'password' => 'required|min:9|string',
             'passwordconfirm' => 'required|min:9|string|same:password',
@@ -68,6 +69,14 @@ class UsersBeheerController extends Controller{
     public function update(Request $request, User $user){
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $validated = $request->validate([
+            'voornaam' => 'required|max:255|string',
+            'achternaam' => 'required|max:255|string',
+            'telefoonnummer' => 'required|max:255|string',
+            'email'=> 'required|email',
+            'rol' => 'required',
+        ]);
+
         if (User::where('id', $request->user->id)->exists()) {
             $user = User::find($request->user->id);
 
@@ -86,6 +95,6 @@ class UsersBeheerController extends Controller{
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $user->delete();
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success','Gebruiker verwijderd');
     }
 }
