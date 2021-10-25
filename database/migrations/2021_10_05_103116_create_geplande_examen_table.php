@@ -16,7 +16,7 @@ class CreateGeplandeExamenTable extends Migration
         Schema::create('geplande_examen', function (Blueprint $table) {
             $table->integer('id')->primary();
             $table->string('student_nr');
-            $table->integer('examen');
+            $table->integer('examen',false,true)->index();
             $table->string('faciliteiten_pas');
             $table->longText('bijzonderheden');
             $table->longText('opmerkingen');
