@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\FormHandlerController;
 use App\Http\Controllers\ExamenController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FormHandlerController;
 use App\Http\Controllers\Beheer\UsersBeheerController;
 use App\Http\Controllers\Beheer\ExamenBeheerController;
 use App\Http\Controllers\Beheer\OpleidingBeheerController;
@@ -19,9 +20,10 @@ use App\Http\Controllers\Beheer\OpleidingBeheerController;
 |
 */
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 
+[DashboardController::class, 'index'])->name('dashboard.index');
+
+Route::get('/dashboard/{klas}', [DashboardController::class, 'filter'])->name('dashboard.filter');
 
 Route::get('/', [ExamenController::class, 'p1'])->name('p1');
 Route::get('/p2', [ExamenController::class, 'p2'])->name('p2');
