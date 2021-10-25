@@ -15,7 +15,7 @@
                                                 <strong>Vak</strong>
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
-                                                <strong>Soort examen</strong>
+                                                <strong>Examen</strong>
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
                                                 <strong>Datum</strong>
@@ -45,12 +45,16 @@
                                             <td class="px-6 text-sm text-gray-900">
                                                 {{ $examen['examen'] }}
                                             </td>
+                                            @foreach($examen['examen_moments'] as $moment)
+
                                             <td class="px-6 text-sm text-gray-900">
-                                                {{ $examen['datum'] }}
+                                                {{ $moment['datum'] }}
                                             </td>
                                             <td class="px-6 text-sm text-gray-900">
-                                                {{ $examen['tijd'] }}
+                                                {{ $moment['tijd'] }}
                                             </td>
+                                            @endforeach
+                      
                                             <td class="px-6 text-sm text-gray-900">
                                                 {{ $examen['plaatsen'] }}
                                             </td>

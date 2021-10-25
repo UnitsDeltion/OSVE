@@ -1,10 +1,13 @@
-	<?php
+<?php
 
+
+
+namespace App\Models;
 /**
  * Created by Reliese Model.
  */
 
-namespace App\Models;
+
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -24,6 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ExamenMoment extends Model
 {
+	protected $primaryKey = 'id';
 	protected $table = 'examen_moment';
 	public $incrementing = false;
 	public $timestamps = false;
@@ -41,7 +45,7 @@ class ExamenMoment extends Model
 
 	public function examen()
 	{
-		return $this->belongsTo(Examen::class, 'examenid', 'id');
+		return $this->belongsTo(Examen::class, 'id', 'examenid' );
 	}
 
 	public function geplande_examen()

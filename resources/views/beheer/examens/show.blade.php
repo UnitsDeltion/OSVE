@@ -61,7 +61,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="examen" class="block font-medium text-sm text-gray-700">Type examen</lable>
+                        <lable for="examen" class="block font-medium text-sm text-gray-700">Examen</lable>
                         @error('examen')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <input id="examen" class="block mt-1 w-full form-control" type="text" name="examen" value="{{ $examen['examen'] }}"/>
                     </div>
