@@ -6,6 +6,21 @@
         </h2>
     </x-slot>
 
+    <div id="notify"></div>
+
+
+    @if ($errors->any())
+        <script>
+            Notify({
+                type: 'danger',
+                duration: 7500,
+                position: 'top center',
+                title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
+                html: '<p class="align-center mb-0 fw-600 fc-primary-nh">Alle velden zijn verplicht!</p>',
+            });
+        </script>  
+    @endif
+
     @livewire('includes.content.top.content-normal-top')  
 
         <div class="containter mt-5">
@@ -17,21 +32,36 @@
                     @csrf
                         <div class="mb-3">
                             <x-jet-label for="voornaam" value="{{ __('Voornaam') }}" />
-                            @error('voornaam')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                             <x-jet-input id="voornaam" class="block mt-1 w-full" type="text" name="voornaam" :value="old('voornaam')" autofocus />
+                            @error('voornaam') 
+                                <script>
+                                    document.getElementById('voornaam').classList.add("bc-red", "sh-red"); 
+                                    document.getElementById('voornaam').classList.remove("shadow-sm"); 
+                                </script>
+                             @enderror
                         </div>
 
                         <div class="mb-3">
                             <x-jet-label for="achternaam" value="{{ __('Achternaam') }}" />
-                            @error('achternaam')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                             <x-jet-input id="achternaam" class="block mt-1 w-full" type="text" name="achternaam" :value="old('achternaam')"/>
+                            @error('achternaam') 
+                                <script>
+                                    document.getElementById('achternaam').classList.add("bc-red", "sh-red"); 
+                                    document.getElementById('achternaam').classList.remove("shadow-sm"); 
+                                </script>
+                             @enderror
                         </div>
 
                         <div class="mb-3">
                             <x-jet-label for="studentnummer" value="{{ __('Studentnummer') }}" />
-                            @error('studentnummer')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                             <x-jet-input id="studentnummer" class="block mt-1 w-full" type="number" name="studentnummer" :value="old('studentnummer')"/>
-                        </div>
+                            @error('studentnummer') 
+                                <script>
+                                    document.getElementById('studentnummer').classList.add("bc-red", "sh-red"); 
+                                    document.getElementById('studentnummer').classList.remove("shadow-sm"); 
+                                </script>
+                             @enderror
+                        </div>  
 
                         <div class="mt-4">
                             <x-jet-button class="button" style="float: right">

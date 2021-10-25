@@ -45,6 +45,12 @@
 .br-10{border-radius: 10px !important;}
 .br-15{border-radius: 15px !important;}
 
+/*Shadow color*/
+.sh-red{box-shadow: 0 .125rem .25rem rgba(255,0,0,.4)!important;}
+
+/*Border colors*/
+.bc-red{ border-color: rgba(255,0,0,.5) !important;}
+
 /*Breedte*/
 .w-10{width: 10% !important;}
 .w-15{width: 15% !important;}
@@ -151,6 +157,17 @@
 .fc-secondary-nh{color: var(--secondary) !important;}
 .fc-h-white:hover{color: white !important;}
 .fc-h-white-fa:hover > .fa{color: var(--secondary) !important;}
+
+/* Font weight */
+.fw-100{font-weight: 100 !important;}
+.fw-200{font-weight: 200 !important;}
+.fw-300{font-weight: 300 !important;}
+.fw-400{font-weight: 400 !important;}
+.fw-500{font-weight: 500 !important;}
+.fw-600{font-weight: 600 !important;}
+.fw-700{font-weight: 700 !important;}
+.fw-800{font-weight: 800 !important;}
+.fw-900{font-weight: 900 !important;}
 
 /*Achtergrond*/
 .bg-white{background-color: white !important;}

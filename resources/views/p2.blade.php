@@ -6,6 +6,19 @@
         </h2>
     </x-slot>
 
+    <div id="notify"></div>
+    @error('crebo_nr')
+        <script>
+            Notify({
+                type: 'danger',
+                duration: 50000,
+                position: 'top center',
+                title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
+                html: '<p class="align-center mb-0 fw-600 fc-primary-nh">{{ $message }}</p>',
+            });
+        </script>    
+    @enderror
+
     @livewire('includes.content.top.content-normal-top')  
 
         <div class="containter mt-5">
@@ -14,12 +27,12 @@
                     <h3>Opleidingen</h3>
                     <p class="fc-primary-nh">Kies onderstaand de juist opleiding. Staat je opleiding er niet bij? Neem dan contact op met je docent.</p>
 
-                    @error('crebo_nr')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                    
                     <form method="POST" action="{{ route('f3') }}">
                         @csrf
                         <table class="table">
                             @foreach($opleidingen as $opleiding)
-                                <tr class="selectInput" onclick="selectInput({{ $opleiding->crebo_nr }})">
+                                <tr class="selectInput" onclick="selectInput('p2', {{ $opleiding->crebo_nr }})">
                                     <td>{{$opleiding['crebo_nr']}}</td>
                                     <td>{{$opleiding['opleiding']}}</td>
                                     <td><input type="radio" name="crebo_nr" id="{{$opleiding['crebo_nr']}}" value="{{$opleiding['crebo_nr']}}"></td>

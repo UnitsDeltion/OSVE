@@ -6,6 +6,19 @@
         </h2>
     </x-slot>
 
+    <div id="notify"></div>
+    @error('examen')
+        <script>
+            Notify({
+                type: 'danger',
+                duration: 50000,
+                position: 'top center',
+                title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
+                html: '<p class="align-center mb-0 fw-600 fc-primary-nh">{{ $message }}</p>',
+            });
+        </script>    
+    @enderror
+
     @livewire('includes.content.top.content-normal-top') 
 
         <div class="container">
@@ -25,7 +38,6 @@
                         <p class="fc-primary-nh mb-0-r">Kies uit de onderstaande lijst het juiste examen. Staat het juiste examen er niet bij? Neem dan contact op met je docent.</p>
                         <div class="container mb-10">
                             <div class="row justify-content-center">
-                                @error('examen')<h6 class="fc-red mb-2 text-center">{{ $message }}</h6>@enderror
 
                                 <?php $examenVak = ""; ?>
                                 @foreach($examens as $examen)
@@ -40,7 +52,7 @@
                                         
                                         $examenVak = $examen->vak;                                    
                                     ?>
-                                    <div class="row selectInput pb-1" onclick="selectInput({{ $examen->id }})">
+                                    <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
                                         <div class="col-xs-8 fc-primary-nh">
                                             {{ $examen->examen }}
                                         </div>
