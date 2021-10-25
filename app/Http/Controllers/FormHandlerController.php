@@ -122,10 +122,15 @@ class FormHandlerController extends Controller
 
         $student_nr = $request->session()->get('studentnummer');
         $details = [];
+           
+        \Mail::to($student_nr.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
+
+        $studentnummer = $request->session()->get('studentnummer');
+        $request->session()->flush();
         
-           
-            \Mail::to($student_nr.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
-           
-            dd("Email is Sent.");
+        $request->session()->put('succes', true);
+        $request->session()->put('studentnummer', $studentnummer);
+
+        return redirect('p7');           
     }
 }

@@ -29,6 +29,7 @@ Route::get('/p3', [ExamenController::class, 'p3'])->name('p3');
 Route::get('/p4', [ExamenController::class, 'p4'])->name('p4');
 Route::get('/p5', [ExamenController::class, 'p5'])->name('p5');
 Route::get('/p6', [ExamenController::class, 'p6'])->name('p6');
+Route::get('/p7', [ExamenController::class, 'p7'])->name('p7');
 
 Route::POST('/f2', [FormHandlerController::class, 'f2'])->name('f2');
 Route::POST('/f3', [FormHandlerController::class, 'f3'])->name('f3');
