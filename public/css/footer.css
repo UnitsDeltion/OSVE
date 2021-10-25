@@ -133,7 +133,7 @@
     font-weight: 700;
     opacity: 0.85;
     text-decoration: none;
-    color: var(--fc-primary) !important;
+    color: white !important;
 }
 .align-items-center-xs {
     -webkit-box-align: center;
