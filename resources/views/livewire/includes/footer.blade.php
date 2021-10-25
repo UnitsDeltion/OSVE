@@ -1,5 +1,5 @@
 <div>
-    <div class="container bg-primary-nh">
+    <div class="container">
         <footer class="footer">
             <div class="wrap">
                 <div class="row">
