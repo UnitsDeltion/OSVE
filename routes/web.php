@@ -45,3 +45,15 @@ Route::get('/privacy-policy', function () {return redirect('https://www.deltion.
 Route::resource('/beheer/users', UsersBeheerController::class);
 Route::resource('/beheer/examens', ExamenBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
+
+Route::get('send-mail', function () {
+
+    // $details = [
+    //     'klant-naam' => 'Martin\o'
+    // ];
+
+   
+    //\Mail::to('97071583@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
+   
+    //dd("Email is Sent.");
+});
