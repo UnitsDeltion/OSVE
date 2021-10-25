@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Beheer;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,8 +21,9 @@ class ExamenBeheerController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         
-        $examens = Examen::all();
-
+        $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
+       // $examens = (new Examen())->get()->toArray();
+// dd ($examens);
         return view('beheer.examens.index')->with(compact('examens'));
     }
 
