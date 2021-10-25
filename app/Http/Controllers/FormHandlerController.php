@@ -106,18 +106,26 @@ class FormHandlerController extends Controller
     }
 
     public function f7(Request $request){
-        if(null == $request->session()->get('voornaam')
-        || null == $request->session()->get('achternaam') 
-        || null == $request->session()->get('studentnummer')
-        || null == $request->session()->get('crebo_nr')
-        || null == $request->session()->get('opleiding')
-        || null == $request->session()->get('vak')
-        || null == $request->session()->get('examen')
-        || null == $request->session()->get('datum')
-        || null == $request->session()->get('tijd')
-        || null == $request->session()->get('faciliteitenpas')){
-            $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+        // if(null == $request->session()->get('voornaam')
+        // || null == $request->session()->get('achternaam') 
+        // || null == $request->session()->get('studentnummer')
+        // || null == $request->session()->get('crebo_nr')
+        // || null == $request->session()->get('opleiding')
+        // || null == $request->session()->get('vak')
+        // || null == $request->session()->get('examen')
+        // || null == $request->session()->get('datum')
+        // || null == $request->session()->get('tijd')
+        // || null == $request->session()->get('faciliteitenpas')){
+        //     $request->session()->flush();
+        //     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // }
+
+        $student_nr = $request->session()->get('studentnummer');
+        $details = [];
+        
+           
+            \Mail::to($student_nr.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
+           
+            dd("Email is Sent.");
     }
 }
