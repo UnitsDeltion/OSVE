@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class GeplandeExaman extends Model
+class GeplandeExamen extends Model
 {
 	protected $table = 'geplande_examen';
 	public $incrementing = false;
@@ -35,6 +35,7 @@ class GeplandeExaman extends Model
 
 	protected $fillable = [
 		'student_nr',
+		'klas',
 		'examen',
 		'faciliteiten_pas',
 		'bijzonderheden',
