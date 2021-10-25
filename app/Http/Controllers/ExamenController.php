@@ -132,4 +132,17 @@ class ExamenController extends Controller
             ->with(compact('faciliteitenpas'))
             ->with(compact('opmerkingen'));
     }
+
+    public function p7(Request $request){
+        if(null == $request->session()->get('succes')
+        || null == $request->session()->get('studentnummer')){
+            $request->session()->flush();
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
+        $studentnummer = $request->session()->get('studentnummer');
+
+        return view('p7')
+            ->with(compact('studentnummer'));
+    }
 }
