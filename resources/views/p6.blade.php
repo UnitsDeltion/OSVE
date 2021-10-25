@@ -81,7 +81,7 @@
                                 
                                 <div class="form-group">
                                     <x-jet-button class="button" style="float: right">
-                                        Verzenden <i class="fas fa-forward ml-2"></i> 
+                                        Inplannen <i class="fas fa-forward ml-2"></i> 
                                     </x-jet-button>
                                 </div>
                             </div>
