@@ -49,9 +49,9 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="roles" class="block font-medium text-sm text-gray-700">Rollen</label>
-                        <select name="roles[]" id="roles" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
+                        <select name="rol" id="roles" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
                             @foreach($roles as $id => $role)
-                                <option value="{{ $id }}"{{ in_array($id, old('roles', $user->roles->pluck('id')->toArray())) ? ' selected' : '' }}>
+                                <option value="{{ $id }}"{{ in_array($id, old('rol', $user->roles->pluck('id')->toArray())) ? ' selected' : '' }}>
                                     {{ $role }}
                                 </option>
                             @endforeach
