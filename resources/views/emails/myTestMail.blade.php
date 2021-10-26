@@ -111,6 +111,7 @@
 
 <!-- body -->
 <table class="body-wrap" bgcolor="#f6f6f6">
+    <img src="https://www.deltion.nl/getmedia/dae5b7ee-e6fb-4ae7-b07a-4f062af9853e/logo.svg?ext=.svg&type=Logo" alt="Image"/>
     <tr>
         <td></td>
         <td class="container" bgcolor="#FFFFFF">
@@ -162,10 +163,15 @@
                                 </tr>
                             
                                 <tr>
-                                    <td>Onderwerp</td>
+                                    <td >Opmerking</td>
+                                    <td >{{ Session::get('opmerkingen') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Examen bevestigen</td>
                                     <td ><a  class=”link” href="#" target="_blank">Klik hier om te bevestigen</a></td>
                                 </tr>
-                            </table>
+                    </tr>
+                </table>
                         </td>
                     </tr>
                 </table>
