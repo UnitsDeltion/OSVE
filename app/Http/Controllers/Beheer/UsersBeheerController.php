@@ -74,7 +74,7 @@ class UsersBeheerController extends Controller{
             'achternaam' => 'required|max:255|string',
             'telefoonnummer' => 'required|max:255|string',
             'email'=> 'required|email',
-            'rol' => 'required',
+            'roles' => 'required',
         ]);
 
         if (User::where('id', $request->user->id)->exists()) {
