@@ -12,6 +12,19 @@
         Ingeplande Examens
     </div>
 
+    <form action="/dashboard/klas" method="post">
+        @csrf
+        <tr>
+            <td>klassen</td>
+            <td> <input type="text" id="klas" name="klas"></td>
+        </tr>
+        <div class="text-center mb-2">
+                            <x-jet-button class="dd-primary">
+                                {{ __('Filter') }}
+                            </x-jet-button>
+                        </div>
+    </form>
+
     <table class="table table-bordered" style="margin: 10px 0 10px 0;">
         <tr>
             <th>Student</th>
