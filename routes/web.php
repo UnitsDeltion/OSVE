@@ -21,8 +21,10 @@ use App\Http\Controllers\Beheer\OpleidingBeheerController;
 */
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/dashboard/klas', [DashboardController::class, 'query'])->name('dashboard.index');
+Route::post('/dashboard/klas', [DashboardController::class, 'query'])->name('dashboard.index');
 
-Route::post('/dashboard/{klas}', [DashboardController::class, 'filter'])->name('dashboard.filter');
+//Route::post('/dashboard/{klas}', [DashboardController::class, 'filter'])->name('dashboard.filter');
 
 Route::get('/', [ExamenController::class, 'p1'])->name('p1');
 Route::get('/p2', [ExamenController::class, 'p2'])->name('p2');

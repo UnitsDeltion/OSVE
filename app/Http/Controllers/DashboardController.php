@@ -7,6 +7,7 @@ use App\Models\GeplandeExamen;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -40,4 +41,23 @@ class DashboardController extends Controller
 
         // return view('dashboard.filter', compact('filters'));
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function query(Request $request)
+    {
+        $request->klas;
+        //dd($request);
+        $klassen = DB::table('geplande_examen')
+            ->select('*')->where('klas', 'like', "%$request->klas%")
+            ->get();
+        dd($klassen);    
+
+    }
+
+
 }
