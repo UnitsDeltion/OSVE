@@ -1,3 +1,5 @@
+
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -12,7 +14,7 @@
         Ingeplande Examens
     </div>
 
-    <form action="/dashboard/klas" method="post">
+    <form action="/dashboard/klas" method="post" >
         @csrf
         <tr>
             <td>klassen</td>
@@ -25,13 +27,15 @@
                         </div>
     </form>
 
-    <table class="table table-bordered" style="margin: 10px 0 10px 0;">
-        <tr>
+    <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="form">
+        <thead><tr>
             <th>Student</th>
             <th>Klas</th>
             <th>Examen</th>
             <th>Datum</th>
         </tr>
+</thead>
+<tbody>
         @foreach($examens as $examen)
         <tr>
             <td>
@@ -48,6 +52,14 @@
             </td>
         </tr>
         @endforeach
+        </tbody>
     </table>
 
 </x-app-layout>
+
+
+<script>
+    $(document).ready( function () {
+    $('#form').DataTable();
+} );
+</script>

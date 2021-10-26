@@ -104,6 +104,94 @@ class GeplandeExamenTableSeeder extends Seeder
                 'opmerkingen'         =>      'geen',
                 'datum'               =>      Carbon::now()
             ],
+            [
+                'student_nr'          =>      25351,
+                'klas'                =>      'FK2B',
+                'examen'              =>      1,
+                'faciliteiten_pas'    =>      'Ja',
+                'opmerkingen'         =>      'geen',
+                'datum'               =>      Carbon::now()  
+            ],
+            [
+                'student_nr'          =>      25351,
+                'klas'                =>      'FK2B',
+                'examen'              =>      2,
+                'faciliteiten_pas'    =>      'Ja',
+                'opmerkingen'         =>      'geen',
+                'datum'               =>      Carbon::now()
+            ],
+            [
+                'student_nr'          =>      25351,
+                'klas'                =>      'FK2B',
+                'examen'              =>      1,
+                'faciliteiten_pas'    =>      'Ja',
+                'opmerkingen'         =>      'geen',
+                'datum'               =>      Carbon::now()
+            ],
+            [
+                'student_nr'          =>      25351,
+                'klas'                =>      'AO1B',
+                'examen'              =>      1,
+                'faciliteiten_pas'    =>      'Ja',
+                'opmerkingen'         =>      'geen',
+                'datum'               =>      Carbon::now()
+            ],
+            [
+                'student_nr'          =>      25351,
+                'klas'                =>      'AO1B',
+                'examen'              =>      2,
+                'faciliteiten_pas'    =>      'Ja',
+                'opmerkingen'         =>      'geen',
+                'datum'               =>      Carbon::now()
+            ],
+            [
+                'student_nr'          =>      25351,
+                'klas'                =>      'AO1B',
+                'examen'              =>      1,
+                'faciliteiten_pas'    =>      'Ja',
+                'opmerkingen'         =>      'geen',
+                'datum'               =>      Carbon::now()
+            ],
+            [
+                'student_nr'          =>      25351,
+                'klas'                =>      'AO1B',
+                'examen'              =>      2,
+                'faciliteiten_pas'    =>      'Ja',
+                'opmerkingen'         =>      'geen',
+                'datum'               =>      Carbon::now()
+            ],
+            [
+                'student_nr'          =>      25351,
+                'klas'                =>      'AO1B',
+                'examen'              =>      1,
+                'faciliteiten_pas'    =>      'Ja',
+                'opmerkingen'         =>      'geen',
+                'datum'               =>      Carbon::now()
+            ],
+            [
+                'student_nr'          =>      25351,
+                'klas'                =>      'AO1B',
+                'examen'              =>      2,
+                'faciliteiten_pas'    =>      'Ja',
+                'opmerkingen'         =>      'geen',
+                'datum'               =>      Carbon::now()
+            ],
+            [
+                'student_nr'          =>      25351,
+                'klas'                =>      'AO1B',
+                'examen'              =>      1,
+                'faciliteiten_pas'    =>      'Ja',
+                'opmerkingen'         =>      'geen',
+                'datum'               =>      Carbon::now()
+            ],
+            [
+                'student_nr'          =>      25351,
+                'klas'                =>      'AO1B',
+                'examen'              =>      2,
+                'faciliteiten_pas'    =>      'Ja',
+                'opmerkingen'         =>      'geen',
+                'datum'               =>      Carbon::now()
+            ],
 
         ];
 

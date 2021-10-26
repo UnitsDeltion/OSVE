@@ -117,7 +117,7 @@ class FormHandlerController extends Controller
         || null == $request->session()->get('tijd')
         || null == $request->session()->get('faciliteitenpas')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+            //abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
     }
 }
