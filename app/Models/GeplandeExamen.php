@@ -38,7 +38,6 @@ class GeplandeExamen extends Model
 		'klas',
 		'examen',
 		'faciliteiten_pas',
-		'bijzonderheden',
 		'opmerkingen'
 	];
 

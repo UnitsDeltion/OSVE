@@ -14,15 +14,14 @@ class CreateGeplandeExamenTable extends Migration
     public function up()
     {
         Schema::create('geplande_examen', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->id();
             $table->string('student_nr');
             $table->string('klas');
             $table->integer('examen');
             $table->string('faciliteiten_pas');
-            $table->longText('bijzonderheden');
             $table->longText('opmerkingen');
             $table->date('datum');
-            $table->foreign('examen', 'geplande_examen_ibfk_1')->references('id')->on('examen_moment')->onDelete('restrict')->onUpdate('restrict');
+            //$table->foreign('examen', 'geplande_examen_ibfk_1')->references('id')->on('examen_moment')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 

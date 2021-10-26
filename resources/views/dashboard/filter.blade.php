@@ -30,6 +30,7 @@
             </td>
         </tr>
         @endforeach
+
     </table>
 
 </x-app-layout>

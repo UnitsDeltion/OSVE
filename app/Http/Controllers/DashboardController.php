@@ -30,12 +30,14 @@ class DashboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function filter(Request $request, $klas)
+    public function filter(Request $request)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        dd($request->all());
 
-        return view('dashboard.filter', [
-            'klas' => GeplandeExamen::findOrFail($klas)
-        ]);
+        // abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        // $filters = GeplandeExamen::findOrFail($request->klas);
+
+        // return view('dashboard.filter', compact('filters'));
     }
 }
