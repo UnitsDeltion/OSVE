@@ -35,12 +35,12 @@
                         <input id="crebo_nr" class="block mt-1 w-full form-control" type="number" name="crebo_nr" value="{{ $examen['crebo_nr'] }}"/>
                     </div>
                 </div>
-
+                @foreach($examen['examen_moments'] as $moment)
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="datum" class="block font-medium text-sm text-gray-700">Datums</lable>
                         @error('datum')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="datum" class="block mt-1 w-full form-control" type="date" name="datum" value="{{ $examen['datum'] }}"/>
+                        <input id="datum" class="block mt-1 w-full form-control" type="date" name="datum" value="{{ $moment['datum'] }}"/>
                     </div>
                 </div>
 
@@ -48,10 +48,10 @@
                     <div class="form-group">
                         <lable for="tijd" class="block font-medium text-sm text-gray-700">Tijdstippen</lable>
                         @error('tijd')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="tijd" class="block mt-1 w-full form-control" type="time" name="tijd" value="{{ $examen['tijd'] }}"/>
+                        <input id="tijd" class="block mt-1 w-full form-control" type="time" name="tijd" value="{{ $moment['tijd'] }}"/>
                     </div>
                 </div>
-
+                @endforeach
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="plaatsen" class="block font-medium text-sm text-gray-700">Beschikbare plekken</lable>
