@@ -23,7 +23,7 @@ class ExamenBeheerController extends Controller
         
         $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
        // $examens = (new Examen())->get()->toArray();
-// dd ($examens);
+ //dd ($examens);
         return view('beheer.examens.index')->with(compact('examens'));
     }
 

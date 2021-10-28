@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <lable for="tijd" class="block font-medium text-sm text-gray-700">Tijdstippen</lable>
                         @error('tijd')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="tijd" class="block mt-1 w-full form-control" type="text" name="tijd" :value="old('tijd')"/>
+                        <input id="tijd" class="block mt-1 w-full form-control" type="time" name="tijd" :value="old('tijd')"/>
                     </div>
                 </div>
 
@@ -71,7 +71,7 @@
                     <div class="form-group">
                         <lable for="geplande_docenten" class="block font-medium text-sm text-gray-700">Examinerende docenten</lable>
                         @error('geplande_docenten')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="geplande_docenten" class="block mt-1 w-full form-control" type="number" name="geplande_docenten" :value="old('geplande_docenten')"/>
+                        <input id="geplande_docenten" class="block mt-1 w-full form-control" type="varchar" name="geplande_docenten" :value="old('geplande_docenten')"/>
                     </div>
                 </div>
 
