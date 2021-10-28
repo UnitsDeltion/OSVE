@@ -16,8 +16,8 @@ class CreateExamenMomentTable extends Migration
         Schema::create('examen_moment', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('examenid',false,true)->index();
-            $table->dateTime('datum');
-            $table->integer('tijd');
+            $table->date('datum');
+            $table->time('tijd');
             
             $table->foreign('examenid', 'examen_moment_ibfk_1')->references('id')->on('examens')->onDelete('restrict')->onUpdate('restrict');
         });
