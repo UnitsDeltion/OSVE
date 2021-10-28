@@ -22,8 +22,8 @@ class ExamenBeheerController extends Controller
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         
         $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
-       // $examens = (new Examen())->get()->toArray();
- //dd ($examens);
+        // $examens = (new Examen())->get()->toArray();
+        //dd ($examens);
         return view('beheer.examens.index')->with(compact('examens'));
     }
 
@@ -75,7 +75,7 @@ class ExamenBeheerController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $examen = Examen::where('id', $id)->get();
+        $examen = Examen::where('id', $id)->with( 'examen_moments')->get()->toArray();
         $examen = $examen[0];
 
         return view('beheer.examens.show')->with(compact('examen'));
@@ -91,8 +91,9 @@ class ExamenBeheerController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $examen = Examen::where('id', $id)->get();
+        $examen = Examen::where('id', $id)->with( 'examen_moments')->get()->toArray();
         $examen = $examen[0];
+        // dd($examen);
                  
         return view('beheer.examens.edit')->with(compact('examen'));
         
@@ -131,12 +132,12 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Examen $examen, Request $request, $id)
+    public function destroy($id)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         
-        $examen = Examen::where('id', $id)->get();
+        $examen = Examen::find($id);
         $examen->delete();
 
         return redirect()->route('examens.index')->with('success','Examen verwijderd.');

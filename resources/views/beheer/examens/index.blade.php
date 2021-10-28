@@ -8,7 +8,7 @@
 
     @livewire('includes.content.top.content-normal-top') 
 
-                                <table class="w-full fz-14 br-5">
+                                <table class="table fz-14 br-5">
                                     <thead>
                                         <tr>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
@@ -18,13 +18,13 @@
                                                 <strong>Examen</strong>
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
+                                                <strong>Plaatsen</strong>
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
                                                 <strong>Datum</strong>
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
                                                 <strong>tijd</strong>
-                                            </th>
-                                            <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
-                                                <strong>Beschikbare plekken</strong>
                                             </th>
 
                                             <th>
@@ -45,6 +45,10 @@
                                             <td class="px-6 text-sm text-gray-900">
                                                 {{ $examen['examen'] }}
                                             </td>
+                                            <td class="px-6 text-sm text-gray-900">
+                                                {{ $examen['plaatsen'] }}
+                                            </td>
+                                            
                                             @foreach($examen['examen_moments'] as $moment)
 
                                             <td class="px-6 text-sm text-gray-900">
@@ -55,19 +59,17 @@
                                             </td>
                                             @endforeach
                       
-                                            <td class="px-6 text-sm text-gray-900">
-                                                {{ $examen['plaatsen'] }}
-                                            </td>
+                                            
 
-                                            <td class="px-6 pr-0 d-flex">
-                                                <a href="{{ route('examens.show', $examen['id'] ) }}" class="mb-2 mr-2 a-clear">
-                                                    <x-jet-button title="Bekijken" class="button">
-                                                        <i class="fas fa-eye fc-white"></i>
+                                            <td class="px-6 pr-0 d-flex align-right">
+                                                <a href="{{ route('examens.show', $examen['id'] ) }}">
+                                                    <x-jet-button title="Bekijken" class="mb-2 mr-2 button">
+                                                        <i class="fas fa-eye"></i>
                                                     </x-jet-button>
                                                 </a>
-                                                <a href="{{ route('examens.edit', $examen['id']) }}" class="mb-2 mr-2 a-clear">
-                                                    <x-jet-button title="Bewerken" class="button">
-                                                        <i class="fas fa-edit fc-white"></i>
+                                                <a href="{{ route('examens.edit', $examen['id']) }}">
+                                                    <x-jet-button title="Bewerken" class="mb-2 mr-2 button">
+                                                        <i class="fas fa-edit"></i>
                                                     </x-jet-button>
                                                 </a>
 
