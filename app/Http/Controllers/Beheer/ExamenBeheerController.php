@@ -45,11 +45,12 @@ class ExamenBeheerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Examen $examen)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $this->validate($request, [
+            'vak' => 'required',
             'examen' => 'required',
             'crebo_nr' => 'required|integer|digits:5',
             'datum' => 'required',
@@ -60,8 +61,19 @@ class ExamenBeheerController extends Controller
             'examen_opgeven_eind' => 'required',
         ]);
 
-        Examen::create($request->all());
-
+        $examen->vak = $request->vak;
+        $examen->examen = $request->examen;
+        $examen->crebo_nr = $request->crebo_nr;
+        $examen->datum = $request->datum;
+        $examen->tijd = $request->tijd;
+        $examen->plaatsen = $request->plaatsen;
+        $examen->geplande_docenten = $request->geplande_docenten;
+        $examen->examen_opgeven_begin = $request->examen_opgeven_begin;
+        $examen->examen_opgeven_eind = $request->examen_opgeven_eind;
+        $examen->uitleg = $request->uitleg;
+        $examen->push();
+        
+        dd($examen);
         return redirect()->route('examens.index')->with('success','Examen toegevoegd.');
     }
 
