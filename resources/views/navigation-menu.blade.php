@@ -36,6 +36,10 @@
 
                                 <div class="border-t border-gray-100"></div>
 
+                                <x-jet-dropdown-link href="{{ route('dashboard.index') }}" class="fc-primary">
+                                    {{ __('Dashboard') }}
+                                </x-jet-dropdown-link>
+
                                 <x-jet-dropdown-link href="{{ route('examens.index') }}" class="fc-primary">
                                     {{ __('Examens beheer') }}
                                 </x-jet-dropdown-link>
