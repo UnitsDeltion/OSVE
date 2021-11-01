@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Opleidingen;
 use Illuminate\Http\Request;
 use App\Models\GeplandeExamen;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -21,8 +22,9 @@ class DashboardController extends Controller
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $examens = GeplandeExamen::all();
+        $opleidingen = Opleidingen::all();
 
-        return view('dashboard.index', compact('examens'));
+        return view('dashboard.index', compact('examens'), compact('opleidingen'));
     }
 
     /**

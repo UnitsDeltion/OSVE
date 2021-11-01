@@ -1,0 +1,24 @@
+{
+    "decimal":        "",
+    "emptyTable":     "Geen examens ingepland",
+    "info":           "Pagina _PAGE_ van _PAGES_ weergeven",
+    "infoEmpty":      "0 tot 0 van 0 items weergeven",
+    "infoFiltered":   "(gefilterd uit _MAX_ totale records)",
+    "infoPostFix":    "",
+    "thousands":      ",",
+    "lengthMenu":     "Toon _MENU_ records per pagina",
+    "loadingRecords": "Laden...",
+    "processing":     "Verwerken...",
+    "search":         "Zoeken:",
+    "zeroRecords":    "Geen ingeplande examens gevonden",
+    "paginate": {
+        "first":      "Eerste",
+        "last":       "Laatste",
+        "next":       "Volgende",
+        "previous":   "Vorige"
+    },
+    "aria": {
+        "sortAscending":  ": activeren om kolom oplopend te sorteren",
+        "sortDescending": ": activeren om kolom aflopend te sorteren"
+    }
+}

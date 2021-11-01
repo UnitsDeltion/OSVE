@@ -7,66 +7,74 @@
 
     @livewire('includes.content.top.content-wide-top') 
 
-        <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="form">
-            <thead>
-                <tr>
-                    <th>Student</th>
-                    <th>Klas</th>
-                    <th>Examen</th>
-                    <th>Datum</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($examens as $examen)
-                <tr>
-                    <td>
-                        {{ $examen->student_nr }}
-                    </td>
-                    <td>
-                        {{ $examen->klas }}
-                    </td>
-                    <td>
-                        {{ $examen->examen }}
-                    </td>
-                    <td>
-                        {{ $examen->datum }}
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <div>
+            <h3>Ingeplane examens</h3>
+            <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="ingeplandeExamens">
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Klas</th>
+                        <th>Examen</th>
+                        <th>Datum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($examens as $examen)
+                    <tr>
+                        <td>
+                            {{ $examen->student_nr }}
+                        </td>
+                        <td>
+                            {{ $examen->klas }}
+                        </td>
+                        <td>
+                            {{ $examen->examen }}
+                        </td>
+                        <td>
+                            {{ $examen->datum }}
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6">
+            <h3>Opleidingen</h3>
+            <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="opleidingen">
+                <thead>
+                    <tr>
+                        <th>Crebo nummer</th>
+                        <th>Opleiding</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($opleidingen as $opleiding)
+                    <tr>
+                        <td>
+                            {{ $opleiding->crebo_nr }}
+                        </td>
+                        <td>
+                            {{ $opleiding->opleiding }}
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
 </x-app-layout>
 
 <script>
-// $(document).ready( function () {
-//     $('#form').DataTable();
-// } );
-
 $(document).ready(function() {
-    $('#form').DataTable( {
+    $('#ingeplandeExamens').DataTable( {
         "language": {
-            "decimal":        "",
-            "emptyTable":     "Geen examens ingepland",
-            "info":           "Pagina _PAGE_ van _PAGES_ weergeven",
-            "infoEmpty":      "0 tot 0 van 0 items weergeven",
-            "infoFiltered":   "(gefilterd uit _MAX_ totale records)",
-            "infoPostFix":    "",
-            "thousands":      ",",
-            "lengthMenu":     "Toon _MENU_ records per pagina",
-            "loadingRecords": "Laden...",
-            "processing":     "Verwerken...",
-            "search":         "Zoeken:",
-            "zeroRecords":    "Geen ingeplande examens gevonden",
-            "paginate": {
-                "first":      "Eerste",
-                "last":       "Laatste",
-                "next":       "Volgende",
-                "previous":   "Vorige"
-            },
-            "aria": {
-                "sortAscending":  ": activeren om kolom oplopend te sorteren",
-                "sortDescending": ": activeren om kolom aflopend te sorteren"
-            }
+            "url": "{{asset('/json/datatabels/dutch')}}"
+        }
+    });
+    $('#opleidingen').DataTable( {
+        "language": {
+            "url": "{{asset('/json/datatabels/dutch')}}"
         }
     });
 });
