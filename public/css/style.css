@@ -277,6 +277,8 @@ hr{
 .pagination > li > a{
     color: white !important;
     background-color: var(--primary) !important;
+    border-radius: 6px !important;
+
 }
 
 .pagination > li{
