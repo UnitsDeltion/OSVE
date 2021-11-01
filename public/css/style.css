@@ -301,3 +301,29 @@ hr{
 .paginate_button{
     padding: .5em .2em !important;
 }
+
+.pagination {display: inline-block;}
+
+.pagination a {
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 0px 4px;
+    color: white;
+    background-color: var(--primary);
+    border-radius: 6px;
+}
+
+.pagination a:hover{
+    color: white !important;
+    background-color: var(--secondary);
+}
+
+.pagination i{
+    color: white !important;
+}
+
+.activePage{
+    background-color: var(--secondary) !important;
+    color: white;
+}

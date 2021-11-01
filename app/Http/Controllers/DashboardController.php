@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Examen;
+use App\Models\User;
 use App\Models\Opleidingen;
 use Illuminate\Http\Request;
 use App\Models\GeplandeExamen;
@@ -21,10 +23,25 @@ class DashboardController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $examens = GeplandeExamen::all();
-        $opleidingen = Opleidingen::all();
+        $users = User::all();
+        $examens = Examen::all();
 
-        return view('dashboard.index', compact('examens'), compact('opleidingen'));
+        foreach($examens as $examen){
+            foreach($users as $user){
+                if($examen->geplande_docenten == $user->email){
+                    $examen->geplande_docenten = $user->voornaam . " " . $user->achternaam;
+                }
+            }
+        }
+
+        $opleidingen = Opleidingen::all();
+        $geplandeExamens = GeplandeExamen::all();
+
+
+        return view('dashboard.index')
+            ->with(compact('examens'))
+            ->with(compact('opleidingen'))
+            ->with(compact('geplandeExamens'));
     }
 
     /**

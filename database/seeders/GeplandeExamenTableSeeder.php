@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Carbon\Carbon;
 use App\Models\GeplandeExamen;
 use Illuminate\Database\Seeder;
 
@@ -17,180 +16,180 @@ class GeplandeExamenTableSeeder extends Seeder
     {
         $geplandeExamens = [
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'FK2B',
                 'examen'              =>      1,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()  
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97071583,
                 'klas'                =>      'FK2B',
                 'examen'              =>      2,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'FK2B',
                 'examen'              =>      1,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97071583,
                 'klas'                =>      'FK2B',
                 'examen'              =>      1,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'FK2B',
                 'examen'              =>      2,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'FK2B',
                 'examen'              =>      1,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97071583,
                 'klas'                =>      'FK2B',
                 'examen'              =>      2,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'FK2B',
                 'examen'              =>      1,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97071583,
                 'klas'                =>      'FK2B',
                 'examen'              =>      2,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'FK2B',
                 'examen'              =>      1,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'FK2B',
                 'examen'              =>      2,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'FK2B',
                 'examen'              =>      1,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()  
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')  
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97071583,
                 'klas'                =>      'FK2B',
                 'examen'              =>      2,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'FK2B',
                 'examen'              =>      1,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'AO1B',
                 'examen'              =>      1,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'AO1B',
                 'examen'              =>      2,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'AO1B',
                 'examen'              =>      1,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'AO1B',
                 'examen'              =>      2,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'AO1B',
                 'examen'              =>      1,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'AO1B',
                 'examen'              =>      2,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'AO1B',
                 'examen'              =>      1,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
             [
-                'student_nr'          =>      25351,
+                'student_nr'          =>      97047008,
                 'klas'                =>      'AO1B',
                 'examen'              =>      2,
                 'faciliteiten_pas'    =>      'Ja',
-                'opmerkingen'         =>      'geen',
-                'datum'               =>      Carbon::now()
+                'opmerkingen'         =>      null,
+                'datum'               =>      date('d-m-Y')
             ],
 
         ];
