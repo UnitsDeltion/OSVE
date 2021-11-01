@@ -11,6 +11,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="https:/cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
         <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/fonts.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/footer.css')}}">
@@ -25,6 +26,9 @@
 
         <script src="{{asset('js/Notify.js')}}"></script>
 
+        <script src="https:/cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+        
         @livewireStyles
         <script src="{{mix('js/app.js')}}" defer></script>
     </head>
