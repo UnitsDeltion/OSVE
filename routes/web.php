@@ -21,8 +21,6 @@ use App\Http\Controllers\Beheer\OpleidingBeheerController;
 */
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-Route::get('/dashboard/klas', [DashboardController::class, 'query'])->name('dashboard.index');
-Route::post('/dashboard/klas', [DashboardController::class, 'query'])->name('dashboard.index');
 Route::get('/json/datatabels/dutch', function(){return response()->file(resource_path('/json/datatabels/dutch.json'));});
 
 Route::get('/', [ExamenController::class, 'p1'])->name('p1');
