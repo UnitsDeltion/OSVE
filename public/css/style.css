@@ -296,4 +296,6 @@ hr{
     border: none !important;
 }
 
-   
+.paginate_button{
+    padding: .5em .2em !important;
+}
