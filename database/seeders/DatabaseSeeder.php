@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
             OpleidingenTableSeeder::class,
             ExamenTableSeeder::class,
         ]);
+        $this->call(ExamenMomentTableSeeder::class);
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Controllers\Controller;
 use App\Models\Examen;
-
+use App\Models\ExamenMoment;
 
 class ExamenBeheerController extends Controller
 {
@@ -45,7 +45,7 @@ class ExamenBeheerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Examen $examen)
+    public function store(Request $request, Examen $examen, ExamenMoment $moment)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
@@ -64,17 +64,19 @@ class ExamenBeheerController extends Controller
         $examen->vak = $request->vak;
         $examen->examen = $request->examen;
         $examen->crebo_nr = $request->crebo_nr;
-        $examen->datum = $request->datum;
-        $examen->tijd = $request->tijd;
         $examen->plaatsen = $request->plaatsen;
         $examen->geplande_docenten = $request->geplande_docenten;
         $examen->examen_opgeven_begin = $request->examen_opgeven_begin;
         $examen->examen_opgeven_eind = $request->examen_opgeven_eind;
         $examen->uitleg = $request->uitleg;
-        $examen->push();
+        $examen->save();
         
-        dd($examen);
-        return redirect()->route('examens.index')->with('success','Examen toegevoegd.');
+        $moment->examenid = $examen->id;
+        $moment->datum = $request->datum;
+        $moment->tijd = $request->tijd;
+        $moment->save();
+        
+        return redirect()->route('examens.index')->with('success','Examen bijgewerkt.');
     }
 
     /**
@@ -118,24 +120,38 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Examen $examen, ExamenMoment $moment)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $this->validate($request, [
             'vak' => 'required',
+            'examen' => 'required',
             'crebo_nr' => 'required|integer|digits:5',
             'datum' => 'required',
             'tijd' => 'required',
             'plaatsen' => 'required|integer',
             'geplande_docenten' => 'required',
-            'opgeven_examen_begin' => 'required',
-            'opgeven_examen_eind' => 'required',
+            'examen_opgeven_begin' => 'required',
+            'examen_opgeven_eind' => 'required',
         ]);
-        
-        Examen::put($request->all());
 
-        return redirect()->route('examens.index')->with('success','Examen bijgewerkt.');
+        $examen->vak = $request->vak;
+        $examen->examen = $request->examen;
+        $examen->crebo_nr = $request->crebo_nr;
+        $examen->plaatsen = $request->plaatsen;
+        $examen->geplande_docenten = $request->geplande_docenten;
+        $examen->examen_opgeven_begin = $request->examen_opgeven_begin;
+        $examen->examen_opgeven_eind = $request->examen_opgeven_eind;
+        $examen->uitleg = $request->uitleg;
+        $examen->save();
+        
+        $moment->examenid = $examen->id;
+        $moment->datum = $request->datum;
+        $moment->tijd = $request->tijd;
+        $moment->save();
+        
+        return redirect()->route('examens.index')->with('success','Examen toegevoegd.');
     }
 
     /**
@@ -144,13 +160,14 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, ExamenMoment $moment)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         
         $examen = Examen::find($id);
         $examen->delete();
+        
 
         return redirect()->route('examens.index')->with('success','Examen verwijderd.');
     }
