@@ -261,3 +261,26 @@ hr{
 .shadowp3 {
     box-shadow: 5px 5px 5px 5px #888888;
   }
+.pagination > li {
+    background: none !important;
+    border: none !important;
+}
+.active > a{
+    background-color: var(--secondary) !important;
+    border: none !important;
+}
+
+.active > a:hover{
+    color: white !important;
+}
+
+.pagination > li:hover {
+    background: none !important;
+    border: none !important;
+}
+/* .dataTables_paginate.paging_simple_numbers:hover{
+    background-color: none;
+}
+.page-link:hover{
+    background-color: none;
+} */
