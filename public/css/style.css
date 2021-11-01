@@ -278,3 +278,69 @@ hr{
 .shadowp3 {
     box-shadow: 5px 5px 5px 5px #888888;
   }
+
+.pagination > li {
+    background: none !important;
+    border: none !important;
+}
+
+.pagination > .active > a{
+    background-color: var(--secondary) !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: white!important;
+}
+
+.pagination > li > a{
+    color: white !important;
+    background-color: var(--primary) !important;
+    border-radius: 6px !important;
+
+}
+
+.pagination > li{
+    box-shadow: none !important;
+}
+
+.pagination > li > a:hover{
+    background-color:var(--secondary)!important;
+}
+
+.active > a:hover{
+    color: white !important;
+}
+
+.pagination > li:hover {
+    background: none !important;
+    border: none !important;
+}
+
+.paginate_button{
+    padding: .5em .2em !important;
+}
+
+.pagination {display: inline-block;}
+
+.pagination a {
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 0px 4px;
+    color: white;
+    background-color: var(--primary);
+    border-radius: 6px;
+}
+
+.pagination a:hover{
+    color: white !important;
+    background-color: var(--secondary);
+}
+
+.pagination i{
+    color: white !important;
+}
+
+.activePage{
+    background-color: var(--secondary) !important;
+    color: white;
+}

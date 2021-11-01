@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             RoleUserTableSeeder::class,
             OpleidingenTableSeeder::class,
             ExamenTableSeeder::class,
+            GeplandeExamenTableSeeder::class,
         ]);
     }
 }
