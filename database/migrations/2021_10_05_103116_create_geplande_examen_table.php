@@ -19,8 +19,8 @@ class CreateGeplandeExamenTable extends Migration
             $table->string('klas');
             $table->integer('examen');
             $table->string('faciliteiten_pas');
-            $table->longText('opmerkingen');
-            $table->date('datum');
+            $table->longText('opmerkingen')->nullable();
+            $table->string('datum');
             //$table->foreign('examen', 'geplande_examen_ibfk_1')->references('id')->on('examen_moment')->onDelete('restrict')->onUpdate('restrict');
         });
     }
