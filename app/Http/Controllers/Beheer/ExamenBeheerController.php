@@ -76,7 +76,7 @@ class ExamenBeheerController extends Controller
         $moment->tijd = $request->tijd;
         $moment->save();
         
-        return redirect()->route('examens.index')->with('success','Examen bijgewerkt.');
+        return redirect()->route('examens.index')->with('success','Examen toegevoegd.');
     }
 
     /**
@@ -120,7 +120,7 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Examen $examen, ExamenMoment $moment)
+    public function update(Request $request, Examen $examen, ExamenMoment $moment, $id)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
@@ -135,23 +135,28 @@ class ExamenBeheerController extends Controller
             'examen_opgeven_begin' => 'required',
             'examen_opgeven_eind' => 'required',
         ]);
-
-        $examen->vak = $request->vak;
-        $examen->examen = $request->examen;
-        $examen->crebo_nr = $request->crebo_nr;
-        $examen->plaatsen = $request->plaatsen;
-        $examen->geplande_docenten = $request->geplande_docenten;
-        $examen->examen_opgeven_begin = $request->examen_opgeven_begin;
-        $examen->examen_opgeven_eind = $request->examen_opgeven_eind;
-        $examen->uitleg = $request->uitleg;
+        
+    if (Examen::where('id', $id)->exists()) {
+        
+        $examen->vak = is_null($request->vak) ? $request->vak : $request->vak;
+        $examen->examen = is_null($request->examen) ? $request->examen : $request->examen;
+        $examen->crebo_nr = is_null($request->crebo_nr) ? $request->crebo_nr : $request->crebo_nr;
+        $examen->plaatsen = is_null($request->plaatsen) ? $request->plaatsen : $request->plaatsen;
+        $examen->geplande_docenten = is_null($request->geplande_docenten) ? $request->geplande_docenten : $request->geplande_docenten;
+        $examen->examen_opgeven_begin = is_null($request->examen_opgeven_begin) ? $request->examen_opgeven_begin : $request->examen_opgeven_begin;
+        $examen->examen_opgeven_eind = is_null($request->examen_opgeven_eind) ? $request->examen_opgeven_eind : $request->examen_opgeven_eind;
+        $examen->uitleg = is_null($request->uitleg) ? $request->uitleg : $request->uitleg;
         $examen->save();
         
-        $moment->examenid = $examen->id;
-        $moment->datum = $request->datum;
-        $moment->tijd = $request->tijd;
+        $moment->examenid = is_null($examen->id) ? $examen->id : $examen->id;
+        $moment->datum = is_null($request->datum) ? $request->datum : $request->datum;
+        $moment->tijd = is_null($request->tijd) ? $request->tijd : $request->tijd;
         $moment->save();
         
-        return redirect()->route('examens.index')->with('success','Examen toegevoegd.');
+            return redirect()->route('examens.index')->with('success','Examen aangepast.');
+        }else {
+            return redirect()->route('examens.index')->with('error','Examen niet gevonden.');
+        }
     }
 
     /**

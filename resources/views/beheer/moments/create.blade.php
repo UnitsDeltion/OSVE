@@ -37,7 +37,7 @@
 
                 <div class="form-group">
                     <x-jet-button class="mb-2 button">
-                        {{ __('Examen toevoegen') }}
+                        {{ __('Examen moment toevoegen') }}
                     </x-jet-button>
                 </div>
             </div>
