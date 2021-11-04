@@ -171,4 +171,31 @@ class ExamenBeheerController extends Controller
 
         return redirect()->route('examens.index')->with('success','Examen verwijderd.');
     }
+
+
+    public function examenMomentCreate(Request $request, $id)
+    {
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $examen = Examen::where('id', $id)->get()->toArray();
+        $examen = $examen[0];
+
+        return view('beheer.moments.create')->with(compact('examen'));
+    }
+
+    public function examenMomentStore(Request $request, Examen $examen, ExamenMoment $moment)
+    {
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $this->validate($request, [
+            'datum' => 'required',
+            'tijd' => 'required',
+        ]);
+        $moment->examenid = $request->id;
+        $moment->datum = $request->datum;
+        $moment->tijd = $request->tijd;
+        $moment->save();
+
+        return redirect()->route('examens.index')->with('success','Examen moment toegevoegd.');
+    }
 }

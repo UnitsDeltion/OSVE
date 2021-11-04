@@ -43,3 +43,6 @@ Route::get('/privacy-policy', function () {return redirect('https://www.deltion.
 Route::resource('/beheer/users', UsersBeheerController::class);
 Route::resource('/beheer/examens', ExamenBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
+
+Route::get('/beheer/examenMomentCreate/{id}', [ExamenBeheerController::class, 'examenMomentCreate'])->name('examenMomentCreate');
+Route::POST('/beheer/examenMomentStore/{id}', [ExamenBeheerController::class, 'examenMomentStore'])->name('examenMomentStore');

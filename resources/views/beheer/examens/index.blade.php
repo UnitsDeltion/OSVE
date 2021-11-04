@@ -72,6 +72,11 @@
                                                         <i class="fas fa-edit"></i>
                                                     </x-jet-button>
                                                 </a>
+                                                <a href="{{ route('examenMomentCreate', $examen['id']) }}">
+                                                    <x-jet-button title="moment" class="mb-2 mr-2 button">
+                                                        <i class="fas fa-edit"></i>
+                                                    </x-jet-button>
+                                                </a>
 
                                                 <form action="{{ route('examens.destroy', $examen['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
                                                     <input type="hidden" name="_method" value="DELETE">
