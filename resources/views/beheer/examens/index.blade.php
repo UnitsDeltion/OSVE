@@ -1,9 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2>
-            @section('title', 'Alle examens')
-            @yield('title')
-        </h2>
+        <div class="d-flex" style="width: 100%;">
+            <h2>
+                @section('title', 'Alle examens')
+                @yield('title')
+            </h2>
+            <a href="{{ route('examens.create') }}" class="a-clear" style="margin-right: 0; margin-left: auto; font-size: 12px!important;">
+                <x-jet-button class="mb-2 float-right mt-10 mr-10 button">
+                    {{ __('Examen toevoegen') }}
+                </x-jet-button>
+            </a>
+        </div>
     </x-slot>
 
     @livewire('includes.content.top.content-normal-top') 
@@ -26,14 +33,7 @@
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
                                                 <strong>tijd</strong>
                                             </th>
-
-                                            <th>
-                                                <a href="{{ route('examens.create') }}" class="a-clear">
-                                                    <x-jet-button class="mb-2 float-right mt-10 mr-10 button">
-                                                        {{ __('Examen toevoegen') }}
-                                                    </x-jet-button>
-                                                </a>
-                                            </th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">

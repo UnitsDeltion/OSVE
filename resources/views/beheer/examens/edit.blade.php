@@ -14,9 +14,10 @@
             </x-jet-button>
         </a>
 
-        <form method="post" action="{{ route('examens.store') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('examens.update', $examen['id']) }}" enctype="multipart/form-data">
 
             @csrf
+            @method('put')
             
             
             <div class="row">
