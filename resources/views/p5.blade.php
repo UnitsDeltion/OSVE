@@ -27,7 +27,7 @@
                             <div class="mb-3">
                                 <x-jet-label for="opmerkingen" value="{{ __('Opmerkingen') }}" />
                                 @error('opmerkingen')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                                <textarea name="opmerkingen" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" id="opmerkingen" rows="5" :value="old('opmerkingen')"></textarea>
+                                <textarea name="opmerkingen" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" id="opmerkingen" rows="4" :value="old('opmerkingen')"></textarea>
                             </div>
 
                         <div class="mt-4">

@@ -6,6 +6,14 @@ use App\Models\Opleidingen;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
+use App\Models\ExamenMoment;
+use App\Models\Examen;
+use App\Models\GeplandeExamens;
+use App\Models\GeplandeExamensTokens;
+
+//Token generatie
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class FormHandlerController extends Controller
 {
@@ -15,11 +23,13 @@ class FormHandlerController extends Controller
             'voornaam' => 'required|max:255|string',
             'achternaam' => 'required|max:255|string',
             'studentnummer' => 'required|max:9|string',
+            'klas' => 'required|max:9|string',
         ]);
         
         if(!isset($request->voornaam) 
         || !isset($request->achternaam) 
-        || !isset($request->studentnummer)){
+        || !isset($request->studentnummer)
+        || !isset($request->klas)){
             $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
@@ -27,6 +37,7 @@ class FormHandlerController extends Controller
         $request->session()->put('voornaam', $request->voornaam);
         $request->session()->put('achternaam', $request->achternaam);
         $request->session()->put('studentnummer', $request->studentnummer);
+        $request->session()->put('klas', $request->klas);
 
         return redirect('p2');
     }
@@ -42,7 +53,8 @@ class FormHandlerController extends Controller
         if(!isset($request->crebo_nr) 
         || null == $request->session()->get('voornaam')
         || null == $request->session()->get('achternaam') 
-        || null == $request->session()->get('studentnummer')){
+        || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('klas')){
             $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
@@ -64,6 +76,7 @@ class FormHandlerController extends Controller
         || null == $request->session()->get('voornaam')
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('klas')
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')){
             $request->session()->flush();
@@ -82,6 +95,7 @@ class FormHandlerController extends Controller
         if(null == $request->session()->get('voornaam')
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('klas')
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')
         || null == $request->session()->get('vak')
@@ -109,6 +123,7 @@ class FormHandlerController extends Controller
         // if(null == $request->session()->get('voornaam')
         // || null == $request->session()->get('achternaam') 
         // || null == $request->session()->get('studentnummer')
+        // || null == $request->session()->get('klas')
         // || null == $request->session()->get('crebo_nr')
         // || null == $request->session()->get('opleiding')
         // || null == $request->session()->get('vak')
@@ -120,17 +135,58 @@ class FormHandlerController extends Controller
         //     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         // }
 
-        $student_nr = $request->session()->get('studentnummer');
-        $details = [];
-           
-        \Mail::to($student_nr.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
+        //Tijdelijk, tot p4 werkt
+        $request->session()->put('datum', '2021-11-20');
+        $request->session()->put('tijd', '12:30:00');
+        
+        //Haalt examen id op voor relatie
+        $examenId = Examen::where([
+            'crebo_nr' => $request->session()->get('crebo_nr'),
+            'vak' => $request->session()->get('vak'),
+            'examen' => $request->session()->get('examen')
+        ])->get();
+
+        $examenId = $examenId[0]['id'];
+
+        //Haalt examen moment id op voor relatie
+        $examenMomentId = ExamenMoment::where([
+            'examenid'  => $examenId,
+            'datum'     => $request->session()->get('datum'),
+            'tijd'      => $request->session()->get('tijd')
+        ])->get();
+
+        $examenMomentId = $examenMomentId[0]['id'];
 
         $studentnummer = $request->session()->get('studentnummer');
-        $request->session()->flush();
-        
+
+        $gepland_examen_id = GeplandeExamens::create([
+            'voornaam'          =>      $request->session()->get('voornaam'),
+            'achternaam'        =>      $request->session()->get('achternaam'),
+            'faciliteitenpas'   =>      $request->session()->get('faciliteitenpas'),
+            'studentnummer'     =>      $studentnummer,
+            'klas'              =>      $request->session()->get('klas'),
+            'crebo_nr'          =>      $request->session()->get('crebo_nr'),
+            'examen'            =>      $examenId,
+            'examen_moment'     =>      $examenMomentId,
+            'opmerkingen'       =>      $request->session()->get('opmerkingen'),
+            'active'            =>      0,
+        ])->id;
+
+        //Maakt token voor bevesigen
+        $token = Hash::make($studentnummer);
+        GeplandeExamensTokens::create([
+            'studentnummer'     => $studentnummer,
+            'gepland_examen_id' => $gepland_examen_id,
+            'token'             => $token,
+        ]);
+
+        // $details = [];
+        // \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
+        // $request->session()->flush();
+
         $request->session()->put('succes', true);
         $request->session()->put('studentnummer', $studentnummer);
 
-        return redirect('p7');           
+        return redirect('p7');
     }
 }

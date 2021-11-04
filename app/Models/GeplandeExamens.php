@@ -22,10 +22,10 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class GeplandeExamen extends Model
+class GeplandeExamens extends Model
 {
-	protected $table = 'geplande_examen';
-	public $incrementing = false;
+	protected $table = 'geplande_examens';
+	// public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
@@ -34,11 +34,16 @@ class GeplandeExamen extends Model
 	];
 
 	protected $fillable = [
-		'student_nr',
+		'voornaam',
+		'achternaam',
+		'faciliteitenpas',
+		'studentnummer',
 		'klas',
+		'crebo_nr',
 		'examen',
-		'faciliteiten_pas',
-		'opmerkingen'
+		'examen_moment',
+		'opmerkingen',
+		'active'
 	];
 
 	public function examen_moment()

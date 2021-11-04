@@ -16,6 +16,7 @@ class ExamenController extends Controller
         $request->session()->forget('voornaam');
         $request->session()->forget('achternaam');
         $request->session()->forget('studentnummer');
+        $request->session()->forget('klas');
         $request->session()->forget('opleiding');
         $request->session()->forget('crebo_nr');
         $request->session()->forget('vak');
@@ -30,7 +31,8 @@ class ExamenController extends Controller
 
         if(null == $request->session()->get('voornaam')
         || null == $request->session()->get('achternaam') 
-        || null == $request->session()->get('studentnummer')){
+        || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('klas')){
             $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
@@ -47,6 +49,7 @@ class ExamenController extends Controller
         if(null == $request->session()->get('voornaam')
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('klas')
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')){
             $request->session()->flush();
@@ -62,6 +65,7 @@ class ExamenController extends Controller
         if(null == $request->session()->get('voornaam')
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('klas')
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')
         || null == $request->session()->get('vak')
@@ -82,6 +86,7 @@ class ExamenController extends Controller
         if(null == $request->session()->get('voornaam')
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('klas')
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')
         || null == $request->session()->get('vak')
@@ -97,6 +102,7 @@ class ExamenController extends Controller
         if(null == $request->session()->get('voornaam')
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('klas')
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')
         || null == $request->session()->get('vak')
@@ -112,6 +118,7 @@ class ExamenController extends Controller
         $voornaam           =   $request->session()->get('voornaam');
         $achternaam         =   $request->session()->get('achternaam');
         $studentnummer      =   $request->session()->get('studentnummer');
+        $klas               =   $request->session()->get('klas');
         $opleiding          =   $request->session()->get('opleiding');
         $vak                =   $request->session()->get('vak');
         $examen             =   $request->session()->get('examen');
@@ -124,6 +131,7 @@ class ExamenController extends Controller
             ->with(compact('voornaam'))
             ->with(compact('achternaam'))
             ->with(compact('studentnummer'))
+            ->with(compact('klas'))
             ->with(compact('opleiding'))
             ->with(compact('vak'))
             ->with(compact('examen'))

@@ -61,6 +61,17 @@
                                     document.getElementById('studentnummer').classList.remove("shadow-sm"); 
                                 </script>
                              @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <x-jet-label for="klas" value="{{ __('Klas') }}" />
+                            <x-jet-input id="klas" class="block mt-1 w-full" type="text" name="klas" :value="old('klas')"/>
+                            @error('klas') 
+                                <script>
+                                    document.getElementById('klas').classList.add("bc-red", "sh-red"); 
+                                    document.getElementById('klas').classList.remove("shadow-sm"); 
+                                </script>
+                             @enderror
                         </div>  
 
                         <div class="mt-4">
