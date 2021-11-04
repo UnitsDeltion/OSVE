@@ -14,12 +14,12 @@ class CreateExamenMomentTable extends Migration
     public function up()
     {
         Schema::create('examen_moment', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->integer('examenid');
-            $table->dateTime('datum');
-            $table->integer('tijd');
+            $table->increments('id');
+            $table->integer('examenid',false,true)->index();
+            $table->date('datum');
+            $table->time('tijd');
             
-            $table->foreign('examenid', 'examen_moment_ibfk_1')->references('crebo_nr')->on('examens')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('examenid', 'examen_moment_ibfk_1')->references('id')->on('examens')->onDelete('cascade')->onUpdate('restrict');
         });
     }
 
