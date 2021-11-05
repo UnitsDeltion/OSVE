@@ -12,8 +12,9 @@ class GeplandeExamensTokens extends Model
 	public $timestamps = false;
 
     protected $fillable = [
-		'studentnummer',
 		'gepland_examen_id',
+		'cre_date',
+		'exp_date',
 		'token',
 	];
 }
