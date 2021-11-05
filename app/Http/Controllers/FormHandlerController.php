@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Opleidingen;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
-use App\Models\ExamenMoment;
 use App\Models\Examen;
+use App\Models\Opleidingen;
+use App\Models\ExamenMoment;
 use App\Models\GeplandeExamens;
 use App\Models\GeplandeExamensTokens;
 
@@ -194,15 +194,78 @@ class FormHandlerController extends Controller
         //Zet token in sessie voor email view
         $request->session()->put('token', $token);
         $details = [];
-        \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
+        // \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
 
         //Maakt sessie leeg
         $request->session()->flush();
 
         //Zet data in sessie voor p7 pagina
-        $request->session()->put('succes', true);
         $request->session()->put('studentnummer', $studentnummer);
 
         return redirect('p7');
+    }
+
+    //Token pagina
+    public function p8(Request $request){
+        if(null == $request->token){
+            $request->session()->put('title', 'Ongeldige token');
+            $request->session()->put('message', 'Probeer het opnieuw of neem contact op met je docent.');
+            $request->session()->put('error', 'Err: request/parameter leeg.');
+            return redirect('p9'); 
+        };
+
+        //Haalt de token data op basis van de token
+        $tokenData = GeplandeExamensTokens::where('token', $request->token)->get();
+
+        //Als query leeg is laat error zien
+        if(!isset($tokenData[0])){
+            $request->session()->put('title', 'Ongeldige token');
+            $request->session()->put('message', 'Probeer het opnieuw of neem contact op met je docent.');
+            $request->session()->put('error', 'Err: invalid_token/not found.');
+            return redirect('p9'); 
+        }
+
+        $tokenData = $tokenData[0];
+
+        //Verloop datum
+        $exp_date = $tokenData['exp_date'];
+        //Hudige datum
+        $crt_date = time();
+
+        //Token verschil = token verlopen tijd - huidige tijd
+        $dateDiff = $exp_date - $crt_date;
+
+        //Als het verschil in de min staat is de token verlopen en laat error zien
+        //Wat nu? Verwijder afspraak/token of nieuwe token genereren?
+        if($dateDiff < 0){
+            $request->session()->put('title', 'Ongeldige token');
+            $request->session()->put('message', 'Probeer het opnieuw of neem contact op met je docent.');
+            $request->session()->put('error', 'Err: request/parameter leeg.');
+            return redirect('p9'); 
+        }
+
+        //Haalt het geplande examen op, op basis van het id uit de token
+        $geplandExamen = GeplandeExamens::where('id', $tokenData->gepland_examen_id)->get();
+
+        //Als query leeg is laat error zien
+        if(!isset($geplandExamen[0])){
+            $request->session()->put('title', 'Ongeldige token');
+            $request->session()->put('message', 'Probeer het opnieuw of neem contact op met je docent.');
+            $request->session()->put('error', 'Err: geen ingepland examen gevonden.');
+            return redirect('p9'); 
+        }
+        
+        $geplandExamen = $geplandExamen[0];
+
+        //Zet examen op actief en sla het op
+        $geplandExamen->active = 1;
+        $geplandExamen->save();
+
+        //Verwijderd de token uit de db
+        $tokenData->delete();
+
+        $request->session()->put('title', 'Examen ingepland');
+        $request->session()->put('message', 'Voordat het de afspraak definitief is moet deze eerst nog worden goedgekeurd door een docent. Zodra dit is gebeurt ontvang je een nieuwe bevestiging.');
+        return redirect('p9'); 
     }
 }
