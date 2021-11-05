@@ -159,6 +159,7 @@ class FormHandlerController extends Controller
 
         $studentnummer = $request->session()->get('studentnummer');
 
+        //Plant examen in 
         $gepland_examen_id = GeplandeExamens::create([
             'voornaam'          =>      $request->session()->get('voornaam'),
             'achternaam'        =>      $request->session()->get('achternaam'),
@@ -172,18 +173,33 @@ class FormHandlerController extends Controller
             'active'            =>      0,
         ])->id;
 
-        //Maakt token voor bevesigen
+        //Tijd/datum wanneer token is gemaakt
+        $cre_date = time();
+        //Tijd/datum wanneer token verloopt
+        $exp_date = strtotime('+1 day', $cre_date);
+
+        //Maakt token voor bevestiging
         $token = Hash::make($studentnummer);
+        //Vervang ongeldige karakters in token door random nummer
+        $token = str_replace([':', '\\', '/', '*', '@', '&', '?', '.'], rand(0,9), $token);
+
+        //Maakt token db row aan
         GeplandeExamensTokens::create([
-            'studentnummer'     => $studentnummer,
             'gepland_examen_id' => $gepland_examen_id,
             'token'             => $token,
+            'cre_date'          => $cre_date,
+            'exp_date'          => $exp_date
         ]);
 
-        // $details = [];
-        // \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
-        // $request->session()->flush();
+        //Zet token in sessie voor email view
+        $request->session()->put('token', $token);
+        $details = [];
+        \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
 
+        //Maakt sessie leeg
+        $request->session()->flush();
+
+        //Zet data in sessie voor p7 pagina
         $request->session()->put('succes', true);
         $request->session()->put('studentnummer', $studentnummer);
 
