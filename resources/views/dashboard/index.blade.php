@@ -22,16 +22,21 @@
                 <thead>
                     <tr>
                         <th>Student</th>
+                        <th>Faciliteitenpas</th>
                         <th>Klas</th>
-                        <th>Examen</th>
-                        <th>Datum</th>
+                        <th>examen</th>
+                        <th>examen_moment</th>
+                        <th>Bevestigd</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($geplandeExamens as $geplandExamen)
                     <tr>
                         <td>
-                            {{ $geplandExamen->student_nr }}
+                            {{ $geplandExamen->voornaam }}  {{ $geplandExamen->achternaam }} <small>({{ $geplandExamen->studentnummer }})</small>
+                        </td>
+                        <td>
+                            {{ $geplandExamen->faciliteitenpas }}
                         </td>
                         <td>
                             {{ $geplandExamen->klas }}
@@ -40,7 +45,14 @@
                             {{ $geplandExamen->examen }}
                         </td>
                         <td>
-                            {{ $geplandExamen->datum }}
+                            {{ $geplandExamen->examen_moment }}
+                        </td>
+                        <td>
+                            @if($geplandExamen->active == '1')
+                                <p class="fc-primary-nh">Bevestigd</p>
+                            @else
+                                <p class="fc-secondary-nh">Niet bevestigd</p>
+                            @endif
                         </td>
                     </tr>
                     @endforeach

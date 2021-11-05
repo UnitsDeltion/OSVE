@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Examen;
 use App\Models\User;
 use App\Models\Opleidingen;
+use App\Models\GeplandeExamens;
+
 use Illuminate\Http\Request;
-use App\Models\GeplandeExamen;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
@@ -35,8 +36,7 @@ class DashboardController extends Controller
         }
 
         $opleidingen = Opleidingen::all();
-        $geplandeExamens = GeplandeExamen::all();
-
+        $geplandeExamens = GeplandeExamens::all();
 
         return view('dashboard.index')
             ->with(compact('examens'))
@@ -56,7 +56,7 @@ class DashboardController extends Controller
 
         // abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        // $filters = GeplandeExamen::findOrFail($request->klas);
+        // $filters = GeplandeExamens::findOrFail($request->klas);
 
         // return view('dashboard.filter', compact('filters'));
     }
