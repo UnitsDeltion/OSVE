@@ -54,6 +54,7 @@ class TokenController extends Controller
         //Verwijderd de token uit de db
         $tokenData->delete();
 
-        
+        $request->session()->put('succes', true);
+        return redirect('p8'); 
     }
 }
