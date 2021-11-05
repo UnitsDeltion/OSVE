@@ -142,8 +142,7 @@ class ExamenController extends Controller
     }
 
     public function p7(Request $request){
-        if(null == $request->session()->get('succes')
-        || null == $request->session()->get('studentnummer')){
+        if(null == $request->session()->get('studentnummer')){
             $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
@@ -152,5 +151,31 @@ class ExamenController extends Controller
 
         return view('p7')
             ->with(compact('studentnummer'));
+    }
+
+    //p8 token page/check -> FormHandlerController
+
+    public function p9(Request $request){
+        if(null == $request->session()->get('title')
+        || null == $request->session()->get('message')){
+            $request->session()->flush();
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
+        $title = $request->session()->get('title');
+        $message = $request->session()->get('message');
+
+        if(null != $request->session()->get('error')){
+            $error = $request->session()->get('error');
+        }else{
+            $error = null;
+        }
+
+        $request->session()->flush();
+        
+        return view('p9')
+            ->with(compact('title'))
+            ->with(compact('message'))
+            ->with(compact('error'));
     }
 }
