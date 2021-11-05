@@ -262,7 +262,7 @@ class FormHandlerController extends Controller
         $geplandExamen->save();
 
         //Verwijderd de token uit de db
-        $tokenData->delete();
+        // $tokenData->delete();
 
         $request->session()->put('title', 'Examen ingepland');
         $request->session()->put('message', 'Voordat het de afspraak definitief is moet deze eerst nog worden goedgekeurd door een docent. Zodra dit is gebeurt ontvang je een nieuwe bevestiging.');
