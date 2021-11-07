@@ -158,6 +158,20 @@ class FormHandlerController extends Controller
 
         $studentnummer = $request->session()->get('studentnummer');
 
+        //Controleert of er al een examen met zelfde gegevens bestaat, zoja; stuurt door naar p9 met error
+        $examenCheck = GeplandeExamens::where([
+            'studentnummer'     =>      $request->session()->get('studentnummer'),
+            'examen'            =>      $examenId,
+            'examen_moment'     =>      $examenMomentId,
+        ])->exists();
+
+        if($examenCheck){
+            $request->session()->put('title', 'Examen al ingepland');
+            $request->session()->put('message', 'Het is niet mogelijk vaker voor hetzelfde examen in te plannen. Probeer het opnieuw of neem contact op met je docent.');
+            $request->session()->put('error', 'Err: dubbele data.');
+            return redirect('p9'); 
+        }
+
         //Plant examen in 
         $gepland_examen_id = GeplandeExamens::create([
             'voornaam'          =>      $request->session()->get('voornaam'),
@@ -239,7 +253,10 @@ class FormHandlerController extends Controller
         if($dateDiff < 0){
             $request->session()->put('title', 'Ongeldige token');
             $request->session()->put('message', 'Probeer het opnieuw of neem contact op met je docent.');
-            $request->session()->put('error', 'Err: request/parameter leeg.');
+            $request->session()->put('error', 'Err: token verlopen.');
+
+            $tokenData->delete();
+
             return redirect('p9'); 
         }
 
