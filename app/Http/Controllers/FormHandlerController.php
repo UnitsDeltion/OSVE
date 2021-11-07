@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Hash;
 
 class FormHandlerController extends Controller
 {
-    
     public function f2(Request $request){
         $validated = $request->validate([
             'voornaam' => 'required|max:255|string',
