@@ -51,7 +51,7 @@
                             @if($geplandExamen->active == '1')
                                 <p class="fc-primary-nh">Bevestigd</p>
                             @else
-                                <p class="fc-secondary-nh">Niet bevestigd</p>
+                                <p class="fc-secondary-nh" title="Examen is nog niet bevestigd door de student">Niet bevestigd</p>
                             @endif
                         </td>
                     </tr>
