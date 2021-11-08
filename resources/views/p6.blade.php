@@ -84,6 +84,7 @@
                                         Inplannen <i class="fas fa-forward ml-2"></i> 
                                     </x-jet-button>
                                 </div>
+
                             </div>
                     </form>
                 </div>

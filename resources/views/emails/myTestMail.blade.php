@@ -168,7 +168,7 @@
                                 </tr>
                                 <tr>
                                     <td>Examen bevestigen</td>
-                                    <td ><a  class=”link” href="#" target="_blank">Klik hier om te bevestigen</a></td>
+                                    <td ><a class="link" href="#" target="_blank">Klik hier om te bevestigen</a></td>
                                 </tr>
                     </tr>
                 </table>

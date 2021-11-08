@@ -13,6 +13,15 @@
             <div class="mt-50">
                 <h3 class="align-center">Controleer je e-mail</h3>
                 <h5 class="align-center">Voordat het examen definitief is ingepland moet deze eerst bevestigd worden. Er is een e-mail verstuurd naar <span class="fc-secondary-nh">{{ $studentnummer }}@st.deltion.nl</span>. Gebruik de link in de e-mail om het examen te bevestigen.</h5>
+                <form method="post" action="http://localhost:8000/ics-provider/download-ICS.php">
+                    <input type="hidden" name="date_start" value="2017-1-16 9:00AM">
+                    <input type="hidden" name="date_end" value="2017-1-16 10:00AM">
+                    <input type="hidden" name="location" value="Mozartlaan 15, Zwolle">
+                    <input type="hidden" name="description" value="Beschrijving">
+                    <input type="hidden" name="summary" value="Samenvatting">
+                    <input type="hidden" name="url" value="https://deltion.nl">
+                    <input type="submit" value="Download Afspraak">
+                </form>
                 <h6>Of ga naar de <a href="/">homepagina</a>.</h6>
             </div>
         </div>
