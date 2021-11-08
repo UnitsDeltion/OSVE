@@ -54,16 +54,16 @@
                                     </div>    
                                 </div>
 
-                                <div class="tijd mt-2 d-flex justify-content-center">
-                                    <div class="row" style="max-width: 70%;">
+                                <div class="mt-2">
+                                    <div class="row justify-content-center">
                                         <h3>Tijd</h3>
-                                        <div class="card col-sm-6 mr-40" style="width:180px;">
+                                        <div class="card col-sm-3 mr-10 ml-10 selectInput shadow" onclick="test({{$moment->id}})">
                                             <div class="card-body">
                                                 <h5 class="card-title">08:00 - 09:00</h5>
                                             </div>
                                         </div>
 
-                                        <div class="card col-sm-6" style="width:180px;">
+                                        <div class="card col-sm-3 mr-10 ml-10 selectInput shadow">
                                             <div class="card-body">
                                                 <h5 class="card-title">08:00 - 09:00</h5>
                                             </div>
@@ -71,11 +71,12 @@
                                     </div>
                                 </div>
 
-                                
-                                
                             </div>
                         </div>
                     </div>
+
+                    <input type="hidden" name="datum" value="" id="datum">
+                    <input type="hidden" name="tijd" value="" id="tijd">
 
                     <div class="mt-4">
                         <a href="{{ route('p3') }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">
