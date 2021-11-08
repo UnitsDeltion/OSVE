@@ -37,7 +37,6 @@ class DashboardController extends Controller
         $opleidingen = Opleidingen::all();
         $geplandeExamens = GeplandeExamen::all();
 
-
         return view('dashboard.index')
             ->with(compact('examens'))
             ->with(compact('opleidingen'))
