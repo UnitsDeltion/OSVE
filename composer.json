@@ -12,7 +12,8 @@
         "laravel/jetstream": "^2.4",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "livewire/livewire": "^2.5"
+        "livewire/livewire": "^2.5",
+        "spatie/calendar-links": "^1.6"
     },
     "require-dev": {
         "bennett-treptow/laravel-migration-generator": "^4.0",
