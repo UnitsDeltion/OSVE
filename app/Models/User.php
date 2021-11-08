@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use Silber\Bouncer\Database\HasRolesAndAbilities;
 
 class User extends Authenticatable
 {
@@ -19,6 +20,7 @@ class User extends Authenticatable
     use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasRolesAndAbilities;
 
     /**
      * The attributes that are mass assignable.
@@ -28,6 +30,7 @@ class User extends Authenticatable
     protected $fillable = [
         'email', 'password', 'voornaam', 'achternaam', 'telefoonnummer',
     ];
+    
 
     /**
      * The attributes that should be hidden for serialization.
@@ -58,9 +61,4 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
 }

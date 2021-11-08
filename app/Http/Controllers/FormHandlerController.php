@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Opleidingen;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Gate;
 
 class FormHandlerController extends Controller
 {
@@ -21,8 +20,7 @@ class FormHandlerController extends Controller
         || !isset($request->achternaam) 
         || !isset($request->studentnummer)){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+            }
 
         $request->session()->put('voornaam', $request->voornaam);
         $request->session()->put('achternaam', $request->achternaam);
@@ -44,8 +42,7 @@ class FormHandlerController extends Controller
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+          }
 
         $opleiding = Opleidingen::where('crebo_nr', $request->crebo_nr)->get();
 
@@ -67,8 +64,7 @@ class FormHandlerController extends Controller
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+            }
 
         $data = explode(" - ", $request->examen);
 
@@ -91,8 +87,7 @@ class FormHandlerController extends Controller
         || null == $request->session()->get('vak')
         || null == $request->session()->get('examen')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+            }
 
         $request->session()->put('tijd',$request->tijd);
         $request->session()->put('datum',$request->datum);
