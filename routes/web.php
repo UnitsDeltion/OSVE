@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExamenController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormHandlerController;
+use App\Http\Controllers\ICS\ICS_HandlerController;
 use App\Http\Controllers\Beheer\UsersBeheerController;
 use App\Http\Controllers\Beheer\ExamenBeheerController;
 use App\Http\Controllers\Beheer\OpleidingBeheerController;
@@ -37,6 +38,7 @@ Route::POST('/f4', [FormHandlerController::class, 'f4'])->name('f4');
 Route::POST('/f5', [FormHandlerController::class, 'f5'])->name('f5');
 Route::POST('/f6', [FormHandlerController::class, 'f6'])->name('f6');
 Route::POST('/f7', [FormHandlerController::class, 'f7'])->name('f7');
+Route::POST('/ics_handler', [ICS_HandlerController::class, 'ics_handler'])->name('ics_handler');
 
 Route::get('/home', function () {return view('home');})->name('home');
 Route::get('/sitemap', function () {return view('paginas.sitemap');})->name('sitemap');

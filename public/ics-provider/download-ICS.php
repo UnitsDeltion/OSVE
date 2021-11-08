@@ -11,7 +11,7 @@ $ics = new ICS(array(
   'dtstart' => $_SESSION['date_start'],
   'dtend' => $_SESSION['date_end'],
   'summary' => "Examen ingepland voor student",
-  'url' => $_SESSION['url']
+  'url' => "https://deltion.nl"
 ));
 
 echo $ics->to_string();
