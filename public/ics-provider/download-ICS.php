@@ -7,10 +7,10 @@ header('Content-Disposition: attachment; filename=Examen.ics');
 
 $ics = new ICS(array(
   'location' => $_SESSION['location'],
-  'description' => "Examen: " . $_SESSION['Examen'] . " Vak: " . $_SESSION['Vak'] . " Opmerkingen: " . $_SESSION['Opmerkingen'],
+  'description' => "Omschrijving",
   'dtstart' => $_SESSION['date_start'],
   'dtend' => $_SESSION['date_end'],
-  'summary' => "Examen ingepland voor student " . $_SESSION['Studentnummer'],
+  'summary' => "Examen ingepland voor student",
   'url' => $_SESSION['url']
 ));
 
