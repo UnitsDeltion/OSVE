@@ -66,3 +66,13 @@ function pagination($elementID){
         $pagButThree.classList.add("activePage");
     }
 }
+
+function momentSelect($type, $value){
+    //console.log($type, $value);
+    var input = document.getElementById($type).value = $value;
+    $test = document.getElementById('test');
+    $test1 = document.getElementById('test1');
+    console.log($test);
+    console.log($test1);
+    console.log($test.classList.add('activeInput'));
+}
