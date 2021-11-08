@@ -16,14 +16,13 @@ class CreateExamensTable extends Migration
         Schema::create('examens', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('crebo_nr');
-            // $table->string('examen')->unique('examen');
             $table->string('uitleg')->nullable();
             $table->string('examen');
             $table->string('vak');
-            $table->integer('plaatsen');
             $table->string('geplande_docenten');
             $table->date('examen_opgeven_begin');
             $table->date('examen_opgeven_eind');
+            $table->date('datum');
             
             $table->foreign('crebo_nr', 'examens_ibfk_1')->references('crebo_nr')->on('opleidingen')->onDelete('restrict')->onUpdate('restrict');
             $table->foreign('geplande_docenten', 'examens_ibfk_3')->references('email')->on('users');

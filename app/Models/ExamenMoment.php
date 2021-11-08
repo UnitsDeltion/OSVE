@@ -34,13 +34,14 @@ class ExamenMoment extends Model
 
 	protected $casts = [
 		'id' => 'int',
-		'examenid' => 'int'
+		'examenid' => 'int',
+		'plaatsen' => 'int'
 	];
 
 	protected $fillable = [
 		'examenid',
-		'datum',
-		'tijd'
+		'tijd',
+		'plaatsen'
 	];
 
 	public function examen()

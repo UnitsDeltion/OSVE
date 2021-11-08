@@ -25,13 +25,9 @@
                                                 <strong>Examen</strong>
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
-                                                <strong>Plaatsen</strong>
-                                            </th>
-                                            <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
                                                 <strong>Datum</strong>
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
-                                                <strong>tijd</strong>
                                             </th>
                                             <th></th>
                                         </tr>
@@ -46,35 +42,13 @@
                                                 {{ $examen['examen'] }}
                                             </td>
                                             <td class="px-6 text-sm text-gray-900">
-                                                {{ $examen['plaatsen'] }}
+                                                {{ $examen['datum'] }}
                                             </td>
-                                            
-                                            @foreach($examen['examen_moments'] as $moment)
 
-                                            <td class="px-6 text-sm text-gray-900">
-                                                {{ $moment['datum'] }}
-                                            </td>
-                                            <td class="px-6 text-sm text-gray-900">
-                                                {{ $moment['tijd'] }}
-                                            </td>
-                                            @endforeach
-                      
-                                            
-
-                                            <td class="px-6 pr-0 d-flex align-right">
+                                            <td class="px-6 pr-0 d-flex float-right">
                                                 <a href="{{ route('examens.show', $examen['id'] ) }}">
                                                     <x-jet-button title="Bekijken" class="mb-2 mr-2 button">
                                                         <i class="fas fa-eye"></i>
-                                                    </x-jet-button>
-                                                </a>
-                                                <a href="{{ route('examens.edit', $examen['id']) }}">
-                                                    <x-jet-button title="Bewerken" class="mb-2 mr-2 button">
-                                                        <i class="fas fa-edit"></i>
-                                                    </x-jet-button>
-                                                </a>
-                                                <a href="{{ route('examenMomentCreate', $examen['id']) }}">
-                                                    <x-jet-button title="moment" class="mb-2 mr-2 button">
-                                                        <i class="fas fa-edit"></i>
                                                     </x-jet-button>
                                                 </a>
 
@@ -87,6 +61,36 @@
                                                     </x-jet-button>
                                                 </form>
                                             </td>
+                            
+                                           <!-- <td>
+                                               <table>
+                                                    @foreach($examen['examen_moments'] as $moment)
+                                                    <tr>
+                                                        <td class="px-6 text-sm text-gray-900">
+                                                            {{ $moment['tijd'] }}
+                                                        </td>
+                                                        <td class="px-6 text-sm text-gray-900">
+                                                            {{ $moment['plaatsen'] }}
+                                                        </td>
+                                                        <td class="px-6 pr-0 d-flex">
+                                                            <a href="{{ route('examenMomentEdit', $moment['id']) }}">
+                                                                <x-jet-button title="edit" class="mb-2 mr-2 button">
+                                                                    <i class="fas fa-edit"></i>
+                                                                </x-jet-button>
+                                                            </a>
+
+                                                            <form action="{{ route('examenMomentDelete', $moment['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
+                                                                <input type="hidden" name="_method" value="DELETE">
+                                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                                <x-jet-button class="mr-2 button" title="Verwijderen">
+                                                                    <i class="fas fa-trash"></i>
+                                                                </x-jet-button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+                                                </table>
+                                            </td> -->
 
                                         </tr>
                                         @endforeach
