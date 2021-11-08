@@ -106,17 +106,14 @@ class ExamenController extends Controller
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
-        $datum = null;
-        $tijd = null;
-
         $voornaam           =   $request->session()->get('voornaam');
         $achternaam         =   $request->session()->get('achternaam');
         $studentnummer      =   $request->session()->get('studentnummer');
         $opleiding          =   $request->session()->get('opleiding');
         $vak                =   $request->session()->get('vak');
         $examen             =   $request->session()->get('examen');
-        // $datum              =   $request->session()->get('datum');
-        // $tijd               =   $request->session()->get('tijd');
+        $datum              =   $request->session()->get('datum');
+        $tijd               =   $request->session()->get('tijd');
         $faciliteitenpas    =   $request->session()->get('faciliteitenpas');
         $opmerkingen        =   $request->session()->get('opmerkingen');
 
