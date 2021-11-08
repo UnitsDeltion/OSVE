@@ -25,29 +25,15 @@ class FormHandlerController extends Controller
             'klas' => 'required|max:9|string',
         ]);
         
-        if(!isset($request->voornaam) 
-        || !isset($request->achternaam) 
-        || !isset($request->studentnummer)
-        || !isset($request->klas)){
-            $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
-
-        $request->session()->put('voornaam', $request->voornaam);
-        $request->session()->put('achternaam', $request->achternaam);
-        $request->session()->put('studentnummer', $request->studentnummer);
-        $request->session()->put('klas', $request->klas);
+        $data = $request->except('_method', '_token');
+        $request->session()->put('data', $data);
 
         return redirect('p2');
     }
 
     public function f3(Request $request){
-        $validated = $request->validate([
-            'crebo_nr' => 'required|max:5|string',
-        ],
-        [
-            'crebo_nr.required' => 'Het opleidingen veld is verplicht!',
-        ]);
+        $validated = $request->validate(['crebo_nr' => 'required|max:5|string',],
+        ['crebo_nr.required' => 'Het opleidingen veld is verplicht!',]);
         
         if(!isset($request->crebo_nr) 
         || null == $request->session()->get('voornaam')
@@ -143,18 +129,14 @@ class FormHandlerController extends Controller
             'crebo_nr' => $request->session()->get('crebo_nr'),
             'vak' => $request->session()->get('vak'),
             'examen' => $request->session()->get('examen')
-        ])->get();
-
-        $examenId = $examenId[0]['id'];
+        ])->first()->id;
 
         //Haalt examen moment id op voor relatie
         $examenMomentId = ExamenMoment::where([
             'examenid'  => $examenId,
             'datum'     => $request->session()->get('datum'),
             'tijd'      => $request->session()->get('tijd')
-        ])->get();
-
-        $examenMomentId = $examenMomentId[0]['id'];
+        ])->first()->id;
 
         $studentnummer = $request->session()->get('studentnummer');
 
@@ -189,7 +171,7 @@ class FormHandlerController extends Controller
         //Tijd/datum wanneer token is gemaakt
         $cre_date = time();
         //Tijd/datum wanneer token verloopt
-        $exp_date = strtotime('+1 day', $cre_date);
+        $exp_date = strtotime('+1 day', $cre_date); //config toevoegen
 
         //Maakt token voor bevestiging
         $token = Hash::make($studentnummer);
@@ -228,17 +210,15 @@ class FormHandlerController extends Controller
         };
 
         //Haalt de token data op basis van de token
-        $tokenData = GeplandeExamensTokens::where('token', $request->token)->get();
+        $tokenData = GeplandeExamensTokens::where('token', $request->token)->first();
 
         //Als query leeg is laat error zien
-        if(!isset($tokenData[0])){
+        if(!isset($tokenData)){
             $request->session()->put('title', 'Ongeldige token');
             $request->session()->put('message', 'Probeer het opnieuw of neem contact op met je docent.');
             $request->session()->put('error', 'Err: invalid_token/not found.');
             return redirect('p9'); 
         }
-
-        $tokenData = $tokenData[0];
 
         //Verloop datum
         $exp_date = $tokenData['exp_date'];
@@ -282,6 +262,6 @@ class FormHandlerController extends Controller
 
         $request->session()->put('title', 'Examen ingepland');
         $request->session()->put('message', 'Voordat het de afspraak definitief is moet deze eerst nog worden goedgekeurd door een docent. Zodra dit is gebeurt ontvang je een nieuwe bevestiging.');
-        return redirect('p9'); 
+        return redirect('p9');
     }
 }
