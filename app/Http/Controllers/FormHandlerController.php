@@ -130,7 +130,7 @@ class FormHandlerController extends Controller
         $student_nr = $request->session()->get('studentnummer');
         $details = [];
            
-        \Mail::to($student_nr.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
+        \Mail::to($student_nr.'@st.deltion.nl')->send(new \App\Mail\examenInplannen($details));
 
         $studentnummer = $request->session()->get('studentnummer');
         $request->session()->flush();

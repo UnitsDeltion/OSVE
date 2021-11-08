@@ -134,6 +134,10 @@
                                     <td >{{ Session::get('achternaam') }}</td>
                                 </tr>
                                 <tr>
+                                    <td >Faciliteiten pas</td>
+                                    <td >{{ Session::get('faciliteitenpas') }}</td>
+                                </tr>
+                                <tr>
                                     <td >Student nummer</td>
                                     <td >{{ Session::get('studentnummer') }}</td>
                                 </tr>
@@ -154,8 +158,12 @@
                                     <td >{{ Session::get('examen') }}</td>
                                 </tr>
                                 <tr>
-                                    <td >Faciliteiten pas</td>
-                                    <td >{{ Session::get('faciliteitenpas') }}</td>
+                                    <td >Datum</td>
+                                    <td >{{ Session::get('datum') }}</td>
+                                </tr>
+                                <tr>
+                                    <td >Tijd</td>
+                                    <td >{{ Session::get('tijd') }}</td>
                                 </tr>
                            
                                 <tr>

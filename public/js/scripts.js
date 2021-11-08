@@ -75,7 +75,10 @@ function momentSelect($type, $value){
     var test = document.getElementById("test");
     test.classList.add("activeInput");
 
-    console.log(test);
+    var test1 = document.getElementById("test1");
+    test1.classList.add("activeInput");
+
+    console.log(test, test1);
 
     
 }
