@@ -10,7 +10,7 @@
 
         <a href="{{ route('examens.index') }}" class="a-clear mb-2">
             <x-jet-button class="mb-2 button">
-                {{ __('Terug naar dashboard') }}
+                {{ __('Terug naar examen overzicht') }}
             </x-jet-button>
         </a>
 
@@ -20,18 +20,29 @@
             
             <div class="row">
             <div class="col-md-6">
+                <div class="form-group">
+                    <lable for="vak" class="block font-medium text-sm text-gray-700">Vak</lable>
+                    @error('vak')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                    <input id="vak" class="block mt-1 w-full form-control" type="text" name="vak" :value="old('vak')"/>
+                    </div>
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="vak" class="block font-medium text-sm text-gray-700">Vak</lable>
-                        @error('vak')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="vak" class="block mt-1 w-full form-control" type="text" name="vak" :value="old('vak')"/>
+                        <lable for="examen" class="block font-medium text-sm text-gray-700">Examen</lable>
+                        @error('examen')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="examen" class="block mt-1 w-full form-control" type="text" name="examen" :value="old('examen')"/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="crebo_nr" class="block font-medium text-sm text-gray-700">crebo nummer</lable>
+                        <lable for="crebo_nr" class="block font-medium text-sm text-gray-700">Opleiding</lable>
                         @error('crebo_nr')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="crebo_nr" class="block mt-1 w-full form-control" type="number" name="crebo_nr" :value="old('crebo_nr')"/>
+                        <select id="crebo_nr" class="block mt-1 w-full form-control" name="crebo_nr" :value="old('crebo_nr')">
+                            @foreach($opleidingen as $opleiding)
+                                <option value="{{ $opleiding['crebo_nr'] }}">{{ $opleiding['opleiding'] }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 
@@ -59,13 +70,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <lable for="examen" class="block font-medium text-sm text-gray-700">Examen</lable>
-                        @error('examen')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="examen" class="block mt-1 w-full form-control" type="text" name="examen" :value="old('examen')"/>
-                    </div>
-                </div>
+                
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -76,12 +81,21 @@
                 </div>
 
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <lable for="opgeven_examen" class="block font-medium text-sm text-gray-700">Opgeven examen</lable>
-                        @error('examen_opgeven_begin')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="examen_opgeven_begin" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_begin" :value="old('examen_opgeven_begin')"/>
-                        @error('examen_opgeven_eind')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="examen_opgeven_eind" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_eind" :value="old('examen_opgeven_eind')"/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <lable for="opgeven_examen_begin" class="block font-medium text-sm text-gray-700">Opgeven examen begin</lable>
+                                @error('examen_opgeven_begin')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                                <input id="examen_opgeven_begin" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_begin" :value="old('examen_opgeven_begin')"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <lable for="opgeven_examen_eind" class="block font-medium text-sm text-gray-700">Opgeven examen eind</lable>
+                                @error('examen_opgeven_eind')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                                <input id="examen_opgeven_eind" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_eind" :value="old('examen_opgeven_eind')"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

@@ -32,7 +32,6 @@ class Examen extends Model
 
 	protected $casts = [
 		'crebo_nr' => 'int',
-		'plaatsen' => 'int'
 	];
 
 	protected $fillable = [
@@ -40,12 +39,12 @@ class Examen extends Model
 		'vak',
 		'crebo_nr',
 		'examen',
-		'plaatsen',
 		'geplande_docenten',
 		'examen_type',
 		'examen_opgeven_begin',
 		'examen_opgeven_eind',
-		'uitleg'
+		'uitleg',
+		'datum'
 	];
 
 

@@ -45,4 +45,7 @@ Route::resource('/beheer/examens', ExamenBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
 
 Route::get('/beheer/examenMomentCreate/{id}', [ExamenBeheerController::class, 'examenMomentCreate'])->name('examenMomentCreate');
+Route::get('/beheer/examenMomentEdit/{id}', [ExamenBeheerController::class, 'examenMomentEdit'])->name('examenMomentEdit');
+Route::POST('/beheer/examenMomentUpdate/{id}', [ExamenBeheerController::class, 'examenMomentUpdate'])->name('examenMomentUpdate');
 Route::POST('/beheer/examenMomentStore/{id}', [ExamenBeheerController::class, 'examenMomentStore'])->name('examenMomentStore');
+Route::POST('/beheer/examenMomentDelete/{id}', [ExamenBeheerController::class, 'examenMomentDelete'])->name('examenMomentDelete');
