@@ -6,6 +6,31 @@
         </h2>
     </x-slot>
 
+    <div id="notify"></div>
+    @error('tijd')
+        <script>
+            Notify({
+                type: 'danger',
+                duration: 50000,
+                position: 'top center',
+                title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
+                html: '<p class="align-center mb-0 fw-600 fc-primary-nh">{{ $message }}</p>',
+            });
+        </script>    
+    @enderror
+
+    @error('datum')
+        <script>
+            Notify({
+                type: 'danger',
+                duration: 50000,
+                position: 'top center',
+                title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
+                html: '<p class="align-center mb-0 fw-600 fc-primary-nh">{{ $message }}</p>',
+            });
+        </script>    
+    @enderror
+
     @livewire('includes.content.top.content-normal-top')  
     
         <div class="container">
@@ -24,28 +49,28 @@
                                 <div class="datum">
                                     <div class="row">
                                         <h3>Datum</h3>
-                                        <div class="card col-sm-3" style="">
+                                        <div class="card col-sm-3 selectInput shadow" style="" onclick="momentSelect('datum', '2021-8-24')">
                                             <div class="card-body">
                                                 <h5 class="card-title">Dinsdag</h5>
                                                 <p class="card-text">24-8-2021</p>
                                             </div>
                                         </div>
 
-                                        <div class="card col-sm-3" style="">
+                                        <div class="card col-sm-3 selectInput shadow" style="" onclick="momentSelect('datum', '2021-8-25')">
                                             <div class="card-body">
                                                 <h5 class="card-title">Woensdag</h5>
                                                 <p class="card-text">25-8-2021</p>
                                             </div>
                                         </div>
 
-                                        <div class="card col-sm-3" style="">
+                                        <div class="card col-sm-3 selectInput shadow" style="" onclick="momentSelect('datum', '2021-11-20')">
                                             <div class="card-body">
                                                 <h5 class="card-title">Dinsdag</h5>
-                                                <p class="card-text">31-8-2021</p>
+                                                <p class="card-text">2021-11-20</p>
                                             </div>
                                         </div>
 
-                                        <div class="card col-sm-3" style="">
+                                        <div class="card col-sm-3 selectInput shadow" style="" onclick="momentSelect('datum', '2021-9-03')">
                                             <div class="card-body">
                                                 <h5 class="card-title">Vrijdag</h5>
                                                 <p class="card-text">03-9-2021</p>
@@ -57,15 +82,15 @@
                                 <div class="mt-2">
                                     <div class="row justify-content-center">
                                         <h3>Tijd</h3>
-                                        <div class="card col-sm-3 mr-10 ml-10 selectInput shadow" onclick="test({{$moment->id}})">
+                                        <div class="card col-sm-3 mr-10 ml-10 selectInput shadow" onclick="momentSelect('tijd', '12:30')" id="test">
                                             <div class="card-body">
-                                                <h5 class="card-title">08:00 - 09:00</h5>
+                                                <h5 class="card-title">12:30 - 09:00</h5>
                                             </div>
                                         </div>
 
-                                        <div class="card col-sm-3 mr-10 ml-10 selectInput shadow">
+                                        <div class="card col-sm-3 mr-10 ml-10 selectInput shadow" onclick="momentSelect('tijd', '12:00')" id="test1">
                                             <div class="card-body">
-                                                <h5 class="card-title">08:00 - 09:00</h5>
+                                                <h5 class="card-title">012:00 - 09:00</h5>
                                             </div>
                                         </div>
                                     </div>

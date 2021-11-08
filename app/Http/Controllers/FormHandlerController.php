@@ -79,6 +79,10 @@ class FormHandlerController extends Controller
     }
 
     public function f5(Request $request){
+        $validated = $request->validate([
+            'tijd' => 'required|max:255|string',
+            'datum' => 'required|max:255|string',
+        ]);
         if(null == $request->session()->get('voornaam')
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer')
@@ -89,6 +93,9 @@ class FormHandlerController extends Controller
             $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
+
+        $request->session()->put('tijd',$request->tijd);
+        $request->session()->put('datum',$request->datum);
 
         return redirect('p5');
     }
