@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Models\GeplandeExamen;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
 class DashboardController extends Controller
@@ -21,8 +20,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
         $users = User::all();
         $examens = Examen::all();
 

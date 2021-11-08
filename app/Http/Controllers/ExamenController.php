@@ -8,7 +8,6 @@ use App\Models\Opleidingen;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Gate;
 
 class ExamenController extends Controller
 {
@@ -32,8 +31,7 @@ class ExamenController extends Controller
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+           }
 
         $opleidingen = Opleidingen::get();
         
@@ -50,7 +48,6 @@ class ExamenController extends Controller
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
         $examens = Examen::where('crebo_nr', $request->session()->get('crebo_nr'))->orderBy('vak', 'asc')->get();
@@ -67,7 +64,6 @@ class ExamenController extends Controller
         || null == $request->session()->get('vak')
         || null == $request->session()->get('examen')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
         $vak = $request->session()->get('vak');
@@ -87,7 +83,6 @@ class ExamenController extends Controller
         || null == $request->session()->get('vak')
         || null == $request->session()->get('examen')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
         return view('p5');
@@ -103,7 +98,6 @@ class ExamenController extends Controller
         || null == $request->session()->get('examen')
         || null == $request->session()->get('faciliteitenpas')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
         $voornaam           =   $request->session()->get('voornaam');
@@ -134,7 +128,6 @@ class ExamenController extends Controller
         if(null == $request->session()->get('succes')
         || null == $request->session()->get('studentnummer')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
         $studentnummer = $request->session()->get('studentnummer');
