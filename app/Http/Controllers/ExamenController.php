@@ -77,27 +77,6 @@ class ExamenController extends Controller
             ]
         );
 
-        $data = array();
-
-        foreach($examens as $examen){
-
-            
-
-            $i = array(
-                'vak'=> $examen->vak,
-                'examen' => [
-                    $examen->examen,
-                ]
-            );
-
-            array_push($data, $i);
-
-        }
-        
-        dd($data);
-
-
-
         return view('p3', compact('examens'));
     }
 
