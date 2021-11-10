@@ -66,7 +66,7 @@
                                 <form action="{{ route('bevestigExamen', $geplandExamen->id) }}" method="post">
                                     @csrf
                                     <x-jet-button class="button">
-                                    Bevestigen
+                                        Bevestigen
                                     </x-jet-button>
                                 </form>
                             @endif
