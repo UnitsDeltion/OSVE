@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Session;
 use App\Models\Examen;
 use App\Models\Opleidingen;
+use App\Models\ExamenMoment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
@@ -26,8 +27,6 @@ class ExamenController extends Controller
     }
 
     public function p2(Request $request){
-
-
         if(null == $request->session()->get('voornaam')
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer')
@@ -35,7 +34,6 @@ class ExamenController extends Controller
             $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
-
 
         $opleidingen = Opleidingen::get();
         
@@ -77,6 +75,17 @@ class ExamenController extends Controller
         $vak = $request->session()->get('vak');
         $examen = $request->session()->get('examen');
 
+        // //Haalt het ID van het examen op, aangezien examen en vak strings zijn.
+        // $examenId = Examen::where([
+        //     'crebo_nr' => $request->session()->get('crebo_nr'),
+        //     'vak' => $request->session()->get('vak'),
+        //     'examen' => $request->session()->get('examen')
+        // ])->first()->id;
+        // //Haalt alle examenmomenten op
+        // $exmaneMoment= examenMoment::where('examenid', $examenId)->get();
+
+        // dd($exmaneMoment);
+
         return view('p4')
             ->with(compact('vak'))
             ->with(compact('examen'));
@@ -102,43 +111,23 @@ class ExamenController extends Controller
         if(null == $request->session()->get('voornaam')
         || null == $request->session()->get('achternaam') 
         || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('faciliteitenpas')
         || null == $request->session()->get('klas')
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')
         || null == $request->session()->get('vak')
         || null == $request->session()->get('examen')
-        || null == $request->session()->get('faciliteitenpas')){
+        || null == $request->session()->get('datum')
+        || null == $request->session()->get('tijd')){
             $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
-        $datum = null;
-        $tijd = null;
-
-        $voornaam           =   $request->session()->get('voornaam');
-        $achternaam         =   $request->session()->get('achternaam');
-        $studentnummer      =   $request->session()->get('studentnummer');
-        $klas               =   $request->session()->get('klas');
-        $opleiding          =   $request->session()->get('opleiding');
-        $vak                =   $request->session()->get('vak');
-        $examen             =   $request->session()->get('examen');
-        // $datum              =   $request->session()->get('datum');
-        // $tijd               =   $request->session()->get('tijd');
-        $faciliteitenpas    =   $request->session()->get('faciliteitenpas');
-        $opmerkingen        =   $request->session()->get('opmerkingen');
+        $sessionData = collect(session()->all());
+        $data = $sessionData->except(['_previous', '_flash', '_token']);
 
         return view('p6')
-            ->with(compact('voornaam'))
-            ->with(compact('achternaam'))
-            ->with(compact('studentnummer'))
-            ->with(compact('klas'))
-            ->with(compact('opleiding'))
-            ->with(compact('vak'))
-            ->with(compact('examen'))
-            ->with(compact('datum'))
-            ->with(compact('tijd'))
-            ->with(compact('faciliteitenpas'))
-            ->with(compact('opmerkingen'));
+            ->with(compact('data'));
     }
 
     public function p7(Request $request){
