@@ -24,7 +24,8 @@ class CreateGeplandeExamensTable extends Migration
             $table->integer('examen'); //Relatie naar examens id -> examen, vak, 
             $table->integer('examen_moment'); //Relatie naar examen moment
             $table->longText('opmerkingen')->nullable();
-            $table->integer('active')->default('0');
+            $table->integer('std_bevestigd')->default('0');
+            $table->integer('doc_bevestigd')->default('0');
         });
     }
 

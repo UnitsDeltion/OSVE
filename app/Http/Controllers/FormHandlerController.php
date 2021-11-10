@@ -148,7 +148,8 @@ class FormHandlerController extends Controller
             'examen'            =>      $examenId,
             'examen_moment'     =>      $examenMomentId,
             'opmerkingen'       =>      $request->session()->get('opmerkingen'),
-            'active'            =>      0,
+            'std_bevestigd'     =>      0,
+            'doc_bevestigd'     =>      0,
         ])->id;
 
         //Tijd/datum wanneer token is gemaakt
@@ -223,20 +224,20 @@ class FormHandlerController extends Controller
         }
 
         //Haalt het geplande examen op, op basis van het id uit de token
-        $geplandExamen = GeplandeExamens::where('id', $tokenData->gepland_examen_id)->get();
+        $geplandExamen = GeplandeExamens::where('id', $tokenData->gepland_examen_id)->first();
 
         //Als query leeg is laat error zien
-        if(!isset($geplandExamen[0])){
+        if(!isset($geplandExamen)){
             $request->session()->put('title', 'Ongeldige token');
             $request->session()->put('message', 'Probeer het opnieuw of neem contact op met je docent.');
             $request->session()->put('error', 'Err: geen ingepland examen gevonden.');
             return redirect('p9'); 
         }
         
-        $geplandExamen = $geplandExamen[0];
+        // $geplandExamen = $geplandExamen[0];
 
         //Zet examen op actief en sla het op
-        $geplandExamen->active = 1;
+        $geplandExamen->std_bevestigd = 1;
         $geplandExamen->save();
 
         //Verwijderd de token uit de db
