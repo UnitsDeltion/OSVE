@@ -20,6 +20,38 @@
                                 @error('examen_moment')<div class="fc-red text-sm mb-2 text-center">{{ $message }}</div>@enderror
                                 
                                 <p>Gekozen examen: <span class="fc-primary-nh">{{ $vak}} {{ $examen }}</span></p>
+
+
+                                @foreach($examenMoment as $examen)
+                                    <?php
+                                        // if($examen->vak != $examenVak ){
+                                        //     if ($examenVak != ""){
+                                        //         echo "</div>";
+                                        //     }
+                                        //     echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow\">";
+                                        //     echo "<h4 class=\"fc-secondary-nh\">" . $examen->vak . "</h4>";
+                                        // }
+                                        
+                                        // $examenVak = $examen->vak;        
+                                        
+                                        
+                                    ?>
+                                    <!-- onclick="selectInput('p3', {{ $examen->id }}) -->
+                                    <div class="row selectInput pb-1">
+                                        <div class="col-xs-8 fc-primary-nh">
+                                            {{ $examen->datum }}
+                                        </div>
+                                        
+                                        <div class="col-xs-2" title="Resterende aantal plaatsen">
+                                            {{ $examen->tijd }}
+                                            <!-- <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }} -->
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <!-- <input type="radio" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
+                                        --> </div>
+                                    </div>
+                                    @endforeach
+                                </div>
                                 
                                 
                             </div>
