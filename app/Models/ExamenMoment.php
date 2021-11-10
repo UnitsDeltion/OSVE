@@ -40,8 +40,10 @@ class ExamenMoment extends Model
 
 	protected $fillable = [
 		'examenid',
+		'datum',
 		'tijd',
 		'plaatsen'
+		
 	];
 
 	public function examen()

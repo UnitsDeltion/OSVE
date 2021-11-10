@@ -24,6 +24,7 @@ class ExamenMomentTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'examenid' => 1,
+                'datum' => '2021-11-20',
                 'tijd' => '12:30:00',
                 'plaatsen' => '30',
             ),
@@ -31,6 +32,7 @@ class ExamenMomentTableSeeder extends Seeder
             array (
                 'id' => 2,
                 'examenid' => 2,
+                'datum' => '2021-11-20',
                 'tijd' => '12:30:00',
                 'plaatsen' => '30',
             ),
@@ -38,6 +40,7 @@ class ExamenMomentTableSeeder extends Seeder
             array (
                 'id' => 3,
                 'examenid' => 3,
+                'datum' => '2021-11-20',
                 'tijd' => '12:30:00',
                 'plaatsen' => '30',
             ),
@@ -45,6 +48,7 @@ class ExamenMomentTableSeeder extends Seeder
             array (
                 'id' => 4,
                 'examenid' => 4,
+                'datum' => '2021-11-20',
                 'tijd' => '12:30:00',
                 'plaatsen' => '30',
             ),
@@ -52,6 +56,7 @@ class ExamenMomentTableSeeder extends Seeder
             array (
                 'id' => 5,
                 'examenid' => 5,
+                'datum' => '2021-11-20',
                 'tijd' => '12:30:00',
                 'plaatsen' => '30',
             ),
@@ -59,6 +64,7 @@ class ExamenMomentTableSeeder extends Seeder
             array (
                 'id' => 6,
                 'examenid' => 6,
+                'datum' => '2021-11-20',
                 'tijd' => '12:30:00',
                 'plaatsen' => '30',
             ),
@@ -66,6 +72,7 @@ class ExamenMomentTableSeeder extends Seeder
             array (
                 'id' => 7,
                 'examenid' => 7,
+                'datum' => '2021-11-20',
                 'tijd' => '12:30:00',
                 'plaatsen' => '30',
             ),
@@ -73,6 +80,7 @@ class ExamenMomentTableSeeder extends Seeder
             array (
                 'id' => 8,
                 'examenid' => 8,
+                'datum' => '2021-11-20',
                 'tijd' => '12:30:00',
                 'plaatsen' => '30',
             ),
@@ -80,6 +88,7 @@ class ExamenMomentTableSeeder extends Seeder
             array (
                 'id' => 9,
                 'examenid' => 9,
+                'datum' => '2021-11-20',
                 'tijd' => '12:30:00',
                 'plaatsen' => '30',
             ),
@@ -87,6 +96,7 @@ class ExamenMomentTableSeeder extends Seeder
             array (
                 'id' => 10,
                 'examenid' => 10,
+                'datum' => '2021-11-20',
                 'tijd' => '12:30:00',
                 'plaatsen' => '30',
             ),
@@ -94,6 +104,7 @@ class ExamenMomentTableSeeder extends Seeder
             array (
                 'id' => 11,
                 'examenid' => 11,
+                'datum' => '2021-11-20',
                 'tijd' => '12:30:00',
                 'plaatsen' => '30',
             ),

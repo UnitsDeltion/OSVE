@@ -55,9 +55,6 @@ class ExamenBeheerController extends Controller
             'vak' => 'required',
             'examen' => 'required',
             'crebo_nr' => 'required|integer|digits:5',
-            'datum' => 'required',
-            // 'tijd' => 'required',
-            // 'plaatsen' => 'required|integer',
             'geplande_docenten' => 'required',
             'examen_opgeven_begin' => 'required',
             'examen_opgeven_eind' => 'required',
@@ -70,7 +67,6 @@ class ExamenBeheerController extends Controller
         $examen->examen_opgeven_begin = $request->examen_opgeven_begin;
         $examen->examen_opgeven_eind = $request->examen_opgeven_eind;
         $examen->uitleg = $request->uitleg;
-        $examen->datum = $request->datum;
         $examen->save();
         
         // $moment->examenid = $examen->id;
@@ -134,9 +130,6 @@ class ExamenBeheerController extends Controller
             'vak' => 'required',
             'examen' => 'required',
             'crebo_nr' => 'required|integer|digits:5',
-            'datum' => 'required',
-            // 'tijd' => 'required',
-            // 'plaatsen' => 'required|integer',
             'geplande_docenten' => 'required',
             'examen_opgeven_begin' => 'required',
             'examen_opgeven_eind' => 'required',
@@ -151,7 +144,6 @@ class ExamenBeheerController extends Controller
         $examen->examen_opgeven_begin = is_null($request->examen_opgeven_begin) ? $examen->examen_opgeven_begin : $request->examen_opgeven_begin;
         $examen->examen_opgeven_eind = is_null($request->examen_opgeven_eind) ? $examen->examen_opgeven_eind : $request->examen_opgeven_eind;
         $examen->uitleg = is_null($request->uitleg) ? $examen->uitleg : $request->uitleg;
-        $examen->datum = is_null($request->datum) ? $examen->datum : $request->datum;
         $examen->save();
         
         // $moment = ExamenMoment::find($id);
@@ -224,10 +216,12 @@ class ExamenBeheerController extends Controller
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $this->validate($request, [
+            'datum' => 'required',
             'tijd' => 'required',
             'plaatsen' => 'required'
         ]);
         $moment->examenid = $request->id;
+        $moment->datum = $request->datum;
         $moment->tijd = $request->tijd;
         $moment->plaatsen = $request->plaatsen;
         $moment->save();
@@ -240,6 +234,7 @@ class ExamenBeheerController extends Controller
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $this->validate($request, [
+            'datum' => 'required',
             'tijd' => 'required',
             'plaatsen' => 'required|integer',
         ]);
@@ -247,6 +242,7 @@ class ExamenBeheerController extends Controller
     if (Examen::where('id', $id)->exists()) {
         
         $moment = ExamenMoment::find($id);
+        $moment->datum = is_null($request->datum) ? $moment->datum : $request->datum;
         $moment->tijd = is_null($request->tijd) ? $moment->tijd : $request->tijd;
         $moment->plaatsen = is_null($request->plaatsen) ? $moment->plaatsen : $request->plaatsen;
         $moment->save();

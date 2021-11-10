@@ -22,7 +22,6 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'   =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin' => '2021-10-28',
                 'examen_opgeven_eind' => '2021-11-18',
-                'datum' => '2021-11-20',
 
             ],
             [
@@ -32,7 +31,6 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'   =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin' => '2021-10-28',
                 'examen_opgeven_eind' => '2021-11-18',
-                'datum' => '2021-11-20',
             ],
             [
                 'crebo_nr'          =>      25351,
@@ -41,7 +39,6 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'   =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin' => '2021-10-28',
                 'examen_opgeven_eind' => '2021-11-18',
-                'datum' => '2021-11-20',
             ],
             [
                 'crebo_nr'          =>      25351,
@@ -50,7 +47,6 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'   =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin' => '2021-10-28',
                 'examen_opgeven_eind' => '2021-11-18',
-                'datum' => '2021-11-20',
             ],
             [
                 'crebo_nr'          =>      25351,
@@ -59,7 +55,6 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'   =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin' => '2021-10-28',
                 'examen_opgeven_eind' => '2021-11-18',
-                'datum' => '2021-11-20',
             ],
             [
                 'crebo_nr'          =>      25351,
@@ -68,7 +63,6 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'   =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin' => '2021-10-28',
                 'examen_opgeven_eind' => '2021-11-18',
-                'datum' => '2021-11-20',
             ],
             [
                 'crebo_nr'          =>      25351,
@@ -77,7 +71,6 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'   =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin' => '2021-10-28',
                 'examen_opgeven_eind' => '2021-11-18',
-                'datum' => '2021-11-20',
             ],
             [
                 'crebo_nr'          =>      25351,
@@ -86,7 +79,6 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'   =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin' => '2021-10-28',
                 'examen_opgeven_eind' => '2021-11-18',
-                'datum' => '2021-11-20',
             ],
             [
                 'crebo_nr'          =>      25351,
@@ -95,7 +87,6 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'   =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin' => '2021-10-28',
                 'examen_opgeven_eind' => '2021-11-18',
-                'datum' => '2021-11-20',
             ],
             [
                 'crebo_nr'          =>      25351,
@@ -104,7 +95,6 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'   =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin' => '2021-10-28',
                 'examen_opgeven_eind' => '2021-11-18',
-                'datum' => '2021-11-20',
             ],
             [
                 'crebo_nr'          =>      25352,
@@ -113,7 +103,6 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'   =>    '97071583@st.deltion.nl',
                 'examen_opgeven_begin' => '2021-10-28',
                 'examen_opgeven_eind' => '2021-11-18',
-                'datum' => '2021-11-20',
             ],
 
         ];

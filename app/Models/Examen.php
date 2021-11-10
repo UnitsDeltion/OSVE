@@ -44,7 +44,7 @@ class Examen extends Model
 		'examen_opgeven_begin',
 		'examen_opgeven_eind',
 		'uitleg',
-		'datum'
+		
 	];
 
 
