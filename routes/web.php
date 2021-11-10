@@ -6,6 +6,7 @@ use App\Http\Controllers\TokenController;
 use App\Http\Controllers\ExamenController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormHandlerController;
+use App\Http\Controllers\Beheer\GeplandeExamensBeheer;
 use App\Http\Controllers\Beheer\UsersBeheerController;
 use App\Http\Controllers\Beheer\ExamenBeheerController;
 use App\Http\Controllers\Beheer\OpleidingBeheerController;
@@ -46,3 +47,6 @@ Route::get('/privacy-policy', function () {return redirect('https://www.deltion.
 Route::resource('/beheer/users', UsersBeheerController::class);
 Route::resource('/beheer/examens', ExamenBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
+
+//Voor docenten om een examen te bevestigen
+Route::POST('/beheer/geplandeExamens/bevestigExamen/{id}', [GeplandeExamensBeheer::class, 'bevestigExamen'])->name('bevestigExamen');

@@ -24,9 +24,11 @@
                         <th>Student</th>
                         <th>Faciliteitenpas</th>
                         <th>Klas</th>
-                        <th>examen</th>
-                        <th>examen_moment</th>
-                        <th>Bevestigd</th>
+                        <th>Examen</th>
+                        <th>Datum</th>
+                        <th>Tijd</th>
+                        <th>Student bevestigd</th>
+                        <th>Docent bevestigd</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,16 +44,31 @@
                             {{ $geplandExamen->klas }}
                         </td>
                         <td>
-                            {{ $geplandExamen->examen }}
+                            {{ $geplandExamen->gepland_examen }}
                         </td>
                         <td>
-                            {{ $geplandExamen->examen_moment }}
+                            {{ $geplandExamen->datum }}
                         </td>
                         <td>
-                            @if($geplandExamen->active == '1')
+                            {{ $geplandExamen->tijd }}
+                        </td>
+                        <td>
+                            @if($geplandExamen->std_bevestigd == '1')
                                 <p class="fc-primary-nh">Bevestigd</p>
                             @else
                                 <p class="fc-secondary-nh" title="Examen is nog niet bevestigd door de student">Niet bevestigd</p>
+                            @endif
+                        </td>
+                        <td>
+                            @if($geplandExamen->doc_bevestigd == '1')
+                                <p class="fc-primary-nh">Bevestigd</p>
+                            @else
+                                <form action="{{ route('bevestigExamen', $geplandExamen->id) }}" method="post">
+                                    @csrf
+                                    <x-jet-button class="button">
+                                    Bevestigen
+                                    </x-jet-button>
+                                </form>
                             @endif
                         </td>
                     </tr>
