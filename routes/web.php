@@ -6,6 +6,7 @@ use App\Http\Controllers\FormHandlerController;
 use App\Http\Controllers\ExamenController;
 use App\Http\Controllers\Beheer\UsersBeheerController;
 use App\Http\Controllers\Beheer\ExamenBeheerController;
+use App\Http\Controllers\Beheer\ExamenMomentBeheerController;
 use App\Http\Controllers\Beheer\OpleidingBeheerController;
 
 /*
@@ -42,7 +43,10 @@ Route::get('/privacy-policy', function () {return redirect('https://www.deltion.
 
 Route::resource('/beheer/users', UsersBeheerController::class);
 Route::resource('/beheer/examens', ExamenBeheerController::class);
+Route::resource('/beheer/moments', ExamenMomentBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
+
+Route::get('/beheer/moments/{id}', [ExamenMomentBeheerController::class, 'create']);
 
 Route::get('/beheer/examenMomentCreate/{id}', [ExamenBeheerController::class, 'examenMomentCreate'])->name('examenMomentCreate');
 Route::get('/beheer/examenMomentEdit/{id}', [ExamenBeheerController::class, 'examenMomentEdit'])->name('examenMomentEdit');

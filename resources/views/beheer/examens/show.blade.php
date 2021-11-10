@@ -128,13 +128,13 @@
                             {{ $moment['plaatsen'] }}
                         </td>
                         <td class="px-6 pr-0 d-flex">
-                            <a href="{{ route('examenMomentEdit', $moment['id']) }}">
+                            <a href="{{ route('moments.edit', $moment['id']) }}">
                                 <x-jet-button title="edit" class="mb-2 mr-2 button">
                                     <i class="fas fa-edit"></i>
                                 </x-jet-button>
                             </a>
 
-                            <form action="{{ route('examenMomentDelete', $moment['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
+                            <form action="{{ route('moments.destroy', $moment['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <x-jet-button class="mr-2 button" title="Verwijderen">
