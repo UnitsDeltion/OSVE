@@ -64,14 +64,6 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="datum" class="block font-medium text-sm text-gray-700">Datums</lable>
-                        @error('datum')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="datum" class="block mt-1 w-full form-control" type="date" name="datum" value="{{ $examen['datum'] }}" disabled/>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
                         <lable for="geplande_docenten" class="block font-medium text-sm text-gray-700">Examinerende docenten</lable>
                         @error('geplande_docenten')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <input id="geplande_docenten" class="block mt-1 w-full form-control" type="varchar" name="geplande_docenten" value="{{ $examen['geplande_docenten'] }}" disabled/>
@@ -111,6 +103,9 @@
             <thead>
                 <tr>
                     <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
+                        <strong>datum</strong>
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
                         <strong>tijd</strong>
                     </th>
                     <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
@@ -123,6 +118,9 @@
             <tbody class="bg-white divide-y divide-gray-200">
                 @foreach($examen['examen_moments'] as $moment)
                     <tr>
+                        <td class="px-6 text-sm text-gray-900">
+                            {{ $moment['datum'] }}
+                        </td>
                         <td class="px-6 text-sm text-gray-900">
                             {{ $moment['tijd'] }}
                         </td>

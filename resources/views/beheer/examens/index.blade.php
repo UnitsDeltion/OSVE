@@ -25,9 +25,6 @@
                                                 <strong>Examen</strong>
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
-                                                <strong>Datum</strong>
-                                            </th>
-                                            <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
                                             </th>
                                             <th></th>
                                         </tr>
@@ -40,9 +37,6 @@
                                             </td>
                                             <td class="px-6 text-sm text-gray-900">
                                                 {{ $examen['examen'] }}
-                                            </td>
-                                            <td class="px-6 text-sm text-gray-900">
-                                                {{ $examen['datum'] }}
                                             </td>
 
                                             <td class="px-6 pr-0 d-flex float-right">
