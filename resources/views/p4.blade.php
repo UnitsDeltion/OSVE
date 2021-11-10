@@ -9,7 +9,7 @@
     @livewire('includes.content.top.content-normal-top')  
     
         <div class="container">
-            <div class="row">
+            <div class="row ml-70">
                 <form method="POST" action="{{ route('f5') }}">
                     @csrf
                     <div class="mb-40">
@@ -21,7 +21,6 @@
                                 
                                 <p>Gekozen examen: <span class="fc-primary-nh">{{ $vak}} {{ $examen }}</span></p>
 
-
                                 <?php $examenDatum = ""; ?>
                                 @foreach($examenMoment as $examen)
                                     <?php
@@ -29,7 +28,7 @@
                                             if ($examenDatum != ""){
                                                 echo "</div>";
                                             }
-                                            echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow\">";
+                                            echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow \">";
                                             echo "<h4 class=\"fc-secondary-nh\">" . $examen->datum . "</h4>";
                                         }
                                         
@@ -38,7 +37,8 @@
                                         
                                     ?>
                                     <!-- onclick="selectInput('p3', {{ $examen->id }}) -->
-                                    <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
+
+                                    <div class="row selectInput pb-1" onclick="selectInput('p4', {{ $examen->id }})">
                                         <!-- <div class="col-xs-8 fc-primary-nh">
                                             {{ $examen->datum }}
                                         </div> -->
@@ -48,7 +48,7 @@
                                             <!-- <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }} -->
                                         </div>
                                         <div class="col-xs-2">
-                                            <input type="radio" name="examenMoment" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
+                                            <input type="radio" name="examenMoment" id="{{ $examen->id }}" value="{{ $examen->datum }} - {{ $examen->tijd }}">
                                         </div>
                                     </div>
                                     @endforeach

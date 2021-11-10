@@ -91,13 +91,21 @@ class FormHandlerController extends Controller
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')
         || null == $request->session()->get('vak')
+        || null == $request->session()->get('datum')
+        || null == $request->session()->get('tijd')
         || null == $request->session()->get('examen')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+            //abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
-        $request->session()->put('datum', 's');
-        $request->session()->put('tijd', 's');
+        // $request->session()->put('datum', 's');
+        // $request->session()->put('tijd', 's');
+
+        $data = explode(" - ", $request->examenMoment);
+
+        $request->session()->put('datum', $data[0]);
+        $request->session()->put('tijd', $data[1]);
+
 
         return redirect('p5');
     }
