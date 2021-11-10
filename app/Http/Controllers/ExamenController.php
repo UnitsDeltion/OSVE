@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Session;
 use App\Models\Examen;
 use App\Models\Opleidingen;
+use App\Models\examenMoment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
@@ -67,11 +68,22 @@ class ExamenController extends Controller
         || null == $request->session()->get('vak')
         || null == $request->session()->get('examen')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+            //abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
         $vak = $request->session()->get('vak');
         $examen = $request->session()->get('examen');
+
+        //Haalt het ID van het examen op, aangezien examen en vak strings zijn.
+        $examenId = Examen::where([
+            'crebo_nr' => $request->session()->get('crebo_nr'),
+            'vak' => $request->session()->get('vak'),
+            'examen' => $request->session()->get('examen')
+        ])->first()->id;
+        //Haalt alle examenmomenten op
+        $exmaneMoment= examenMoment::where('examenid', $examenId)->get();
+
+        dd($exmaneMoment);
 
         return view('p4')
             ->with(compact('vak'))
