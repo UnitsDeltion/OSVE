@@ -26,12 +26,16 @@ class ExamenController extends Controller
     }
 
     public function p2(Request $request){
-        $data = $request->session()->all();
 
-        if(!array_key_exists('data', $data)){
+
+        if(null == $request->session()->get('voornaam')
+        || null == $request->session()->get('achternaam') 
+        || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('klas')){
             $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
+
 
         $opleidingen = Opleidingen::get();
         
