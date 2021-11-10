@@ -56,6 +56,48 @@ class ExamenController extends Controller
 
         $examens = Examen::where('crebo_nr', $request->session()->get('crebo_nr'))->orderBy('vak', 'asc')->get();
 
+        // dd($examens);
+
+        $vak = array(
+            [
+                "vak" => 's',
+                "examen" => [
+                    'sd',
+                    'ssasd',
+                    'asd',
+                ],
+            ],
+            [
+                "vak" => 's',
+                "examen" => [
+                    'sd',
+                    'ssasd',
+                    'asd',
+                ],
+            ]
+        );
+
+        $data = array();
+
+        foreach($examens as $examen){
+
+            
+
+            $i = array(
+                'vak'=> $examen->vak,
+                'examen' => [
+                    $examen->examen,
+                ]
+            );
+
+            array_push($data, $i);
+
+        }
+        
+        dd($data);
+
+
+
         return view('p3', compact('examens'));
     }
 
@@ -122,6 +164,7 @@ class ExamenController extends Controller
             $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
+       
 
         $sessionData = collect(session()->all());
         $data = $sessionData->except(['_previous', '_flash', '_token']);

@@ -72,9 +72,6 @@ class FormHandlerController extends Controller
         $request->session()->put('datum', '2021-11-20');
         $request->session()->put('tijd', '12:30');
 
-        $request->session()->put('tijd',$request->tijd);
-        $request->session()->put('datum',$request->datum);
-
         return redirect('p5');
     }
 
@@ -174,8 +171,7 @@ class FormHandlerController extends Controller
 
         //Zet token in sessie voor email view
         $request->session()->put('token', $token);
-        $details = [];
-        // \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
+        \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\examenInplannen());
 
         //Maakt sessie leeg
         $request->session()->flush();
@@ -247,7 +243,7 @@ class FormHandlerController extends Controller
         $tokenData->delete();
 
         $request->session()->put('title', 'Examen ingepland');
-        $request->session()->put('message', 'Voordat het de afspraak definitief is moet deze eerst nog worden goedgekeurd door een docent. Zodra dit is gebeurt ontvang je een nieuwe bevestiging.');
+        $request->session()->put('message', 'Voordat het examen definitief is ingepland moet deze nog worden goedgekeurd door een docent. Zodra dit is gebeurt ontvang je een bevestiging.');
         return redirect('p9');
     }
 }
