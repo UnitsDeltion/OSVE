@@ -29,6 +29,8 @@ class FormHandlerController extends Controller
         $request->session()->put('achternaam', $request->achternaam);
         $request->session()->put('studentnummer', $request->studentnummer);
         $request->session()->put('klas', $request->klas);
+
+
         
         return redirect('p2');
     }
@@ -37,15 +39,6 @@ class FormHandlerController extends Controller
         $request->validate(['crebo_nr' => 'required|max:5|string',],
             ['crebo_nr.required' => 'Het opleidingen veld is verplicht!',]);
         
-        if(!isset($request->crebo_nr) 
-        || null == $request->session()->get('voornaam')
-        || null == $request->session()->get('achternaam') 
-        || null == $request->session()->get('studentnummer')
-        || null == $request->session()->get('klas')){
-            $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
-
         $opleiding = Opleidingen::where('crebo_nr', $request->crebo_nr)->first();
 
         $request->session()->put('crebo_nr', $request->crebo_nr);
@@ -58,17 +51,6 @@ class FormHandlerController extends Controller
         $request->validate([
             'examen' => 'required|max:255|string',
         ]);
-
-        if(!isset($request->examen) 
-        || null == $request->session()->get('voornaam')
-        || null == $request->session()->get('achternaam') 
-        || null == $request->session()->get('studentnummer')
-        || null == $request->session()->get('klas')
-        || null == $request->session()->get('crebo_nr')
-        || null == $request->session()->get('opleiding')){
-            $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
 
         $data = explode(" - ", $request->examen);
 
@@ -84,20 +66,11 @@ class FormHandlerController extends Controller
         //     'tijd' => 'required|max:255|string',
         // ]);
 
-        if(null == $request->session()->get('voornaam')
-        || null == $request->session()->get('achternaam') 
-        || null == $request->session()->get('studentnummer')
-        || null == $request->session()->get('klas')
-        || null == $request->session()->get('crebo_nr')
-        || null == $request->session()->get('opleiding')
-        || null == $request->session()->get('vak')
-        || null == $request->session()->get('examen')){
-            $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+        // $request->session()->put('datum', $request->datum);
+        // $request->session()->put('tijd', $request->tijd);
 
-        $request->session()->put('datum', 's');
-        $request->session()->put('tijd', 's');
+        $request->session()->put('datum', '2021-11-20');
+        $request->session()->put('tijd', '12:30');
 
         return redirect('p5');
     }
@@ -109,7 +82,11 @@ class FormHandlerController extends Controller
         ]);
 
         $request->session()->put('faciliteitenpas', $request->faciliteitenpas);
-        if(isset($request->opmerkingen)){$request->session()->put('opmerkingen', $request->opmerkingen);}else{ $request->session()->put('opmerkingen', '');}
+        if(isset($request->opmerkingen)){
+            $request->session()->put('opmerkingen', $request->opmerkingen);
+        }else{
+            $request->session()->put('opmerkingen', '');
+        }
 
         return redirect('p6');
     }
@@ -188,7 +165,6 @@ class FormHandlerController extends Controller
         GeplandeExamensTokens::create([
             'gepland_examen_id' => $gepland_examen_id,
             'token'             => $token,
-            'cre_date'          => $cre_date,
             'exp_date'          => $exp_date
         ]);
 

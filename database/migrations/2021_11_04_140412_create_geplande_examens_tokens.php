@@ -16,7 +16,6 @@ class CreateGeplandeExamensTokens extends Migration
         Schema::create('geplande_examens_tokens', function (Blueprint $table) {
             $table->id();
             $table->string('gepland_examen_id');
-            $table->string('cre_date');
             $table->string('exp_date');
             $table->string('token');
         });

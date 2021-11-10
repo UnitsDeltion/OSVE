@@ -14,14 +14,14 @@ use Illuminate\Support\Facades\Gate;
 class ExamenController extends Controller
 {
     public function p1(Request $request){
-        $request->session()->forget('voornaam');
-        $request->session()->forget('achternaam');
-        $request->session()->forget('studentnummer');
-        $request->session()->forget('klas');
-        $request->session()->forget('opleiding');
-        $request->session()->forget('crebo_nr');
-        $request->session()->forget('vak');
-        $request->session()->forget('examen');
+
+        //Leegt de sessie zodat alle pagina's weer opnieuw doorgelopen moeten worden en er niet meteen van p1 naar p4 gegaan kan worden
+        //Haalt eerst de CSRF token op
+        $token = $request->session()->get('_token');
+        //Leegt alle sessie data
+        $request->session()->flush();
+        //Zet de CSRF token weer in de sessie
+        $request->session()->put('_token', $token);
 
         return view('p1');
     }

@@ -13,7 +13,6 @@ class GeplandeExamensTokens extends Model
 
     protected $fillable = [
 		'gepland_examen_id',
-		'cre_date',
 		'exp_date',
 		'token',
 	];
