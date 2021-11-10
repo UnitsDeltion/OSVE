@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 class ICS_HandlerController extends Controller
 {
-    public function ics_handler(Request $request, $includeICS){
+    public function ics_handler(Request $request){
         include 'ICS.php';
 
         header('Content-Type: text/calendar; charset=utf-8');
