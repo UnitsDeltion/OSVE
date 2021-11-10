@@ -75,20 +75,21 @@ class ExamenController extends Controller
         $vak = $request->session()->get('vak');
         $examen = $request->session()->get('examen');
 
-        // //Haalt het ID van het examen op, aangezien examen en vak strings zijn.
-        // $examenId = Examen::where([
-        //     'crebo_nr' => $request->session()->get('crebo_nr'),
-        //     'vak' => $request->session()->get('vak'),
-        //     'examen' => $request->session()->get('examen')
-        // ])->first()->id;
-        // //Haalt alle examenmomenten op
-        // $exmaneMoment= examenMoment::where('examenid', $examenId)->get();
+        //Haalt het ID van het examen op, aangezien examen en vak strings zijn.
+        $examenId = Examen::where([
+            'crebo_nr' => $request->session()->get('crebo_nr'),
+            'vak' => $request->session()->get('vak'),
+            'examen' => $request->session()->get('examen')
+        ])->first()->id;
+        //Haalt alle examenmomenten op
+        $examenMoment= examenMoment::where('examenid', $examenId)->get();
 
-        // dd($exmaneMoment);
+        //dd($examenMoment);
 
         return view('p4')
             ->with(compact('vak'))
-            ->with(compact('examen'));
+            ->with(compact('examen'))
+            ->with(compact('examenMoment'));
     }
     
     public function p5(Request $request){
