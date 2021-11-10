@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 /**
  * Created by Reliese Model.
@@ -34,9 +34,15 @@ class ExamenMoment extends Model
 	];
 
 	protected $fillable = [
-		'examenid',
-		'datum',
-		'tijd'
+		'voornaam',
+		'achternaam',
+		'faciliteiten_pas',
+		'student_nr',
+		'klas',
+		'crebo_nr',
+		'examen',
+		'examen_moment',
+		'opmerkingen',
 	];
 
 	public function examen()
@@ -46,6 +52,6 @@ class ExamenMoment extends Model
 
 	public function geplande_examen()
 	{
-		return $this->hasMany(GeplandeExaman::class, 'examen');
+		return $this->hasMany(GeplandExaman::class, 'examen');
 	}
 }

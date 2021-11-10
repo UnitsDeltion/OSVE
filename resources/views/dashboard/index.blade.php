@@ -22,25 +22,54 @@
                 <thead>
                     <tr>
                         <th>Student</th>
+                        <th>Faciliteitenpas</th>
                         <th>Klas</th>
                         <th>Examen</th>
                         <th>Datum</th>
+                        <th>Tijd</th>
+                        <th>Student bevestigd</th>
+                        <th>Docent bevestigd</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($geplandeExamens as $geplandExamen)
                     <tr>
                         <td>
-                            {{ $geplandExamen->student_nr }}
+                            {{ $geplandExamen->voornaam }}  {{ $geplandExamen->achternaam }} <small>({{ $geplandExamen->studentnummer }})</small>
+                        </td>
+                        <td>
+                            {{ $geplandExamen->faciliteitenpas }}
                         </td>
                         <td>
                             {{ $geplandExamen->klas }}
                         </td>
                         <td>
-                            {{ $geplandExamen->examen }}
+                            {{ $geplandExamen->gepland_examen }}
                         </td>
                         <td>
                             {{ $geplandExamen->datum }}
+                        </td>
+                        <td>
+                            {{ $geplandExamen->tijd }}
+                        </td>
+                        <td>
+                            @if($geplandExamen->std_bevestigd == '1')
+                                <p class="fc-primary-nh">Bevestigd</p>
+                            @else
+                                <p class="fc-secondary-nh" title="Examen is nog niet bevestigd door de student">Niet bevestigd</p>
+                            @endif
+                        </td>
+                        <td>
+                            @if($geplandExamen->doc_bevestigd == '1')
+                                <p class="fc-primary-nh">Bevestigd</p>
+                            @else
+                                <form action="{{ route('bevestigExamen', $geplandExamen->id) }}" method="post">
+                                    @csrf
+                                    <x-jet-button class="button">
+                                        Bevestigen
+                                    </x-jet-button>
+                                </form>
+                            @endif
                         </td>
                     </tr>
                     @endforeach

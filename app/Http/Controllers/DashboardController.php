@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Examen;
+use App\Models\ExamenMoment;
 use App\Models\User;
 use App\Models\Opleidingen;
+use App\Models\GeplandeExamens;
+
 use Illuminate\Http\Request;
-use App\Models\GeplandeExamen;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
@@ -35,47 +37,22 @@ class DashboardController extends Controller
         }
 
         $opleidingen = Opleidingen::all();
-        $geplandeExamens = GeplandeExamen::all();
+        $geplandeExamens = GeplandeExamens::all();
+
+        //Tijdelijk tot de relatie erin zit
+        foreach($geplandeExamens as $geplandExamen){
+            $examen = Examen::where('id', $geplandExamen->examen)->first();
+            $examenMoment = ExamenMoment::where('id', $geplandExamen->examen_moment)->first();
+
+            $geplandExamen->gepland_examen = $examen->examen;
+            $geplandExamen->datum = $examenMoment->datum;
+            $geplandExamen->tijd = $examenMoment->tijd;
+        }
 
         return view('dashboard.index')
             ->with(compact('examens'))
             ->with(compact('opleidingen'))
             ->with(compact('geplandeExamens'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function filter(Request $request)
-    {
-        dd($request->all());
-
-        // abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        // $filters = GeplandeExamen::findOrFail($request->klas);
-
-        // return view('dashboard.filter', compact('filters'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function query(Request $request)
-    {
-        $request->klas;
-        //dd($request);
-        $klassen = DB::table('geplande_examen')
-            ->select('*')->where('klas', 'like', "%$request->klas%")
-            ->get();
-        dd($klassen);    
-
-    }
-
 
 }
