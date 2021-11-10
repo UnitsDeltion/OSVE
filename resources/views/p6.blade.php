@@ -14,62 +14,71 @@
                     <form method="POST" action="{{ route('f7') }}">
                         @csrf
                             <h3>Overzicht</h3>
-                             
+                            
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <x-jet-label for="voornaam" value="{{ __('Voornaam') }}" />
-                                        <x-jet-input id="voornaam" class="block mt-1 w-full disabled" type="text" name="voornaam" value="{{ $voornaam }}" disabled />
+                                        <x-jet-input id="voornaam" class="block mt-1 w-full disabled" type="text" name="voornaam" value="{{ $data['voornaam'] }}" disabled />
                                     </div>
                                     <div class="col-md-4">
                                         <x-jet-label for="achternaam" value="{{ __('Achternaam') }}" />
-                                        <x-jet-input id="achternaam" class="block mt-1 w-full disabled" type="text" name="achternaam" value="{{ $achternaam }}" disabled />
+                                        <x-jet-input id="achternaam" class="block mt-1 w-full disabled" type="text" name="achternaam" value="{{ $data['achternaam'] }}" disabled />
                                     </div>
                                     <div class="col-md-4">
+                                        <x-jet-label for="faciliteitenpas" value="{{ __('Faciliteitenpas') }}" />
+                                        <x-jet-input id="faciliteitenpas" class="block mt-1 w-full disabled" type="text" name="faciliteitenpas" value="{{ $data['faciliteitenpas'] }}" disabled/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <x-jet-label for="studentnummer" value="{{ __('Studentnummer') }}" />
-                                        <x-jet-input id="studentnummer" class="block mt-1 w-full disabled" type="text" name="studentnummer" value="{{ $studentnummer }}" disabled />
+                                        <x-jet-input id="studentnummer" class="block mt-1 w-full disabled" type="text" name="studentnummer" value="{{ $data['studentnummer'] }}" disabled />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <x-jet-label for="klas" value="{{ __('Klas') }}" />
+                                        <x-jet-input id="klas" class="block mt-1 w-full disabled" type="text" name="klas" value="{{ $data['klas'] }}" disabled />
                                     </div>
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <x-jet-label for="opleiding" value="{{ __('Opleiding') }}" />
-                                <x-jet-input id="opleiding" class="block mt-1 w-full disabled" type="text" name="opleiding" value="{{ $opleiding }}" disabled />
+                                <x-jet-input id="opleiding" class="block mt-1 w-full disabled" type="text" name="opleiding" value="{{ $data['opleiding'] }}" disabled />
                             </div>
                              
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <x-jet-label for="vak" value="{{ __('Vak') }}" />
-                                        <x-jet-input id="vak" class="block mt-1 w-full disabled" type="text" name="vak" value="{{ $vak }}" disabled />
+                                        <x-jet-input id="vak" class="block mt-1 w-full disabled" type="text" name="vak" value="{{ $data['vak'] }}" disabled />
                                     </div>
                                     <div class="col-md-6">
                                         <x-jet-label for="examen" value="{{ __('Examen') }}" />
-                                        <x-jet-input id="examen" class="block mt-1 w-full disabled" type="text" name="examen" value="{{ $examen }}" disabled />
+                                        <x-jet-input id="examen" class="block mt-1 w-full disabled" type="text" name="examen" value="{{ $data['examen'] }}" disabled />
                                     </div>
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <x-jet-label for="datum" value="{{ __('Datum') }}" />
-                                        <x-jet-input id="datum" class="block mt-1 w-full disabled" type="text" name="datum" value="{{ $datum }}" disabled/>
+                                        <x-jet-input id="datum" class="block mt-1 w-full disabled" type="text" name="datum" value="{{ $data['datum'] }}" disabled/>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <x-jet-label for="tijd" value="{{ __('Tijd') }}" />
-                                        <x-jet-input id="tijd" class="block mt-1 w-full disabled" type="text" name="tijd" value="{{ $tijd }}" disabled/>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <x-jet-label for="faciliteitenpas" value="{{ __('Faciliteitenpas') }}" />
-                                        <x-jet-input id="faciliteitenpas" class="block mt-1 w-full disabled" type="text" name="faciliteitenpas" value="{{ $faciliteitenpas }}" disabled/>
+                                        <x-jet-input id="tijd" class="block mt-1 w-full disabled" type="text" name="tijd" value="{{ $data['tijd'] }}" disabled/>
                                     </div>
                                 </div>
                             </div>
 
                             <div >
                                 <x-jet-label for="opmerkingen" value="{{ __('Opmerkingen') }}" />
-                                <textarea name="opmerkingen" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full disabled" id="opmerkingen" rows="5" disabled>{{ $opmerkingen }}</textarea>
+                                <textarea name="opmerkingen" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full disabled" id="opmerkingen" rows="4" disabled>{{ $data['opmerkingen'] }}</textarea>
                             </div>
 
                             <p><small>Met het versturen ga ik akkoord met de <a class="fc-primary" href="regelementen">regelementen</a> van de examinering.</small></p>

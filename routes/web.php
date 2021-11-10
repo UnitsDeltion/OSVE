@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\TokenController;
 use App\Http\Controllers\ExamenController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormHandlerController;
+use App\Http\Controllers\Beheer\GeplandeExamensBeheer;
 use App\Http\Controllers\Beheer\UsersBeheerController;
 use App\Http\Controllers\Beheer\ExamenBeheerController;
 use App\Http\Controllers\Beheer\OpleidingBeheerController;
@@ -30,6 +32,8 @@ Route::get('/p4', [ExamenController::class, 'p4'])->name('p4');
 Route::get('/p5', [ExamenController::class, 'p5'])->name('p5');
 Route::get('/p6', [ExamenController::class, 'p6'])->name('p6');
 Route::get('/p7', [ExamenController::class, 'p7'])->name('p7');
+Route::get('/p8{token?}', [FormHandlerController::class, 'p8'])->name('p8');
+Route::get('/p9', [ExamenController::class, 'p9'])->name('p9');
 
 Route::POST('/f2', [FormHandlerController::class, 'f2'])->name('f2');
 Route::POST('/f3', [FormHandlerController::class, 'f3'])->name('f3');
@@ -38,23 +42,11 @@ Route::POST('/f5', [FormHandlerController::class, 'f5'])->name('f5');
 Route::POST('/f6', [FormHandlerController::class, 'f6'])->name('f6');
 Route::POST('/f7', [FormHandlerController::class, 'f7'])->name('f7');
 
-Route::get('/home', function () {return view('home');})->name('home');
-Route::get('/sitemap', function () {return view('paginas.sitemap');})->name('sitemap');
-Route::get('/over-ons', function () {return view('paginas.about-us');})->name('over-ons');
 Route::get('/privacy-policy', function () {return redirect('https://www.deltion.nl/privacy');})->name('privacy-policy');
 
 Route::resource('/beheer/users', UsersBeheerController::class);
 Route::resource('/beheer/examens', ExamenBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
 
-Route::get('send-mail', function () {
-
-    // $details = [
-    //     'klant-naam' => 'Martin\o'
-    // ];
-
-   
-    //\Mail::to('97071583@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
-   
-    //dd("Email is Sent.");
-});
+//Voor docenten om een examen te bevestigen
+Route::POST('/beheer/geplandeExamens/bevestigExamen/{id}', [GeplandeExamensBeheer::class, 'bevestigExamen'])->name('bevestigExamen');
