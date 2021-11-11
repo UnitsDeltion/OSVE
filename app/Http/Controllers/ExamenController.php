@@ -96,20 +96,19 @@ class ExamenController extends Controller
         $vak = $request->session()->get('vak');
         $examen = $request->session()->get('examen');
 
-        // //Haalt het ID van het examen op, aangezien examen en vak strings zijn.
-        // $examenId = Examen::where([
-        //     'crebo_nr' => $request->session()->get('crebo_nr'),
-        //     'vak' => $request->session()->get('vak'),
-        //     'examen' => $request->session()->get('examen')
-        // ])->first()->id;
-        // //Haalt alle examenmomenten op
-        // $exmaneMoment= examenMoment::where('examenid', $examenId)->get();
-
-        // dd($exmaneMoment);
+        //Haalt het ID van het examen op, aangezien examen en vak strings zijn.
+        $examenId = Examen::where([
+            'crebo_nr' => $request->session()->get('crebo_nr'),
+            'vak' => $request->session()->get('vak'),
+            'examen' => $request->session()->get('examen')
+        ])->first()->id;
+        //Haalt alle examenmomenten op
+        $examenMoment= examenMoment::where('examenid', $examenId)->get();
 
         return view('p4')
             ->with(compact('vak'))
-            ->with(compact('examen'));
+            ->with(compact('examen'))
+            ->with(compact('examenMoment'));
     }
     
     public function p5(Request $request){
@@ -120,7 +119,9 @@ class ExamenController extends Controller
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')
         || null == $request->session()->get('vak')
-        || null == $request->session()->get('examen')){
+        || null == $request->session()->get('examen')
+        || null == $request->session()->get('datum')
+        || null == $request->session()->get('tijd')){
             $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
@@ -148,6 +149,8 @@ class ExamenController extends Controller
         $sessionData = collect(session()->all());
         $data = $sessionData->except(['_previous', '_flash', '_token']);
 
+        //\Mail::to('97071583@gdeltion.nl')->send(new \App\Mail\MyTestMail($details));
+
         return view('p6')
             ->with(compact('data'));
     }
@@ -155,7 +158,6 @@ class ExamenController extends Controller
     public function p7(Request $request){
         if(null == $request->session()->get('studentnummer')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
         $studentnummer = $request->session()->get('studentnummer');
