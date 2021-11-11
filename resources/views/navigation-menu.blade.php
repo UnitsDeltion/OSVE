@@ -12,8 +12,9 @@
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                @can('user_access')
                     <!--Beheer-->
+                    <!-- Als gebruiker is ingelogd -->
+                    @if(isset(Auth::user()->id))
                     <div class="mr-10 relative">
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
@@ -54,10 +55,7 @@
                             </x-slot>
                         </x-jet-dropdown>
                     </div>
-                @endcan
 
-                <!-- Als gebruiker is ingelogd -->
-                @if(isset(Auth::user()->id))
                     <!-- Settings Dropdown -->
                     <div class="ml-3 relative">
                         <x-jet-dropdown align="right" width="48">
@@ -82,14 +80,10 @@
                             <x-slot name="content">
                                 <!-- Account Management -->
                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Mijn account') }}
+                                    {{ __('Instellingen') }}
                                 </div>
 
                                 <div class="border-t border-gray-100"></div>
-
-                                <x-jet-dropdown-link href="{{ route('dashboard.index') }}" class="fc-primary">
-                                    {{ __('Dashboard') }}
-                                </x-jet-dropdown-link>
 
                                 <x-jet-dropdown-link href="{{ route('profile.show') }}" class="fc-primary">
                                     {{ __('Mijn profiel') }}
