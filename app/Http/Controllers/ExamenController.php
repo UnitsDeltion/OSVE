@@ -9,7 +9,6 @@ use App\Models\ExamenMoment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Gate;
 
 class ExamenController extends Controller
 {
@@ -32,8 +31,7 @@ class ExamenController extends Controller
         || null == $request->session()->get('studentnummer')
         || null == $request->session()->get('klas')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+           }
 
         $opleidingen = Opleidingen::get();
         
@@ -51,7 +49,6 @@ class ExamenController extends Controller
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
         $examens = Examen::where('crebo_nr', $request->session()->get('crebo_nr'))->orderBy('vak', 'asc')->get();
@@ -69,7 +66,6 @@ class ExamenController extends Controller
         || null == $request->session()->get('vak')
         || null == $request->session()->get('examen')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
         $vak = $request->session()->get('vak');
@@ -134,6 +130,18 @@ class ExamenController extends Controller
         $data = $sessionData->except(['_previous', '_flash', '_token']);
 
         //\Mail::to('97071583@gdeltion.nl')->send(new \App\Mail\MyTestMail($details));
+        
+
+        $voornaam           =   $request->session()->get('voornaam');
+        $achternaam         =   $request->session()->get('achternaam');
+        $studentnummer      =   $request->session()->get('studentnummer');
+        $opleiding          =   $request->session()->get('opleiding');
+        $vak                =   $request->session()->get('vak');
+        $examen             =   $request->session()->get('examen');
+        $datum              =   $request->session()->get('datum');
+        $tijd               =   $request->session()->get('tijd');
+        $faciliteitenpas    =   $request->session()->get('faciliteitenpas');
+        $opmerkingen        =   $request->session()->get('opmerkingen');
 
         return view('p6')
             ->with(compact('data'));
@@ -142,7 +150,6 @@ class ExamenController extends Controller
     public function p7(Request $request){
         if(null == $request->session()->get('studentnummer')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
         $studentnummer = $request->session()->get('studentnummer');
@@ -177,3 +184,4 @@ class ExamenController extends Controller
             ->with(compact('error'));
     }
 }
+

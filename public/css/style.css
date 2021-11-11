@@ -346,3 +346,7 @@ hr{
     background-color: var(--secondary) !important;
     color: white;
 }
+
+.activeInput{
+    border: 2px solid var(--secondary) !important;
+}

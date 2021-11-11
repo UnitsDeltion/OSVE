@@ -43,8 +43,7 @@ class FormHandlerController extends Controller
         || null == $request->session()->get('studentnummer')
         || null == $request->session()->get('klas')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+          }
 
         $opleiding = Opleidingen::where('crebo_nr', $request->crebo_nr)->first();
 
@@ -67,8 +66,7 @@ class FormHandlerController extends Controller
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+            }
 
         $data = explode(" - ", $request->examen);
 
@@ -95,8 +93,10 @@ class FormHandlerController extends Controller
         //|| null == $request->session()->get('tijd')
         || null == $request->session()->get('examen')){
             $request->session()->flush();
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+            }
+
+        $request->session()->put('tijd',$request->tijd);
+        $request->session()->put('datum',$request->datum);
 
         // $request->session()->put('datum', 's');
         // $request->session()->put('tijd', 's');
@@ -203,7 +203,7 @@ class FormHandlerController extends Controller
         //Zet token in sessie voor email view
         $request->session()->put('token', $token);
         $details = [];
-        \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
+        \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\examenInplannen($details));
 
         //Maakt sessie leeg
         $request->session()->flush();
@@ -211,7 +211,7 @@ class FormHandlerController extends Controller
         //Zet data in sessie voor p7 pagina
         $request->session()->put('studentnummer', $studentnummer);
 
-        //\Mail::to($student_nr.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
+        //\Mail::to($student_nr.'@st.deltion.nl')->send(new \App\Mail\examenInplannen($details));
 
         return redirect('p7');
     }
