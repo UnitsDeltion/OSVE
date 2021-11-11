@@ -39,8 +39,8 @@ class DashboardController extends Controller
 
         $user = auth()->user();
         //dd($user);
-        //Bouncer::allow('opleidingsmanager')->to('beheer-docenten');
-        //Bouncer::assign('opleidingsmanager')->to($user);
+        // Bouncer::allow('docent')->to('beheer-examens');
+        // Bouncer::assign('docent')->to($user);
 
         return view('dashboard.index')
             ->with(compact('examens'))
