@@ -54,7 +54,7 @@
                                                 echo "</div>";
                                             }
                                             echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow \">";
-                                            echo "<h4 class=\"fc-secondary-nh\">".  $day  . " " . $examen->datum . "</h4>";
+                                            echo "<h4 class=\"fc-secondary-nh\">".  $day  . "</h4><small>" . $examen->datum . "</small>";
                                         }
                                         
                                         $examenDatum = $examen->datum;        

@@ -89,7 +89,7 @@ class ExamenController extends Controller
         //     setlocale(LC_ALL, 'nl_NL');
         //     strftime('%A, %B %d, %Y', $timestamp);
 
-            $day = date('D', $timestamp);
+            //$day = date('D', $timestamp);
             //dd($day);
 
         //Haalt het ID van het examen op, aangezien examen en vak strings zijn.
