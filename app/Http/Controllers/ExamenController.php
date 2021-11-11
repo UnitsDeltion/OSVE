@@ -133,6 +133,8 @@ class ExamenController extends Controller
         $sessionData = collect(session()->all());
         $data = $sessionData->except(['_previous', '_flash', '_token']);
 
+        //\Mail::to('97071583@gdeltion.nl')->send(new \App\Mail\MyTestMail($details));
+
         return view('p6')
             ->with(compact('data'));
     }
