@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             OpleidingenTableSeeder::class,
             ExamenTableSeeder::class,
-            GeplandeExamensTableSeeder::class,
             ExamenMomentTableSeeder::class
         ]);
     }
