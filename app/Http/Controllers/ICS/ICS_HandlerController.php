@@ -16,8 +16,8 @@ class ICS_HandlerController extends Controller
         $ics = new ICS(array(
             'location' => "Mozartlaan 15 Zwolle",
             'description' => session('vak') . " " . session('examen'),
-            'dtstart' => '2021-11-9 9:00AM',
-            'dtend' => '2021-11-9 12:00AM',
+            'dtstart' => session('datum') . ' ' . session('tijd'),
+            'dtend' => session('datum') . ' ' . session('tijd'),
             'summary' => "Examen ingepland voor " . session('studentnummer'),
             'url' => "https://deltion.nl"
         ));

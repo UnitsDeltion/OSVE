@@ -30,8 +30,6 @@ class FormHandlerController extends Controller
         $request->session()->put('studentnummer', $request->studentnummer);
         $request->session()->put('klas', $request->klas);
 
-
-        
         return redirect('p2');
     }
 
