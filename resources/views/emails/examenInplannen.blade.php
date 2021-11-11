@@ -155,15 +155,6 @@
                                     <td >{{ Session::get('examen') }}</td>
                                 </tr>
                                 <tr>
-                                    <td >Datum</td>
-                                    <td >{{ Session::get('datum') }}</td>
-                                </tr>
-                                <tr>
-                                    <td >Tijd</td>
-                                    <td >{{ Session::get('tijd') }}</td>
-                                </tr>
-                           
-                                <tr>
                                     <td><br><h2 class="mb-0" style="color: #F58220">Inhoud</h2></td>
                                 </tr>
                             
