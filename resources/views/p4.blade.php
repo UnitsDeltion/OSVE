@@ -7,19 +7,7 @@
     </x-slot>
 
     <div id="notify"></div>
-    @error('tijd')
-        <script>
-            Notify({
-                type: 'danger',
-                duration: 50000,
-                position: 'top center',
-                title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
-                html: '<p class="align-center mb-0 fw-600 fc-primary-nh">{{ $message }}</p>',
-            });
-        </script>    
-    @enderror
-
-    @error('datum')
+    @error('examenMoment')
         <script>
             Notify({
                 type: 'danger',
@@ -40,73 +28,80 @@
                     <div class="mb-40">
                         <h3>Examen moment</h3>
 
-                        <div class="container mb-10">
-                            <div class="row">
-                                @error('examen_moment')<div class="fc-red text-sm mb-2 text-center">{{ $message }}</div>@enderror
-                                
-                                <p>Gekozen examen: <span class="fc-primary-nh">{{ $vak}} {{ $examen }}</span></p>
-                                <div class="container mb-10">
-                                    <div class="row justify-content-center">
+                        @if(!isset($examenMoment[0]))
+                            <div class="mt-50">
+                                <h3 class="align-center">Momenten zijn er geen examen momenten ingepland.</h3>
+                                <h5 class="align-center">Neem contact op met je docent voor meer informatie.</h5>
+                            </div>
+                        @else
 
-                                        <?php $examenDatum = ""; ?>
-                                        @foreach($examenMoment as $examen)
-                                            <?php
-                                                $timestamp = strtotime($examen->datum);
+                            <p class="fc-primary-nh mb-0-r">Kies uit de onderstaande lijst het gewenste examen moment. Staat het juiste examen moment er niet bij? Neem dan contact op met je docent.</p>
+                            <div class="container mb-10">
+                                <div class="row justify-content-center">
+                                    @error('examen_moment')<div class="fc-red text-sm mb-2 text-center">{{ $message }}</div>@enderror
+                                    
+                                    <h3 style="text-align: center"><span class="fc-primary-nh">{{ $vak}} {{ $examen }}</span></h3>
 
-                                                    $day = date('l', $timestamp);
-                                                    switch($day){
-                                                        case "Monday":
-                                                            $day = "Maandag";
-                                                            break;
-                                                        case "Tuesday":
-                                                            $day = "Dinsdag";
-                                                            break;
-                                                        case "Wednesday":
-                                                            $day = "Woensdag";
-                                                            break;
-                                                        case "Thursday":
-                                                            $day = "Donderdag";
-                                                            break;
-                                                        case "Friday":
-                                                            $day = "Vrijdag";
-                                                            break;
-                                                        case "Saturday":
-                                                            $day = "Zaterdag";
-                                                            break;
-                                                        case "Sunday":
-                                                            $day = "Zondag";
-                                                            break;
+                                    <div class="container mb-10">
+                                        <div class="row justify-content-center">
+
+                                            <?php $examenDatum = ""; ?>
+                                            @foreach($examenMoment as $examen)
+                                                <?php
+                                                    $timestamp = strtotime($examen->datum);
+
+                                                        $day = date('l', $timestamp);
+                                                        switch($day){
+                                                            case "Monday":
+                                                                $day = "Maandag";
+                                                                break;
+                                                            case "Tuesday":
+                                                                $day = "Dinsdag";
+                                                                break;
+                                                            case "Wednesday":
+                                                                $day = "Woensdag";
+                                                                break;
+                                                            case "Thursday":
+                                                                $day = "Donderdag";
+                                                                break;
+                                                            case "Friday":
+                                                                $day = "Vrijdag";
+                                                                break;
+                                                            case "Saturday":
+                                                                $day = "Zaterdag";
+                                                                break;
+                                                            case "Sunday":
+                                                                $day = "Zondag";
+                                                                break;
+                                                        }
+
+                                                    if($examen->datum != $examenDatum ){
+                                                        if ($examenDatum != ""){
+                                                            echo "</div>";
+                                                        }
+                                                        echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow \">";
+                                                        echo "<div class=\"row\"><div class=\"col-md-7\"><h4 class=\"fc-secondary-nh\">" .  $day  . "</h4></div><div class=\"col-md-5\">(" . $examen->datum . ")</div></div>";
                                                     }
+                                                    
+                                                    $examenDatum = $examen->datum;           
+                                                ?>
+                                                <!-- onclick="selectInput('p3', {{ $examen->id }}) -->
 
-                                                if($examen->datum != $examenDatum ){
-                                                    if ($examenDatum != ""){
-                                                        echo "</div>";
-                                                    }
-                                                    echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow \">";
-                                                    echo "<div class=\"row\"><div class=\"col-md-7\"><h4 class=\"fc-secondary-nh\">" .  $day  . "</h4></div><div class=\"col-md-5\">(" . $examen->datum . ")</div></div>";
-                                                }
-                                                
-                                                $examenDatum = $examen->datum;        
-                                                
-                                                
-                                            ?>
-                                            <!-- onclick="selectInput('p3', {{ $examen->id }}) -->
-
-                                            <div class="row selectInput pb-1" onclick="selectInput('p4', {{ $examen->id }})">
-                                                <div class="col-xs-10" title="Resterende aantal plaatsen">
-                                                    {{ $examen->tijd }}
-                                                    <!-- <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }} -->
+                                                <div class="row selectInput pb-1" onclick="selectInput('p4', {{ $examen->id }})">
+                                                    <div class="col-xs-10" title="Resterende aantal plaatsen">
+                                                        {{ $examen->tijd }}
+                                                        <!-- <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }} -->
+                                                    </div>
+                                                    <div class="col-xs-2">
+                                                        <input type="radio" name="examenMoment" id="{{ $examen->id }}" value="{{ $examen->datum }} - {{ $examen->tijd }}">
+                                                    </div>
                                                 </div>
-                                                <div class="col-xs-2">
-                                                    <input type="radio" name="examenMoment" id="{{ $examen->id }}" value="{{ $examen->datum }} - {{ $examen->tijd }}">
-                                                </div>
+                                            @endforeach
+                                                
                                             </div>
-                                        @endforeach
-                                            
                                         </div>
-                            
                                     </div>
-                                </div>
+                            @endif
                             </div>
                         </div>
                     </div>
