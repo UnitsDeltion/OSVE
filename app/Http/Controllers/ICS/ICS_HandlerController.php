@@ -14,11 +14,11 @@ class ICS_HandlerController extends Controller
         header('Content-Disposition: attachment; filename=Examen.ics');
         
         $ics = new ICS(array(
-            'location' => "Mozartlaan, Zwolle",
-            'description' => "Omschrijving",
+            'location' => "Mozartlaan Zwolle",
+            'description' => session('vak') . " " . session('examen'),
             'dtstart' => '2021-11-9 9:00AM',
             'dtend' => '2021-11-9 12:00AM',
-            'summary' => "Examen ingepland voor student",
+            'summary' => "Examen ingepland voor " . session('studentnummer'),
             'url' => "https://deltion.nl"
         ));
 
