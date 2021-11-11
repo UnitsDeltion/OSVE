@@ -51,16 +51,44 @@
                                         <?php $examenDatum = ""; ?>
                                         @foreach($examenMoment as $examen)
                                             <?php
-                                                setlocale(LC_TIME, 'NL_nl');
+                                                // setlocale(LC_TIME, 'NL_nl');
+                                                // $timestamp = strtotime($examen->datum);
+
+                                                // $day = date('l', $timestamp);
+                                                // //dd($day);
+
                                                 $timestamp = strtotime($examen->datum);
-                                                $day = date('l', $timestamp);
+
+                                                    $day = date('D', $timestamp);
+                                                    //dd($day);
+                                                    if($day == "Mon"){
+                                                        $day = "Maandag";
+                                                    }else{
+                                                    }
+                                                    if($day == "Tue"){
+                                                        $day = "Dinsdag";
+                                                    }else{
+                                                    }
+                                                    if($day == "Wed"){
+                                                        $day = "Woensdag";
+                                                    }else{
+                                                    }
+                                                    if($day == "Thu"){
+                                                        $day = "Donderdag";
+                                                    }else{
+                                                    }
+                                                    if($day == "Fri"){
+                                                        $day = "Vrijdag";
+                                                    }else{
+                                                    }
+                                                    //dd($day);
 
                                                 if($examen->datum != $examenDatum ){
                                                     if ($examenDatum != ""){
                                                         echo "</div>";
                                                     }
                                                     echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow \">";
-                                                    echo "<h4 class=\"fc-secondary-nh\">".  $day  . "</h4>";
+                                                    echo "<h4 class=\"fc-secondary-nh\">".  $day  . " " . $examen->datum .  "</h4>";
                                                 }
                                                 
                                                 $examenDatum = $examen->datum;        
