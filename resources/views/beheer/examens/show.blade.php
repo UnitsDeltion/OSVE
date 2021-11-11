@@ -128,7 +128,7 @@
                             {{ $moment['plaatsen'] }}
                         </td>
                         <td class="px-6 pr-0 d-flex">
-                            <a href="{{ route('moments.edit', $moment['id']) }}">
+                            <a href="{{ route('examenMomentEdit', $moment['id']) }}">
                                 <x-jet-button title="edit" class="mb-2 mr-2 button">
                                     <i class="fas fa-edit"></i>
                                 </x-jet-button>
