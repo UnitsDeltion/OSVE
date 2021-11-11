@@ -46,21 +46,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="roles" class="block font-medium text-sm text-gray-700">Rollen</label>
-                        <select name="roles" id="roles" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
-                            @foreach($roles as $id => $role)
-                                <option value="{{ $id }}"{{ in_array($id, old('roles', $user->roles->pluck('id')->toArray())) ? ' selected' : '' }}>
-                                    {{ $role }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('roles')
-                            <p class="text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-                </div>
+            
 
                 <div class="mt-4">
                     <a href="{{ route('users.index') }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">
