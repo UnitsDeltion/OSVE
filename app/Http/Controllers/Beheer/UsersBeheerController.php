@@ -24,8 +24,8 @@ class UsersBeheerController extends Controller{
         $user = \Auth::user();
         //dd($users);
         //Bouncer::allow('docent')->to('examen-beheer');
-        //Bouncer::allow('opleidingsmanager')->to('everything');
-        //Bouncer::assign('docent')->to($user);
+        Bouncer::allow('opleidingsmanager')->to('everything');
+        Bouncer::assign('opleidingsmanager')->to($user);
 
         $bouncer = Bouncer::is($user)->a('opleidingsmanager');
 
