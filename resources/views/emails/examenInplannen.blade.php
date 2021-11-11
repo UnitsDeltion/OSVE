@@ -157,11 +157,7 @@
                                 <tr>
                                     <td><br><h2 class="mb-0" style="color: #F58220">Inhoud</h2></td>
                                 </tr>
-                            
-                                <tr>
-                                    <td >Opmerking</td>
-                                    <td >{{ Session::get('opmerkingen') }}</td>
-                                </tr>
+                        
                                 <tr>
                                     <td >Datum</td>
                                     <td >{{ Session::get('datum') }}</td>
@@ -171,11 +167,14 @@
                                     <td >{{ Session::get('tijd') }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Examen bevestigen</td>
-                                    <td ><a  class=”link” href="http://127.0.0.1:8000/p8?token={{ Session::get('token') }}" target="_blank">Klik hier om te bevestigen</a></td>
-                                    <form action="http://127.0.0.1:8000/p8?token={{ Session::get('token') }}">
-                                        <input type="submit" value="Bevestigen" />
-                                    </form>
+                                    <td >Opmerking</td>
+                                    <td >{{ Session::get('opmerkingen') }}</td>
+                                </tr>
+                                <tr>
+                                    <td><br><h2 class="mb-0" style="color: #F58220">Examen bevestigen</h2></td>
+                                </tr>
+                                <tr>
+                                    <td ><a  class=”link” href="http://127.0.0.1:8000/p8?token={{ Session::get('token') }}" style="color: #343469;" target="_blank">Klik hier om te bevestigen</a></td>
                                 </tr>
                                 </tr>
                             </table>
