@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Beheer;
 use Illuminate\Http\Request;
 use App\Models\Opleidingen;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
 class OpleidingBeheerController extends Controller
@@ -17,7 +16,6 @@ class OpleidingBeheerController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $opleidingen = Opleidingen::all();
 
@@ -31,7 +29,6 @@ class OpleidingBeheerController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('beheer.opleidingen.create');
     }
@@ -44,7 +41,6 @@ class OpleidingBeheerController extends Controller
      */
     public function store(Request $request)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $validated = $request->validate([
             'crebo_nr' => 'required|String',
@@ -67,7 +63,6 @@ class OpleidingBeheerController extends Controller
      */
     public function edit($crebo_nr)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         
         $opleiding = Opleidingen::find($crebo_nr);
         return view('beheer.opleidingen.edit', compact('opleiding'));
@@ -82,9 +77,7 @@ class OpleidingBeheerController extends Controller
      */
     public function update(Request $request, $crebo_nr)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $validated = $request->validate([
+            $validated = $request->validate([
             'crebo_nr' => 'required|max:5|string',
             'opleiding' => 'required|max:255|string',
         ]);
@@ -110,7 +103,6 @@ class OpleidingBeheerController extends Controller
      */
     public function destroy($crebo_nr)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $opleiding = Opleidingen::find($crebo_nr);
         $opleiding->delete();

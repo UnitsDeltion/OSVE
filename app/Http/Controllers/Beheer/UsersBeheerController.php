@@ -11,15 +11,31 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use Bouncer;
+
 
 class UsersBeheerController extends Controller{
     
-    public function index(){
+    public function index(){    
+
+        //abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $users = User::all();
+        $user = \Auth::user();
+        //dd($users);
+        //Bouncer::allow('docent')->to('examen-beheer');
+        //Bouncer::allow('opleidingsmanager')->to('everything');
+        //Bouncer::assign('docent')->to($user);
+
+        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+
+        if($bouncer){
+            return view('beheer.users.index', compact('users'));
+        }else{
+            //echo 'not allowed';  
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $users = User::with('roles')->get();
-
-        return view('beheer.users.index', compact('users'));
+        }
+        //return view('beheer.users.index', compact('users'));
     }
 
     public function show(Request $request) {
@@ -28,14 +44,14 @@ class UsersBeheerController extends Controller{
 
     public function create(Request $request, User $user)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
 
         return view('beheer.users.create');
     }
 
     public function store(Request $request, User $user) 
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         
         $validated = $request->validate([
             'voornaam' => 'required|max:255|string',
@@ -57,17 +73,14 @@ class UsersBeheerController extends Controller{
     }
 
     public function edit(User $user){
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        
-        $roles = Role::pluck('title', 'id');
 
-        $user->load('roles');
+        $user->all();
 
-        return view('beheer.users.edit', compact('user', 'roles'));
+        return view('beheer.users.edit', compact('user'));
     }
 
     public function update(Request $request, User $user){
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
 
         $validated = $request->validate([
             'voornaam' => 'required|max:255|string',
@@ -92,7 +105,7 @@ class UsersBeheerController extends Controller{
     }
 
     public function destroy(User $user){
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $user->delete();
 
         return redirect()->route('users.index')->with('success','Gebruiker verwijderd');
