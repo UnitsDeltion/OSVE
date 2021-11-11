@@ -72,7 +72,7 @@
                                             {{ $examen->tijd }}
                                             <!-- <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }} -->
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-2 ">
                                             <input type="radio" name="examenMoment" id="{{ $examen->id }}" value="{{ $examen->datum }} - {{ $examen->tijd }}">
                                         </div>
                                     </div>

@@ -13,6 +13,8 @@
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <!--Beheer-->
+                    <!-- Als gebruiker is ingelogd -->
+                    @if(isset(Auth::user()->id))
                     <div class="mr-10 relative">
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
@@ -54,8 +56,6 @@
                         </x-jet-dropdown>
                     </div>
 
-                <!-- Als gebruiker is ingelogd -->
-                @if(isset(Auth::user()->id))
                     <!-- Settings Dropdown -->
                     <div class="ml-3 relative">
                         <x-jet-dropdown align="right" width="48">
