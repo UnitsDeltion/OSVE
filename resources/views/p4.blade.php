@@ -54,16 +54,28 @@
                                                 $timestamp = strtotime($examen->datum);
 
                                                     $day = date('l', $timestamp);
-                                                    if($day == "Monday"){
-                                                        $day = "Maandag";
-                                                    }elseif($day == "Tuesday"){
-                                                        $day = "Dinsdag";
-                                                    }elseif($day == "Wednesday"){
-                                                        $day = "Woensdag";
-                                                    }elseif($day == "Thursday"){
-                                                        $day = "Donderdag";
-                                                    }elseif($day == "Friday"){
-                                                        $day = "Vrijdag";
+                                                    switch($day){
+                                                        case "Monday":
+                                                            $day = "Maandag";
+                                                            break;
+                                                        case "Tuesday":
+                                                            $day = "Dinsdag";
+                                                            break;
+                                                        case "Wednesday":
+                                                            $day = "Woensdag";
+                                                            break;
+                                                        case "Thursday":
+                                                            $day = "Donderdag";
+                                                            break;
+                                                        case "Friday":
+                                                            $day = "Vrijdag";
+                                                            break;
+                                                        case "Saturday":
+                                                            $day = "Zaterdag";
+                                                            break;
+                                                        case "Sunday":
+                                                            $day = "Zondag";
+                                                            break;
                                                     }
 
                                                 if($examen->datum != $examenDatum ){
