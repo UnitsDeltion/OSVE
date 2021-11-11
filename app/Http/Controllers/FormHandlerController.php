@@ -103,7 +103,6 @@ class FormHandlerController extends Controller
         || null == $request->session()->get('examen')
         || null == $request->session()->get('datum')
         || null == $request->session()->get('tijd')){
-            $request->session()->flush();
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
         

@@ -41,6 +41,7 @@ Route::POST('/f4', [FormHandlerController::class, 'f4'])->name('f4');
 Route::POST('/f5', [FormHandlerController::class, 'f5'])->name('f5');
 Route::POST('/f6', [FormHandlerController::class, 'f6'])->name('f6');
 Route::POST('/f7', [FormHandlerController::class, 'f7'])->name('f7');
+Route::POST('/ics_handler', [ICS_HandlerController::class, 'ics_handler'])->name('ics_handler');
 
 Route::get('/privacy-policy', function () {return redirect('https://www.deltion.nl/privacy');})->name('privacy-policy');
 
