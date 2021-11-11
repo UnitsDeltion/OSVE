@@ -98,6 +98,8 @@ class FormHandlerController extends Controller
         $request->session()->put('tijd',$request->tijd);
         $request->session()->put('datum',$request->datum);
 
+        
+
         // $request->session()->put('datum', 's');
         // $request->session()->put('tijd', 's');
 

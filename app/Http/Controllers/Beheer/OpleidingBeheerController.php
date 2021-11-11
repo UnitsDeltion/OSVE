@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Beheer;
 use Illuminate\Http\Request;
 use App\Models\Opleidingen;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
+use Bouncer;
 
 class OpleidingBeheerController extends Controller
 {
@@ -17,9 +19,24 @@ class OpleidingBeheerController extends Controller
     public function index()
     {
 
+
+        $user = \Auth::user();
+        //dd($users);
+        //Bouncer::allow('docent')->to('examen-beheer');
+        //Bouncer::allow('opleidingsmanager')->to('everything');
+        //Bouncer::assign('docent')->to($user);
+
+        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+
         $opleidingen = Opleidingen::all();
 
-        return view('beheer.opleidingen.index', compact('opleidingen'));
+        if($bouncer){
+            return view('beheer.opleidingen.index', compact('opleidingen'));
+        }else{
+            //echo 'not allowed';  
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+        
     }
 
     /**

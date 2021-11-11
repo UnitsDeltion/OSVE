@@ -71,6 +71,27 @@ class ExamenController extends Controller
         $vak = $request->session()->get('vak');
         $examen = $request->session()->get('examen');
 
+        $timestamp = strtotime($request->datum);
+
+        $day = date('D', $timestamp);
+        //dd($day);
+        if($day === "Thu"){
+            $day = "Donderdag";
+        }else{
+
+        }
+
+
+
+
+
+        // $timestamp = strtotime($request->datum);;
+        //     setlocale(LC_ALL, 'nl_NL');
+        //     strftime('%A, %B %d, %Y', $timestamp);
+
+            $day = date('D', $timestamp);
+            //dd($day);
+
         //Haalt het ID van het examen op, aangezien examen en vak strings zijn.
         $examenId = Examen::where([
             'crebo_nr' => $request->session()->get('crebo_nr'),
@@ -87,7 +108,8 @@ class ExamenController extends Controller
         return view('p4')
             ->with(compact('vak'))
             ->with(compact('examen'))
-            ->with(compact('examenMoment'));
+            ->with(compact('examenMoment'))
+            ->with(compact('day'));
     }
     
     public function p5(Request $request){
