@@ -87,7 +87,7 @@ class UsersBeheerController extends Controller{
             'achternaam' => 'required|max:255|string',
             'telefoonnummer' => 'required|max:255|string',
             'email'=> 'required|email',
-            'roles' => 'required',
+            // 'roles' => 'required',
         ]);
 
         if (User::where('id', $request->user->id)->exists()) {
@@ -99,7 +99,7 @@ class UsersBeheerController extends Controller{
             $user->email = is_null($request->email) ? $user->email : $request->email;
             $user->save();
         }
-        $user->roles()->sync($request->input('roles', []));
+        //$user->roles()->sync($request->input('roles', []));
 
         return redirect()->route('users.index')->with('success','Gebruiker bijgewerkt');
     }
