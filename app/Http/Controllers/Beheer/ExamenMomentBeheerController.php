@@ -137,7 +137,7 @@ class ExamenMomentBeheerController extends Controller
             $moment->delete();
         
 
-        return redirect()->route('examens.show', $id)->with('success','Examen moment verwijderd.');
+        return redirect()->route('examens.index')->with('success','Examen moment verwijderd.');
         }else {
             return redirect()->route('examens.index')->with('error','Examen moment niet gevonden.');
         }
