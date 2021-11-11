@@ -180,11 +180,12 @@ class FormHandlerController extends Controller
 
         //Zet token in sessie voor email view
         $request->session()->put('token', $token);
-        // \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\examenInplannen());
+
+        \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\examenInplannen());
 
         //Maakt sessie leeg
         $request->session()->flush();
-
+        
         //Zet data in sessie voor p7 pagina
         $request->session()->put('studentnummer', $studentnummer);
 
