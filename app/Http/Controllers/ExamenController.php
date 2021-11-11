@@ -58,25 +58,6 @@ class ExamenController extends Controller
 
         // dd($examens);
 
-        $vak = array(
-            [
-                "vak" => 's',
-                "examen" => [
-                    'sd',
-                    'ssasd',
-                    'asd',
-                ],
-            ],
-            [
-                "vak" => 's',
-                "examen" => [
-                    'sd',
-                    'ssasd',
-                    'asd',
-                ],
-            ]
-        );
-
         return view('p3', compact('examens'));
     }
 
