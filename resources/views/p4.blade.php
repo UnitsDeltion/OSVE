@@ -51,9 +51,20 @@
                                         <?php $examenDatum = ""; ?>
                                         @foreach($examenMoment as $examen)
                                             <?php
-                                                setlocale(LC_TIME, 'NL_nl');
                                                 $timestamp = strtotime($examen->datum);
-                                                $day = date('l', $timestamp);
+
+                                                    $day = date('l', $timestamp);
+                                                    if($day == "Monday"){
+                                                        $day = "Maandag";
+                                                    }elseif($day == "Tuesday"){
+                                                        $day = "Dinsdag";
+                                                    }elseif($day == "Wednesday"){
+                                                        $day = "Woensdag";
+                                                    }elseif($day == "Thursday"){
+                                                        $day = "Donderdag";
+                                                    }elseif($day == "Friday"){
+                                                        $day = "Vrijdag";
+                                                    }
 
                                                 if($examen->datum != $examenDatum ){
                                                     if ($examenDatum != ""){

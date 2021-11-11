@@ -26,7 +26,7 @@
                     <th>Naam</th>
                     <th>Email</th>
                     <th>Telefoonnummer</th>
-                    <th>Rollen</th>
+                    <!-- <th>Rollen</th> -->
                     <th></th>
                     <th></th>
                 </tr>
