@@ -60,7 +60,7 @@
                                                         echo "</div>";
                                                     }
                                                     echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow \">";
-                                                    echo "<h4 class=\"fc-secondary-nh\">".  $day  . "</h4>";
+                                                    echo "<div class=\"row\"><div class=\"col-md-7\"><h4 class=\"fc-secondary-nh\">" .  $day  . "</h4></div><div class=\"col-md-5\">(" . $examen->datum . ")</div></div>";
                                                 }
                                                 
                                                 $examenDatum = $examen->datum;        
