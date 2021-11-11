@@ -14,7 +14,7 @@
             </x-jet-button>
         </a>
 
-        <form method="post" action="{{ url('beheer/examenMomentUpdate/'.$examen['id'] )}}" enctype="multipart/form-data">
+        <form method="post" action="{{ url('beheer/examenMomentUpdate/'.$moment['id'] )}}" enctype="multipart/form-data">
 
             @csrf
 

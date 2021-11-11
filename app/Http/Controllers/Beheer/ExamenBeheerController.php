@@ -88,7 +88,7 @@ class ExamenBeheerController extends Controller
 
         $opleidingen = Opleidingen::all()->toArray();
 
-        $examen = Examen::where('id', $id)->with( 'examen_moments')->get()->first()->toArray();
+        $examen = Examen::where('id', $id)->with('examen_moments')->get()->first()->toArray();
         // $examen = $examen[0];
 
         return view('beheer.examens.show')->with(compact('examen', 'opleidingen'));
@@ -211,7 +211,7 @@ class ExamenBeheerController extends Controller
             $moment->delete();
         
 
-        return redirect()->route('examens.show', $id)->with('success','Examen moment verwijderd.');
+        return redirect()->route('examens.index')->with('success','Examen moment verwijderd.');
         }else {
             return redirect()->route('examens.index')->with('error','Examen moment niet gevonden.');
         }
@@ -252,7 +252,7 @@ class ExamenBeheerController extends Controller
         $moment->plaatsen = is_null($request->plaatsen) ? $moment->plaatsen : $request->plaatsen;
         $moment->save();
         
-            return redirect()->route('examens.show', $id)->with('success','Examen moment aangepast.');
+            return redirect()->route('examens.index')->with('success','Examen moment aangepast.');
         }else {
             return redirect()->route('examens.index')->with('error','Examen moment niet gevonden.');
         }
