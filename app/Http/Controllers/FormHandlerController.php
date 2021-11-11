@@ -91,11 +91,11 @@ class FormHandlerController extends Controller
         || null == $request->session()->get('crebo_nr')
         || null == $request->session()->get('opleiding')
         || null == $request->session()->get('vak')
-        || null == $request->session()->get('datum')
-        || null == $request->session()->get('tijd')
+        //|| null == $request->session()->get('datum')
+        //|| null == $request->session()->get('tijd')
         || null == $request->session()->get('examen')){
             $request->session()->flush();
-            //abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
         // $request->session()->put('datum', 's');
@@ -203,13 +203,15 @@ class FormHandlerController extends Controller
         //Zet token in sessie voor email view
         $request->session()->put('token', $token);
         $details = [];
-        // \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
+        \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
 
         //Maakt sessie leeg
         $request->session()->flush();
 
         //Zet data in sessie voor p7 pagina
         $request->session()->put('studentnummer', $studentnummer);
+
+        //\Mail::to($student_nr.'@st.deltion.nl')->send(new \App\Mail\MyTestMail($details));
 
         return redirect('p7');
     }

@@ -164,6 +164,14 @@
                                     <td >{{ Session::get('opmerkingen') }}</td>
                                 </tr>
                                 <tr>
+                                    <td >Datum</td>
+                                    <td >{{ Session::get('datum') }}</td>
+                                </tr>
+                                <tr>
+                                    <td >Tijd</td>
+                                    <td >{{ Session::get('tijd') }}</td>
+                                </tr>
+                                <tr>
                                     <td>Examen bevestigen</td>
                                     <td ><a  class=”link” href="http://127.0.0.1:8000/p8?token={{ Session::get('token') }}" target="_blank">Klik hier om te bevestigen</a></td>
                                 </tr>
