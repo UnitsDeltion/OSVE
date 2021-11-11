@@ -26,7 +26,7 @@
                     <th>Naam</th>
                     <th>Email</th>
                     <th>Telefoonnummer</th>
-                    <th>Rollen</th>
+                    <!-- <th>Rollen</th> -->
                     <th></th>
                     <th></th>
                 </tr>
@@ -37,12 +37,7 @@
                         <td>{{ $user->voornaam }} {{ $user->achternaam }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->telefoonnummer }}</td>
-                        <td>
-                            @foreach ($user->roles as $role)
-                                <span class="<?php if($role->title == 'Opleidingsmanager'){echo 'fc-secondary-nh';}else{echo 'fc-primary-nh';} ?>">
-                                    {{ $role->title }}
-                                </span>
-                            @endforeach
+                        <td></td>
                         </td>
                         <td class="align-right pr-0">
                             <a href="{{ route('users.edit', $user->id) }}" class="mr-2 a-clear">

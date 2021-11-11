@@ -61,16 +61,26 @@ class FormHandlerController extends Controller
     }
 
     public function f5(Request $request){
-        // $request->validate([
-        //     'datum' => 'required|max:255|string',
-        //     'tijd' => 'required|max:255|string',
-        // ]);
+        $request->validate([
+            'examenMoment' => 'required|max:255|string',
+        ]);
 
-        // $request->session()->put('datum', $request->datum);
-        // $request->session()->put('tijd', $request->tijd);
+        if(null == $request->session()->get('voornaam')
+        || null == $request->session()->get('achternaam') 
+        || null == $request->session()->get('studentnummer')
+        || null == $request->session()->get('klas')
+        || null == $request->session()->get('crebo_nr')
+        || null == $request->session()->get('opleiding')
+        || null == $request->session()->get('vak')
+        || null == $request->session()->get('examen')){
+            $request->session()->flush();
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
 
-        $request->session()->put('datum', '2021-11-20');
-        $request->session()->put('tijd', '12:30');
+        $data = explode(" - ", $request->examenMoment);
+
+        $request->session()->put('datum', $data[0]);
+        $request->session()->put('tijd', $data[1]);
 
         return redirect('p5');
     }
@@ -170,7 +180,7 @@ class FormHandlerController extends Controller
 
         //Zet token in sessie voor email view
         $request->session()->put('token', $token);
-        \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\examenInplannen());
+        // \Mail::to($studentnummer.'@st.deltion.nl')->send(new \App\Mail\examenInplannen());
 
         //Maakt sessie leeg
         $request->session()->flush();
