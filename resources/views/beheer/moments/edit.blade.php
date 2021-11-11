@@ -17,17 +17,16 @@
         <form method="post" action="{{ url('beheer/examenMomentUpdate/'.$examen['id'] )}}" enctype="multipart/form-data">
 
             @csrf
-            @method('put')
-            
-            <div class="col-md-6">
-                <div class="form-group">
-                    <lable for="datum" class="block font-medium text-sm text-gray-700">Datums</lable>
-                    @error('datum')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                    <input id="datum" class="block mt-1 w-full form-control" type="date" name="datum" value="{{ $examen['datum'] }}"/>
-                </div>
-            </div>
 
             <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <lable for="datum" class="block font-medium text-sm text-gray-700">Datum</lable>
+                        @error('datum')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="datum" class="block mt-1 w-full form-control" type="date" name="datum" value="{{ $moment['datum'] }}"/>
+                    </div>
+                </div>
+
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="tijd" class="block font-medium text-sm text-gray-700">Tijdstippen</lable>
