@@ -54,7 +54,7 @@
                                                 echo "</div>";
                                             }
                                             echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow \">";
-                                            echo "<h4 class=\"fc-secondary-nh\">" . $examen->datum . "</h4>";
+                                            echo "<h4 class=\"fc-secondary-nh\">".  $day  . " " . $examen->datum . "</h4>";
                                         }
                                         
                                         $examenDatum = $examen->datum;        
@@ -80,55 +80,7 @@
                                 </div>
                                 
                                 
-                                <div class="datum">
-                                    <div class="row justify-content-center">
-                                        <h3>Datum</h3>
-                                        <div class="card col-sm-3 mr-10 ml-10 selectInput shadow" style="" onclick="momentSelect('datum', '2021-8-24')">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Dinsdag</h5>
-                                                <p class="card-text">24-8-2021</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="card col-sm-3 mr-10 ml-10 selectInput shadow" style="" onclick="momentSelect('datum', '2021-8-25')">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Woensdag</h5>
-                                                <p class="card-text">25-8-2021</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="card col-sm-3 mr-10 ml-10 selectInput shadow" style="" onclick="momentSelect('datum', '2021-11-20')" id="test1">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Dinsdag</h5>
-                                                <p class="card-text">2021-11-20</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="card col-sm-3 mr-10 ml-10 mt-20 selectInput shadow" style="" onclick="momentSelect('datum', '2021-9-03')">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Vrijdag</h5>
-                                                <p class="card-text">03-9-2021</p>
-                                            </div>
-                                        </div>
-                                    </div>    
-                                </div>
-
-                                <div class="mt-25">
-                                    <div class="row justify-content-center">
-                                        <h3>Tijd</h3>
-                                        <div class="card col-sm-3 mr-10 ml-10 selectInput shadow" onclick="momentSelect('tijd', '12:30')" id="test">
-                                            <div class="card-body">
-                                                <h5 class="card-title">12:30</h5>
-                                            </div>
-                                        </div>
-
-                                        <div class="card col-sm-3 mr-10 ml-10 selectInput shadow" onclick="momentSelect('tijd', '12:00')" id="test1">
-                                            <div class="card-body">
-                                                <h5 class="card-title">012:00</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
                             </div>
                         </div>

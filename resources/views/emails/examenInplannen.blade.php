@@ -173,6 +173,9 @@
                                 <tr>
                                     <td>Examen bevestigen</td>
                                     <td ><a  class=”link” href="http://127.0.0.1:8000/p8?token={{ Session::get('token') }}" target="_blank">Klik hier om te bevestigen</a></td>
+                                    <form action="http://127.0.0.1:8000/p8?token={{ Session::get('token') }}">
+                                        <input type="submit" value="Bevestigen" />
+                                    </form>
                                 </tr>
                                 </tr>
                             </table>
