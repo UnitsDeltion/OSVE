@@ -41,47 +41,49 @@
                         <h3>Examen moment</h3>
 
                         <div class="container mb-10">
-                            <div class="row" style="">
+                            <div class="row">
                                 @error('examen_moment')<div class="fc-red text-sm mb-2 text-center">{{ $message }}</div>@enderror
                                 
                                 <p>Gekozen examen: <span class="fc-primary-nh">{{ $vak}} {{ $examen }}</span></p>
+                                <div class="container mb-10">
+                                    <div class="row justify-content-center">
 
-                                <?php $examenDatum = ""; ?>
-                                @foreach($examenMoment as $examen)
-                                    <?php
-                                        if($examen->datum != $examenDatum ){
-                                            if ($examenDatum != ""){
-                                                echo "</div>";
-                                            }
-                                            echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow \">";
-                                            echo "<h4 class=\"fc-secondary-nh\">".  $day  . "</h4><small>" . $examen->datum . "</small>";
-                                        }
-                                        
-                                        $examenDatum = $examen->datum;        
-                                        
-                                        
-                                    ?>
-                                    <!-- onclick="selectInput('p3', {{ $examen->id }}) -->
+                                        <?php $examenDatum = ""; ?>
+                                        @foreach($examenMoment as $examen)
+                                            <?php
+                                                setlocale(LC_TIME, 'NL_nl');
+                                                $timestamp = strtotime($examen->datum);
+                                                $day = date('l', $timestamp);
 
-                                    <div class="row selectInput pb-1" onclick="selectInput('p4', {{ $examen->id }})">
-                                        <!-- <div class="col-xs-8 fc-primary-nh">
-                                            {{ $examen->datum }}
-                                        </div> -->
-                                        
-                                        <div class="col-xs-2" title="Resterende aantal plaatsen">
-                                            {{ $examen->tijd }}
-                                            <!-- <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }} -->
+                                                if($examen->datum != $examenDatum ){
+                                                    if ($examenDatum != ""){
+                                                        echo "</div>";
+                                                    }
+                                                    echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow \">";
+                                                    echo "<h4 class=\"fc-secondary-nh\">".  $day  . "</h4>";
+                                                }
+                                                
+                                                $examenDatum = $examen->datum;        
+                                                
+                                                
+                                            ?>
+                                            <!-- onclick="selectInput('p3', {{ $examen->id }}) -->
+
+                                            <div class="row selectInput pb-1" onclick="selectInput('p4', {{ $examen->id }})">
+                                                <div class="col-xs-10" title="Resterende aantal plaatsen">
+                                                    {{ $examen->tijd }}
+                                                    <!-- <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }} -->
+                                                </div>
+                                                <div class="col-xs-2">
+                                                    <input type="radio" name="examenMoment" id="{{ $examen->id }}" value="{{ $examen->datum }} - {{ $examen->tijd }}">
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                            
                                         </div>
-                                        <div class="col-xs-2 ">
-                                            <input type="radio" name="examenMoment" id="{{ $examen->id }}" value="{{ $examen->datum }} - {{ $examen->tijd }}">
-                                        </div>
+                            
                                     </div>
-                                    @endforeach
                                 </div>
-                                
-                                
-                                
-
                             </div>
                         </div>
                     </div>
