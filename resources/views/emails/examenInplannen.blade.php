@@ -174,7 +174,7 @@
                                     <td><br><h2 class="mb-0" style="color: #F58220">Examen bevestigen</h2></td>
                                 </tr>
                                 <tr>
-                                    <td ><a  class=”link” href="http://127.0.0.1:8000/p8?token={{ Session::get('token') }}" style="color: #343469;" target="_blank">Klik hier om te bevestigen</a></td>
+                                    <td ><a href="http://127.0.0.1:8000/p8?token={{ Session::get('token') }}" style="color: #343469;" target="_blank">Klik hier om te bevestigen</a></td>
                                 </tr>
                                 </tr>
                             </table>
