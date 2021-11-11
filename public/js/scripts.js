@@ -29,7 +29,21 @@ function selectInput($page, $id){
                 });
             }
         });
-    }
+    }else if($page == 'p4'){
+    var array = document.getElementsByName('examenMoment');
+
+    array.forEach(element => {
+        if(element.checked){
+            Notify({
+                type: 'warning',
+                duration: 7500,
+                position: 'top center',
+                title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
+                html: '<p class="align-center mb-0 fw-600 fc-primary-nh">Er kan maar <span class="fw-900 fc-secondary-nh">één</span> examen moment <br> per keer worden ingepland.</p>',
+            });
+        }
+    });
+}
 
     input.checked = true;
 }
@@ -65,8 +79,7 @@ function pagination($elementID){
         $pagButTwo.classList.remove("activePage");
         $pagButThree.classList.add("activePage");
     }
-}
-
+} 
 function momentSelect($type, $value){
     //console.log($type, $value);
     //Zet value in hidden input voor FormHandlerController
@@ -79,6 +92,4 @@ function momentSelect($type, $value){
     test1.classList.add("activeInput");
 
     console.log(test, test1);
-
-    
 }

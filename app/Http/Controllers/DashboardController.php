@@ -11,8 +11,9 @@ use App\Models\GeplandeExamens;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
+use Bouncer;
+
 
 class DashboardController extends Controller
 {
@@ -23,8 +24,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
         $users = User::all();
         $examens = Examen::all();
 
@@ -48,6 +47,11 @@ class DashboardController extends Controller
             $geplandExamen->datum = $examenMoment->datum;
             $geplandExamen->tijd = $examenMoment->tijd;
         }
+        
+        $user = auth()->user();
+        //dd($user);
+        // Bouncer::allow('docent')->to('beheer-examens');
+        // Bouncer::assign('docent')->to($user);
 
         return view('dashboard.index')
             ->with(compact('examens'))

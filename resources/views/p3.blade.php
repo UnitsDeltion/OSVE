@@ -35,38 +35,38 @@
                             </div>
                         @else
 
-                        <p class="fc-primary-nh mb-0-r">Kies uit de onderstaande lijst het juiste examen. Staat het juiste examen er niet bij? Neem dan contact op met je docent.</p>
-                        <div class="container mb-10">
-                            <div class="row justify-content-center">
+                            <p class="fc-primary-nh mb-0-r">Kies uit de onderstaande lijst het juiste examen. Staat het juiste examen er niet bij? Neem dan contact op met je docent.</p>
+                            <div class="container mb-10">
+                                <div class="row justify-content-center">
 
-                                <?php $examenVak = ""; ?>
-                                @foreach($examens as $examen)
-                                    <?php
-                                        if($examen->vak != $examenVak ){
-                                            if ($examenVak != ""){
-                                                echo "</div>";
+                                    <?php $examenVak = ""; ?>
+                                    @foreach($examens as $examen)
+                                        <?php
+                                            if($examen->vak != $examenVak ){
+                                                if ($examenVak != ""){
+                                                    echo "</div>";
+                                                }
+                                                echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow\">";
+                                                echo "<h4 class=\"fc-secondary-nh\">" . $examen->vak . "</h4>";
                                             }
-                                            echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow\">";
-                                            echo "<h4 class=\"fc-secondary-nh\">" . $examen->vak . "</h4>";
-                                        }
-                                        
-                                        $examenVak = $examen->vak;                                    
-                                    ?>
-                                    <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
-                                        <div class="col-xs-8 fc-primary-nh">
-                                            {{ $examen->examen }}
+                                            
+                                            $examenVak = $examen->vak;                                    
+                                        ?>
+                                        <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
+                                            <div class="col-xs-8 fc-primary-nh">
+                                                {{ $examen->examen }}
+                                            </div>
+                                            
+                                            <div class="col-xs-2" title="Resterende aantal plaatsen">
+                                                <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }}
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="radio" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
+                                            </div>
                                         </div>
-                                        
-                                        <div class="col-xs-2" title="Resterende aantal plaatsen">
-                                            <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }}
-                                        </div>
-                                        <div class="col-xs-2">
-                                            <input type="radio" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
-                                        </div>
+                                        @endforeach
                                     </div>
-                                    @endforeach
-                                </div>
-                        </div>  
+                            </div>  
 
                         @endif
                     </div>
