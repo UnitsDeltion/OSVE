@@ -7,7 +7,7 @@ use App\Models\GeplandeExamens;
 use App\Http\Controllers\Controller;
 
 
-class GeplandeExamensBeheer extends Controller
+class GeplandeExamensBeheerController extends Controller
 {
     public function bevestigExamen($id){
 
