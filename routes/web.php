@@ -51,4 +51,4 @@ Route::resource('/beheer/examens', ExamenBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
 
 //Voor docenten om een examen te bevestigen
-Route::POST('/beheer/geplandeExamens/bevestigExamen/{id}', [GeplandeExamensBeheer::class, 'bevestigExamen'])->name('bevestigExamen');
+Route::POST('/beheer/geplandeExamens/bevestigExamen/{id}', [GeplandeExamensBeheerController::class, 'bevestigExamen'])->name('bevestigExamen');
