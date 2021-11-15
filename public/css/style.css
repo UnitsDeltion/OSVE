@@ -352,7 +352,7 @@ hr{
 }
 
 .bg-image{
-	background-image: url("/images/achtergrond/OSVE.jpg");
+	background-image: url("/images/achtergrond/OSVE.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
