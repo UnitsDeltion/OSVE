@@ -7,11 +7,9 @@ use App\Http\Controllers\ExamenController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormHandlerController;
 use App\Http\Controllers\ICS\ICS_HandlerController;
-use App\Http\Controllers\Beheer\GeplandeExamensBeheer;
 use App\Http\Controllers\Beheer\UsersBeheerController;
 use App\Http\Controllers\Beheer\ExamenBeheerController;
 use App\Http\Controllers\Beheer\ExamenMomentBeheerController;
-use App\Http\Controllers\Beheer\GeplandeExamensBeheerController;
 use App\Http\Controllers\Beheer\OpleidingBeheerController;
 
 /*
