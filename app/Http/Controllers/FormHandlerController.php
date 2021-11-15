@@ -215,7 +215,7 @@ class FormHandlerController extends Controller
         // );
 
         //Maakt sessie leeg
-        $request->session()->flush();
+        // $request->session()->flush();
 
         //Zet data in sessie voor p7 pagina
         $request->session()->put('studentnummer', $studentnummer);

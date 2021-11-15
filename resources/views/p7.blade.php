@@ -5,7 +5,7 @@
             @yield('title')
         </h2>
     </x-slot>
-
+    
     @livewire('includes.content.top.content-small-top')  
 
     <div class="container">
