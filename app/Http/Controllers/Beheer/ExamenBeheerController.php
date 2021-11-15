@@ -19,8 +19,6 @@ class ExamenBeheerController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        
         $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
         return view('beheer.examens.index')->with(compact('examens'));
     }
@@ -32,7 +30,6 @@ class ExamenBeheerController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $opleidingen = Opleidingen::all()->toArray();
         return view('beheer.examens.create', compact('opleidingen'));
     }
@@ -45,7 +42,7 @@ class ExamenBeheerController extends Controller
      */
     public function store(Request $request, Examen $examen, ExamenMoment $moment)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
 
         $this->validate($request, [
             'vak' => 'required',
@@ -77,7 +74,7 @@ class ExamenBeheerController extends Controller
      */
     public function show(Request $request, $id)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
 
         $opleidingen = Opleidingen::all()->toArray();
 
@@ -94,7 +91,7 @@ class ExamenBeheerController extends Controller
      */
     public function edit( Request $request, $id)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
 
         $opleidingen = Opleidingen::all()->toArray();
 
@@ -113,7 +110,7 @@ class ExamenBeheerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
 
         $this->validate($request, [
             'vak' => 'required',
@@ -149,7 +146,7 @@ class ExamenBeheerController extends Controller
      */
     public function destroy($id, ExamenMoment $moment)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
 
         if (Examen::where('id', $id)->exists()) {
             $examen = Examen::find($id);

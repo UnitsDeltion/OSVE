@@ -29,7 +29,7 @@ class ExamenMomentBeheerController extends Controller
      */
     public function create(Request $request, $id)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
         
         $examen = Examen::where('id', $id)->get()->first()->toArray();
 
@@ -44,7 +44,7 @@ class ExamenMomentBeheerController extends Controller
      */
     public function store(Request $request, Examen $examen, ExamenMoment $moment, $id)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
         $this->validate($request, [
             'datum' => 'required',
             'tijd' => 'required',
@@ -78,7 +78,7 @@ class ExamenMomentBeheerController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
         $moment = ExamenMoment::where('id', $id)->first()->toArray();
         $examen = Examen::where( 'id', $moment['examenid'])->first()->toArray();
 
@@ -94,7 +94,7 @@ class ExamenMomentBeheerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
 
         $this->validate($request, [
             'datum' => 'required',
@@ -124,7 +124,7 @@ class ExamenMomentBeheerController extends Controller
      */
     public function destroy($id)
     {
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
 
         if (ExamenMoment::where('id', $id)->exists()) {
             $moment = ExamenMoment::find($id);
