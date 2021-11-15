@@ -27,19 +27,24 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Examen extends Model 
 {
-	// protected $primaryKey = 'examen';
+	protected $primaryKey = 'id';
 	public $timestamps = false;
 
 	protected $casts = [
 		'crebo_nr' => 'int',
-		'plaatsen' => 'int'
 	];
 
 	protected $fillable = [
+		'examen',
+		'vak',
 		'crebo_nr',
 		'examen',
-		'plaatsen',
-		'geplande_docenten'
+		'geplande_docenten',
+		'examen_type',
+		'examen_opgeven_begin',
+		'examen_opgeven_eind',
+		'uitleg',
+		
 	];
 
 
@@ -56,6 +61,6 @@ class Examen extends Model
 
 	public function examen_moments()
 	{
-		return $this->hasMany(ExamenMoment::class, 'examenid', 'crebo_nr');
+		return $this->hasMany(ExamenMoment::class, 'examenid', 'id');
 	}
 }
