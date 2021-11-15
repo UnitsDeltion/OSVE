@@ -1,6 +1,6 @@
 <div>
-    <div class="container bg-primary-nh">
-        <footer class="footer">
+    <footer class="footer">
+        <div class="container bg-primary-nh">
             <div class="wrap">
                 <div class="row">
                     <div class="col-xl-12">
@@ -35,6 +35,12 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="wrap bg-white">
+                <div class="row">
                     <div class="col-xs-12">
                         <div class="footer__legal">
                             <nav class="footer__legal-navigation">
@@ -50,6 +56,6 @@
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 </div>
