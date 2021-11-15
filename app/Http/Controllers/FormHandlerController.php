@@ -214,9 +214,6 @@ class FormHandlerController extends Controller
         //     new \App\Mail\examenInplannen()
         // );
 
-        //Maakt sessie leeg
-        // $request->session()->flush();
-
         //Zet data in sessie voor p7 pagina
         $request->session()->put('studentnummer', $studentnummer);
 

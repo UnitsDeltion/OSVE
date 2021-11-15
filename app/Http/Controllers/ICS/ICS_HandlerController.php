@@ -23,6 +23,7 @@ class ICS_HandlerController extends Controller
         ));
 
         echo $ics->to_string();
+        $request->session()->flush();
     }
 }
 
