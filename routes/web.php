@@ -10,6 +10,8 @@ use App\Http\Controllers\ICS\ICS_HandlerController;
 use App\Http\Controllers\Beheer\GeplandeExamensBeheer;
 use App\Http\Controllers\Beheer\UsersBeheerController;
 use App\Http\Controllers\Beheer\ExamenBeheerController;
+use App\Http\Controllers\Beheer\ExamenMomentBeheerController;
+use App\Http\Controllers\Beheer\GeplandeExamensBeheerController;
 use App\Http\Controllers\Beheer\OpleidingBeheerController;
 
 /*
@@ -49,6 +51,10 @@ Route::get('/privacy-policy', function () {return redirect('https://www.deltion.
 Route::resource('/beheer/users', UsersBeheerController::class);
 Route::resource('/beheer/examens', ExamenBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
+
+Route::resource('/beheer/moments', ExamenMomentBeheerController::class)->except('create', 'store');
+Route::get('/beheer/moment/{id}', [ExamenMomentBeheerController::class, 'create'])->name('momentsCreate');
+Route::POST('/beheer/moment/{id}', [ExamenMomentBeheerController::class, 'store'])->name('momentsStore');
 
 //Voor docenten om een examen te bevestigen
 Route::POST('/beheer/geplandeExamens/bevestigExamen/{id}', [GeplandeExamensBeheerController::class, 'bevestigExamen'])->name('bevestigExamen');

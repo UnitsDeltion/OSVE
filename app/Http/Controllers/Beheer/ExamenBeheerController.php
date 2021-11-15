@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Beheer;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 use App\Http\Controllers\Controller;
+use App\Models\Examen;
+use App\Models\ExamenMoment;
+use App\Models\Opleidingen;
 
 class ExamenBeheerController extends Controller
 {
@@ -14,7 +19,10 @@ class ExamenBeheerController extends Controller
      */
     public function index()
     {
-        return view('beheer.examens.index')->with(compact('exams'));
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
+        $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
+        return view('beheer.examens.index')->with(compact('examens'));
     }
 
     /**
@@ -24,7 +32,9 @@ class ExamenBeheerController extends Controller
      */
     public function create()
     {
-        return view('beheer.examens.create');
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $opleidingen = Opleidingen::all()->toArray();
+        return view('beheer.examens.create', compact('opleidingen'));
     }
 
     /**
@@ -33,9 +43,30 @@ class ExamenBeheerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Examen $examen, ExamenMoment $moment)
     {
-        //
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $this->validate($request, [
+            'vak' => 'required',
+            'examen' => 'required',
+            'crebo_nr' => 'required|integer|digits:5',
+            'geplande_docenten' => 'required',
+            'examen_opgeven_begin' => 'required',
+            'examen_opgeven_eind' => 'required',
+        ]);
+
+        $examen->vak = $request->vak;
+        $examen->examen = $request->examen;
+        $examen->crebo_nr = $request->crebo_nr;
+        $examen->geplande_docenten = $request->geplande_docenten;
+        $examen->examen_opgeven_begin = $request->examen_opgeven_begin;
+        $examen->examen_opgeven_eind = $request->examen_opgeven_eind;
+        $examen->uitleg = $request->uitleg;
+        $examen->save();
+        
+        
+        return redirect()->route('examens.index')->with('success','Examen toegevoegd.');
     }
 
     /**
@@ -44,9 +75,15 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $opleidingen = Opleidingen::all()->toArray();
+
+        $examen = Examen::where('id', $id)->with('examen_moments')->get()->first()->toArray();
+
+        return view('beheer.examens.show')->with(compact('examen', 'opleidingen'));
     }
 
     /**
@@ -55,9 +92,16 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( Request $request, $id)
     {
-        //
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $opleidingen = Opleidingen::all()->toArray();
+
+        $examen = Examen::where('id', $id)->with( 'examen_moments')->get()->first()->toArray();
+
+        return view('beheer.examens.edit')->with(compact('examen', 'opleidingen'));
+        
     }
 
     /**
@@ -69,7 +113,32 @@ class ExamenBeheerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $this->validate($request, [
+            'vak' => 'required',
+            'examen' => 'required',
+            'crebo_nr' => 'required|integer|digits:5',
+            'geplande_docenten' => 'required',
+            'examen_opgeven_begin' => 'required',
+            'examen_opgeven_eind' => 'required',
+        ]);
+        
+    if (Examen::where('id', $id)->exists()) {
+        $examen = Examen::find($id);
+        $examen->vak = is_null($request->vak) ? $examen->vak : $request->vak;
+        $examen->examen = is_null($request->examen) ? $examen->examen : $request->examen;
+        $examen->crebo_nr = is_null($request->crebo_nr) ? $examen->crebo_nr : $request->crebo_nr;
+        $examen->geplande_docenten = is_null($request->geplande_docenten) ? $examen->geplande_docenten : $request->geplande_docenten;
+        $examen->examen_opgeven_begin = is_null($request->examen_opgeven_begin) ? $examen->examen_opgeven_begin : $request->examen_opgeven_begin;
+        $examen->examen_opgeven_eind = is_null($request->examen_opgeven_eind) ? $examen->examen_opgeven_eind : $request->examen_opgeven_eind;
+        $examen->uitleg = is_null($request->uitleg) ? $examen->uitleg : $request->uitleg;
+        $examen->save();
+        
+            return redirect()->route('examens.show', $id)->with('success','Examen aangepast.');
+        }else {
+            return redirect()->route('examens.index')->with('error','Examen niet gevonden.');
+        }
     }
 
     /**
@@ -78,8 +147,19 @@ class ExamenBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, ExamenMoment $moment)
     {
-        //
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        if (Examen::where('id', $id)->exists()) {
+            $examen = Examen::find($id);
+            $examen->delete();
+        
+
+        return redirect()->route('examens.index')->with('success','Examen verwijderd.');
+        }else {
+            return redirect()->route('examens.index')->with('error','Examen niet gevonden.');
+        }
     }
+
 }
