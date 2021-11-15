@@ -35,7 +35,7 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100 bg-image">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -53,7 +53,7 @@
             </main>
         </div>
 
-        @livewire('includes.footer') 
+        @livewire('includes.footer-wide') 
 
         @livewireScripts
     </body>
