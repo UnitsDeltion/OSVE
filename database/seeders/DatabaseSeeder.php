@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
             ExamenTableSeeder::class,
             ExamenMomentTableSeeder::class
         ]);
+        $this->call(ExamenMomentTableSeeder::class);
     }
 }

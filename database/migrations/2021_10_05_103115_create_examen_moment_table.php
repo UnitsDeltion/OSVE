@@ -18,6 +18,7 @@ class CreateExamenMomentTable extends Migration
             $table->integer('examenid',false,true)->index();
             $table->date('datum');
             $table->time('tijd');
+            $table->integer('plaatsen');
             
             $table->foreign('examenid', 'examen_moment_ibfk_1')->references('id')->on('examens')->onDelete('cascade')->onUpdate('restrict');
         });
