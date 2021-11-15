@@ -24,18 +24,22 @@ class UsersBeheerController extends Controller{
         $user = \Auth::user();
         //dd($users);
         //Bouncer::allow('docent')->to('examen-beheer');
-        Bouncer::allow('opleidingsmanager')->to('everything');
-        Bouncer::assign('opleidingsmanager')->to($user);
+        //Bouncer::allow('docent')->to('everything');
+        //Bouncer::allow('opleidingsmanager')->to('examen-beheer');
+        //Bouncer::allow('opleidingsmanager')->to('everything');
+        // Bouncer::assign('docent')->to($user);
+        // Bouncer::assign('opleidingsmanager')->to($user);
+
+        if(!$user){
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
 
         $bouncer = Bouncer::is($user)->a('opleidingsmanager');
 
-        if($bouncer){
-            return view('beheer.users.index', compact('users'));
-        }else{
-            //echo 'not allowed';  
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        if(!$bouncer){
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
-        //return view('beheer.users.index', compact('users'));
+        return view('beheer.users.index', compact('users'));
     }
 
     public function show(Request $request) {

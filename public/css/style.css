@@ -350,3 +350,17 @@ hr{
 .activeInput{
     border: 2px solid var(--secondary) !important;
 }
+
+main{
+	background-image: url("/images/achtergrond/OSVE.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+/* main, body{
+    background-color: var(--primary);
+} */
+/* main > div > div > div > div > div > div{
+    background-color: rgba(255,255,255, 0.95) !important;
+} */
+
