@@ -10,9 +10,10 @@
     background-color: var(--primary);
     padding: 2.125rem 2.3875rem;
 }
+
 @media screen and (min-width: 48em) {
     .footer__contact {
-        padding: 2.125rem 3.8125rem;
+        padding: 2.125rem 0;
     }
 }
 .footer__contact-logo {
