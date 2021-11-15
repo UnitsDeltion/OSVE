@@ -19,14 +19,14 @@
     </x-slot>
 
     @livewire('includes.content.top.content-normal-top') 
-
-        <a href="{{ route('examens.index') }}" class="a-clear mb-2">
-            <x-jet-button class="mb-2 button">
-                {{ __('Terug naar examen overzicht') }}
-            </x-jet-button>
-        </a>
+        <div class="row">
+            <div class="mt-4">
+                <a href="{{ route('examens.index') }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">
+                    <i class="fas fa-backward mr-2"></i> Terug
+                </a>
+            </div>
+        </div>
         
-
         <form method="get" enctype="multipart/form-data">
 
             @csrf
