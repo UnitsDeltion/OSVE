@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Examen;
 use App\Models\ExamenMoment;
 use App\Models\Opleidingen;
+use Bouncer;
 
 class ExamenBeheerController extends Controller
 {
@@ -19,8 +20,24 @@ class ExamenBeheerController extends Controller
      */
     public function index()
     {
+
+        $user = \Auth::user();
+
+        if(!$user){
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
+        $opleidingsmanager = Bouncer::is($user)->a('opleidingsmanager');
+        $docent = Bouncer::is($user)->a('docent');
+
         $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
-        return view('beheer.examens.index')->with(compact('examens'));
+
+        if($opleidingsmanager || $docent){
+            return view('beheer.examens.index')->with(compact('examens'));
+        }else{
+            //echo 'not allowed';  
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
     }
 
     /**

@@ -44,14 +44,13 @@
                                 <x-jet-dropdown-link href="{{ route('examens.index') }}" class="fc-primary">
                                     {{ __('Examens beheer') }}
                                 </x-jet-dropdown-link>
-
+                                <?php
+                                    $user = \Auth::user();
+                                ?>
+                                @if($user->isAn('opleidingsmanager'))
                                 <x-jet-dropdown-link href="{{ route('opleidingen.index') }}" class="fc-primary">
                                     {{ __('Opleidingen beheer') }}
                                 </x-jet-dropdown-link>
-                        <?php
-                                $user = \Auth::user();
-                        ?>
-                                @if($user->isAn('opleidingsmanager'))
                                 <x-jet-dropdown-link href="{{ route('users.index') }}" class="fc-primary">
                                     {{ __('Docenten beheer') }}
                                 </x-jet-dropdown-link>
