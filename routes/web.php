@@ -43,13 +43,8 @@ Route::get('/privacy-policy', function () {return redirect('https://www.deltion.
 
 Route::resource('/beheer/users', UsersBeheerController::class);
 Route::resource('/beheer/examens', ExamenBeheerController::class);
-Route::resource('/beheer/moments', ExamenMomentBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
 
-Route::get('/beheer/moments/{id}', [ExamenMomentBeheerController::class, 'create']);
-
-Route::get('/beheer/examenMomentCreate/{id}', [ExamenBeheerController::class, 'examenMomentCreate'])->name('examenMomentCreate');
-Route::get('/beheer/examenMomentEdit/{id}', [ExamenBeheerController::class, 'examenMomentEdit'])->name('examenMomentEdit');
-Route::POST('/beheer/examenMomentUpdate/{id}', [ExamenBeheerController::class, 'examenMomentUpdate'])->name('examenMomentUpdate');
-Route::POST('/beheer/examenMomentStore/{id}', [ExamenBeheerController::class, 'examenMomentStore'])->name('examenMomentStore');
-Route::POST('/beheer/examenMomentDelete/{id}', [ExamenBeheerController::class, 'examenMomentDelete'])->name('examenMomentDelete');
+Route::resource('/beheer/moments', ExamenMomentBeheerController::class)->except('create', 'store');
+Route::get('/beheer/moment/{id}', [ExamenMomentBeheerController::class, 'create'])->name('momentsCreate');
+Route::POST('/beheer/moment/{id}', [ExamenMomentBeheerController::class, 'store'])->name('momentsStore');

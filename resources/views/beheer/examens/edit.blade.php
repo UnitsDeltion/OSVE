@@ -82,7 +82,7 @@
                     <div class="form-group">
                         <lable for="uitleg" class="block font-medium text-sm text-gray-700">Uitleg</lable>
                         @error('uitleg')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <textarea id="uitleg" class="block mt-1 w-full form-control" type="text" name="uitleg" rows="4" value="{{ $examen['uitleg'] }}"></textarea>
+                        <textarea id="uitleg" class="block mt-1 w-full form-control" type="text" name="uitleg" rows="4" >{{ $examen['uitleg'] }}</textarea>
                     </div>
                 </div>
 

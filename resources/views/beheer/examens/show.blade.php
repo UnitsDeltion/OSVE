@@ -5,7 +5,7 @@
                 @section('title', 'Examen')
                 @yield('title')
             </h2>
-            <a href="{{ route('examenMomentCreate', $examen['id']) }}" class="a-clear" style="margin-right: 0; margin-left: auto; font-size: 12px!important;">
+            <a href="{{ route('momentsCreate', $examen['id']) }}" class="a-clear" style="margin-right: 0; margin-left: auto; font-size: 12px!important;">
                 <x-jet-button title="moment" class="mb-2 float-right mt-10 mr-10 button">
                     {{__('Examen moment aanmaken')}}
                 </x-jet-button>
@@ -93,7 +93,7 @@
                     <div class="form-group">
                         <lable for="uitleg" class="block font-medium text-sm text-gray-700">Uitleg</lable>
                         @error('uitleg')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <textarea id="uitleg" class="block mt-1 w-full form-control" type="text" name="uitleg" rows="4" value="{{ $examen['uitleg'] }}" disabled></textarea>
+                        <textarea id="uitleg" class="block mt-1 w-full form-control" type="text" name="uitleg" rows="4"  disabled>{{ $examen['uitleg'] }}</textarea>
                     </div>
                 </div>
 
@@ -128,7 +128,7 @@
                             {{ $moment['plaatsen'] }}
                         </td>
                         <td class="px-6 pr-0 d-flex">
-                            <a href="{{ route('examenMomentEdit', $moment['id']) }}">
+                            <a href="{{ route('moments.edit', $moment['id']) }}">
                                 <x-jet-button title="edit" class="mb-2 mr-2 button">
                                     <i class="fas fa-edit"></i>
                                 </x-jet-button>
