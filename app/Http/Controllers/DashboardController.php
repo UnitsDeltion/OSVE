@@ -48,10 +48,14 @@ class DashboardController extends Controller
             $geplandExamen->tijd = $examenMoment->tijd;
         }
         
-        $user = auth()->user();
-        //dd($user);
-        // Bouncer::allow('docent')->to('beheer-examens');
-        // Bouncer::assign('docent')->to($user);
+
+        $user = \Auth::user();
+        //dd($users);
+        Bouncer::allow('docent')->to('examen-beheer');
+        //Bouncer::allow('opleidingsmanager')->to('examen-beheer');
+        //Bouncer::allow('opleidingsmanager')->to('everything');
+        Bouncer::assign('docent')->to($user);
+        //Bouncer::assign('opleidingsmanager')->to($user);
 
         return view('dashboard.index')
             ->with(compact('examens'))
