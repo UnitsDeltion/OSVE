@@ -14,11 +14,11 @@ class ICS_HandlerController extends Controller
         header('Content-Disposition: attachment; filename=Examen.ics');
         
         $ics = new ICS(array(
-            'location' => "Mozartlaan 15 Zwolle",
-            'description' => session('vak') . " " . session('examen'),
+            'location' => "Deltion College Zwolle",
+            'description' => "",
             'dtstart' => $request->session()->get('datum') . ' ' . $request->session()->get('tijd'),
             'dtend' => $request->session()->get('datum') . ' ' . $request->session()->get('tijd'),
-            'summary' => "Examen ingepland voor " . session('studentnummer'),
+            'summary' => session('vak') . " " . session('examen'),
             'url' => "https://deltion.nl"
         ));
 
