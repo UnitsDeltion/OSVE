@@ -18,8 +18,6 @@ class OpleidingBeheerController extends Controller
      */
     public function index()
     {
-
-
         $user = \Auth::user();
         //dd($users);
         //Bouncer::allow('docent')->to('examen-beheer');
@@ -46,7 +44,6 @@ class OpleidingBeheerController extends Controller
      */
     public function create()
     {
-
         return view('beheer.opleidingen.create');
     }
 
@@ -58,7 +55,6 @@ class OpleidingBeheerController extends Controller
      */
     public function store(Request $request)
     {
-
         $validated = $request->validate([
             'crebo_nr' => 'required|String',
             'opleiding' => 'required|String',
@@ -69,7 +65,7 @@ class OpleidingBeheerController extends Controller
             'opleiding' => $request->opleiding,
         ]);
 
-        return redirect()->route('opleidingen.index')->with('success','Gebruiker aangemaakt');
+        return redirect()->route('opleidingen.index')->with('success','Opleiding aangemaakt');
     }
 
     /**
@@ -79,8 +75,7 @@ class OpleidingBeheerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($crebo_nr)
-    {
-        
+    { 
         $opleiding = Opleidingen::find($crebo_nr);
         return view('beheer.opleidingen.edit', compact('opleiding'));
     }
