@@ -354,17 +354,17 @@ hr{
 @media only screen and (max-width: 600px) {
     main {
         background-image: url("/images/achtergrond/Mobile-OSVE.jpg");
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-size: cover; 
     }
 }
 
 @media only screen and (min-width: 600.01px) {
     main {
         background-image: url("/images/achtergrond/Desktop-OSVE.webp");
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-size: cover; 
     }
-}
-
-main{
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover; 
 }
