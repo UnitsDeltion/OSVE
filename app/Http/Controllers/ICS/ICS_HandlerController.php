@@ -16,8 +16,8 @@ class ICS_HandlerController extends Controller
         $ics = new ICS(array(
             'location' => "Mozartlaan 15 Zwolle",
             'description' => session('vak') . " " . session('examen'),
-            'dtstart' => session('datum') . ' ' . session('tijd'),
-            'dtend' => session('datum') . ' ' . session('tijd'),
+            'dtstart' => $request->session()->get('datum') . ' ' . $request->session()->get('tijd'),
+            'dtend' => $request->session()->get('datum') . ' ' . $request->session()->get('tijd'),
             'summary' => "Examen ingepland voor " . session('studentnummer'),
             'url' => "https://deltion.nl"
         ));
@@ -27,7 +27,7 @@ class ICS_HandlerController extends Controller
 }
 
 class ICS {
-    const DT_FORMAT = 'Ymd\THis\Z';
+    const DT_FORMAT = 'Ymd\THis';
   
     protected $properties = array();
     private $available_properties = array(
@@ -40,7 +40,8 @@ class ICS {
     );
   
     public function __construct($props) {
-      $this->set($props);
+        date_default_timezone_set('UTC');
+        $this->set($props);
     }
   
     public function set($key, $val = false) {
@@ -65,6 +66,7 @@ class ICS {
       $ics_props = array(
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
+        'TZID:Amsterdam/Europe',
         'PRODID:-//hacksw/handcal//NONSGML v1.0//EN',
         'CALSCALE:GREGORIAN',
         'BEGIN:VEVENT'
