@@ -55,37 +55,6 @@
                                                     </x-jet-button>
                                                 </form>
                                             </td>
-                            
-                                           <!-- <td>
-                                               <table>
-                                                    @foreach($examen['examen_moments'] as $moment)
-                                                    <tr>
-                                                        <td class="px-6 text-sm text-gray-900">
-                                                            {{ $moment['tijd'] }}
-                                                        </td>
-                                                        <td class="px-6 text-sm text-gray-900">
-                                                            {{ $moment['plaatsen'] }}
-                                                        </td>
-                                                        <td class="px-6 pr-0 d-flex">
-                                                            <a href="{{ route('examenMomentEdit', $moment['id']) }}">
-                                                                <x-jet-button title="edit" class="mb-2 mr-2 button">
-                                                                    <i class="fas fa-edit"></i>
-                                                                </x-jet-button>
-                                                            </a>
-
-                                                            <form action="{{ route('examenMomentDelete', $moment['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
-                                                                <input type="hidden" name="_method" value="DELETE">
-                                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                                <x-jet-button class="mr-2 button" title="Verwijderen">
-                                                                    <i class="fas fa-trash"></i>
-                                                                </x-jet-button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                </table>
-                                            </td> -->
-
                                         </tr>
                                         @endforeach
                                     </tbody>

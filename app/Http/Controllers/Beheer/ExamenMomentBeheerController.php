@@ -30,9 +30,8 @@ class ExamenMomentBeheerController extends Controller
     public function create(Request $request, $id)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $examen = Examen::where('id', $id)->get()->toArray();
-        $examen = $examen[0];
+        
+        $examen = Examen::where('id', $id)->get()->first()->toArray();
 
         return view('beheer.moments.create')->with(compact('examen'));
     }
@@ -46,7 +45,6 @@ class ExamenMomentBeheerController extends Controller
     public function store(Request $request, Examen $examen, ExamenMoment $moment, $id)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
         $this->validate($request, [
             'datum' => 'required',
             'tijd' => 'required',
@@ -55,7 +53,7 @@ class ExamenMomentBeheerController extends Controller
         $moment->examenid = $request->id;
         $moment->datum = $request->datum;
         $moment->tijd = $request->tijd;
-        $moment->plaatsen = $request->plaatsen;
+        $moment->plaatsen = $request->plaatsen;    
         $moment->save();
 
         return redirect()->route('examens.show', $id)->with('success','Examen moment toegevoegd.');
@@ -81,10 +79,6 @@ class ExamenMomentBeheerController extends Controller
     public function edit(Request $request, $id)
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        // $examen = Examen::where('id', $id)->get()->toArray();
-        // dd($examen);
-        // $examen = $examen[0];
         $moment = ExamenMoment::where('id', $id)->first()->toArray();
         $examen = Examen::where( 'id', $moment['examenid'])->first()->toArray();
 
@@ -108,15 +102,15 @@ class ExamenMomentBeheerController extends Controller
             'plaatsen' => 'required|integer',
         ]);
         
-    if (Examen::where('id', $id)->exists()) {
-        
+    if (ExamenMoment::where('id', $id)->exists()) {
         $moment = ExamenMoment::find($id);
         $moment->datum = is_null($request->datum) ? $moment->datum : $request->datum;
         $moment->tijd = is_null($request->tijd) ? $moment->tijd : $request->tijd;
         $moment->plaatsen = is_null($request->plaatsen) ? $moment->plaatsen : $request->plaatsen;
         $moment->save();
+        $examenId = $moment->examenid;
         
-            return redirect()->route('examens.show', $id)->with('success','Examen moment aangepast.');
+            return redirect()->route('examens.show', $examenId)->with('success','Examen moment aangepast.');
         }else {
             return redirect()->route('examens.index')->with('error','Examen moment niet gevonden.');
         }
@@ -134,10 +128,11 @@ class ExamenMomentBeheerController extends Controller
 
         if (ExamenMoment::where('id', $id)->exists()) {
             $moment = ExamenMoment::find($id);
+            $examenId = $moment->examenid;
             $moment->delete();
         
 
-        return redirect()->route('examens.index')->with('success','Examen moment verwijderd.');
+            return redirect()->route('examens.show', $examenId)->with('success','Examen moment verwijderd.');
         }else {
             return redirect()->route('examens.index')->with('error','Examen moment niet gevonden.');
         }
