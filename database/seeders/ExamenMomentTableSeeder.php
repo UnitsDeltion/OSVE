@@ -15,8 +15,6 @@ class ExamenMomentTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
         \DB::table('examen_moment')->delete();
         
         \DB::table('examen_moment')->insert(array (
@@ -109,7 +107,5 @@ class ExamenMomentTableSeeder extends Seeder
                 'plaatsen' => '30',
             ),
         ));
-        
-        
     }
 }

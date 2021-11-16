@@ -22,11 +22,12 @@ class UsersBeheerController extends Controller{
 
         $users = User::all();
         $user = \Auth::user();
+
         //dd($users);
-        //Bouncer::allow('docent')->to('examen-beheer');
-        //Bouncer::allow('docent')->to('everything');
-        //Bouncer::allow('opleidingsmanager')->to('examen-beheer');
-        //Bouncer::allow('opleidingsmanager')->to('everything');
+        // Bouncer::allow('docent')->to('examen-beheer');
+        // Bouncer::allow('docent')->to('everything');
+        // Bouncer::allow('opleidingsmanager')->to('examen-beheer');
+        // Bouncer::allow('opleidingsmanager')->to('everything');
         // Bouncer::assign('docent')->to($user);
         // Bouncer::assign('opleidingsmanager')->to($user);
 

@@ -44,9 +44,6 @@
                                 <x-jet-dropdown-link href="{{ route('examens.index') }}" class="fc-primary">
                                     {{ __('Examens beheer') }}
                                 </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="{{ route('regelementen.index') }}" class="fc-primary">
-                                    {{ __('Regelement beheer') }}
-                                </x-jet-dropdown-link>
                                 <?php
                                     $user = \Auth::user();
                                 ?>
@@ -56,6 +53,9 @@
                                 </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="{{ route('users.index') }}" class="fc-primary">
                                     {{ __('Docenten beheer') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('regelementen.index') }}" class="fc-primary">
+                                    {{ __('Regelement beheer') }}
                                 </x-jet-dropdown-link>
                                 @endif
                             </x-slot>
