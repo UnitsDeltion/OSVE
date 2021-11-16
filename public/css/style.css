@@ -352,11 +352,31 @@ hr{
 }
 
 @media only screen and (max-width: 600px) {
+    header {
+        height: 55px;
+    }
+    header > div {
+        padding-top: 1rem!important;
+        padding-bottom: 1rem!important;
+    }
+    .logoMobile {
+        height: 3rem!important;
+        width: auto;
+    }
+    nav {
+        height: 4.5rem!important;
+    }
     .bg-image {
         background-image: url("/images/achtergrond/Mobile-OSVE.jpg");
         background-position: center; 
         background-repeat: no-repeat; 
         background-size: cover; 
+    }
+    .fc-mobile {
+        font-size: 14px;
+    }
+    .footer__legal-link {
+        font-size: 11px!important;
     }
 }
 
