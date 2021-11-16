@@ -2,13 +2,15 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use DB;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
     public function run()
     {
+        \DB::table('users')->delete();
+
         $users = [
             [
                 'id'                =>      1,
@@ -44,6 +46,6 @@ class UsersTableSeeder extends Seeder
             ],
         ];
 
-        User::insert($users);
+        \DB::table('users')->insert($users);
     }
 }

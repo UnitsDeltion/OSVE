@@ -2,25 +2,21 @@
 
 namespace Database\Seeders;
 
-use App\Models\Opleidingen;
+use DB;
 use Illuminate\Database\Seeder;
-use App\Models\RegelementBeheer;
 
 class RegelmentenTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        $RegelementBeheer = [
+        \DB::table('reglementen')->delete();
+
+        $regelement = [
             [
-                'regelement'    =>      'https://www.deltion.nl/getmedia/ec790e9f-53cc-4be7-9f26-ac8947fd7ebb/N20050CvB-Examenreglement-schooljaar-2020-2021-def.pdf',
+                'reglementen'    =>      'https://www.deltion.nl/getmedia/ec790e9f-53cc-4be7-9f26-ac8947fd7ebb/N20050CvB-Examenreglement-schooljaar-2020-2021-def.pdf',
             ],
         ];
 
-        RegelementBeheer::insert($RegelementBeheer);
+        \DB::table('reglementen')->insert($regelement);
     }
 }
