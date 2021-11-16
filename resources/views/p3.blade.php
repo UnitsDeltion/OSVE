@@ -53,14 +53,10 @@
                                             $examenVak = $examen->vak;                                    
                                         ?>
                                         <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
-                                            <div class="col-xs-8 fc-primary-nh">
+                                            <div class="col-xs-8 fc-primary-nh col-10">
                                                 {{ $examen->examen }}
                                             </div>
-                                            
-                                            <div class="col-xs-2" title="Resterende aantal plaatsen">
-                                                <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }}
-                                            </div>
-                                            <div class="col-xs-2">
+                                            <div class="col-xs-2 col-2">
                                                 <input type="radio" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
                                             </div>
                                         </div>
