@@ -22,7 +22,7 @@
     @livewire('includes.content.top.content-normal-top')  
     
         <div class="container">
-            <div class="row ml-70">
+            <div class="row">
                 <form method="POST" action="{{ route('f5') }}">
                     @csrf
                     <div class="mb-40">
@@ -40,7 +40,7 @@
                                 <div class="row justify-content-center">
                                     @error('examen_moment')<div class="fc-red text-sm mb-2 text-center">{{ $message }}</div>@enderror
                                     
-                                    <h3 style="text-align: center"><span class="fc-primary-nh">{{ $vak}} {{ $examen }}</span></h3>
+                                    <h3 style="text-align: center" class="mt-3"><span class="fc-primary-nh">{{ $vak}} {{ $examen }}</span></h3>
 
                                     <div class="container mb-10">
                                         <div class="row justify-content-center">

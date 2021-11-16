@@ -25,7 +25,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-9">
                     <h3>Opleidingen</h3>
-                    <p class="fc-primary-nh">Kies onderstaand de juist opleiding. Staat je opleiding er niet bij? Neem dan contact op met je docent.</p>
+                    <p class="fc-primary-nh fc-mobile">Kies onderstaand de juist opleiding. Staat je opleiding er niet bij? Neem dan contact op met je docent.</p>
 
                     
                     <form method="POST" action="{{ route('f3') }}">
