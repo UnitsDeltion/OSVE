@@ -270,11 +270,14 @@ class FormHandlerController extends Controller
                 ->session()
                 ->put(
                     'message',
-                    'Probeer het opnieuw of neem contact op met je docent.'
+                    'De tijd om het examen te bevestigen is verlopen. Probeer het opnieuw of neem contact op met je docent.'
                 );
             $request->session()->put('error', 'Err: token verlopen.');
 
             $tokenData->delete();
+
+            $examen = GeplandeExamens::where('id', $tokenData->gepland_examen_id)->first();
+            $examen->delete();
 
             return redirect('p9');
         }
