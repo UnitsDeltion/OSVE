@@ -103,6 +103,22 @@ class ExamenMomentTableSeeder extends Seeder
             10 => 
             array (
                 'id' => 11,
+                'examenid' => 10,
+                'datum' => '2021-11-21',
+                'tijd' => '12:35:00',
+                'plaatsen' => '31',
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'examenid' => 10,
+                'datum' => '2021-11-21',
+                'tijd' => '12:34:00',
+                'plaatsen' => '31',
+            ),
+            12 => 
+            array (
+                'id' => 13,
                 'examenid' => 11,
                 'datum' => '2021-11-20',
                 'tijd' => '12:30:00',
