@@ -17,95 +17,19 @@ class ExamenMomentTableSeeder extends Seeder
     {
         \DB::table('examen_moment')->delete();
         
-        \DB::table('examen_moment')->insert(array (
-            0 => 
-            array (
-                'id' => 1,
-                'examenid' => 1,
-                'datum' => '2021-11-20',
-                'tijd' => '12:30:00',
-                'plaatsen' => '30',
-            ),
-            1 => 
-            array (
-                'id' => 2,
-                'examenid' => 2,
-                'datum' => '2021-11-20',
-                'tijd' => '12:30:00',
-                'plaatsen' => '30',
-            ),
-            2 => 
-            array (
-                'id' => 3,
-                'examenid' => 3,
-                'datum' => '2021-11-20',
-                'tijd' => '12:30:00',
-                'plaatsen' => '30',
-            ),
-            3 => 
-            array (
-                'id' => 4,
-                'examenid' => 4,
-                'datum' => '2021-11-20',
-                'tijd' => '12:30:00',
-                'plaatsen' => '30',
-            ),
-            4 => 
-            array (
-                'id' => 5,
-                'examenid' => 5,
-                'datum' => '2021-11-20',
-                'tijd' => '12:30:00',
-                'plaatsen' => '30',
-            ),
-            5 => 
-            array (
-                'id' => 6,
-                'examenid' => 6,
-                'datum' => '2021-11-20',
-                'tijd' => '12:30:00',
-                'plaatsen' => '30',
-            ),
-            6 => 
-            array (
-                'id' => 7,
-                'examenid' => 7,
-                'datum' => '2021-11-20',
-                'tijd' => '12:30:00',
-                'plaatsen' => '30',
-            ),
-            7 => 
-            array (
-                'id' => 8,
-                'examenid' => 8,
-                'datum' => '2021-11-20',
-                'tijd' => '12:30:00',
-                'plaatsen' => '30',
-            ),
-            8 => 
-            array (
-                'id' => 9,
-                'examenid' => 9,
-                'datum' => '2021-11-20',
-                'tijd' => '12:30:00',
-                'plaatsen' => '30',
-            ),
-            9 => 
-            array (
-                'id' => 10,
-                'examenid' => 10,
-                'datum' => '2021-11-20',
-                'tijd' => '12:30:00',
-                'plaatsen' => '30',
-            ),
-            10 => 
-            array (
-                'id' => 11,
-                'examenid' => 11,
-                'datum' => '2021-11-20',
-                'tijd' => '12:30:00',
-                'plaatsen' => '30',
-            ),
-        ));
+        $tijden = array('00', '15', '30', '45');
+        $examenMoment = array();
+
+        for ($i=0; $i < 50; $i++) { 
+            $data = [
+                'examenid'              =>      random_int(1, 11),
+                'datum'                 =>      '2021-12-' . random_int(1, 31),
+                'tijd'                  =>      random_int(8, 17) . ':' . $tijden[array_rand($tijden)] . ":00",
+                'plaatsen'              =>      random_int(10, 60)
+            ];
+            array_push($examenMoment, $data);
+        }
+
+        \DB::table('examen_moment')->insert($examenMoment);
     }
 }
