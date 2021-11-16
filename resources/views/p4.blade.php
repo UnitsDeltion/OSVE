@@ -7,7 +7,7 @@
     </x-slot>
 
     <div id="notify"></div>
-    @error('examenMoment')
+    @error('examenMomenten')
         <script>
             Notify({
                 type: 'danger',
@@ -28,7 +28,7 @@
                     <div class="mb-40">
                         <h3>Examen moment</h3>
 
-                        @if(!isset($examenMoment[0]))
+                        @if(!isset($examenMomenten[0]))
                             <div class="mt-50">
                                 <h3 class="align-center">Momenten zijn er geen examen momenten ingepland.</h3>
                                 <h5 class="align-center">Neem contact op met je docent voor meer informatie.</h5>
@@ -46,7 +46,7 @@
                                         <div class="row justify-content-center">
 
                                             <?php $examenDatum = ""; ?>
-                                            @foreach($examenMoment as $examen)
+                                            @foreach($examenMomenten as $examen)
                                                 <?php
                                                     $timestamp = strtotime($examen->datum);
                                                     $examenDatumFormatted = date('d-m-Y', strtotime($examen->datum)); 
