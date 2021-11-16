@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             OpleidingenTableSeeder::class,
             ExamenTableSeeder::class,
-            ExamenMomentTableSeeder::class
+            ExamenMomentTableSeeder::class,
+            RegelmentenTableSeeder::class
         ]);
         $this->call(ExamenMomentTableSeeder::class);
     }

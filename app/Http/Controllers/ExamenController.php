@@ -6,10 +6,11 @@ use Session;
 use App\Models\Examen;
 use App\Models\Opleidingen;
 use App\Models\ExamenMoment;
+use App\Models\RegelementBeheer;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Validator;
 
 class ExamenController extends Controller
 {
@@ -23,7 +24,9 @@ class ExamenController extends Controller
         //Zet de CSRF token weer in de sessie
         $request->session()->put('_token', $token);
 
-        return view('p1');
+        $opleidingen = Opleidingen::get();
+
+        return view('p1', compact('opleidingen'));
     }
 
     public function p2(Request $request)
@@ -166,12 +169,14 @@ class ExamenController extends Controller
             );
         }
 
+        $regelement = RegelementBeheer::get()->first();
+
         $sessionData = collect(session()->all());
         $data = $sessionData->except(['_previous', '_flash', '_token']);
 
         //\Mail::to('97071583@gdeltion.nl')->send(new \App\Mail\MyTestMail($details));
 
-        return view('p6')->with(compact('data'));
+        return view('p6')->with(compact('data', 'regelement'));
     }
 
     public function p7(Request $request)

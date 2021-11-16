@@ -23,7 +23,7 @@
 
     @livewire('includes.content.top.content-normal-top')  
 
-        <div class="containter mt-5">
+        <div class="containter mt-5 mb-5">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <h3>Persoonlijke gegevens</h3>
@@ -73,6 +73,25 @@
                                 </script>
                              @enderror
                         </div>  
+
+                        <!-- <div class="mb-3">
+                            <x-jet-label for="faciliteitenpas" value="{{ __('Faciliteitenpas') }}" />
+                            @error('Faciliteitenpas')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                            <select name="faciliteitenpas" id="faciliteitenpas" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                                <option value="Nee" selected>Nee</option>
+                                <option value="Ja">Ja</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <x-jet-label for="faciliteitenpas" value="{{ __('Opleiding') }}" />
+                            @error('Faciliteitenpas')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                            <select name="faciliteitenpas" id="faciliteitenpas" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                                @foreach($opleidingen as $opleiding)
+                                    <option class="selectInput" onclick="selectInput('p2', {{ $opleiding->crebo_nr }})">{{$opleiding['crebo_nr']}} || {{$opleiding['opleiding']}}</option>
+                                @endforeach
+                            </select>
+                        </div> -->
 
                         <div class="mt-4">
                             <x-jet-button class="button" style="float: right">
