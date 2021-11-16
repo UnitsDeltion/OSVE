@@ -2,18 +2,15 @@
 
 namespace Database\Seeders;
 
-use App\Models\Opleidingen;
+use DB;
 use Illuminate\Database\Seeder;
 
 class OpleidingenTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
+        \DB::table('opleidingen')->delete();
+
         $opleidingen = [
             [
                 'crebo_nr'          =>      25351,
@@ -38,6 +35,6 @@ class OpleidingenTableSeeder extends Seeder
 
         ];
 
-        Opleidingen::insert($opleidingen);
+        \DB::table('opleidingen')->insert($opleidingen);
     }
 }

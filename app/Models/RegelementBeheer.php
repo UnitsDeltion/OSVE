@@ -9,10 +9,10 @@ class RegelementBeheer extends Model
 {
     use HasFactory;
     
-    protected $table = 'regelemten_beheer';
+    protected $table = 'reglementen';
     public $timestamps = false;
 
     protected $fillable = [
-		'regelement',
+		  'reglementen',
 	];
 }
