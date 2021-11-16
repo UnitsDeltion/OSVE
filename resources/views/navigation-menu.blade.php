@@ -44,6 +44,9 @@
                                 <x-jet-dropdown-link href="{{ route('examens.index') }}" class="fc-primary">
                                     {{ __('Examens beheer') }}
                                 </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('regelementen.index') }}" class="fc-primary">
+                                    {{ __('Regelement beheer') }}
+                                </x-jet-dropdown-link>
                                 <?php
                                     $user = \Auth::user();
                                 ?>
