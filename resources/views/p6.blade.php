@@ -81,7 +81,7 @@
                                 <textarea name="opmerkingen" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full disabled" id="opmerkingen" rows="4" disabled>{{ $data['opmerkingen'] }}</textarea>
                             </div>
 
-                            <p><small>Met het versturen ga ik akkoord met de <a class="fc-primary" href="regelementen">regelementen</a> van de examinering.</small></p>
+                            <p><small class="tablet-terms">Met het versturen ga ik akkoord met de <a class="fc-primary" href="regelementen">regelementen</a> van de examinering.</small></p>
 
                             <div class="mt-4">
                                 <a href="{{ route('p5') }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">

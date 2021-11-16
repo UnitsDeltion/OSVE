@@ -49,6 +49,7 @@
                                             @foreach($examenMoment as $examen)
                                                 <?php
                                                     $timestamp = strtotime($examen->datum);
+                                                    $examenDatumFormatted = date('d-m-Y', strtotime($examen->datum)); 
 
                                                         $day = date('l', $timestamp);
                                                         switch($day){
@@ -80,19 +81,19 @@
                                                             echo "</div>";
                                                         }
                                                         echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow \">";
-                                                        echo "<div class=\"row\"><div class=\"col-md-7\"><h4 class=\"fc-secondary-nh\">" .  $day  . "</h4></div><div class=\"col-md-5\">(" . $examen->datum . ")</div></div>";
+                                                        echo "<div class=\"row\"><div class=\"col-md-7 col-4 tablet-day\"><h4 class=\"fc-secondary-nh\">" .  $day  . "</h4></div><div class=\"col-md-5 col-8 ta-right tablet-date\"><small>(" . $examenDatumFormatted . ")</small></div></div>";
                                                     }
                                                     
-                                                    $examenDatum = $examen->datum;           
+                                                    $examenDatum = $examen->datum;          
                                                 ?>
                                                 <!-- onclick="selectInput('p3', {{ $examen->id }}) -->
 
                                                 <div class="row selectInput pb-1" onclick="selectInput('p4', {{ $examen->id }})">
-                                                    <div class="col-xs-10" title="Resterende aantal plaatsen">
-                                                        {{ $examen->tijd }}
-                                                        <!-- <i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }} -->
+                                                    <div class="col-xs-10 col-11 row justify-content-between" title="Resterende aantal plaatsen">
+                                                        <span class="col-4 tablet-time"> {{ date('H:i', strtotime($examen->tijd)); }} </span>
+                                                        <span class="col-4 tablet-spots text-align-end ta-right"><i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }}</span>
                                                     </div>
-                                                    <div class="col-xs-2">
+                                                    <div class="col-xs-2 col-1">
                                                         <input type="radio" name="examenMoment" id="{{ $examen->id }}" value="{{ $examen->datum }} - {{ $examen->tijd }}">
                                                     </div>
                                                 </div>
