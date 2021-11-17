@@ -8,7 +8,6 @@
 
     <div id="notify"></div>
 
-
     @if ($errors->any())
         <script>
             Notify({
