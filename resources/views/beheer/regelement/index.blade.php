@@ -8,7 +8,7 @@
         </div>
     </x-slot>
 
-    @livewire('includes.content.top.content-wide-top') 
+    @livewire('includes.content.top.content-normal-top') 
         @if($message = Session::get('success'))
             <div class="alert alert-success alert-dismissible fade show mb-10" role="alert">
                 <p class="mb-0">{{$message}}</p>

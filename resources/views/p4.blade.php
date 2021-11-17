@@ -86,7 +86,6 @@
                                                     
                                                     $examenDatum = $examen->datum;          
                                                 ?>
-                                                <!-- onclick="selectInput('p3', {{ $examen->id }}) -->
 
                                                 <div class="row selectInput pb-1" onclick="selectInput('p4', {{ $examen->id }})">
                                                     <div class="col-xs-10 col-11 row justify-content-between" title="Resterende aantal plaatsen">
@@ -106,9 +105,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <input type="hidden" name="datum" value="" id="datum">
-                    <input type="hidden" name="tijd" value="" id="tijd">
 
                     <div class="mt-4">
                         <a href="{{ route('p3') }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">

@@ -80,16 +80,3 @@ function pagination($elementID){
         $pagButThree.classList.add("activePage");
     }
 } 
-function momentSelect($type, $value){
-    //console.log($type, $value);
-    //Zet value in hidden input voor FormHandlerController
-    document.getElementById($type).value = $value;
-    
-    var test = document.getElementById("test");
-    test.classList.add("activeInput");
-
-    var test1 = document.getElementById("test1");
-    test1.classList.add("activeInput");
-
-    console.log(test, test1);
-}
