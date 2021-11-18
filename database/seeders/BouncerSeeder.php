@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use Bouncer;
 use App\Models\User;
-use Silber\Bouncer\Bouncer;
 use Illuminate\Database\Seeder;
 
 class BouncerSeeder extends Seeder
@@ -49,7 +49,7 @@ class BouncerSeeder extends Seeder
             'voornaam'          =>      'Test',
             'achternaam'        =>      'Docent',
             'email'             =>      'docent@deltion.nl',
-            'password'          =>      bcrypt('docent'),
+            'password'          =>      bcrypt('ontwikkeling'),
         ]);
 
         $user1->assign('opleidingsmanager');
