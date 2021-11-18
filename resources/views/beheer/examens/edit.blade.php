@@ -33,12 +33,12 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="crebo_nr" class="block font-medium text-sm text-gray-700">Opleiding</lable>
-                        @error('crebo_nr')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <select id="crebo_nr" class="block mt-1 w-full form-control" name="crebo_nr" value="{{ $examen['crebo_nr'] }}">
+                        <lable for="opleiding_id" class="block font-medium text-sm text-gray-700">Opleiding</lable>
+                        @error('opleiding_id')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <select id="opleiding_id" class="block mt-1 w-full form-control" name="opleiding_id" value="{{ $examen['opleiding_id'] }}">
                             @foreach($opleidingen as $opleiding)
-                                <option value="{{ $opleiding['crebo_nr'] }}" 
-                                <?php if($opleiding['crebo_nr'] == $examen['crebo_nr']){echo 'selected';} ?>
+                                <option value="{{ $opleiding['id'] }}" 
+                                <?php if($opleiding['id'] == $examen['opleiding_id']){echo 'selected';} ?>
                                 >{{ $opleiding['opleiding'] }}</option>
                             @endforeach
                         </select>

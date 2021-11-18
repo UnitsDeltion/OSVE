@@ -15,7 +15,7 @@ class CreateExamensTable extends Migration
     {
         Schema::create('examens', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('crebo_nr');
+            $table->integer('opleiding_id',false,true)->index();
             $table->string('uitleg')->nullable();
             $table->string('examen');
             $table->string('vak');
@@ -23,7 +23,7 @@ class CreateExamensTable extends Migration
             $table->date('examen_opgeven_begin');
             $table->date('examen_opgeven_eind');
             
-            $table->foreign('crebo_nr', 'examens_ibfk_1')->references('crebo_nr')->on('opleidingen')->onDelete('cascade')->onUpdate('restrict');
+            $table->foreign('opleiding_id', 'examens_ibfk_1')->references('id')->on('opleidingen')->onDelete('cascade')->onUpdate('restrict');
         });
     }
 
