@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce153ae5df4cc3c74c52bb353c02a952",
+    "content-hash": "96461e4a29dcee7a509446e31d6c1594",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2753,6 +2753,58 @@
                 "source": "https://github.com/paragonie/constant_time_encoding"
             },
             "time": "2020-12-06T15:14:20+00:00"
+        },
+        {
+            "name": "pdfmake/pdfmake",
+            "version": "v0.1.31",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pdfmake/pdfmake.git",
+                "reference": "ae8b61019c50a5c39881f30d49d5f03d90bd3a78"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pdfmake/pdfmake/zipball/ae8b61019c50a5c39881f30d49d5f03d90bd3a78",
+                "reference": "ae8b61019c50a5c39881f30d49d5f03d90bd3a78",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thiago Pereira Rosa",
+                    "email": "thiagor@engineer.com",
+                    "homepage": "http://coderi.com.br",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Bartek Pampuch",
+                    "email": "bpampuch@pdfmake.org",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Vasiliy Solovey",
+                    "email": "miltador@yandex.ua",
+                    "homepage": "http://miltador.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Client/server side PDF printing in pure JavaScript",
+            "homepage": "http://pdfmake.github.io",
+            "keywords": [
+                "javascript",
+                "pdf",
+                "pdfmake"
+            ],
+            "support": {
+                "issues": "https://github.com/pdfmake/pdfmake/issues",
+                "source": "https://github.com/pdfmake/pdfmake/tree/master"
+            },
+            "abandoned": true,
+            "time": "2016-09-21T17:29:57+00:00"
         },
         {
             "name": "phpoption/phpoption",
