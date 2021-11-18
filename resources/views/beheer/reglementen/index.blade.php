@@ -8,7 +8,7 @@
         </div>
     </x-slot>
 
-    @livewire('includes.warnings.validation')
+    @livewire('includes.validation.warning')
 
     @livewire('includes.content.top.content-small-top') 
 
@@ -24,12 +24,7 @@
             <div class="form-group">
                 <lable for="reglementen" class="block font-medium text-sm text-gray-700">Reglementen URL</lable>
                 <input id="reglementen" class="block mt-1 w-full form-control" type="text" name="reglementen" value="{{ $reglementen->reglementen }}"/>
-                @error('reglementen') 
-                    <script>
-                        document.getElementById('reglementen').classList.add("bc-red", "sh-red"); 
-                        document.getElementById('reglementen').classList.remove("shadow-sm"); 
-                    </script>
-                @enderror
+                @livewire('includes.validation.input', ['input' => 'reglementen'])
             </div>
 
             <div class="mt-4">
