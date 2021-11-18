@@ -173,7 +173,7 @@ $(document).ready(function() {
         },
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'excel', {
+             'excel', {
             
             extend: 'pdfHtml5',
             download: 'open',
