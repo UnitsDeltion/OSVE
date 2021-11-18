@@ -13,11 +13,11 @@
             @csrf
             
             <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <lable for="vak" class="block font-medium text-sm text-gray-700">Vak</lable>
-                    @error('vak')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                    <input id="vak" class="block mt-1 w-full form-control" type="text" name="vak" :value="old('vak')"/>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <lable for="vak" class="block font-medium text-sm text-gray-700">Vak</lable>
+                        @error('vak')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <input id="vak" class="block mt-1 w-full form-control" type="text" name="vak" :value="old('vak')"/>
                     </div>
                 </div>
                 <div class="col-md-6">

@@ -13,8 +13,8 @@
             @csrf
             @method('put')
 
-            <div class="row">
-                <div class="col-md-6 pr-2">
+            <div class="row mt-100 shadow p-3 mb-5 bg-white rounded">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label for="voornaam" class="block font-medium text-sm text-gray-700">Voornaam</label>
                         @error('voornaam')<div class="fc-red text-sm">{{ $message }}</div>@enderror
@@ -22,21 +22,13 @@
                     </div>
                 </div>  
 
-                <div class="col-md-6 pl-2">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label for="achternaam" class="block font-medium text-sm text-gray-700">Achternaam</label>
                         @error('achternaam')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <input id="achternaam" class="block mt-1 w-full form-control" type="text" name="achternaam" value="{{ $user->achternaam }}"/>
                     </div>
                 </div>  
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="telefoonnummer" class="block font-medium text-sm text-gray-700">Telefoonnummer</label>
-                        @error('telefoonnummer')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="telefoonnummer" class="block mt-1 w-full form-control" type="telefoonnummer" name="telefoonnummer" value="{{ $user->telefoonnummer }}"/>
-                    </div>
-                </div>
 
                 <div class="col-md-12">
                     <div class="form-group">

@@ -7,7 +7,6 @@
 
     @livewire('includes.content.top.content-wide-top') 
 
-
         <div class="pagination justify-content-center">
             <a href="#1" class="activePage" id="pagButtonOne" title="Studenten" onclick="pagination('1')"><i class="fas fa-user-graduate"></i> Ingeplande examens</a>
             <a href="#2" class="" id="pagButtonTwo" title="Docenten" onclick="pagination('2')"><i class="fas fa-chalkboard-teacher"></i> Alle examens</a>
@@ -74,8 +73,12 @@
                     </tr>
                     @endforeach
                 </tbody>
+                
+        
             </table>
         </div>
+
+       
 
         <div id="elementTwo" style="display: none;">
             <h3>Actieve examens</h3>
@@ -161,10 +164,27 @@
 
 <script>
 $(document).ready(function() {
+    console.log("gaat goed");
     $('#ingeplandeExamens').DataTable( {
+      
         "language": {
-            "url": "{{asset('/json/datatabels/dutch')}}"
-        }
+            "url": "{{asset('/json/datatabels/dutch')}}",
+        },
+        dom: 'Bfrtip',
+        buttons: [
+             'excel', {
+            
+            extend: 'pdfHtml5',
+            download: 'open',
+            exportOptions: {
+                modifier: {
+                    page: 'current'
+                }
+            }
+                
+            }
+            ]       
+        
     });
     $('#actieveExamens').DataTable( {
         "language": {
