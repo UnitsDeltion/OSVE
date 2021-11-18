@@ -60,6 +60,8 @@
             </main>
         </div>
 
+        <?php dump(session()->all()); ?>
+
         @livewire('includes.footer-wide') 
 
         @livewireScripts

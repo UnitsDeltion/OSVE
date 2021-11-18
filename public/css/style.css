@@ -2,7 +2,7 @@
     Theme Name:   GoodCSS
     Description:  Mooie handige CSS
     Author:       Martijn Schuman
-    Version:      2.0
+    Version:      3.0
 */
 
 /* Colors */
@@ -192,6 +192,7 @@
 
 /*Anchors*/
 a{color: var(--fc-primary) !important; transition: color .2s; font-weight: 600;}
+a[target=popup]{ cursor: pointer;}
 a:hover{color: var(--hover) !important;}
 .a-clear{text-decoration: none !important;}
 
@@ -245,16 +246,6 @@ hr{
     background-color:var(--primary)
 }
 
-/*Footer*/
-.footer-content a{color: var(--primary) !important;}
-.footer-content a:hover{color: var(--secondary) !important;}
-.btn:hover {background-color: var(--hover) !important;}
-
-/*Privacy verklaring*/
-.privacy-policy-content p, .privacy-policy-content li{color: rgba(52,52,105,.75); font-weight: 400;}
-.privacy-policy-content li{list-style-type:disc}
-.privacy-policy-content li::marker {color: var(--secondary) !important};
-
 /*Cards*/
 .card-header, .card-footer{
     background-color: rgba(0,0,0,0) !important;
@@ -279,7 +270,31 @@ hr{
 
 .shadowp3 {
     box-shadow: 5px 5px 5px 5px #888888;
-  }
+}
+
+/*Dashboard*/
+button.dt-button{
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-radius: 6px !important;
+}
+
+button.dt-button:hover{
+    background-color: var(--secondary) !important;
+    border: 1px solid var(--secondary);
+}
+
+button.dt-button:active{
+    background-color: var(--secondary) !important;
+}
+
+button.dt-button:visited{
+    background-color: var(--secondary) !important;
+}
+
+.dataTables_filter{
+    margin-bottom: 15px;
+}
 
 .pagination > li {
     background: none !important;
@@ -340,6 +355,10 @@ hr{
 
 .pagination i{
     color: white !important;
+}
+
+.pagination .disabled a{
+    background-color: gray !important;
 }
 
 .activePage{
@@ -419,24 +438,3 @@ hr{
         background-size: cover; 
     }
 }
-
-.CardWhite {
-    background-color: rgba(255,255,255,.9);
-}
-
-.ta-right {
-    text-align: right!important;
-}
-
-button.dt-button{
-    background-color: var(--primary) !important;
-    color: white !important;
-    border-radius: 6px !important;
-}
-button.dt-button:hover{
-    background-color: var(--secondary) !important;
-}
-
-/* a.paginate_button.current{
-    background-color: var(--primary) !important;
-} */
