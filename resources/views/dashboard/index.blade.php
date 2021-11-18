@@ -7,7 +7,6 @@
 
     @livewire('includes.content.top.content-wide-top') 
 
-
         <div class="pagination justify-content-center">
             <a href="#1" class="activePage" id="pagButtonOne" title="Studenten" onclick="pagination('1')"><i class="fas fa-user-graduate"></i> Ingeplande examens</a>
             <a href="#2" class="" id="pagButtonTwo" title="Docenten" onclick="pagination('2')"><i class="fas fa-chalkboard-teacher"></i> Alle examens</a>

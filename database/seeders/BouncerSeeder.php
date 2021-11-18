@@ -5,17 +5,12 @@ namespace Database\Seeders;
 use Bouncer;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+// use Silber\Bouncer\Bouncer;
 
 class BouncerSeeder extends Seeder
 {
     public function run()
     {
-        Bouncer::allow('opleidingsmanager')->everything();
-        //Bouncer::forbid('admin')->toManage(User::class);
-
-        Bouncer::allow('docent')->to('examen-beheer');
-        //Bouncer::allow('editor')->toOwn(Post::class);
-
         $user1 = User::create([
             'id'                =>      1,
             'voornaam'          =>      'Martijn',
@@ -57,5 +52,11 @@ class BouncerSeeder extends Seeder
         $user3->assign('opleidingsmanager');
         $user4->assign('opleidingsmanager');
         $user5->assign('docent');
+
+        Bouncer::allow('opleidingsmanager')->everything();
+        //Bouncer::forbid('admin')->toManage(User::class);
+
+        Bouncer::allow('docent')->to('examen-beheer');
+        //Bouncer::allow('editor')->toOwn(Post::class);
     }
 }
