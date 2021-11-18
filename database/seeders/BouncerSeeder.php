@@ -20,7 +20,6 @@ class BouncerSeeder extends Seeder
             'id'                =>      1,
             'voornaam'          =>      'Martijn',
             'achternaam'        =>      'Schuman',
-            'telefoonnummer'    =>      '+31 6 42863297',
             'email'             =>      '97047008@st.deltion.nl',
             'password'          =>      bcrypt('ontwikkeling'),
         ]);
@@ -28,7 +27,6 @@ class BouncerSeeder extends Seeder
             'id'                =>      2,
             'voornaam'          =>      'Jesse',
             'achternaam'        =>      'Koldewijn',
-            'telefoonnummer'    =>      '+31 6 27211252',
             'email'             =>      '97032722@st.deltion.nl',
             'password'          =>      bcrypt('ontwikkeling'),
         ]);
@@ -36,7 +34,6 @@ class BouncerSeeder extends Seeder
             'id'                =>      3,
             'voornaam'          =>      'Pascal',
             'achternaam'        =>      'Palmbergen',
-            'telefoonnummer'    =>      '+31 6 40114303',
             'email'             =>      '97071583@st.deltion.nl',
             'password'          =>      bcrypt('ontwikkeling'),
         ]);
@@ -44,7 +41,6 @@ class BouncerSeeder extends Seeder
             'id'                =>      4,
             'voornaam'          =>      'Bas',
             'achternaam'        =>      'Plat',
-            'telefoonnummer'    =>      '+31 6 24569460',
             'email'             =>      '97047005@st.deltion.nl',
             'password'          =>      bcrypt('ontwikkeling'),
         ]);
@@ -52,7 +48,6 @@ class BouncerSeeder extends Seeder
             'id'                =>      5,
             'voornaam'          =>      'Test',
             'achternaam'        =>      'Docent',
-            'telefoonnummer'    =>      '+31 6 24569460',
             'email'             =>      'docent@deltion.nl',
             'password'          =>      bcrypt('docent'),
         ]);
