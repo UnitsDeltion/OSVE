@@ -47,15 +47,15 @@
                                     $user = \Auth::user();
                                 ?>
                                 @if($user->isAn('opleidingsmanager'))
-                                <x-jet-dropdown-link href="{{ route('opleidingen.index') }}" class="fc-primary">
-                                    {{ __('Opleidingen beheer') }}
-                                </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="{{ route('users.index') }}" class="fc-primary">
-                                    {{ __('Docenten beheer') }}
-                                </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="{{ route('regelementen.index') }}" class="fc-primary">
-                                    {{ __('Regelement beheer') }}
-                                </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('opleidingen.index') }}" class="fc-primary">
+                                        {{ __('Opleidingen beheer') }}
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('users.index') }}" class="fc-primary">
+                                        {{ __('Docenten beheer') }}
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('regelementen.index') }}" class="fc-primary">
+                                        {{ __('Regelement beheer') }}
+                                    </x-jet-dropdown-link>
                                 @endif
                             </x-slot>
                         </x-jet-dropdown>
