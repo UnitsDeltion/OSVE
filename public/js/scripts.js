@@ -2,7 +2,7 @@ function selectInput($page, $id){
     var input = document.getElementById($id);
 
     if($page == 'p2'){
-        var array = document.getElementsByName('crebo_nr');
+        var array = document.getElementsByName('opleiding_id');
     
         array.forEach(element => {
             if(element.checked){

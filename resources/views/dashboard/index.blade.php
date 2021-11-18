@@ -72,13 +72,10 @@
                         </td>
                     </tr>
                     @endforeach
-                </tbody>
-                
+                </tbody> 
         
             </table>
         </div>
-
-       
 
         <div id="elementTwo" style="display: none;">
             <h3>Actieve examens</h3>
@@ -164,27 +161,22 @@
 
 <script>
 $(document).ready(function() {
-    console.log("gaat goed");
     $('#ingeplandeExamens').DataTable( {
-      
         "language": {
             "url": "{{asset('/json/datatabels/dutch')}}",
         },
         dom: 'Bfrtip',
         buttons: [
-             'excel', {
-            
-            extend: 'pdfHtml5',
-            download: 'open',
-            exportOptions: {
-                modifier: {
-                    page: 'current'
+            'excel', {
+                extend: 'pdfHtml5',
+                download: 'open',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
                 }
             }
-                
-            }
-            ]       
-        
+        ]
     });
     $('#actieveExamens').DataTable( {
         "language": {

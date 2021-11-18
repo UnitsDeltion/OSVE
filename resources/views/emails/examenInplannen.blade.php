@@ -1,12 +1,9 @@
-<!--- Omdat verschillende mail applicaties geen CSS Ondersteunen moeten wij het inlinen. Eerst wordt het normaal gebouwd en
- als het dan klaar is gebruiken wij de inliner op:  https://putsmail.com/inliner  --->
-
- <!doctype html>
+<!doctype html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Osve | Deltion college</title>
+    <title>OSVE | Deltion college</title>
     <style>
         * {
             font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -112,70 +109,71 @@
 <!-- body -->
 <table class="body-wrap" bgcolor="#f6f6f6">
     <tr>
-        <td></td>
         <td class="container" bgcolor="#FFFFFF">
             <div class="content">
                 <table>
                     <tr>
                         <td>
                             <h1>Examen registratie</h1>
+
                             <br>
+
                             <h2 class="mb-0" style="color: #F58220">Student gegevens</h2>
                             <table>
                                 <tr>
-                                    <td >Voornaam</td>
-                                    <td >{{ Session::get('voornaam') }}</td>
+                                    <td>Voornaam</td>
+                                    <td>{{ Session::get('voornaam') }}</td>
                                 </tr>
                                 <tr>
-                                    <td >Achternaam</td>
-                                    <td >{{ Session::get('achternaam') }}</td>
+                                    <td>Achternaam</td>
+                                    <td>{{ Session::get('achternaam') }}</td>
                                 </tr>
                                 <tr>
-                                    <td >Faciliteiten pas</td>
-                                    <td >{{ Session::get('faciliteitenpas') }}</td>
+                                    <td>Faciliteiten pas</td>
+                                    <td>{{ Session::get('faciliteitenpas') }}</td>
                                 </tr>
                                 <tr>
-                                    <td >Student nummer</td>
-                                    <td >{{ Session::get('studentnummer') }}</td>
+                                    <td>Student nummer</td>
+                                    <td>{{ Session::get('studentnummer') }}</td>
                                 </tr>
                                 <tr>
-                                    <td >Crebo nummer</td>
-                                    <td >{{ Session::get('crebo_nr') }}</td>
+                                    <td>Crebo nummer</td>
+                                    <td>{{ Session::get('crebo_nr') }}</td>
                                 </tr>
                                 <tr>
-                                    <td >Opleiding</td>
-                                    <td >{{ Session::get('opleiding') }}</td>
+                                    <td>Opleiding</td>
+                                    <td>{{ Session::get('opleiding') }}</td>
                                 </tr>
                                 <tr>
-                                    <td >Vak</td>
-                                    <td >{{ Session::get('vak') }}</td>
+                                    <td>Vak</td>
+                                    <td>{{ Session::get('vak') }}</td>
                                 </tr>
                                 <tr>
-                                    <td >Examen</td>
-                                    <td >{{ Session::get('examen') }}</td>
+                                    <td>Examen</td>
+                                    <td>{{ Session::get('examen') }}</td>
                                 </tr>
+
                                 <tr>
                                     <td><br><h2 class="mb-0" style="color: #F58220">Inhoud</h2></td>
                                 </tr>
-                        
                                 <tr>
-                                    <td >Datum</td>
-                                    <td >{{ Session::get('datum') }}</td>
+                                    <td>Datum</td>
+                                    <td>{{ Session::get('datum') }}</td>
                                 </tr>
                                 <tr>
-                                    <td >Tijd</td>
-                                    <td >{{ Session::get('tijd') }}</td>
+                                    <td>Tijd</td>
+                                    <td>{{ Session::get('tijd') }}</td>
                                 </tr>
                                 <tr>
-                                    <td >Opmerking</td>
-                                    <td >{{ Session::get('opmerkingen') }}</td>
+                                    <td>Opmerking</td>
+                                    <td>{{ Session::get('opmerkingen') }}</td>
                                 </tr>
+
                                 <tr>
                                     <td><br><h2 class="mb-0" style="color: #F58220">Examen bevestigen</h2></td>
                                 </tr>
                                 <tr>
-                                    <td ><a href="http://127.0.0.1:8000/p8?token={{ Session::get('token') }}" style="color: #343469;" target="_blank">Klik hier om te bevestigen</a></td>
-                                </tr>
+                                    <td><a href="http://127.0.0.1:8000/p8?token={{ Session::get('token') }}" style="color: #343469;" target="_blank">Klik hier om te bevestigen</a></td>
                                 </tr>
                             </table>
                         </td>
@@ -183,7 +181,6 @@
                 </table>
             </div>
         </td>
-        <td></td>
     </tr>
 </table>
 <!-- /body -->
@@ -191,24 +188,17 @@
 <!-- footer -->
 <table class="footer-wrap">
     <tr>
-        <td></td>
         <td class="container">
-
-            <!-- content -->
             <div class="content">
                 <table>
                     <tr>
                         <td align="center">
-                            <p>© Deltion College - www.deltion.nl  </a>
-                            </p>
+                            <p>© Deltion College - www.deltion.nl</p>
                         </td>
                     </tr>
                 </table>
             </div>
-            <!-- /content -->
-
         </td>
-        <td></td>
     </tr>
 </table>
 <!-- /footer -->
