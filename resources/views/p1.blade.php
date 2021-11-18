@@ -6,21 +6,9 @@
         </h2>
     </x-slot>
 
-    <div id="notify"></div>
+    @livewire('includes.warnings.validation')
 
-    @if ($errors->any())
-        <script>
-            Notify({
-                type: 'danger',
-                duration: 7500,
-                position: 'top center',
-                title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
-                html: '<p class="align-center mb-0 fw-600 fc-primary-nh">Alle velden zijn verplicht!</p>',
-            });
-        </script>  
-    @endif
-
-    @livewire('includes.content.top.content-normal-top')  
+    @livewire('includes.content.top.content-normal-top')
 
         <div class="containter mt-5 mb-5">
             <div class="row justify-content-center">
