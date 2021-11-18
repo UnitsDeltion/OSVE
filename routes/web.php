@@ -48,6 +48,7 @@ Route::POST('/ics_handler', [ICS_HandlerController::class, 'ics_handler'])->name
 
 Route::get('/privacy-policy', function () {return redirect('https://www.deltion.nl/privacy');})->name('privacy-policy');
 
+Route::get('/beheer', function () {return redirect('/dashboard'); });
 Route::resource('/beheer/users', UsersBeheerController::class);
 Route::resource('/beheer/examens', ExamenBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
