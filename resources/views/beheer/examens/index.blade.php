@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="d-flex" style="width: 100%;">
-            <h2>
+            <h2 class="align-self-start font-semibold text-xl text-gray-800 leading-tight row">
                 @section('title', 'Alle examens')
                 @yield('title')
             </h2>
-            <a href="{{ route('examens.create') }}" class="a-clear" style="margin-right: 0; margin-left: auto; font-size: 12px!important;">
-                <x-jet-button class="mb-2 float-right mt-10 mr-10 button">
+            <a href="{{ route('examens.create') }}" class="a-clear" style="margin-right: 0; margin-left: auto;">
+                <x-jet-button class="button">
                     {{ __('Examen toevoegen') }}
                 </x-jet-button>
             </a>
@@ -15,47 +15,37 @@
 
     @livewire('includes.content.top.content-normal-top') 
 
-        <table class="table fz-14 br-5">
+        <table class="table mt-4">
             <thead>
                 <tr>
-                    <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
-                        <strong>Vak</strong>
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
-                        <strong>Examen</strong>
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-left font-medium uppercase tracking-wider">
-                    </th>
-                    <th></th>
+                    <th>Vak</th>
+                    <th>Examen</th>
+                    <th colspan="2"></th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
+            <tbody>
                 @foreach ($examens as $examen)
-                <tr>
-                    <td class="px-6 text-sm text-gray-900">
-                        {{ $examen['vak'] }}
-                    </td>
-                    <td class="px-6 text-sm text-gray-900">
-                        {{ $examen['examen'] }}
-                    </td>
+                    <tr class="va-middle">
+                        <td>{{ $examen['vak'] }}</td>
+                        <td>{{ $examen['examen'] }}</td>
+                        <td class="align-right pr-0">
+                            <a href="{{ route('examens.show', $examen['id'] ) }}" class="mr-2 a-clear">
+                                <x-jet-button class="button">
+                                    <i class="fas fa-eye"></i>
+                                </x-jet-button>
+                            </a>
+                        </td>
+                        <td>
+                            <form action="{{ route('examens.destroy', $examen['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                    <td class="px-6 pr-0 d-flex float-right">
-                        <a href="{{ route('examens.show', $examen['id'] ) }}">
-                            <x-jet-button title="Bekijken" class="mb-2 mr-2 button">
-                                <i class="fas fa-eye"></i>
-                            </x-jet-button>
-                        </a>
-
-                        <form action="{{ route('examens.destroy', $examen['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                            <x-jet-button class="mr-2 button" title="Verwijderen">
-                                <i class="fas fa-trash"></i>
-                            </x-jet-button>
-                        </form>
-                    </td>
-                </tr>
+                                <x-jet-button class="button" title="Verwijderen">
+                                    <i class="fas fa-trash"></i>
+                                </x-jet-button>
+                            </form>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>

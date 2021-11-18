@@ -7,6 +7,7 @@
     </x-slot>
 
     <div id="notify"></div>
+    
     @error('crebo_nr')
         <script>
             Notify({

@@ -50,7 +50,7 @@
                                                 echo "<h4 class=\"fc-secondary-nh\">" . $examen->vak . "</h4>";
                                             }
                                             
-                                            $examenVak = $examen->vak;                                    
+                                            $examenVak = $examen->vak;
                                         ?>
                                         <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
                                             <div class="col-xs-8 fc-primary-nh col-10">

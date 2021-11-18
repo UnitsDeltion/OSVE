@@ -8,50 +8,52 @@
         </div>
     </x-slot>
 
+    @livewire('includes.validation.warning')
+
     @livewire('includes.content.top.content-small-top') 
 
         <form method="post" action="{{ route('users.store') }}" class="mt-10">
+            
             @csrf
             
-            <div class="row mt-5 shadow p-3 mb-5 bg-white rounded">
+            <div class="row mt-4">
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="voornaam" class="block font-medium text-sm text-gray-700">Voornaam</label>
-                        @error('voornaam')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <input id="voornaam" class="block mt-1 w-full form-control" type="text" name="voornaam" value="{{old('voornaam')}}"/>
+                        @livewire('includes.validation.input', ['input' => 'voornaam'])
                     </div>
                 </div>  
 
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="achternaam" class="block font-medium text-sm text-gray-700">Achternaam</label>
-                        @error('achternaam')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <input id="achternaam" class="block mt-1 w-full form-control" type="text" name="achternaam" value="{{old('achternaam')}}"/>
+                        @livewire('includes.validation.input', ['input' => 'achternaam'])
                     </div>
                 </div> 
- 
 
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="email" class="block font-medium text-sm text-gray-700">E-mail</label>
-                        @error('email')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <input id="email" class="block mt-1 w-full form-control" type="email" name="email" value="{{old('email')}}"/>
+                        @livewire('includes.validation.input', ['input' => 'email'])
                     </div>
                 </div> 
 
                 <div class="col-md-6 pr-2">
                     <div class="form-group">
                         <label for="password" class="block font-medium text-sm text-gray-700">Wachtwoord</label>
-                        @error('password')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <input id="password" class="block mt-1 w-full form-control" type="password" name="password"/>
+                        @livewire('includes.validation.input', ['input' => 'password'])
                     </div>
                 </div> 
 
                 <div class="col-md-6 pl-2">
                     <div class="form-group">
                     <label for="passwordconfirm" class="block font-medium text-sm text-gray-700">Wachtwoord bevestiging</label>
-                        @error('passwordconfirm')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <input id="passwordconfirm" class="block mt-1 w-full form-control" type="password" name="passwordconfirm"/>
+                        @livewire('includes.validation.input', ['input' => 'passwordconfirm'])
                     </div>
                 </div> 
 
