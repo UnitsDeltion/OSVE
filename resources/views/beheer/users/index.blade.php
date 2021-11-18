@@ -25,10 +25,8 @@
                 <tr>
                     <th>Naam</th>
                     <th>Email</th>
-                    <th>Telefoonnummer</th>
-                    <!-- <th>Rollen</th> -->
-                    <th></th>
-                    <th></th>
+                    <th colspan = "3"></th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -36,7 +34,6 @@
                     <tr class="va-middle">
                         <td>{{ $user->voornaam }} {{ $user->achternaam }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->telefoonnummer }}</td>
                         <td></td>
                         </td>
                         <td class="align-right pr-0">

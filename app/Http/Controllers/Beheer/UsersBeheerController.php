@@ -61,7 +61,6 @@ class UsersBeheerController extends Controller{
         $validated = $request->validate([
             'voornaam' => 'required|max:255|string',
             'achternaam' => 'required|max:255|string',
-            'telefoonnummer' => 'required|max:255|string',
             'email'=> 'required|unique:users|email',
             'password' => 'required|min:9|string',
             'passwordconfirm' => 'required|min:9|string|same:password',
@@ -69,7 +68,6 @@ class UsersBeheerController extends Controller{
 
         $user->voornaam = $request->voornaam;
         $user->achternaam = $request->achternaam;
-        $user->telefoonnummer = $request->telefoonnummer;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
@@ -90,7 +88,6 @@ class UsersBeheerController extends Controller{
         $validated = $request->validate([
             'voornaam' => 'required|max:255|string',
             'achternaam' => 'required|max:255|string',
-            'telefoonnummer' => 'required|max:255|string',
             'email'=> 'required|email',
             // 'roles' => 'required',
         ]);
@@ -100,7 +97,6 @@ class UsersBeheerController extends Controller{
 
             $user->voornaam = is_null($request->voornaam) ? $user->voornaam : $request->voornaam;
             $user->achternaam = is_null($request->achternaam) ? $user->achternaam : $request->achternaam;
-            $user->telefoonnummer = is_null($request->telefoonnummer) ? $user->telefoonnummer : $request->telefoonnummer;
             $user->email = is_null($request->email) ? $user->email : $request->email;
             $user->save();
         }
