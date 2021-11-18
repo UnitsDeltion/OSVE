@@ -11,7 +11,7 @@ use App\Http\Controllers\Beheer\UsersBeheerController;
 use App\Http\Controllers\Beheer\ExamenBeheerController;
 use App\Http\Controllers\Beheer\ExamenMomentBeheerController;
 use App\Http\Controllers\Beheer\OpleidingBeheerController;
-use App\Http\Controllers\Beheer\RegelementBeheerController;
+use App\Http\Controllers\Beheer\ReglementenBeheerController;
 use App\Http\Controllers\Beheer\GeplandeExamensBeheerController;
 
 /*
@@ -52,7 +52,7 @@ Route::get('/beheer', function () {return redirect('/dashboard'); });
 Route::resource('/beheer/users', UsersBeheerController::class);
 Route::resource('/beheer/examens', ExamenBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
-Route::resource('/beheer/regelementen', RegelementBeheerController::class);
+Route::resource('/beheer/reglementen', ReglementenBeheerController::class);
 
 Route::resource('/beheer/moments', ExamenMomentBeheerController::class)->except('create', 'store');
 Route::get('/beheer/moment/{id}', [ExamenMomentBeheerController::class, 'create'])->name('momentsCreate');
