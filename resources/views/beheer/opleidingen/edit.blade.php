@@ -6,22 +6,26 @@
         </h2>
     </x-slot>
 
-    @livewire('includes.content.top.content-small-top') 
+    @livewire('includes.validation.warning')
+
+    @livewire('includes.content.top.content-small-top')
 
         <form method="post" action="{{ route('opleidingen.update', $opleiding['crebo_nr']) }}" class="mt-10">
+
             @csrf
             @method('put')
 
+            <div class="mt-4">
                 <div class="form-group">
-                    <lable for="crebo_nr" class="block font-medium text-sm text-gray-700">Crebo nummer</lable>
-                    @error('crebo_nr')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                    <label for="crebo_nr" class="block font-medium text-sm text-gray-700">Crebo nummer</label>
                     <input id="crebo_nr" class="block mt-1 w-full form-control" type="number" name="crebo_nr" value="{{ $opleiding['crebo_nr'] }}"/>
+                    @livewire('includes.validation.input', ['input' => 'crebo_nr'])
                 </div>
 
                 <div class="form-group">
-                    <lable for="opleiding" class="block font-medium text-sm text-gray-700">Opleiding naam</lable>
-                    @error('opleiding')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                    <label for="opleiding" class="block font-medium text-sm text-gray-700">Opleiding naam</label>
                     <input id="opleiding" class="block mt-1 w-full form-control" type="text" name="opleiding" value="{{ $opleiding['opleiding'] }}"/>
+                    @livewire('includes.validation.input', ['input' => 'opleiding'])
                 </div>
 
                 <div class="mt-4">
@@ -35,8 +39,8 @@
                         </x-jet-button>
                     </div>
                 </div>
-                
             </div>
+                
         </form>
     
     @livewire('includes.content.bottom.content-bottom')  
