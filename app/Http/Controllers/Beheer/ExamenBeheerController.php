@@ -20,7 +20,6 @@ class ExamenBeheerController extends Controller
      */
     public function index()
     {
-
         $user = \Auth::user();
 
         if(!$user){
@@ -64,7 +63,7 @@ class ExamenBeheerController extends Controller
         $this->validate($request, [
             'vak' => 'required',
             'examen' => 'required',
-            'crebo_nr' => 'required|integer|digits:5',
+            'opleiding_id' => 'required|integer',
             'geplande_docenten' => 'required',
             'examen_opgeven_begin' => 'required',
             'examen_opgeven_eind' => 'required',
@@ -72,7 +71,7 @@ class ExamenBeheerController extends Controller
 
         $examen->vak = $request->vak;
         $examen->examen = $request->examen;
-        $examen->crebo_nr = $request->crebo_nr;
+        $examen->opleiding_id = $request->opleiding_id;
         $examen->geplande_docenten = $request->geplande_docenten;
         $examen->examen_opgeven_begin = $request->examen_opgeven_begin;
         $examen->examen_opgeven_eind = $request->examen_opgeven_eind;
@@ -132,7 +131,7 @@ class ExamenBeheerController extends Controller
         $this->validate($request, [
             'vak' => 'required',
             'examen' => 'required',
-            'crebo_nr' => 'required|integer|digits:5',
+            'opleiding_id' => 'required|integer',
             'geplande_docenten' => 'required',
             'examen_opgeven_begin' => 'required',
             'examen_opgeven_eind' => 'required',
@@ -142,7 +141,7 @@ class ExamenBeheerController extends Controller
         $examen = Examen::find($id);
         $examen->vak = is_null($request->vak) ? $examen->vak : $request->vak;
         $examen->examen = is_null($request->examen) ? $examen->examen : $request->examen;
-        $examen->crebo_nr = is_null($request->crebo_nr) ? $examen->crebo_nr : $request->crebo_nr;
+        $examen->opleiding_id = is_null($request->opleiding_id) ? $examen->opleiding_id : $request->opleiding_id;
         $examen->geplande_docenten = is_null($request->geplande_docenten) ? $examen->geplande_docenten : $request->geplande_docenten;
         $examen->examen_opgeven_begin = is_null($request->examen_opgeven_begin) ? $examen->examen_opgeven_begin : $request->examen_opgeven_begin;
         $examen->examen_opgeven_eind = is_null($request->examen_opgeven_eind) ? $examen->examen_opgeven_eind : $request->examen_opgeven_eind;
