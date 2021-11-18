@@ -14,6 +14,7 @@ class CreateOpleidingenTable extends Migration
     public function up()
     {
         Schema::create('opleidingen', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('crebo_nr')->index('crebo_nr');
             $table->string('opleiding');
         });
