@@ -8,7 +8,7 @@
 
     <div id="notify"></div>
     
-    @error('crebo_nr')
+    @error('opleiding_id')
         <script>
             Notify({
                 type: 'danger',
