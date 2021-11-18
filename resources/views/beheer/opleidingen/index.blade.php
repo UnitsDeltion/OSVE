@@ -13,20 +13,20 @@
         </div>
     </x-slot>
 
-    @livewire('includes.content.top.content-wide-top') 
+    @livewire('includes.content.top.content-normal-top')
+
         @if($message = Session::get('success'))
             <div class="alert alert-success alert-dismissible fade show mb-10" role="alert">
                 <p class="mb-0">{{$message}}</p>
             </div>
         @endif
 
-        <table class="table">
+        <table class="table mt-4">
             <thead>
                 <tr>
                     <th>Crebo nummer</th>
                     <th>Opleiding</th>
-                    <th></th>
-                    <th></th>
+                    <th colspan="2"></th>
                 </tr>
             </thead>
             <tbody>

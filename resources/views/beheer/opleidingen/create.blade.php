@@ -1,31 +1,32 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2>
-            @section('title', 'Nieuwe opleiding toevoegen')
-            @yield('title')
-        </h2>
+        <div class="d-flex" style="width: 100%;">
+            <h2 class="align-self-start font-semibold text-xl text-gray-800 leading-tight row">
+                @section('title', 'Nieuwe opleiding toevoegen')
+                @yield('title')
+            </h2>
+        </div>
     </x-slot>
 
-    @livewire('includes.content.top.content-normal-top') 
+    @livewire('includes.validation.warning')
 
-        <form method="post" action="{{ route('opleidingen.store') }}" enctype="multipart/form-data">
+    @livewire('includes.content.top.content-small-top') 
+
+        <form method="post" action="{{ route('opleidingen.store') }}" class="mt-10">
 
             @csrf
             
-            <div class="row">
-            <div class="col-md-12">
+            <div class="mt-4">
                 <div class="form-group">
                     <lable for="crebo_nr" class="block font-medium text-sm text-gray-700">Crebo Nummer</lable>
-                    @error('crebo_nr')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                     <input id="crebo_nr" class="block mt-1 w-full form-control" type="number" name="crebo_nr" :value="old('crebo_nr')"/>
-                    </div>
+                    @livewire('includes.validation.input', ['input' => 'crebo_nr'])
                 </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <lable for="opleiding" class="block font-medium text-sm text-gray-700">Opleiding naam</lable>
-                        @error('opleiding')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                        <input id="opleiding" class="block mt-1 w-full form-control" type="text" name="opleiding" :value="old('opleiding')"/>
-                    </div>
+
+                <div class="form-group">
+                    <lable for="opleiding" class="block font-medium text-sm text-gray-700">Opleiding naam</lable>
+                    <input id="opleiding" class="block mt-1 w-full form-control" type="text" name="opleiding" :value="old('opleiding')"/>
+                    @livewire('includes.validation.input', ['input' => 'opleiding'])
                 </div>
 
                 <div class="mt-4">
@@ -39,7 +40,9 @@
                         </x-jet-button>
                     </div>
                 </div>
+
             </div>
+
         </form>
 
     @livewire('includes.content.bottom.content-bottom') 
