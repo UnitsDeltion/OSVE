@@ -427,6 +427,7 @@ hr{
 .ta-right {
     text-align: right!important;
 }
+
 button.dt-button{
     background-color: var(--primary) !important;
     color: white !important;
@@ -435,6 +436,7 @@ button.dt-button{
 button.dt-button:hover{
     background-color: var(--secondary) !important;
 }
+
 /* a.paginate_button.current{
     background-color: var(--primary) !important;
 } */
