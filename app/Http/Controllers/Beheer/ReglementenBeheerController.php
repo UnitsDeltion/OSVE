@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Beheer;
 
 use Bouncer;
 use Illuminate\Http\Request;
-use App\Models\RegelementBeheer;
+use App\Models\ReglementenBeheer;
 use App\Http\Controllers\Controller;
 
-class RegelementBeheerController extends Controller
+class ReglementenBeheerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class RegelementBeheerController extends Controller
      */
     public function index()
     {
-        $regelement = RegelementBeheer::get()->first();
+        $reglementen = ReglementenBeheer::get()->first();
 
-        return view('beheer.regelement.index')->with(compact('regelement'));
+        return view('beheer.reglementen.index')->with(compact('reglementen'));
     }
 
     /**
@@ -34,8 +34,8 @@ class RegelementBeheerController extends Controller
             'regelement' => 'required|max:255|URL',
         ]);
 
-        if (RegelementBeheer::where('id', '1')->exists()) {
-            $regelement = RegelementBeheer::find('1');
+        if (ReglementenBeheer::where('id', '1')->exists()) {
+            $regelement = ReglementenBeheer::find('1');
 
             $regelement->regelement = is_null($request->regelement) ? $regelement->regelement : $request->regelement;
             $regelement->save();
