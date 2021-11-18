@@ -56,6 +56,6 @@ class BouncerSeeder extends Seeder
         $user2->assign('opleidingsmanager');
         $user3->assign('opleidingsmanager');
         $user4->assign('opleidingsmanager');
-        $user4->assign('docent');
+        $user5->assign('docent');
     }
 }
