@@ -25,6 +25,6 @@ class GeplandeExamensBeheerController extends Controller
         );
 
         //Stuurt terug nar dashboard
-        return redirect("dashboard");
+        return redirect("/beheer/dashboard");
     }
 }
