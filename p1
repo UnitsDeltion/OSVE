@@ -1,0 +1,20 @@
+<?php
+// <div class="mb-3">
+// <x-jet-label for="faciliteitenpas" value="{{ __('Faciliteitenpas') }}" />
+// <select name="faciliteitenpas" id="faciliteitenpas" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+//     <option value="Nee" selected>Nee</option>
+//     <option value="Ja">Ja</option>
+// </select>
+// @livewire('includes.validation.input', ['input' => 'faciliteitenpas'])
+// </div>
+
+// <div class="mb-3">
+// <x-jet-label for="faciliteitenpas" value="{{ __('Opleiding') }}" />
+// <select name="faciliteitenpas" id="faciliteitenpas" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+//     @foreach($opleidingen as $opleiding)
+//         <option class="selectInput" onclick="selectInput('p2', {{ $opleiding->crebo_nr }})">{{$opleiding['crebo_nr']}} || {{$opleiding['opleiding']}}</option>
+//     @endforeach
+// </select>
+// @livewire('includes.validation.input', ['input' => 'faciliteitenpas'])
+// </div>
+?>

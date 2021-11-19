@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Beheer;
 
 use App\Models\Examen;
 use App\Models\ExamenMoment;
@@ -8,20 +8,14 @@ use App\Models\User;
 use App\Models\Opleidingen;
 use App\Models\GeplandeExamens;
 
+use Bouncer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Bouncer;
 
-
-class DashboardController extends Controller
+class DashboardBeheerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $users = User::all();
@@ -62,4 +56,11 @@ class DashboardController extends Controller
             ->with(compact('geplandeExamens'));
     }
 
+    public function dtDutch(){
+        return response()->file(resource_path('/json/datatabels/dutch.json'));
+    }
+
+    public function redirect(){
+        return redirect('/beheer/dashboard');
+    }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\ICS;
+namespace App\Http\Controllers;
 
 use DateTime;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ICS_HandlerController extends Controller
+class ICSController extends Controller
 {
     public function ics_handler(Request $request){
         
