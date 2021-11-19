@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Validator;
 
 class OSVEController extends Controller
 {
+    public function redirect(){
+        return redirect('/');
+    }
+
     public function p1(Request $request)
     {
         //Leegt de session zodat alle pagina's weer opnieuw doorgelopen moeten worden en er niet meteen van p1 naar bvb p4 gegaan kan worden
