@@ -113,6 +113,8 @@
                         <th>Vak</th>
                         <th>Examen</th>
                         <th>Geplande docent</th>
+                        <th>Eerste datum</th>
+                        <th>Laatste datum</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -126,6 +128,12 @@
                             </td>
                             <td>
                                 {{ $examen->geplande_docenten }}
+                            </td>
+                            <td>
+                                {{ $examen->startDatum }}
+                            </td>
+                            <td>
+                                {{ $examen->eindDatum }}
                             </td>
                         </tr>
                     @endforeach
@@ -180,17 +188,17 @@ $(document).ready(function() {
     });
     $('#actieveExamens').DataTable( {
         "language": {
-            "url": "{{asset('/json/datatabels/dutch')}}"
+            "url": "{{asset('/beheer/json/datatabels/dutch')}}"
         }
     });
     $('#toekomstigeExamens').DataTable( {
         "language": {
-            "url": "{{asset('/json/datatabels/dutch')}}"
+            "url": "{{asset('/beheer/json/datatabels/dutch')}}"
         }
     });
     $('#opleidingen').DataTable( {
         "language": {
-            "url": "{{asset('/json/datatabels/dutch')}}"
+            "url": "{{asset('/beheer/json/datatabels/dutch')}}"
         }
     });
 });
