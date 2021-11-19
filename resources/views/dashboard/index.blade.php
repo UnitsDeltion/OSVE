@@ -163,7 +163,7 @@
 $(document).ready(function() {
     $('#ingeplandeExamens').DataTable( {
         "language": {
-            "url": "{{asset('/json/datatabels/dutch')}}",
+            "url": "{{asset('/beheer/json/datatabels/dutch')}}",
         },
         dom: 'Bfrtip',
         buttons: [

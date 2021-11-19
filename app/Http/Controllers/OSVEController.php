@@ -12,7 +12,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 
-class ExamenController extends Controller
+class OSVEController extends Controller
 {
     public function p1(Request $request)
     {
