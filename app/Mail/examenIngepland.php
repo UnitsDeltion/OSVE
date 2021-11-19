@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class examenInplannen extends Mailable
+class examenIngepland extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,8 +29,8 @@ class examenInplannen extends Mailable
      */
     public function build()
     {
-        return $this->subject("OSVE examen registratie")->view(
-            "emails.examenInplannen"
+        return $this->subject("OSVE examen ingepland")->view(
+            "emails.examenIngepland"
         );
     }
 }
