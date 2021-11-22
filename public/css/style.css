@@ -374,6 +374,10 @@ button.dt-button:visited{
     color: #F58220;
 }
 
+.align-center {
+    vertical-align: middle;
+}
+
 /* Tablets */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .tablet-day {
