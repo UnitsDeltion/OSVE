@@ -39,9 +39,11 @@ Route::get('/beheer/dashboard', [DashboardBeheerController::class, 'index'])->na
 Route::get('/beheer/json/datatabels/dutch', [DashboardBeheerController::class, 'dtDutch']);
 
 Route::resource('/beheer/users', UsersBeheerController::class);
-Route::resource('/beheer/examens', ExamenBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
 Route::resource('/beheer/reglementen', ReglementenBeheerController::class);
+
+Route::resource('/beheer/examens', ExamenBeheerController::class);
+Route::get('/beheer/examen/{id}', [ExamenBeheerController::class, 'delete'])->name('examenDelete');
 
 Route::resource('/beheer/moments', ExamenMomentBeheerController::class)->except('create', 'store');
 Route::get('/beheer/moment/{id}', [ExamenMomentBeheerController::class, 'create'])->name('momentsCreate');
