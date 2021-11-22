@@ -103,7 +103,7 @@
 
 							<tr>
 								<td>
-									<img align="left" alt="Deltion College" border="0" src="https://www.sprintlyceum.net/wp-content/uploads/2017/03/DCLogo_middel-1.jpg" width="200" />
+									<img align="left" alt="Deltion College" border="0" src="https://hhhost.nl/images/deltion.png" />
 								</td>
 							</tr>
 
