@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2>
-            @section('title', 'Examen moment bijwerken')
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            @section('title', 'Examen moment bewerken')
             @yield('title')
         </h2>
     </x-slot>
 
-    @livewire('includes.content.top.content-normal-top') 
+    @livewire('includes.content.top.content-small-top') 
 
         <form method="post" action="{{ route('moments.update', $moment['id'] )}}" enctype="multipart/form-data">
 
