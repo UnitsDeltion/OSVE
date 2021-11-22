@@ -43,6 +43,7 @@ class OSVEController extends Controller
             null == $request->session()->get("voornaam") ||
             null == $request->session()->get("achternaam") ||
             null == $request->session()->get("studentnummer") ||
+            null == $request->session()->get("faciliteitenpas") ||
             null == $request->session()->get("klas")
         ) {
             $request->session()->flush();
@@ -67,6 +68,7 @@ class OSVEController extends Controller
             null == $request->session()->get("voornaam") ||
             null == $request->session()->get("achternaam") ||
             null == $request->session()->get("studentnummer") ||
+            null == $request->session()->get("faciliteitenpas") ||
             null == $request->session()->get("klas") ||
             null == $request->session()->get("crebo_nr") ||
             null == $request->session()->get("opleiding") ||
@@ -99,6 +101,7 @@ class OSVEController extends Controller
             null == $request->session()->get("voornaam") ||
             null == $request->session()->get("achternaam") ||
             null == $request->session()->get("studentnummer") ||
+            null == $request->session()->get("faciliteitenpas") ||
             null == $request->session()->get("klas") ||
             null == $request->session()->get("crebo_nr") ||
             null == $request->session()->get("opleiding") ||
@@ -141,32 +144,6 @@ class OSVEController extends Controller
             null == $request->session()->get("voornaam") ||
             null == $request->session()->get("achternaam") ||
             null == $request->session()->get("studentnummer") ||
-            null == $request->session()->get("klas") ||
-            null == $request->session()->get("crebo_nr") ||
-            null == $request->session()->get("opleiding") ||
-            null == $request->session()->get("opleiding_id") ||
-            null == $request->session()->get("vak") ||
-            null == $request->session()->get("examen") ||
-            null == $request->session()->get("datum") ||
-            null == $request->session()->get("tijd")
-        ) {
-            $request->session()->flush();
-            abort_if(
-                Gate::denies("user_access"),
-                Response::HTTP_FORBIDDEN,
-                "403 Forbidden"
-            );
-        }
-
-        return view("p5");
-    }
-
-    public function p6(Request $request)
-    {
-        if (
-            null == $request->session()->get("voornaam") ||
-            null == $request->session()->get("achternaam") ||
-            null == $request->session()->get("studentnummer") ||
             null == $request->session()->get("faciliteitenpas") ||
             null == $request->session()->get("klas") ||
             null == $request->session()->get("crebo_nr") ||
@@ -189,10 +166,10 @@ class OSVEController extends Controller
         $sessionData = collect(session()->all());
         $data = $sessionData->except(["_previous", "_flash", "_token"]);
 
-        return view("p6")->with(compact("data", "reglementen"));
+        return view("p5")->with(compact("data", "reglementen"));
     }
 
-    public function p7(Request $request)
+    public function p6(Request $request)
     {
         if (null == $request->session()->get("studentnummer")) {
             $request->session()->flush();
@@ -200,12 +177,12 @@ class OSVEController extends Controller
 
         $studentnummer = $request->session()->get("studentnummer");
 
-        return view("p7")->with(compact("studentnummer"));
+        return view("p6")->with(compact("studentnummer"));
     }
 
-    //p8 token page/check -> FormHandlerController
+    //p7 token page/check -> FormHandlerController
 
-    public function p9(Request $request)
+    public function p8(Request $request)
     {
         if (
             null == $request->session()->get("title") ||
@@ -230,7 +207,7 @@ class OSVEController extends Controller
 
         $request->session()->flush();
 
-        return view("p9")
+        return view("p8")
             ->with(compact("title"))
             ->with(compact("message"))
             ->with(compact("error"));
