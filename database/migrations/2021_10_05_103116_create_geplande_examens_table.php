@@ -20,7 +20,7 @@ class CreateGeplandeExamensTable extends Migration
             $table->string('faciliteitenpas');
             $table->string('studentnummer');
             $table->string('klas');
-            $table->integer('crebo_nr'); //Relatie naar cerbo_nr -> opleiding
+            $table->integer('opleiding_id'); //Relatie naar cerbo_nr -> opleiding
             $table->integer('examen'); //Relatie naar examens id -> examen, vak, 
             $table->integer('examen_moment'); //Relatie naar examen moment
             $table->integer('std_bevestigd')->default('0');
