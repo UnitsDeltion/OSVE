@@ -154,6 +154,13 @@ class ExamenBeheerController extends Controller
         }
     }
 
+    public function delete($id)
+    {
+        $examen = Examen::find($id);
+
+        return view('beheer.examens.delete', compact('examen'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
