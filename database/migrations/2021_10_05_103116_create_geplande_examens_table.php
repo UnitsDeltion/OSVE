@@ -20,13 +20,19 @@ class CreateGeplandeExamensTable extends Migration
             $table->string('faciliteitenpas');
             $table->string('studentnummer');
             $table->string('klas');
-            $table->integer('crebo_nr'); //Relatie naar cerbo_nr -> opleiding
-            $table->integer('examen'); //Relatie naar examens id -> examen, vak, 
-            $table->integer('examen_moment'); //Relatie naar examen moment
+            $table->integer('opleiding_id')->unsigned(); //Relatie naar cerbo_nr -> opleiding
+            $table->integer('examen')->unsigned(); //Relatie naar examens id -> examen, vak, 
+            $table->integer('examen_moment')->unsigned(); //Relatie naar examen moment
             $table->integer('std_bevestigd')->default('0');
             $table->integer('doc_bevestigd')->default('0');
+
+            $table->foreign('opleiding_id')->references('id')->on('opleidingen');
+            $table->foreign('examen')->references('id')->on('examens');
+            $table->foreign('examen_moment')->references('id')->on('examen_moment');
         });
     }
+
+    //$table->foreign('user_id')->references('id')->on('users');
 
     /**
      * Reverse the migrations.

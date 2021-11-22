@@ -127,7 +127,7 @@ class FormHandlerController extends Controller
             "faciliteitenpas" => $request->session()->get("faciliteitenpas"),
             "studentnummer" => $studentnummer,
             "klas" => $request->session()->get("klas"),
-            "crebo_nr" => $request->session()->get("crebo_nr"),
+            "opleiding_id" => $request->session()->get("opleiding_id"),
             "examen" => $examenId,
             "examen_moment" => $examenMomentId,
             "std_bevestigd" => 0,
