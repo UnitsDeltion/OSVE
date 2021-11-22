@@ -10,6 +10,12 @@
 
     @livewire('includes.content.top.content-normal-top')
 
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })    
+    </script>
+
         <div class="containter mt-5 mb-5">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -44,7 +50,7 @@
                         </div> 
 
                         <div class="mb-3">
-                            <x-jet-label for="faciliteitenpas" value="{{ __('Faciliteitenpas') }}" />
+                        <x-jet-label for="faciliteitenpas">{{ __('Faciliteitenpas') }} <i class="fas fa-info-circle" id="tooltipFaciliteitenpas" data-toggle="tooltip" data-bs-placement="bottom" title="Heb je dyslexie of een ander leerprobleem? Dan kom je mogelijk in aanmerking voor een faciliteitenpas. Hiermee krijg je (extra) hulpmiddelen en maatregelen bij het maken van toetsen en examens bijvoorbeeld."></i></x-jet-label>
                             <select name="faciliteitenpas" id="faciliteitenpas" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
                                 <option value="Nee" selected>Nee</option>
                                 <option value="Ja">Ja</option>
