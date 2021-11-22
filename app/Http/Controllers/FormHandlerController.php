@@ -26,12 +26,14 @@ class FormHandlerController extends Controller
             "achternaam" => "required|max:255|string",
             "studentnummer" => "required|max:9|string",
             "klas" => "required|max:9|string",
+            "faciliteitenpas" => "required|max:3",
         ]);
 
         $request->session()->put("voornaam", $request->voornaam);
         $request->session()->put("achternaam", $request->achternaam);
         $request->session()->put("studentnummer", $request->studentnummer);
         $request->session()->put("klas", $request->klas);
+        $request->session()->put("faciliteitenpas", $request->faciliteitenpas);
 
         return redirect("p2");
     }
@@ -80,24 +82,8 @@ class FormHandlerController extends Controller
         return redirect("p5");
     }
 
+    //Examen inplannen
     public function f6(Request $request)
-    {
-        $request->validate([
-            "faciliteitenpas" => "required|max:3",
-            "opmerkingen" => "max:1000",
-        ]);
-
-        $request->session()->put("faciliteitenpas", $request->faciliteitenpas);
-        if (isset($request->opmerkingen)) {
-            $request->session()->put("opmerkingen", $request->opmerkingen);
-        } else {
-            $request->session()->put("opmerkingen", "");
-        }
-
-        return redirect("p6");
-    }
-
-    public function f7(Request $request)
     {
         //Haalt examen id op voor relatie
         $examenId = Examen::where([
@@ -144,7 +130,6 @@ class FormHandlerController extends Controller
             "crebo_nr" => $request->session()->get("crebo_nr"),
             "examen" => $examenId,
             "examen_moment" => $examenMomentId,
-            "opmerkingen" => $request->session()->get("opmerkingen"),
             "std_bevestigd" => 0,
             "doc_bevestigd" => 0,
         ])->id;
@@ -179,11 +164,11 @@ class FormHandlerController extends Controller
         //Zet data in sessie voor p7 pagina
         $request->session()->put("studentnummer", $studentnummer);
 
-        return redirect("p7");
+        return redirect("p6");
     }
 
-    //Token pagina
-    public function p8(Request $request)
+    //Tokens
+    public function f7(Request $request)
     {
         if (null == $request->token) {
             $request->session()->put("title", "Ongeldige token");
@@ -194,7 +179,7 @@ class FormHandlerController extends Controller
                     "Probeer het opnieuw of neem contact op met je docent."
                 );
             $request->session()->put("error", "Err: request/parameter leeg.");
-            return redirect("p9");
+            return redirect("p8");
         }
 
         //Haalt de token data op basis van de token
@@ -213,7 +198,7 @@ class FormHandlerController extends Controller
                     "Probeer het opnieuw of neem contact op met je docent."
                 );
             $request->session()->put("error", "Err: invalid_token/not found.");
-            return redirect("p9");
+            return redirect("p8");
         }
 
         //Verloop datum
@@ -244,7 +229,7 @@ class FormHandlerController extends Controller
             )->first();
             $examen->delete();
 
-            return redirect("p9");
+            return redirect("p8");
         }
 
         //Haalt het geplande examen op, op basis van het id uit de token
@@ -265,10 +250,8 @@ class FormHandlerController extends Controller
             $request
                 ->session()
                 ->put("error", "Err: geen ingepland examen gevonden.");
-            return redirect("p9");
+            return redirect("p8");
         }
-
-        // $geplandExamen = $geplandExamen[0];
 
         //Zet examen op actief en sla het op
         $geplandExamen->std_bevestigd = 1;
@@ -284,6 +267,6 @@ class FormHandlerController extends Controller
                 "message",
                 "Voordat het examen definitief is ingepland moet deze nog worden goedgekeurd door een docent. Zodra dit is gebeurt ontvang je een bevestiging."
             );
-        return redirect("p9");
+        return redirect("p8");
     }
 }
