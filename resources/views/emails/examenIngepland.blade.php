@@ -97,13 +97,8 @@
 						<table>
 							<tr>
 								<td>
-									<h1 align="center">OSVE examen ingepland</h1>
-								</td>
-							</tr>
-
-							<tr>
-								<td>
-									<img align="left" alt="Deltion College" border="0" src="https://www.sprintlyceum.net/wp-content/uploads/2017/03/DCLogo_middel-1.jpg" width="200" />
+                                <img align="left" alt="Deltion College" border="0" src="https://hhhost.nl/images/deltion.png" />
+                                <h1 align="center">OSVE examen ingepland</h1>
 								</td>
 							</tr>
 
@@ -111,7 +106,15 @@
 								<td>
 									<br />
 
-									<p>Je examen is door een docent bevestigd.</p>
+									<p>
+                                        Je examen is door een docent bevestigd op de eerder gekozen 
+                                        datum en tijd.
+                                    </p>
+                                    <br />
+                                    <p>    
+                                        Deze data is te vinden in de registratie-mail en 
+                                        de examen afspraak die je kon downloaden bij het aanvragen van het examen.
+                                    </p>
 
 									<br />
 								</td>

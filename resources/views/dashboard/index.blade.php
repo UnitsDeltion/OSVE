@@ -168,85 +168,81 @@
 </x-app-layout>
 
 <script>
+//     var minDate, maxDate;
+ 
+//  // Custom filtering function which will search data in column four between two values
+//  $.fn.dataTable.ext.search.push(
+//      function( settings, data, dataIndex ) {
+//          var min = minDate.val();
+//          var max = maxDate.val();
+//          var date = new Date( data[4] );
+ 
+//          if (
+//              ( min === null && max === null ) ||
+//              ( min === null && date <= max ) ||
+//              ( min <= date   && max === null ) ||
+//              ( min <= date   && date <= max )
+//          ) {
+//              return true;
+//          }
+//          return false;
+//      }
+//  );
+</script>
+
+
+<script>
 $(document).ready(function() {
+    console.log("gaat goed");
     $('#ingeplandeExamens').DataTable( {
+      
         "language": {
             "url": "{{asset('/beheer/json/datatabels/dutch')}}",
         },
-        // columnDefs: [ {
-        //       orderable: false,
-        //       className: 'select-checkbox',
-        //       targets:   0
-        //     }],
-        select: {
-            style: 'multi',
-            selector: 'td:first-child'
-        },
-        select: true,
-
         dom: 'Bfrtip',
         buttons: [
-            'excel', {
-                extend: 'pdfHtml5',
-                download: 'open',
-                exportOptions: {
-                    modifier: {
-                        page: 'current'
-                    }
+             'excel', {
+            
+            extend: 'pdfHtml5',
+            customize: function(doc) {
+                doc.defaultStyle.alignment = 'right';
+                doc.styles.tableHeader.color = 'white';
+                doc.styles.tableHeader.fillColor = '#F58220';
+            },
+            download: 'open',
+            exportOptions: {
+                modifier: {
+                    page: 'current'
                 }
-            }
-            }],       
+            }},]
+              
         
     });
     $('#actieveExamens').DataTable( {
         "language": {
-            "url": "{{asset('beheer/json/datatabels/dutch')}}"
-        },
+            "url": "{{asset('/beheer/json/datatabels/dutch')}}"
+        }
     });
 
-    var minDate, maxDate;
- 
-        // Custom filtering function which will search data in column four between two values
-        $.fn.dataTable.ext.search.push(
-            function( settings, data, dataIndex ) {
-                var min = minDate.val();
-                var max = maxDate.val();
-                var date = new Date( data[4] );
-        
-                if (
-                    ( min === null && max === null ) ||
-                    ( min === null && date <= max ) ||
-                    ( min <= date   && max === null ) ||
-                    ( min <= date   && date <= max )
-                ) {
-                    return true;
-                }
-                return false;
-            }
-        );
 
-
-$(document).ready(function() {
     $('#toekomstigeExamens').DataTable( {
         "language": {
             "url": "{{asset('/beheer/json/datatabels/dutch')}}"
-        }
-
-        minDate = new DateTime($('#min'), {
-        format: 'MMMM Do YYYY'
-        });
-        maxDate = new DateTime($('#max'), {
-            format: 'MMMM Do YYYY'
-        });
+        },
+        // minDate = new DateTime($('#min'), {
+        // format: 'MMMM Do YYYY'
+        // });
+        // maxDate = new DateTime($('#max'), {
+        //     format: 'MMMM Do YYYY'
+        // });
     
-        // DataTables initialisation
-        var table = $('#toekomstigeExamens').DataTable();
+        // // DataTables initialisation
+        
     
-        // Refilter the table
-        $('#min, #max').on('change', function () {
-            table.draw();
-        });
-
+        // // Refilter the table
+        // $('#min, #max').on('change', function () {
+        //     table.draw();
+        // }), 
     });
     $('#opleidingen').DataTable( {
         "language": {
