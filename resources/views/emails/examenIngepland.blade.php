@@ -83,6 +83,11 @@
 			.content table {
 				width: 100%;
 			}
+
+			.Title {
+				font-size: 1rem;
+			}
+			
 		</style>
 	</head>
 
@@ -96,10 +101,8 @@
 					<div class="content">
 						<table>
 							<tr>
-								<td>
                                 <img align="left" alt="Deltion College" border="0" src="https://hhhost.nl/images/deltion.png" />
-                                <h1 align="center">OSVE examen ingepland</h1>
-								</td>
+                                <h1 align="center" class="Title">OSVE examen ingepland</h1>
 							</tr>
 
 							<tr>
@@ -109,8 +112,8 @@
 									<p>
                                         Je examen is door een docent bevestigd op de eerder gekozen 
                                         datum en tijd.
+										<br />
                                     </p>
-                                    <br />
                                     <p>    
                                         Deze data is te vinden in de registratie-mail en 
                                         de examen afspraak die je kon downloaden bij het aanvragen van het examen.
