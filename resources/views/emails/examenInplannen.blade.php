@@ -164,13 +164,7 @@
 											<td>Tijd</td>
 											<td>{{ Session::get('tijd') }}</td>
 										</tr>
-                                        
-                                        @if(Session::get('opmerking') != null)
-                                            <tr>
-                                                <td>Opmerking</td>
-                                                <td>{{ Session::get('opmerking') }}</td>
-                                            </tr>
-                                        @endif
+
 									</table>
 									<table cellspacing="0" cellpadding="0">
 										<tr>
@@ -181,7 +175,7 @@
 															<br />
 															<br />
 															<a
-																href="http://127.0.0.1:8000/p8?token={{ Session::get('token') }}"
+																href="http://127.0.0.1:8000/p7?token={{ Session::get('token') }}"
 																style="
 																	background-color: #33296a;
 																	font-size: 18px;

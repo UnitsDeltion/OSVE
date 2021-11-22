@@ -22,16 +22,15 @@ Route::get('/p3', [OSVEController::class, 'p3'])->name('p3');
 Route::get('/p4', [OSVEController::class, 'p4'])->name('p4');
 Route::get('/p5', [OSVEController::class, 'p5'])->name('p5');
 Route::get('/p6', [OSVEController::class, 'p6'])->name('p6');
-Route::get('/p7', [OSVEController::class, 'p7'])->name('p7');
-Route::get('/p8{token?}', [FormHandlerController::class, 'p8'])->name('p8');
-Route::get('/p9', [OSVEController::class, 'p9'])->name('p9');
+Route::get('/p7{token?}', [FormHandlerController::class, 'f7'])->name('p7');
+Route::get('/p8', [OSVEController::class, 'p8'])->name('p8');
 
 Route::POST('/f2', [FormHandlerController::class, 'f2'])->name('f2');
 Route::POST('/f3', [FormHandlerController::class, 'f3'])->name('f3');
 Route::POST('/f4', [FormHandlerController::class, 'f4'])->name('f4');
 Route::POST('/f5', [FormHandlerController::class, 'f5'])->name('f5');
 Route::POST('/f6', [FormHandlerController::class, 'f6'])->name('f6');
-Route::POST('/f7', [FormHandlerController::class, 'f7'])->name('f7');
+// Route::POST('/f7', [FormHandlerController::class, 'f7'])->name('f7');
 Route::POST('/ics_handler', [ICSController::class, 'ics_handler'])->name('ics_handler');
 
 Route::get('/beheer', [DashboardBeheerController::class, 'redirect']);

@@ -36,12 +36,21 @@
                             <x-jet-input id="studentnummer" class="block mt-1 w-full" type="number" name="studentnummer" :value="old('studentnummer')"/>
                             @livewire('includes.validation.input', ['input' => 'studentnummer'])
                         </div>
-
+                        
                         <div class="mb-3">
                             <x-jet-label for="klas" value="{{ __('Klas') }}" />
                             <x-jet-input id="klas" class="block mt-1 w-full" type="text" name="klas" :value="old('klas')"/>
                             @livewire('includes.validation.input', ['input' => 'klas'])
-                        </div>  
+                        </div> 
+
+                        <div class="mb-3">
+                            <x-jet-label for="faciliteitenpas" value="{{ __('Faciliteitenpas') }}" />
+                            <select name="faciliteitenpas" id="faciliteitenpas" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
+                                <option value="Nee" selected>Nee</option>
+                                <option value="Ja">Ja</option>
+                            </select>
+                            @livewire('includes.validation.input', ['input' => 'faciliteitenpas'])
+                        </div>
 
                         <div class="mt-4">
                             <x-jet-button class="button" style="float: right">
