@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Opleidingen;
 use App\Models\GeplandeExamens;
 
+use DateTime;
 use Bouncer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +21,7 @@ class DashboardBeheerController extends Controller
     {
         $users = User::all();
         $examens = Examen::all();
+        $examenMomenten = ExamenMoment::orderBy('examenid', 'asc')->get();
 
         foreach($examens as $examen){
             foreach($users as $user){
@@ -27,7 +29,38 @@ class DashboardBeheerController extends Controller
                     $examen->geplande_docenten = $user->voornaam . " " . $user->achternaam;
                 }
             }
+
+            $data = array();
+
+            foreach($examenMomenten as $examenMoment){
+                //Voor elk examen moment dat bij het examen id hoort
+                if($examenMoment->examenid == $examen->id){
+                    //zet het examenmoment in de $data array
+                    array_push($data, $examenMoment->toArray());
+                }
+            }
+
+            //Als data in de data array zit
+            if($data){
+                //Soort de array op basis van datum
+                $sortedArr = collect($data)->sortBy('datum')->all();
+
+                //Zet de eerste waarde van de array als startdatum
+                $startDatum = current($sortedArr);
+
+                //Zet de laatste waarde van de array als einddatum
+                $eindDatum = end($sortedArr);
+    
+                $examen->startDatum = $startDatum['datum'];
+                $examen->eindDatum = $eindDatum['datum'];
+            }else{
+                //Als er geen examen momenten zijn gevonden bij een examen zet er dan NB van niet beschikbaar in
+                $examen->startDatum = 'NB';
+                $examen->eindDatum = 'NB';
+            }
+
         }
+
 
         $opleidingen = Opleidingen::all();
         $geplandeExamens = GeplandeExamens::all();
