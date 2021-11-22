@@ -7,12 +7,6 @@
     </x-slot>
 
     @livewire('includes.content.top.content-normal-top')  
-    
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })    
-    </script>
 
         <div class="containter">
             <div class="row justify-content-center">
