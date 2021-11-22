@@ -370,6 +370,10 @@ button.dt-button:visited{
     border: 2px solid var(--secondary) !important;
 }
 
+#tooltipFaciliteitenpas {
+    color: #F58220;
+}
+
 /* Tablets */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .tablet-day {
@@ -426,6 +430,10 @@ button.dt-button:visited{
     .fs-10 {
         padding-top: 2px;
         font-size: 14px;
+    }
+    #tooltipFaciliteitenpas {
+        visibility: hidden;
+        display: none;
     }
 }
 
