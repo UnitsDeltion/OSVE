@@ -62,12 +62,12 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <x-jet-label for="datum" value="{{ __('Datum') }}" />
-                                        <x-jet-input id="datum" class="block mt-1 w-full disabled" type="text" name="datum" value="{{ $data['datum'] }}" disabled/>
+                                        <x-jet-input id="datum" class="block mt-1 w-full disabled" type="text" name="datum" value="<?php echo date('d-m-Y', strtotime($data['datum'])); ?>" disabled/>
                                     </div>
                                     <div class="col-md-6">
                                         <x-jet-label for="tijd" value="{{ __('Tijd') }}" />

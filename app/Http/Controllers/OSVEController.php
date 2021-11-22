@@ -6,6 +6,7 @@ use Session;
 use App\Models\Examen;
 use App\Models\Opleidingen;
 use App\Models\ExamenMoment;
+use App\Models\GeplandeExamens;
 use App\Models\ReglementenBeheer;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -128,9 +129,27 @@ class OSVEController extends Controller
         ])->first()->id;
 
         //Haalt alle examenmomenten op
-        $examenMoment = examenMoment::where("examenid", $examenId)
-            ->orderBy("datum", "asc")
-            ->get();
+        $examenMomenten = examenMoment::where('examenid', $examenId)->orderBy("datum", "asc")->get();
+        foreach($examenMomenten as $examenMoment){
+            //Haalt het aantal plaatsen uit het examenmoment
+            $plaatsen = $examenMoment->plaatsen;
+
+            //Haalt alle geplande examens op die gekoppeld zijn aan dit examenmoment id en is bevestigd door een student
+            $geplandeExamens = GeplandeExamens::where([
+                ['examen', $examenMoment->examenid],
+                ['std_bevestigd', '1']
+            ])->get();
+
+            //Telt het aantal records
+            $plaatsenCount = count($geplandeExamens);
+
+            //Beschikbare plaatsen = het aantal plaatsen in het moment min het aantal geplande examens
+            $examenMoment->plaatsen = $examenMoment->plaatsen - $plaatsenCount;
+        }
+
+        // dd($examenMomenten);
+
+        $examenMoment = $examenMomenten;
 
         return view("p4")
             ->with(compact("vak"))
