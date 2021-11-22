@@ -23,7 +23,6 @@ class CreateGeplandeExamensTable extends Migration
             $table->integer('crebo_nr'); //Relatie naar cerbo_nr -> opleiding
             $table->integer('examen'); //Relatie naar examens id -> examen, vak, 
             $table->integer('examen_moment'); //Relatie naar examen moment
-            $table->longText('opmerkingen')->nullable();
             $table->integer('std_bevestigd')->default('0');
             $table->integer('doc_bevestigd')->default('0');
         });
