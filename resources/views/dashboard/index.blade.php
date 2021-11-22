@@ -113,6 +113,8 @@
                         <th>Vak</th>
                         <th>Examen</th>
                         <th>Geplande docent</th>
+                        <th>Eerste datum</th>
+                        <th>Laatste datum</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -126,6 +128,12 @@
                             </td>
                             <td>
                                 {{ $examen->geplande_docenten }}
+                            </td>
+                            <td id="min">
+                                {{ $examen->startDatum }}
+                            </td>
+                            <td id="max">
+                                {{ $examen->eindDatum }}
                             </td>
                         </tr>
                     @endforeach
@@ -165,6 +173,17 @@ $(document).ready(function() {
         "language": {
             "url": "{{asset('/beheer/json/datatabels/dutch')}}",
         },
+        // columnDefs: [ {
+        //       orderable: false,
+        //       className: 'select-checkbox',
+        //       targets:   0
+        //     }],
+        select: {
+            style: 'multi',
+            selector: 'td:first-child'
+        },
+        select: true,
+
         dom: 'Bfrtip',
         buttons: [
             'excel', {
@@ -176,21 +195,62 @@ $(document).ready(function() {
                     }
                 }
             }
-        ]
+            }],       
+        
     });
     $('#actieveExamens').DataTable( {
         "language": {
-            "url": "{{asset('/json/datatabels/dutch')}}"
-        }
+            "url": "{{asset('beheer/json/datatabels/dutch')}}"
+        },
     });
+
+    var minDate, maxDate;
+ 
+        // Custom filtering function which will search data in column four between two values
+        $.fn.dataTable.ext.search.push(
+            function( settings, data, dataIndex ) {
+                var min = minDate.val();
+                var max = maxDate.val();
+                var date = new Date( data[4] );
+        
+                if (
+                    ( min === null && max === null ) ||
+                    ( min === null && date <= max ) ||
+                    ( min <= date   && max === null ) ||
+                    ( min <= date   && date <= max )
+                ) {
+                    return true;
+                }
+                return false;
+            }
+        );
+
+
+$(document).ready(function() {
     $('#toekomstigeExamens').DataTable( {
         "language": {
-            "url": "{{asset('/json/datatabels/dutch')}}"
+            "url": "{{asset('/beheer/json/datatabels/dutch')}}"
         }
+
+        minDate = new DateTime($('#min'), {
+        format: 'MMMM Do YYYY'
+        });
+        maxDate = new DateTime($('#max'), {
+            format: 'MMMM Do YYYY'
+        });
+    
+        // DataTables initialisation
+        var table = $('#toekomstigeExamens').DataTable();
+    
+        // Refilter the table
+        $('#min, #max').on('change', function () {
+            table.draw();
+        });
+
     });
     $('#opleidingen').DataTable( {
         "language": {
-            "url": "{{asset('/json/datatabels/dutch')}}"
+            "url": "{{asset('/beheer/json/datatabels/dutch')}}"
         }
     });
 });
