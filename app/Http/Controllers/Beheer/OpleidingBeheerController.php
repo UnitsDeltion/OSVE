@@ -107,6 +107,14 @@ class OpleidingBeheerController extends Controller
         }
     }
 
+    public function delete($id)
+    {
+        $opleiding = Opleidingen::find($id);
+
+        dd($opleiding);
+        return view('beheer.opleidingen.delete', compact('opleiding'));
+    }
+    
     /**
      * Remove the specified resource from storage.
      *
