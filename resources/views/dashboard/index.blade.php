@@ -34,7 +34,7 @@
                     @foreach($geplandeExamens as $geplandExamen)
                     <tr>
                         <td>
-                            {{ $geplandExamen->voornaam }}  {{ $geplandExamen->achternaam }} <small>({{ $geplandExamen->studentnummer }})</small>
+                            {{ $geplandExamen->voornaam }} {{ $geplandExamen->achternaam }} <small>({{ $geplandExamen->studentnummer }})</small>
                         </td>
                         <td>
                             {{ $geplandExamen->faciliteitenpas }}
@@ -62,16 +62,17 @@
                             @if($geplandExamen->doc_bevestigd == '1')
                                 <p class="fc-primary-nh">Bevestigd</p>
                             @else
-                                    <x-jet-button class="button" onclick="selectInput('dashboard', 'examenBevestigen', '{{ $geplandExamen->id }}')">
-                                        Bevestigen
-                                    </x-jet-button>
+                                <x-jet-button class="button" id="button{{ $geplandExamen->id }}" onclick="selectInput('dashboard', 'examenBevestigen', '{{ $geplandExamen->id }}')">
+                                    Bevestigen
+                                </x-jet-button>
                             @endif
                         </td>
                     </tr>
                     @endforeach
                 </tbody> 
-                    <input type="hidden" id="examenBevestigen" value=""  />
             </table>
+            
+            <input type="hidden" id="examenBevestigen" value=""/>
         </div>
 
         <div id="elementTwo" style="display: none;">

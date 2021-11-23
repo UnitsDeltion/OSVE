@@ -1,4 +1,4 @@
-function selectInput($page, $id, $optioneel){
+function selectInput($page, $id, $element){
     var input = document.getElementById($id);
 
     if($page == 'p2'){
@@ -30,30 +30,33 @@ function selectInput($page, $id, $optioneel){
             }
         });
     }else if($page == 'p4'){
-    var array = document.getElementsByName('examenMoment');
+        var array = document.getElementsByName('examenMoment');
 
-    array.forEach(element => {
-        if(element.checked){
-            Notify({
-                type: 'warning',
-                duration: 7500,
-                position: 'top center',
-                title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
-                html: '<p class="align-center mb-0 fw-600 fc-primary-nh">Er kan maar <span class="fw-900 fc-secondary-nh">één</span> examen moment <br> per keer worden ingepland.</p>',
-            });
+        array.forEach(element => {
+            if(element.checked){
+                Notify({
+                    type: 'warning',
+                    duration: 7500,
+                    position: 'top center',
+                    title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
+                    html: '<p class="align-center mb-0 fw-600 fc-primary-nh">Er kan maar <span class="fw-900 fc-secondary-nh">één</span> examen moment <br> per keer worden ingepland.</p>',
+                });
+            }
+        });
+    }else if($page == 'dashboard') {
+        var input = document.getElementById('examenBevestigen');
+            
+        var oldData = input.value;
+
+        if(!oldData){
+            input.value = $element;
+        }else{
+            input.value = oldData + ', ' + $element;
         }
-    });
-}else if($page == 'dashboard') {
-    var input = document.getElementById('examenBevestigen');
-    var value = document.getElementById($optioneel)
-        
-    console.log(value);    
 
-}
-
-
-
-
+        var button = document.getElementById('button' + $element);
+        button.disabled = true;
+    }
 
     input.checked = true;
 }

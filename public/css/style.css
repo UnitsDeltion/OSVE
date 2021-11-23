@@ -450,3 +450,7 @@ button.dt-button:visited{
         background-size: cover; 
     }
 }
+
+.disabled{
+    background-color: gray !important;
+}
