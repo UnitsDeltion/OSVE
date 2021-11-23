@@ -168,26 +168,26 @@
 </x-app-layout>
 
 <script>
-//     var minDate, maxDate;
+    var minDate, maxDate;
  
-//  // Custom filtering function which will search data in column four between two values
-//  $.fn.dataTable.ext.search.push(
-//      function( settings, data, dataIndex ) {
-//          var min = minDate.val();
-//          var max = maxDate.val();
-//          var date = new Date( data[4] );
+ // Custom filtering function which will search data in column four between two values
+ $.fn.dataTable.ext.search.push(
+     function( settings, data, dataIndex ) {
+         var min = minDate.val();
+         var max = maxDate.val();
+         var date = new Date( data[4] );
  
-//          if (
-//              ( min === null && max === null ) ||
-//              ( min === null && date <= max ) ||
-//              ( min <= date   && max === null ) ||
-//              ( min <= date   && date <= max )
-//          ) {
-//              return true;
-//          }
-//          return false;
-//      }
-//  );
+         if (
+             ( min === null && max === null ) ||
+             ( min === null && date <= max ) ||
+             ( min <= date   && max === null ) ||
+             ( min <= date   && date <= max )
+         ) {
+             return true;
+         }
+         return false;
+     }
+ );
 </script>
 
 
@@ -195,11 +195,14 @@
 $(document).ready(function() {
     console.log("gaat goed");
     $('#ingeplandeExamens').DataTable( {
-      
+        select: {
+            style: 'multi',
+        },   
         "language": {
             "url": "{{asset('/beheer/json/datatabels/dutch')}}",
         },
         dom: 'Bfrtip',
+    
         buttons: [
              'excel', {
             
@@ -209,13 +212,16 @@ $(document).ready(function() {
                 doc.styles.tableHeader.color = 'white';
                 doc.styles.tableHeader.fillColor = '#F58220';
             },
+           
             download: 'open',
             exportOptions: {
                 modifier: {
                     page: 'current'
                 }
-            }},]
-              
+            }},
+        ]
+           ,
+      
         
     });
     $('#actieveExamens').DataTable( {
@@ -229,20 +235,24 @@ $(document).ready(function() {
         "language": {
             "url": "{{asset('/beheer/json/datatabels/dutch')}}"
         },
-        // minDate = new DateTime($('#min'), {
-        // format: 'MMMM Do YYYY'
-        // });
-        // maxDate = new DateTime($('#max'), {
-        //     format: 'MMMM Do YYYY'
-        // });
-    
-        // // DataTables initialisation
+        //Create date inputs
+            // minDate = new DateTime($('#min'), {
+            //     format: 'MMMM Do YYYY'
+            // });
+            // maxDate = new DateTime($('#max'), {
+            //     format: 'MMMM Do YYYY'
+            // });
         
-    
-        // // Refilter the table
-        // $('#min, #max').on('change', function () {
-        //     table.draw();
-        // }), 
+            // //DataTables initialisation
+            // var table = $('#toekomstigeExamens').DataTable();
+        
+            // //Refilter the table
+            // $('#min, #max').on('change', function () {
+            //     table.draw();
+            // });
+            
+
+
     });
     $('#opleidingen').DataTable( {
         "language": {
