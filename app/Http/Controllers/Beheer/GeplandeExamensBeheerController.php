@@ -8,22 +8,30 @@ use App\Http\Controllers\Controller;
 
 class GeplandeExamensBeheerController extends Controller
 {
-    public function bevestigExamen($id)
+    public function bevestigExamen(Request $request)
     {
-        //Haalt hte gepland examen record op
-        $geplandExamen = GeplandeExamens::where("id", $id)->first();
+        $request->validate([
+            "examenBevestigen" => "required",
+        ]);
 
-        //Zet de waarde van doc_bevestigd op 1 zodat hij door de docent is bevestigd
-        $geplandExamen["doc_bevestigd"] = 1;
+        $data = explode(", ", $request->examenBevestigen);
 
-        //Slaat de record op in de db
-        $geplandExamen->save();
+        foreach ($data as $examen) {
+            //Haalt hte gepland examen record op
+            $geplandExamen = GeplandeExamens::where("id", $examen)->first();
 
-        //Bevestigings mail naar student
-        \Mail::to($geplandExamen["studentnummer"] . "@st.deltion.nl")->send(
-            new \App\Mail\examenIngepland()
-        );
+            //Zet de waarde van doc_bevestigd op 1 zodat hij door de docent is bevestigd
+            $geplandExamen["doc_bevestigd"] = 1;
 
+            //Slaat de record op in de db
+            $geplandExamen->save();
+
+            //Bevestigings mail naar student
+            \Mail::to($geplandExamen["studentnummer"] . "@st.deltion.nl")->send(
+                new \App\Mail\examenIngepland()
+            );
+        }
+        
         //Stuurt terug nar dashboard
         return redirect("/beheer/dashboard");
     }
