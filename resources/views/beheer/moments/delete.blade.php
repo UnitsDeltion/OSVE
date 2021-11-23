@@ -1,9 +1,9 @@
 {{-- !-- Delete Warning Modal -->  --}}
-<form action="{{ route('examens.destroy', $examen->id) }}" method="post">
+<form action="{{ route('moments.destroy', $moment->id) }}" method="post">
     <div class="modal-body">
         @csrf
         @method('DELETE')
-        <h5 class="text-center">Weet je het zeker dat je examen {{ $examen->vak }} {{ $examen->examen }} wilt verwijderen?</h5>
+        <h5 class="text-center">Weet je het zeker dat je het moment van {{ $moment->tijd }} op {{ $moment->datum }} wilt verwijderen?</h5>
     </div>
     <div class="modal-footer-custom">
             <div class="mt-4">
@@ -11,7 +11,7 @@
                     <i class="fas fa-backward mr-2" ></i> Cancel
                 </a>
                 <x-jet-button class="button float-right">
-                    Ja, verwijder het examen <i class="fas fa-forward ml-2"></i> 
+                    Ja, verwijder het examen moment <i class="fas fa-forward ml-2"></i> 
                 </x-jet-button>
             </div>
     </div>
