@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Beheer;
 
-use App\Models\Examen;
-use App\Models\ExamenMoment;
-use App\Models\User;
-use App\Models\Opleidingen;
-use App\Models\GeplandeExamens;
-
-use DateTime;
 use Bouncer;
+use DateTime;
+use App\Models\User;
+use App\Models\Examen;
+use App\Models\Opleidingen;
+
+use App\Models\ExamenMoment;
 use Illuminate\Http\Request;
+use App\Models\GeplandeExamens;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
 class DashboardBeheerController extends Controller
@@ -20,6 +21,14 @@ class DashboardBeheerController extends Controller
     public function index()
     {
         $users = User::all();
+        $user = \Auth::user();
+
+        if(!$user){
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
+
+
         $examens = Examen::all();
         $examenMomenten = ExamenMoment::orderBy('examenid', 'asc')->get();
 
