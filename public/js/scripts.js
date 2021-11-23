@@ -51,7 +51,7 @@ function selectInput($page, $id, $element){
         if(!oldData){
             input.value = $element;
         }else{
-            input.value = oldData + ', ' + $element;
+            input.value = $element + ', ' + oldData;
         }
 
         var button = document.getElementById('button' + $element);

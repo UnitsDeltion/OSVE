@@ -45,4 +45,4 @@ Route::resource('/beheer/moments', ExamenMomentBeheerController::class)->except(
 Route::get('/beheer/moment/{id}', [ExamenMomentBeheerController::class, 'create'])->name('momentsCreate');
 Route::POST('/beheer/moment/{id}', [ExamenMomentBeheerController::class, 'store'])->name('momentsStore');
 
-Route::POST('/beheer/bevestigExamen/{id}', [GeplandeExamensBeheerController::class, 'bevestigExamen'])->name('bevestigExamen');
+Route::POST('/beheer/bevestigExamen', [GeplandeExamensBeheerController::class, 'bevestigExamen'])->name('bevestigExamen');

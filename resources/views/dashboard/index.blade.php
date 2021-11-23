@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    @livewire('includes.validation.warning')
+
     @livewire('includes.content.top.content-wide-top') 
 
         <div class="pagination justify-content-center">
@@ -63,7 +65,7 @@
                                 <p class="fc-primary-nh">Bevestigd</p>
                             @else
                                 <x-jet-button class="button" id="button{{ $geplandExamen->id }}" onclick="selectInput('dashboard', 'examenBevestigen', '{{ $geplandExamen->id }}')">
-                                    Bevestigen
+                                    Selecteren
                                 </x-jet-button>
                             @endif
                         </td>
@@ -71,8 +73,15 @@
                     @endforeach
                 </tbody> 
             </table>
-            
-            <input type="hidden" id="examenBevestigen" value=""/>
+
+            <form action="{{ route('bevestigExamen') }}" method="post">
+                @csrf
+                <input type="hidden" name="examenBevestigen" id="examenBevestigen" value="">
+
+                <x-jet-button class="button">
+                    Examens bevestigen
+                </x-jet-button>
+            </form>
         </div>
 
         <div id="elementTwo" style="display: none;">
@@ -191,7 +200,6 @@
 
 <script>
 $(document).ready(function() {
-    console.log("gaat goed");
     $('#ingeplandeExamens').DataTable( {
         // select: {
         //     style: 'multi',
