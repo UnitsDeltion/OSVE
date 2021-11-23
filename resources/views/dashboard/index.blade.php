@@ -62,18 +62,15 @@
                             @if($geplandExamen->doc_bevestigd == '1')
                                 <p class="fc-primary-nh">Bevestigd</p>
                             @else
-                                <form action="{{ route('bevestigExamen', $geplandExamen->id) }}" method="post">
-                                    @csrf
-                                    <x-jet-button class="button">
+                                    <x-jet-button class="button" onclick="selectInput('dashboard', 'examenBevestigen', '{{ $geplandExamen->id }}')">
                                         Bevestigen
                                     </x-jet-button>
-                                </form>
                             @endif
                         </td>
                     </tr>
                     @endforeach
                 </tbody> 
-        
+                    <input type="hidden" id="examenBevestigen" value=""  />
             </table>
         </div>
 
@@ -166,7 +163,7 @@
         </div>
 
 </x-app-layout>
-
+<!-- 
 <script>
     var minDate, maxDate;
  
@@ -188,16 +185,16 @@
          return false;
      }
  );
-</script>
+</script> -->
 
 
 <script>
 $(document).ready(function() {
     console.log("gaat goed");
     $('#ingeplandeExamens').DataTable( {
-        select: {
-            style: 'multi',
-        },   
+        // select: {
+        //     style: 'multi',
+        // },   
         "language": {
             "url": "{{asset('/beheer/json/datatabels/dutch')}}",
         },
