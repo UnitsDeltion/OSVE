@@ -1,9 +1,9 @@
 {{-- !-- Delete Warning Modal -->  --}}
-<form action="{{ route('opleidingen.destroy', $opleiding->id) }}" method="post">
+<form action="{{ route('users.destroy', $user->id) }}" method="post">
     <div class="modal-body">
         @csrf
         @method('DELETE')
-        <h5 class="text-center">Weet je het zeker dat je de opleiding "{{ $opleiding->opleiding }}" met het crebo nummer "{{ $opleiding->crebo_nr }}" wilt verwijderen?</h5>
+        <h5 class="text-center">Weet je het zeker dat je de gebruiker "{{ $user->voornaam }} {{ $user->achternaam }}" wilt verwijderen?</h5>
     </div>
     <div class="modal-footer-custom">
             <div class="mt-4">
@@ -11,7 +11,7 @@
                     <i class="fas fa-backward mr-2" ></i> Cancel
                 </a>
                 <x-jet-button class="button float-right">
-                    Ja, verwijder de opleiding <i class="fas fa-forward ml-2"></i> 
+                    Ja, verwijder de gebruiker <i class="fas fa-forward ml-2"></i> 
                 </x-jet-button>
             </div>
     </div>

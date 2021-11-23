@@ -3,7 +3,7 @@
     <div class="modal-body">
         @csrf
         @method('DELETE')
-        <h5 class="text-center">Weet je het zeker dat je examen {{ $examen->vak }} {{ $examen->examen }} wilt verwijderen?</h5>
+        <h5 class="text-center">Weet je het zeker dat je examen "{{ $examen->vak }} {{ $examen->examen }}" wilt verwijderen?</h5>
     </div>
     <div class="modal-footer-custom">
             <div class="mt-4">
