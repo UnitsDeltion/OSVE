@@ -1,4 +1,4 @@
-function selectInput($page, $id){
+function selectInput($page, $id, $optioneel){
     var input = document.getElementById($id);
 
     if($page == 'p2'){
@@ -43,7 +43,17 @@ function selectInput($page, $id){
             });
         }
     });
+}else if($page == 'dashboard') {
+    var input = document.getElementById('examenBevestigen');
+    var value = document.getElementById($optioneel)
+        
+    console.log(value);    
+
 }
+
+
+
+
 
     input.checked = true;
 }
@@ -80,3 +90,4 @@ function pagination($elementID){
         $pagButThree.classList.add("activePage");
     }
 } 
+
