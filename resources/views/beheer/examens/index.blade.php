@@ -36,7 +36,7 @@
                             </a>
                         </td>
                         <td>
-                        <a data-toggle="modal" id="deleteButton" data-target="#deleteModal" data-attr="{{ route('examenDelete', $examen['id']) }}" title="Delete Examen">
+                        <a data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{ route('examenDelete', $examen['id']) }}" title="Delete Examen">
                             <!-- <i class="fas fa-trash text-danger  fa-lg"></i> -->
                             <x-jet-button class="button" title="Verwijderen">
                                     <i class="fas fa-trash"></i>
@@ -56,8 +56,8 @@
             </tbody>
         </table>
 
-        <!-- delete modal -->
-<div class="modal fade" id="deleteModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <!-- large modal -->
+<div class="modal fade" id="largeModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -65,7 +65,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" id="deleteBody">
+            <div class="modal-body" id="largeBody">
                 <div>
                     <!-- body content -->
                 </div>
@@ -76,7 +76,7 @@
 
 <script>
     // display delete modal
-    $(document).on('click', '#deleteButton', function(event) {
+    $(document).on('click', '#largeButton', function(event) {
         event.preventDefault();
         let href = $(this).attr('data-attr');
         $.ajax({
@@ -86,8 +86,8 @@
             },
             // return the result
             success: function(result) {
-                $('#deleteModal').modal("show");
-                $('#deleteBody').html(result).show();
+                $('#largeModal').modal("show");
+                $('#largeBody').html(result).show();
             }
             , complete: function() {
                 $('#loader').hide();

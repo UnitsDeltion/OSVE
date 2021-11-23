@@ -3,7 +3,7 @@
     <div class="modal-body">
         @csrf
         @method('DELETE')
-        <h5 class="text-center">Weet je het zeker dat je het moment van {{ $moment->tijd }} op {{ $moment->datum }} wilt verwijderen?</h5>
+        <h5 class="text-center">Weet je het zeker dat je het moment van "{{ $moment->tijd }}" op "{{ $moment->datum }}" wilt verwijderen?</h5>
     </div>
     <div class="modal-footer-custom">
             <div class="mt-4">

@@ -90,6 +90,12 @@ class UsersBeheerController extends Controller{
         return redirect()->route('users.index')->with('success','Gebruiker bijgewerkt');
     }
 
+    public function delete($id)
+    {
+        $user = User::find($id);
+        return view('beheer.users.delete', compact('user'));
+    }
+
     public function destroy(User $user){
 
         $user->delete();
