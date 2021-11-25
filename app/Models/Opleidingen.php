@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Opleidingen extends Model
 {
-	protected $primaryKey = 'crebo_nr';
+	protected $primaryKey = 'id';
 	protected $table = 'opleidingen';
 	public $incrementing = false;
 	public $timestamps = false;
