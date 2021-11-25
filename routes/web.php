@@ -39,19 +39,17 @@ Route::get('/beheer/dashboard', [DashboardBeheerController::class, 'index'])->na
 Route::get('/beheer/json/datatabels/dutch', [DashboardBeheerController::class, 'dtDutch']);
 
 Route::resource('/beheer/users', UsersBeheerController::class);
-Route::get('/beheer/user/delete/{id}', [UsersBeheerController::class, 'delete'])->name('usersDelete');
-
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
-Route::get('/beheer/opleidingen/delete/{id}', [OpleidingBeheerController::class, 'delete'])->name('opleidingDelete');
-
 Route::resource('/beheer/reglementen', ReglementenBeheerController::class);
-
 Route::resource('/beheer/examens', ExamenBeheerController::class);
-Route::get('/beheer/examen/delete/{id}', [ExamenBeheerController::class, 'delete'])->name('examenDelete');
 
 Route::resource('/beheer/moments', ExamenMomentBeheerController::class)->except('create', 'store');
 Route::get('/beheer/moment/{id}', [ExamenMomentBeheerController::class, 'create'])->name('momentsCreate');
 Route::POST('/beheer/moment/{id}', [ExamenMomentBeheerController::class, 'store'])->name('momentsStore');
-Route::get('/beheer/moment/delete/{id}', [ExamenMomentBeheerController::class, 'delete'])->name('momentsDelete');
-
 Route::POST('/beheer/bevestigExamen/{id}', [GeplandeExamensBeheerController::class, 'bevestigExamen'])->name('bevestigExamen');
+
+//Delete popup
+Route::get('/beheer/user/delete/{id}', [UsersBeheerController::class, 'delete'])->name('usersDelete');
+Route::get('/beheer/moment/delete/{id}', [ExamenMomentBeheerController::class, 'delete'])->name('momentsDelete');
+Route::get('/beheer/examen/delete/{id}', [ExamenBeheerController::class, 'delete'])->name('examenDelete');
+Route::get('/beheer/opleidingen/delete/{id}', [OpleidingBeheerController::class, 'delete'])->name('opleidingDelete');
