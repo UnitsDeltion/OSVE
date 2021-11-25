@@ -470,3 +470,7 @@ button.dt-button:visited{
 .disabled{
     background-color: gray !important;
 }
+
+.myProfile {
+    background: rgba(255,255,255, 0.8)
+}
