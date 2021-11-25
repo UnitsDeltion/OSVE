@@ -92,7 +92,9 @@ class DashboardBeheerController extends Controller
         // Bouncer::assign('docent')->to($user);
         // Bouncer::assign('opleidingsmanager')->to($user);
 
-        return view('dashboard.index')
+        // dd($geplandeExamens);
+
+        return view('beheer.dashboard.index')
             ->with(compact('examens'))
             ->with(compact('opleidingen'))
             ->with(compact('geplandeExamens'));
