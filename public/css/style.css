@@ -501,10 +501,10 @@ button.dt-button:visited{
 }
 
 /*HTML & PHP code blokken*/
-.php, .html{
+code, .php, .html{
 	padding-top: 0rem !important;
 }
 
-.php{
+code, .php{
     padding-bottom: 0rem !important;
 }
