@@ -17,19 +17,8 @@ use Bouncer;
 class UsersBeheerController extends Controller{
     
     public function index(){    
-
-        //abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
         $users = User::all();
         $user = \Auth::user();
-
-        //dd($users);
-        // Bouncer::allow('docent')->to('examen-beheer');
-        // Bouncer::allow('docent')->to('everything');
-        // Bouncer::allow('opleidingsmanager')->to('examen-beheer');
-        // Bouncer::allow('opleidingsmanager')->to('everything');
-        // Bouncer::assign('docent')->to($user);
-        // Bouncer::assign('opleidingsmanager')->to($user);
 
         if(!$user){
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -49,15 +38,11 @@ class UsersBeheerController extends Controller{
 
     public function create(Request $request, User $user)
     {
-
-
         return view('beheer.users.create');
     }
 
     public function store(Request $request, User $user) 
     {
-
-        
         $validated = $request->validate([
             'voornaam' => 'required|max:255|string',
             'achternaam' => 'required|max:255|string',
@@ -103,6 +88,12 @@ class UsersBeheerController extends Controller{
         $user->roles()->sync($request->input('role', []));
 
         return redirect()->route('users.index')->with('success','Gebruiker bijgewerkt');
+    }
+
+    public function delete($id)
+    {
+        $user = User::find($id);
+        return view('beheer.users.delete', compact('user'));
     }
 
     public function destroy(User $user){

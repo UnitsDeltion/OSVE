@@ -6,9 +6,15 @@
         </h2>
     </x-slot>
 
-    @livewire('includes.warnings.validation')
+    @livewire('includes.validation.warning')
 
     @livewire('includes.content.top.content-normal-top')
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })    
+    </script>
 
         <div class="containter mt-5 mb-5">
             <div class="row justify-content-center">
@@ -16,69 +22,41 @@
                     <h3>Persoonlijke gegevens</h3>
 
                     <form method="POST" action="{{ url('f2') }}">
-                    @csrf
+
+                        @csrf
+                    
                         <div class="mb-3">
                             <x-jet-label for="voornaam" value="{{ __('Voornaam') }}" />
                             <x-jet-input id="voornaam" class="block mt-1 w-full" type="text" name="voornaam" :value="old('voornaam')" autofocus />
-                            @error('voornaam') 
-                                <script>
-                                    document.getElementById('voornaam').classList.add("bc-red", "sh-red"); 
-                                    document.getElementById('voornaam').classList.remove("shadow-sm"); 
-                                </script>
-                             @enderror
+                            @livewire('includes.validation.input', ['input' => 'voornaam'])
                         </div>
 
                         <div class="mb-3">
                             <x-jet-label for="achternaam" value="{{ __('Achternaam') }}" />
                             <x-jet-input id="achternaam" class="block mt-1 w-full" type="text" name="achternaam" :value="old('achternaam')"/>
-                            @error('achternaam') 
-                                <script>
-                                    document.getElementById('achternaam').classList.add("bc-red", "sh-red"); 
-                                    document.getElementById('achternaam').classList.remove("shadow-sm"); 
-                                </script>
-                             @enderror
+                            @livewire('includes.validation.input', ['input' => 'achternaam'])
                         </div>
 
                         <div class="mb-3">
                             <x-jet-label for="studentnummer" value="{{ __('Studentnummer') }}" />
                             <x-jet-input id="studentnummer" class="block mt-1 w-full" type="number" name="studentnummer" :value="old('studentnummer')"/>
-                            @error('studentnummer') 
-                                <script>
-                                    document.getElementById('studentnummer').classList.add("bc-red", "sh-red"); 
-                                    document.getElementById('studentnummer').classList.remove("shadow-sm"); 
-                                </script>
-                             @enderror
+                            @livewire('includes.validation.input', ['input' => 'studentnummer'])
                         </div>
-
+                        
                         <div class="mb-3">
                             <x-jet-label for="klas" value="{{ __('Klas') }}" />
                             <x-jet-input id="klas" class="block mt-1 w-full" type="text" name="klas" :value="old('klas')"/>
-                            @error('klas') 
-                                <script>
-                                    document.getElementById('klas').classList.add("bc-red", "sh-red"); 
-                                    document.getElementById('klas').classList.remove("shadow-sm"); 
-                                </script>
-                             @enderror
-                        </div>  
+                            @livewire('includes.validation.input', ['input' => 'klas'])
+                        </div> 
 
-                        <!-- <div class="mb-3">
-                            <x-jet-label for="faciliteitenpas" value="{{ __('Faciliteitenpas') }}" />
-                            @error('Faciliteitenpas')<div class="fc-red text-sm">{{ $message }}</div>@enderror
+                        <div class="mb-3">
+                        <x-jet-label for="faciliteitenpas">{{ __('Faciliteitenpas') }} <i class="fas fa-info-circle" id="tooltipFaciliteitenpas" data-toggle="tooltip" data-bs-placement="bottom" title="Heb je dyslexie of een ander leerprobleem? Dan kom je mogelijk in aanmerking voor een faciliteitenpas. Hiermee krijg je (extra) hulpmiddelen en maatregelen bij het maken van toetsen en examens bijvoorbeeld."></i></x-jet-label>
                             <select name="faciliteitenpas" id="faciliteitenpas" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
                                 <option value="Nee" selected>Nee</option>
                                 <option value="Ja">Ja</option>
                             </select>
+                            @livewire('includes.validation.input', ['input' => 'faciliteitenpas'])
                         </div>
-
-                        <div class="mb-3">
-                            <x-jet-label for="faciliteitenpas" value="{{ __('Opleiding') }}" />
-                            @error('Faciliteitenpas')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                            <select name="faciliteitenpas" id="faciliteitenpas" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full">
-                                @foreach($opleidingen as $opleiding)
-                                    <option class="selectInput" onclick="selectInput('p2', {{ $opleiding->crebo_nr }})">{{$opleiding['crebo_nr']}} || {{$opleiding['opleiding']}}</option>
-                                @endforeach
-                            </select>
-                        </div> -->
 
                         <div class="mt-4">
                             <x-jet-button class="button" style="float: right">

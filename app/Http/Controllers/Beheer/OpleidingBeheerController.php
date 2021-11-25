@@ -74,9 +74,9 @@ class OpleidingBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($crebo_nr)
+    public function edit($id)
     { 
-        $opleiding = Opleidingen::find($crebo_nr);
+        $opleiding = Opleidingen::find($id);
         return view('beheer.opleidingen.edit', compact('opleiding'));
     }
 
@@ -87,15 +87,15 @@ class OpleidingBeheerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $crebo_nr)
+    public function update(Request $request, $id)
     {
             $validated = $request->validate([
             'crebo_nr' => 'required|max:5|string',
             'opleiding' => 'required|max:255|string',
         ]);
 
-        if (Opleidingen::where('crebo_nr', $crebo_nr)->exists()) {
-            $opleiding = Opleidingen::find($crebo_nr);
+        if (Opleidingen::where('id', $id)->exists()) {
+            $opleiding = Opleidingen::find($id);
 
             $opleiding->crebo_nr = is_null($request->crebo_nr) ? $opleiding->crebo_nr : $request->crebo_nr;
             $opleiding->opleiding = is_null($request->opleiding) ? $opleiding->opleiding : $request->opleiding;
@@ -107,16 +107,23 @@ class OpleidingBeheerController extends Controller
         }
     }
 
+    public function delete($id)
+    {
+        $opleiding = Opleidingen::find($id);
+
+        return view('beheer.opleidingen.delete', compact('opleiding'));
+    }
+    
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($crebo_nr)
+    public function destroy($id)
     {
 
-        $opleiding = Opleidingen::find($crebo_nr);
+        $opleiding = Opleidingen::find($id);
         $opleiding->delete();
 
         return redirect()->route('opleidingen.index')->with('success','Opleiding verwijderd');

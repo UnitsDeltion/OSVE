@@ -78,7 +78,6 @@ class ExamenMomentBeheerController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        
         $moment = ExamenMoment::where('id', $id)->first()->toArray();
         $examen = Examen::where( 'id', $moment['examenid'])->first()->toArray();
 
@@ -94,8 +93,6 @@ class ExamenMomentBeheerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-
         $this->validate($request, [
             'datum' => 'required',
             'tijd' => 'required',
@@ -114,6 +111,13 @@ class ExamenMomentBeheerController extends Controller
         }else {
             return redirect()->route('examens.index')->with('error','Examen moment niet gevonden.');
         }
+    }
+
+    public function delete($id)
+    {
+        $moment = ExamenMoment::find($id);
+
+        return view('beheer.moments.delete', compact('moment'));
     }
 
     /**

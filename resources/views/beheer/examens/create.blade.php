@@ -1,14 +1,18 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2>
-            @section('title', 'Nieuwe examen toevoegen')
-            @yield('title')
-        </h2>
+        <div class="d-flex" style="width: 100%;">
+            <h2 class="align-self-start font-semibold text-xl text-gray-800 leading-tight row">
+                @section('title', 'Nieuwe examen toevoegen')
+                @yield('title')
+            </h2>
+        </div>
     </x-slot>
+
+    @livewire('includes.validation.warning')
 
     @livewire('includes.content.top.content-normal-top') 
 
-        <form method="post" action="{{ route('examens.store') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('examens.store') }}">
 
             @csrf
             
@@ -16,53 +20,51 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="vak" class="block font-medium text-sm text-gray-700">Vak</lable>
-                        @error('vak')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <input id="vak" class="block mt-1 w-full form-control" type="text" name="vak" :value="old('vak')"/>
+                        @livewire('includes.validation.input', ['input' => 'vak'])
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="examen" class="block font-medium text-sm text-gray-700">Examen</lable>
-                        @error('examen')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <input id="examen" class="block mt-1 w-full form-control" type="text" name="examen" :value="old('examen')"/>
+                        @livewire('includes.validation.input', ['input' => 'examen'])
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="opleiding_id" class="block font-medium text-sm text-gray-700">Opleiding</lable>
-                        @error('opleiding_id')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <select id="opleiding_id" class="block mt-1 w-full form-control" name="opleiding_id" :value="old('opleiding_id')">
                             @foreach($opleidingen as $opleiding)
-                                <option value="{{ $opleiding['id'] }}">{{ $opleiding['opleiding'] }}</option>
+                                <option value="{{ $opleiding['id'] }}">{{ $opleiding['crebo_nr'] }} // {{ $opleiding['opleiding'] }}</option>
                             @endforeach
                         </select>
+                        @livewire('includes.validation.input', ['input' => 'opleiding_id'])
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <lable for="geplande_docenten" class="block font-medium text-sm text-gray-700">Examinerende docenten</lable>
-                        @error('geplande_docenten')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <input id="geplande_docenten" class="block mt-1 w-full form-control" type="varchar" name="geplande_docenten" :value="old('geplande_docenten')"/>
+                        @livewire('includes.validation.input', ['input' => 'geplande_docenten'])
                     </div>
                 </div>
 
                 <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <lable for="opgeven_examen_begin" class="block font-medium text-sm text-gray-700">Opgeven examen begin</lable>
-                                @error('examen_opgeven_begin')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                                <input id="examen_opgeven_begin" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_begin" :value="old('examen_opgeven_begin')"/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                            <lable for="opgeven_examen_eind" class="block font-medium text-sm text-gray-700">Opgeven examen eind</lable>
-                                @error('examen_opgeven_eind')<div class="fc-red text-sm">{{ $message }}</div>@enderror
-                                <input id="examen_opgeven_eind" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_eind" :value="old('examen_opgeven_eind')"/>
-                            </div>
+                    <div class="form-group">
+                        <lable for="opgeven_examen_begin" class="block font-medium text-sm text-gray-700">Opgeven examen begin</lable>
+                        <input id="examen_opgeven_begin" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_begin" :value="old('examen_opgeven_begin')"/>
+                        @livewire('includes.validation.input', ['input' => 'examen_opgeven_begin'])
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <lable for="opgeven_examen_eind" class="block font-medium text-sm text-gray-700">Opgeven examen eind</lable>
+                            <input id="examen_opgeven_eind" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_eind" :value="old('examen_opgeven_eind')"/>
+                            @livewire('includes.validation.input', ['input' => 'examen_opgeven_eind'])
                         </div>
                     </div>
                 </div>
@@ -70,8 +72,8 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <lable for="uitleg" class="block font-medium text-sm text-gray-700">Uitleg</lable>
-                        @error('uitleg')<div class="fc-red text-sm">{{ $message }}</div>@enderror
                         <textarea id="uitleg" class="block mt-1 w-full form-control" type="text" name="uitleg" rows="4" :value="old('uitleg')"></textarea>
+                        @livewire('includes.validation.input', ['input' => 'uitleg'])
                     </div>
                 </div>
 

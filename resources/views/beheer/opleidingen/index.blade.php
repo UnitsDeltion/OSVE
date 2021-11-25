@@ -13,20 +13,20 @@
         </div>
     </x-slot>
 
-    @livewire('includes.content.top.content-wide-top') 
+    @livewire('includes.content.top.content-normal-top')
+
         @if($message = Session::get('success'))
             <div class="alert alert-success alert-dismissible fade show mb-10" role="alert">
                 <p class="mb-0">{{$message}}</p>
             </div>
         @endif
 
-        <table class="table">
+        <table class="table mt-4">
             <thead>
                 <tr>
                     <th>Crebo nummer</th>
                     <th>Opleiding</th>
-                    <th></th>
-                    <th></th>
+                    <th colspan="2"></th>
                 </tr>
             </thead>
             <tbody>
@@ -35,26 +35,70 @@
                         <td>{{$opleiding['crebo_nr']}}</td>
                         <td>{{$opleiding['opleiding']}}</td>
                         <td class="align-right pr-0">
-                            <a href="{{ route('opleidingen.edit', $opleiding['crebo_nr'] ) }}" class="mr-2 a-clear">
+                            <a href="{{ route('opleidingen.edit', $opleiding['id'] ) }}" class="mr-2 a-clear">
                                 <x-jet-button class="button">
                                     <i class="fas fa-edit"></i>
                                 </x-jet-button>
                             </a>
                         </td>
                         <td>
-                            <form action="{{ route('opleidingen.destroy', $opleiding['crebo_nr']) }}" method="POST" onsubmit="return confirm('Weet u het zeker?');">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                                <x-jet-button class="button">
-                                    <i class="fas fa-trash"></i>
+                            <a data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{ route('opleidingDelete', $opleiding['id']) }}" title="Delete opleiding">
+                                <x-jet-button class="button" title="Verwijderen">
+                                        <i class="fas fa-trash"></i>
                                 </x-jet-button>
-                            </form>
+                            </a>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
-        </table>            
+        </table>  
+        
+          <!-- large modal -->
+<div class="modal fade" id="largeModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="largeBody">
+                <div>
+                    <!-- body content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // display delete modal
+    $(document).on('click', '#largeButton', function(event) {
+        event.preventDefault();
+        let href = $(this).attr('data-attr');
+        $.ajax({
+            url: href
+            , beforeSend: function() {
+                $('#loader').show();
+            },
+            // return the result
+            success: function(result) {
+                $('#largeModal').modal("show");
+                $('#largeBody').html(result).show();
+            }
+            , complete: function() {
+                $('#loader').hide();
+            }
+            , error: function(jqXHR, testStatus, error) {
+                console.log(error);
+                alert("Page " + href + " cannot open. Error:" + error);
+                $('#loader').hide();
+            }
+            , timeout: 8000
+        })
+    });
+
+</script>
 
     @livewire('includes.content.bottom.content-bottom') 
 

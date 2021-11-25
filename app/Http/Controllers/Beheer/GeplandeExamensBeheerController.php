@@ -6,21 +6,33 @@ use Illuminate\Http\Request;
 use App\Models\GeplandeExamens;
 use App\Http\Controllers\Controller;
 
-
 class GeplandeExamensBeheerController extends Controller
 {
-    public function bevestigExamen($id){
+    public function bevestigExamen(Request $request)
+    {
+        $request->validate([
+            "examenBevestigen" => "required",
+        ]);
 
-        //Haalt hte gepland examen record op
-        $geplandExamen = GeplandeExamens::where('id', $id)->first();
+        $data = explode(", ", $request->examenBevestigen);
 
-        //Zet de waarde van doc_bevestigd op 1 zodat hij door de docent is bevestigd
-        $geplandExamen['doc_bevestigd'] = 1;
+        foreach ($data as $examen) {
+            //Haalt hte gepland examen record op
+            $geplandExamen = GeplandeExamens::where("id", $examen)->first();
 
-        //Slaat de record op in de db
-        $geplandExamen->save();
+            //Zet de waarde van doc_bevestigd op 1 zodat hij door de docent is bevestigd
+            $geplandExamen["doc_bevestigd"] = 1;
 
+            //Slaat de record op in de db
+            $geplandExamen->save();
+
+            //Bevestigings mail naar student
+            \Mail::to($geplandExamen["studentnummer"] . "@st.deltion.nl")->send(
+                new \App\Mail\examenIngepland()
+            );
+        }
+        
         //Stuurt terug nar dashboard
-        return redirect('dashboard'); 
-    } 
+        return redirect("/beheer/dashboard");
+    }
 }

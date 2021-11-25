@@ -21,6 +21,12 @@
 
     @livewire('includes.content.top.content-normal-top') 
 
+        <script>
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })    
+        </script>
+
         <div class="container">
             <div class="row">
                 <form method="POST" action="{{ route('f4') }}">
@@ -50,13 +56,16 @@
                                                 echo "<h4 class=\"fc-secondary-nh\">" . $examen->vak . "</h4>";
                                             }
                                             
-                                            $examenVak = $examen->vak;                                    
+                                            $examenVak = $examen->vak;
                                         ?>
                                         <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
-                                            <div class="col-xs-8 fc-primary-nh col-10">
-                                                {{ $examen->examen }}
+                                            <div class="col-xs-8 col-8 fc-primary-nh">
+                                                {{ $examen->examen }} 
                                             </div>
-                                            <div class="col-xs-2 col-2">
+                                            <div class="col-xs-1 col-1">
+                                                <i class="fas fa-info-circle align-center" id="tooltipFaciliteitenpas" data-toggle="tooltip" data-bs-placement="bottom" title="{{ $examen->uitleg }}"></i>
+                                            </div>
+                                            <div class="col-xs-1 col-1">
                                                 <input type="radio" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
                                             </div>
                                         </div>

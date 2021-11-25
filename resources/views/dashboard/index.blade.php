@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    @livewire('includes.validation.warning')
+
     @livewire('includes.content.top.content-wide-top') 
 
         <div class="pagination justify-content-center">
@@ -34,7 +36,7 @@
                     @foreach($geplandeExamens as $geplandExamen)
                     <tr>
                         <td>
-                            {{ $geplandExamen->voornaam }}  {{ $geplandExamen->achternaam }} <small>({{ $geplandExamen->studentnummer }})</small>
+                            {{ $geplandExamen->voornaam }} {{ $geplandExamen->achternaam }} <small>({{ $geplandExamen->studentnummer }})</small>
                         </td>
                         <td>
                             {{ $geplandExamen->faciliteitenpas }}
@@ -62,23 +64,25 @@
                             @if($geplandExamen->doc_bevestigd == '1')
                                 <p class="fc-primary-nh">Bevestigd</p>
                             @else
-                                <form action="{{ route('bevestigExamen', $geplandExamen->id) }}" method="post">
-                                    @csrf
-                                    <x-jet-button class="button">
-                                        Bevestigen
-                                    </x-jet-button>
-                                </form>
+                                <x-jet-button class="button" id="button{{ $geplandExamen->id }}" onclick="selectInput('dashboard', 'examenBevestigen', '{{ $geplandExamen->id }}')">
+                                    Selecteren
+                                </x-jet-button>
                             @endif
                         </td>
                     </tr>
                     @endforeach
-                </tbody>
-                
-        
+                </tbody> 
             </table>
-        </div>
 
-       
+            <form action="{{ route('bevestigExamen') }}" method="post">
+                @csrf
+                <input type="hidden" name="examenBevestigen" id="examenBevestigen" value="">
+
+                <x-jet-button class="button">
+                    Examens bevestigen
+                </x-jet-button>
+            </form>
+        </div>
 
         <div id="elementTwo" style="display: none;">
             <h3>Actieve examens</h3>
@@ -116,6 +120,8 @@
                         <th>Vak</th>
                         <th>Examen</th>
                         <th>Geplande docent</th>
+                        <th>Eerste datum</th>
+                        <th>Laatste datum</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -129,6 +135,12 @@
                             </td>
                             <td>
                                 {{ $examen->geplande_docenten }}
+                            </td>
+                            <td id="min">
+                                {{ $examen->startDatum }}
+                            </td>
+                            <td id="max">
+                                {{ $examen->eindDatum }}
                             </td>
                         </tr>
                     @endforeach
@@ -161,44 +173,96 @@
         </div>
 
 </x-app-layout>
+<!-- 
+<script>
+    var minDate, maxDate;
+ 
+ // Custom filtering function which will search data in column four between two values
+ $.fn.dataTable.ext.search.push(
+     function( settings, data, dataIndex ) {
+         var min = minDate.val();
+         var max = maxDate.val();
+         var date = new Date( data[4] );
+ 
+         if (
+             ( min === null && max === null ) ||
+             ( min === null && date <= max ) ||
+             ( min <= date   && max === null ) ||
+             ( min <= date   && date <= max )
+         ) {
+             return true;
+         }
+         return false;
+     }
+ );
+</script> -->
+
 
 <script>
 $(document).ready(function() {
-    console.log("gaat goed");
     $('#ingeplandeExamens').DataTable( {
-      
+        // select: {
+        //     style: 'multi',
+        // },   
         "language": {
-            "url": "{{asset('/json/datatabels/dutch')}}",
+            "url": "{{asset('/beheer/json/datatabels/dutch')}}",
         },
         dom: 'Bfrtip',
+    
         buttons: [
              'excel', {
             
             extend: 'pdfHtml5',
+            customize: function(doc) {
+                doc.defaultStyle.alignment = 'right';
+                doc.styles.tableHeader.color = 'white';
+                doc.styles.tableHeader.fillColor = '#F58220';
+            },
+           
             download: 'open',
             exportOptions: {
                 modifier: {
                     page: 'current'
                 }
-            }
-                
-            }
-            ]       
+            }},
+        ]
+           ,
+      
         
     });
     $('#actieveExamens').DataTable( {
         "language": {
-            "url": "{{asset('/json/datatabels/dutch')}}"
+            "url": "{{asset('/beheer/json/datatabels/dutch')}}"
         }
     });
+
+
     $('#toekomstigeExamens').DataTable( {
         "language": {
-            "url": "{{asset('/json/datatabels/dutch')}}"
-        }
+            "url": "{{asset('/beheer/json/datatabels/dutch')}}"
+        },
+        //Create date inputs
+            // minDate = new DateTime($('#min'), {
+            //     format: 'MMMM Do YYYY'
+            // });
+            // maxDate = new DateTime($('#max'), {
+            //     format: 'MMMM Do YYYY'
+            // });
+        
+            // //DataTables initialisation
+            // var table = $('#toekomstigeExamens').DataTable();
+        
+            // //Refilter the table
+            // $('#min, #max').on('change', function () {
+            //     table.draw();
+            // });
+            
+
+
     });
     $('#opleidingen').DataTable( {
         "language": {
-            "url": "{{asset('/json/datatabels/dutch')}}"
+            "url": "{{asset('/beheer/json/datatabels/dutch')}}"
         }
     });
 });

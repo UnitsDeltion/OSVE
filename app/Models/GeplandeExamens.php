@@ -39,7 +39,7 @@ class GeplandeExamens extends Model
 		'faciliteitenpas',
 		'studentnummer',
 		'klas',
-		'crebo_nr',
+		'opleiding_id',
 		'examen',
 		'examen_moment',
 		'opmerkingen',
