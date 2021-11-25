@@ -22,6 +22,7 @@
                         <li class="nav-item"><a class="nav-link" href="#views_components_footer">Footer</a></li>
                     </ul>
                 </li>
+                <li class="nav-item"><a class="nav-link" href="#views_rechten">Rechten</a></li>
                 <li class="nav-item">
                     <a class="nav-link" href="#views_front-end">Front-end</a>
                     <ul class="list-unmarked">
@@ -39,6 +40,9 @@
                     <ul class="list-unmarked">
                         <li class="nav-item"><a class="nav-link" href="#views_beheer_dashboard">Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" href="#views_beheer_users">Users beheer</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#views_beheer_reglementen">Reglementen</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#views_beheer_examens">Examens beheer</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#views_beheer_examen_moment">Examen moment beheer</a></li>
                     </ul>
                 </li>
             </ul>

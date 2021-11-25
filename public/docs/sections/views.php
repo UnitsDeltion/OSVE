@@ -101,6 +101,66 @@
         </div>
     </div>
 
+    <div id="views_rechten">
+        <h3>Rechten</h3>
+        <p>Binnen <strong>OSVE</strong> maken wij gebruik van RBA <small>role based access</small>. Voor RBA maken wij gebruik van <code>Bouncer</code>. Onderstaand is een overzicht te zien van de rollen en hun permissions. Een gedeelte van deze tabel wordt in elk komend onderdeel getoond voor een beter overzicht.</p>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Rechten</th>
+                    <th>Docent</th>
+                    <th>Opleidingsmanagers</th>
+                    <th>Ontwikkelaar</th>
+                </tr>
+            <thead>
+            <tbody>
+                <tr>
+                    <td>Dashboard</td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-times fc-red"></i></td>
+                </tr>
+                <tr>
+                    <td>User beheer</td>
+                    <td><i class="fas fa-times fc-red"></i></td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-times fc-red"></i></td>
+                </tr>
+                <tr>
+                    <td>Reglementen update</td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-times fc-red"></i></td>
+                </tr>
+                <tr>
+                    <td>Examen beheer</td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-times fc-red"></i></td>
+                </tr>
+                <tr>
+                    <td>Examen moment beheer</td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-times fc-red"></i></td>
+                </tr>
+                <tr>
+                    <td>Opleidingen beheer</td>
+                    <td><i class="fas fa-times fc-red"></i></td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-times fc-red"></i></td>
+                </tr>
+                <tr>
+                    <td>Documentatie</td>
+                    <td><i class="fas fa-times fc-red"></i></td>
+                    <td><i class="fas fa-times fc-red"></i></td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <div id="views_front-end">
         <h3>Front-end</h3>
         <p class="lead">De front-end views alleen zichtbaar voor normale bezoekers.</p>
@@ -182,10 +242,30 @@
     
         <div id="views_beheer_dashboard">
             <h4>Dashboard</h4>
-            <p class="mb-0">Op het dashboard wordt een overzicht van verschillende tabellen getoond. Om deze pagina overzichterlijk te maken maken wij gebruik van een custom <code>JavaScript function</code>, zie <a href="#javascript">JS Scripts</a> voor meer informatie. Om de tabellen mooi te maken maken wij gebruik <code>jQuery DataTabes</code>.</p>
+            <p>Op het dashboard wordt een overzicht van verschillende tabellen getoond. Om deze pagina overzichterlijk te maken maken wij gebruik van een custom <code>JavaScript function</code>, zie <a href="#javascript">JS Scripts</a> voor meer informatie. Om de tabellen mooi te maken maken wij gebruik <code>jQuery DataTabes</code>.</p>
+
+            <table class="table mb-5">
+                <thead>
+                    <tr>
+                        <th>Rechten</th>
+                        <th>Docent</th>
+                        <th>Opleidingsmanagers</th>
+                        <th>Ontwikkelaar</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    <tr>
+                        <td>Dashboard</td>
+                        <td><i class="fas fa-check fc-green"></i></td>
+                        <td><i class="fas fa-check fc-green"></i></td>
+                        <td><i class="fas fa-times fc-red"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
             <pre>
                 <code class="html">
-<?php import('../../resources/views/dashboard/index.blade.php') ?>
+<?php import('../../resources/views/beheer/dashboard/index.blade.php') ?>
                 </code>
             </pre>
         </div>
@@ -194,49 +274,191 @@
             <h4>User beheer</h4>
             <p>Binnen <strong>OSVE</strong> is het voor docenten en Opleidingsmanagers mogelijk om in te loggen. Beide rollen hebben hun eigen rechten <small>(zie onderstaande tabel)</small>. Om gebruikers aan te maken moet er een CRUD systeem aanwezig zijn. In <code>UsersBeheerController</code> wordt dit verder toegelicht.</p>
 
-            <table class="table">
+            <table class="table mb-25">
                 <thead>
                     <tr>
                         <th>Rechten</th>
                         <th>Docent</th>
                         <th>Opleidingsmanagers</th>
+                        <th>Ontwikkelaar</th>
                     </tr>
                 <thead>
                 <tbody>
                     <tr>
-                        <td>Examen CRUD</td>
+                        <td>User beheer</td>
                         <td><i class="fas fa-check fc-green"></i></td>
                         <td><i class="fas fa-check fc-green"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Examen moment CRUD</td>
-                        <td><i class="fas fa-check fc-green"></i></td>
-                        <td><i class="fas fa-check fc-green"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Reglementen update</td>
-                        <td><i class="fas fa-check fc-green"></i></td>
-                        <td><i class="fas fa-check fc-green"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Docenten CRUD</td>
                         <td><i class="fas fa-times fc-red"></i></td>
-                        <td><i class="fas fa-check fc-green"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Opleidingen CRUD</td>
-                        <td><i class="fas fa-times fc-red"></i></td>
-                        <td><i class="fas fa-check fc-green"></i></td>
                     </tr>
                 </tbody>
             </table>
 
-            <h5>Index</h5>
+            <h5 class="mb-0-r">Index</h5>
             <pre>
-                <code class="php">
+                <code>
 <?php import('../../resources/views/beheer/users/index.blade.php') ?>
                 </code>
             </pre>
+
+            <h5>Create</h5>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/users/create.blade.php') ?>
+                </code>
+            </pre>
+
+            <h5>Edit</h5>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/users/edit.blade.php') ?>
+                </code>
+            </pre>
+
+            <h5>Delete</h5>
+            <p class="mb-0">De delete pagina wordt weergegeven als een popup op de index pagina.</p>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/users/delete.blade.php') ?>
+                </code>
+            </pre>
         </div>
+
+        <div id="views_beheer_reglementen">
+            <h4>Reglementen</h4>
+            <p>Op P5 staat een link naar de Deltion examen reglementen. Deze reglementen kunnen in de toekomst bijgewerkt worden. Om dit voor de opleidingsmanager makkelijk te maken hoeven zij alleen de URL naar de PDF bij te werken.</p>
+
+            <table class="table mb-25">
+                <thead>
+                    <tr>
+                        <th>Rechten</th>
+                        <th>Docent</th>
+                        <th>Opleidingsmanagers</th>
+                        <th>Ontwikkelaar</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    <tr>
+                        <td>Reglementen</td>
+                        <td><i class="fas fa-check fc-green"></i></td>
+                        <td><i class="fas fa-check fc-green"></i></td>
+                        <td><i class="fas fa-times fc-red"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5 class="mb-0-r">Edit</h5>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/reglementen/index.blade.php') ?>
+                </code>
+            </pre>
+        </div>
+
+        <div id="views_beheer_examens">
+            <h4>Examens beheer</h4>
+            <p>Docenten en opleidingsmanagers kunnen examens beheren.</p>
+
+            <table class="table mb-25">
+                <thead>
+                    <tr>
+                        <th>Rechten</th>
+                        <th>Docent</th>
+                        <th>Opleidingsmanagers</th>
+                        <th>Ontwikkelaar</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    <tr>
+                        <td>Examens beheer</td>
+                        <td><i class="fas fa-check fc-green"></i></td>
+                        <td><i class="fas fa-check fc-green"></i></td>
+                        <td><i class="fas fa-times fc-red"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5 class="mb-0-r">Index</h5>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/examens/index.blade.php') ?>
+                </code>
+            </pre>
+
+            <h5>Show</h5>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/examens/show.blade.php') ?>
+                </code>
+            </pre>
+
+            <h5>Create</h5>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/examens/create.blade.php') ?>
+                </code>
+            </pre>
+
+            <h5>Edit</h5>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/examens/edit.blade.php') ?>
+                </code>
+            </pre>
+
+            <h5>Delete</h5>
+            <p class="mb-0">De delete pagina wordt weergegeven als een popup op de index en show paginas.</p>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/examens/delete.blade.php') ?>
+                </code>
+            </pre>
+        </div>
+
+        <div id="views_beheer_examen_moment">
+            <h4>Examen moment beheer</h4>
+            <p>Een examen kan op verschillende momenten gehouden worden. Dit noemen wij een <i>examen moment</i>. Elke examen moment heeft een <strong>datum</strong>, <strong>tijd</strong> en een limiet aan <strong>plaatsen</strong>.</p>
+
+            <table class="table mb-25">
+                <thead>
+                    <tr>
+                        <th>Rechten</th>
+                        <th>Docent</th>
+                        <th>Opleidingsmanagers</th>
+                        <th>Ontwikkelaar</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    <tr>
+                        <td>Examen moment beheer</td>
+                        <td><i class="fas fa-check fc-green"></i></td>
+                        <td><i class="fas fa-check fc-green"></i></td>
+                        <td><i class="fas fa-times fc-red"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5 class="mb-0-r">Create</h5>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/moments/create.blade.php') ?>
+                </code>
+            </pre>
+
+            <h5>Edit</h5>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/moments/edit.blade.php') ?>
+                </code>
+            </pre>
+
+            <h5>Delete</h5>
+            <p class="mb-0">De delete pagina wordt weergegeven als een popup op de index en show paginas.</p>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/moments/delete.blade.php') ?>
+                </code>
+            </pre>
+        </div>
+
     </div>
 </section>
