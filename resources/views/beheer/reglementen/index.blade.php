@@ -10,7 +10,7 @@
 
     @livewire('includes.validation.warning')
 
-    @livewire('includes.content.top.content-small-top') 
+    @livewire('includes.content.top.content-normal-top') 
 
         @if($message = Session::get('success'))
             <div class="alert alert-success alert-dismissible fade show mb-10" role="alert">

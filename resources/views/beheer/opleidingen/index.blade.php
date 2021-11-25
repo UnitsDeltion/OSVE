@@ -43,19 +43,10 @@
                         </td>
                         <td>
                             <a data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{ route('opleidingDelete', $opleiding['id']) }}" title="Delete opleiding">
-                                <!-- <i class="fas fa-trash text-danger  fa-lg"></i> -->
                                 <x-jet-button class="button" title="Verwijderen">
                                         <i class="fas fa-trash"></i>
                                 </x-jet-button>
                             </a>
-                            <!-- <form action="{{ route('opleidingen.destroy', $opleiding['id']) }}" method="POST" onsubmit="return confirm('Weet u het zeker?');">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                                <x-jet-button class="button">
-                                    <i class="fas fa-trash"></i>
-                                </x-jet-button>
-                            </form> -->
                         </td>
                     </tr>
                 @endforeach

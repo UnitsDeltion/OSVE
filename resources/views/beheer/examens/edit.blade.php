@@ -8,7 +8,7 @@
 
     @livewire('includes.validation.warning')
 
-    @livewire('includes.content.top.content-small-top')
+    @livewire('includes.content.top.content-normal-top')
 
         <form method="post" action="{{ route('examens.update', $examen['id']) }}" class="mt-10">
 
