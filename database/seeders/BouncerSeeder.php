@@ -58,5 +58,7 @@ class BouncerSeeder extends Seeder
 
         Bouncer::allow('docent')->to('examen-beheer');
         //Bouncer::allow('editor')->toOwn(Post::class);
+
+        Bouncer::allow('ontwikkelaar')->to('documentatie');
     }
 }
