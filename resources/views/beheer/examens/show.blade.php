@@ -125,19 +125,10 @@
                             </a>
 
                             <a data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{ route('momentsDelete', $moment['id']) }}" title="Delete Moment">
-                                <!-- <i class="fas fa-trash text-danger  fa-lg"></i> -->
                                 <x-jet-button class="button" title="Verwijderen">
                                         <i class="fas fa-trash"></i>
                                 </x-jet-button>
                             </a>
-
-                            <!-- <form action="{{ route('moments.destroy', $moment['id']) }}" method="POST" onsubmit="return confirm('Weet je het zeker');">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <x-jet-button class="mr-2 button" title="Verwijderen">
-                                    <i class="fas fa-trash"></i>
-                                </x-jet-button>
-                            </form> -->
                         </td>
                     </tr>
                 @endforeach
