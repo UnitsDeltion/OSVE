@@ -22,12 +22,7 @@ class OSVEController extends Controller
     public function p1(Request $request)
     {
         //Leegt de session zodat alle pagina's weer opnieuw doorgelopen moeten worden en er niet meteen van p1 naar bvb p4 gegaan kan worden
-        //Haalt eerst de CSRF token op
-        $token = $request->session()->get("_token");
-        //Leegt alle session data
-        $request->session()->flush();
-        //Zet de CSRF token weer in de session
-        $request->session()->put("_token", $token);
+        Session::forget(['voornaam', 'achternaam', 'studentnummer', 'klas', 'faciliteitenpas', 'opleiding_id', 'crebo_nr', 'opleiding', 'vak', 'examen', 'datum', 'tijd', 'token']);
 
         $opleidingen = Opleidingen::get();
 
