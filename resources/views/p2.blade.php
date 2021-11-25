@@ -7,7 +7,8 @@
     </x-slot>
 
     <div id="notify"></div>
-    @error('crebo_nr')
+    
+    @error('opleiding_id')
         <script>
             Notify({
                 type: 'danger',
@@ -27,15 +28,14 @@
                     <h3>Opleidingen</h3>
                     <p class="fc-primary-nh fc-mobile">Kies onderstaand de juist opleiding. Staat je opleiding er niet bij? Neem dan contact op met je docent.</p>
 
-                    
                     <form method="POST" action="{{ route('f3') }}">
                         @csrf
                         <table class="table">
                             @foreach($opleidingen as $opleiding)
-                                <tr class="selectInput" onclick="selectInput('p2', {{ $opleiding->crebo_nr }})">
+                                <tr class="selectInput" onclick="selectInput('p2', {{ $opleiding->id }})">
                                     <td>{{$opleiding['crebo_nr']}}</td>
                                     <td>{{$opleiding['opleiding']}}</td>
-                                    <td><input type="radio" name="crebo_nr" id="{{$opleiding['crebo_nr']}}" value="{{$opleiding['crebo_nr']}}"></td>
+                                    <td><input type="radio" name="opleiding_id" id="{{$opleiding['id']}}" value="{{$opleiding['id']}}"></td>
                                 </tr>
                             @endforeach
                         </table>
