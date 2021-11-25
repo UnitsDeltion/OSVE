@@ -21,7 +21,7 @@
             </div>
         @endif
 
-        <table class="table mt-4">
+        <table class="table mt-4" id="examens">
             <thead>
                 <tr>
                     <th>Vak</th>
@@ -54,24 +54,50 @@
         </table>
 
         <!-- large modal -->
-<div class="modal fade" id="largeModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" id="largeBody">
-                <div>
-                    <!-- body content -->
+        <div class="modal fade" id="largeModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="largeBody">
+                        <div>
+                            <!-- body content -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
 <script>
+    $(document).ready(function() {
+        $('#examens').DataTable( {
+            "language": {
+                "url": "{{asset('/beheer/json/datatabels/dutch')}}",
+            },
+            dom: 'Bfrtip',
+        
+            buttons: [
+                'excel', {
+                extend: 'pdfHtml5',
+                customize: function(doc) {
+                    doc.defaultStyle.alignment = 'right';
+                    doc.styles.tableHeader.color = 'white';
+                    doc.styles.tableHeader.fillColor = '#F58220';
+                },
+            
+                download: 'open',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }},
+            ],        
+        });
+    });
+
     // display delete modal
     $(document).on('click', '#largeButton', function(event) {
         event.preventDefault();
@@ -97,7 +123,6 @@
             , timeout: 8000
         })
     });
-
 </script>
 
     @livewire('includes.content.bottom.content-bottom') 
