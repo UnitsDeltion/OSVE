@@ -471,6 +471,6 @@ button.dt-button:visited{
     background-color: gray !important;
 }
 
-.myProfile {
-    background: rgba(255,255,255, 0.8)
+.CardWhite {
+    background: rgba(255,255,255, 1)
 }
