@@ -10,7 +10,7 @@
 
     @livewire('includes.content.top.content-small-top')
 
-        <form method="post" action="{{ route('opleidingen.update', $opleiding['crebo_nr']) }}" class="mt-10">
+        <form method="post" action="{{ route('opleidingen.update', $opleiding['id']) }}" class="mt-10">
 
             @csrf
             @method('put')

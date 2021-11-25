@@ -113,6 +113,13 @@ class ExamenMomentBeheerController extends Controller
         }
     }
 
+    public function delete($id)
+    {
+        $moment = ExamenMoment::find($id);
+
+        return view('beheer.moments.delete', compact('moment'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
