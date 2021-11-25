@@ -199,12 +199,12 @@ $(document).ready(function() {
             }},
         ],        
     });
+
     $('#actieveExamens').DataTable( {
         "language": {
             "url": "{{asset('/beheer/json/datatabels/dutch')}}"
         }
     });
-
 
     $('#toekomstigeExamens').DataTable( {
         "language": {
