@@ -173,37 +173,10 @@
         </div>
 
 </x-app-layout>
-<!-- 
-<script>
-    var minDate, maxDate;
- 
- // Custom filtering function which will search data in column four between two values
- $.fn.dataTable.ext.search.push(
-     function( settings, data, dataIndex ) {
-         var min = minDate.val();
-         var max = maxDate.val();
-         var date = new Date( data[4] );
- 
-         if (
-             ( min === null && max === null ) ||
-             ( min === null && date <= max ) ||
-             ( min <= date   && max === null ) ||
-             ( min <= date   && date <= max )
-         ) {
-             return true;
-         }
-         return false;
-     }
- );
-</script> -->
-
 
 <script>
 $(document).ready(function() {
     $('#ingeplandeExamens').DataTable( {
-        // select: {
-        //     style: 'multi',
-        // },   
         "language": {
             "url": "{{asset('/beheer/json/datatabels/dutch')}}",
         },
@@ -211,7 +184,6 @@ $(document).ready(function() {
     
         buttons: [
              'excel', {
-            
             extend: 'pdfHtml5',
             customize: function(doc) {
                 doc.defaultStyle.alignment = 'right';
@@ -225,10 +197,7 @@ $(document).ready(function() {
                     page: 'current'
                 }
             }},
-        ]
-           ,
-      
-        
+        ],        
     });
     $('#actieveExamens').DataTable( {
         "language": {
@@ -256,9 +225,6 @@ $(document).ready(function() {
             // $('#min, #max').on('change', function () {
             //     table.draw();
             // });
-            
-
-
     });
     $('#opleidingen').DataTable( {
         "language": {
