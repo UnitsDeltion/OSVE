@@ -467,10 +467,6 @@ button.dt-button:visited{
     }
 }
 
-.disabled{
-    background-color: gray !important;
-}
-
 .CardWhite {
     background: rgba(255,255,255, 1)
 }
