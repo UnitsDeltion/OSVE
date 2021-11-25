@@ -38,7 +38,17 @@
                     </div>
                 </div>
 
-            
+                <div class="form-group">
+                    <label for="role" class="block font-medium text-sm text-gray-700">Rol</label>
+                    <select id="role" name="role" class="form-select block font-medium text-sm text-gray-700" aria-label="Default select current">
+                        <option
+                            @if ($user->isAn('opleidingsmanager'))selected @endif value="1">Opleidingsmanager
+                        </option>
+                        <option 
+                            @if ($user->isAn('docent'))selected @endif value="2">Docent
+                        </option>
+                    </select>
+                </div>
 
                 <div class="mt-4">
                     <a href="{{ route('users.index') }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">
