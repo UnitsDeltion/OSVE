@@ -18,7 +18,7 @@
         </div>
     </x-slot>
 
-    @livewire('includes.content.top.content-small-top')
+    @livewire('includes.content.top.content-normal-top')
 
         @if($message = Session::get('success'))
             <div class="alert alert-success alert-dismissible fade show mb-10" role="alert">
@@ -118,13 +118,13 @@
                             {{ $moment['plaatsen'] }}
                         </td>
                         <td class="align-right pr-0">
-                            <a href="{{ route('moments.edit', $moment['id']) }}">
+                            <a class="a-clear" href="{{ route('moments.edit', $moment['id']) }}">
                                 <x-jet-button title="edit" class="mb-2 mr-2 button">
                                     <i class="fas fa-edit"></i>
                                 </x-jet-button>
                             </a>
 
-                            <a data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{ route('momentsDelete', $moment['id']) }}" title="Delete Moment">
+                            <a class="a-clear" data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{ route('momentsDelete', $moment['id']) }}" title="Delete Moment">
                                 <x-jet-button class="button" title="Verwijderen">
                                         <i class="fas fa-trash"></i>
                                 </x-jet-button>
@@ -135,7 +135,6 @@
             </tbody>
         </table>
 
-        <!-- large modal -->
 <div class="modal fade" id="largeModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
