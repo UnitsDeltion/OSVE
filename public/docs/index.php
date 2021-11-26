@@ -82,6 +82,12 @@
 
 					<hr class="divider">
 
+					<!-- Controllers
+					============================ -->
+					<?php include './sections/controllers.php' ?>
+
+					<hr class="divider">
+
 					<!-- Views
 					============================ -->
 					<?php include './sections/views.php' ?>

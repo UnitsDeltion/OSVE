@@ -21,7 +21,6 @@ class OSVEController extends Controller
 
     public function p1(Request $request)
     {
-        //Leegt de session zodat alle pagina's weer opnieuw doorgelopen moeten worden en er niet meteen van p1 naar bvb p4 gegaan kan worden
         Session::forget(['voornaam', 'achternaam', 'studentnummer', 'klas', 'faciliteitenpas', 'opleiding_id', 'crebo_nr', 'opleiding', 'vak', 'examen', 'datum', 'tijd', 'token']);
 
         $opleidingen = Opleidingen::get();
