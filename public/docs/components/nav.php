@@ -2,6 +2,7 @@
     <ul class="nav flex-column">
         <li class="nav-item"><a class="nav-link active" href="#inleiding">OSVE Documentatie</a></li>
         <li class="nav-item"><a class="nav-link" href="#algemeen">Algemeen</a></li>
+
         <li class="nav-item">
             <a class="nav-link" href="#routing">Routing</a>
             <ul class="nav flex-column">
@@ -10,6 +11,31 @@
                 <li class="nav-item"><a class="nav-link" href="#routing_beheer">Beheer</a></li>
             </ul>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#controllers">Controllers</a>
+            <li class="nav flex-column">
+                <a class="nav-link" href="#controllers_algemeen">Algemeen</a>
+                <ul class="nav-item">
+                    <li class="nav-item"><a class="nav-link" href="#controllers_algemeen_OSVEController">OSVEController</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#controllers_algemeen_ICSController">ICSController</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#controllers_algemeen_FormHandlerController">FormHandlerController</a></li>
+                </ul>
+            </li>
+            <li class="nav flex-column">
+                <a class="nav-link" href="#controllers_beheer">Beheer</a>
+                <ul class="nav-item">
+                    <li class="nav-item"><a class="nav-link" href="#controllers_beheer_DashboardController">DashboardController</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#controllers_beheer_ExamensBeheerController">ExamensBeheerController</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#controllers_beheer_ExamenMomentBeheerController">ExamenMomentBeheerController</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#controllers_beheer_GeplandeExamensBeheerController">GeplandeExamensBeheerController</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#controllers_beheer_OpleidingBeheerController">OpleidingBeheerController</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#controllers_beheer_ReglementenBeheerController">ReglementenBeheerController</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#controllers_beheer_UserBeheerController">UserBeheerController</a></li>
+                </ul>
+            </li>
+        </li>
+
         <li class="nav-item">
             <a class="nav-link" href="#views">Views</a>
             <ul class="nav flex-column">
@@ -43,10 +69,12 @@
                         <li class="nav-item"><a class="nav-link" href="#views_beheer_reglementen">Reglementen</a></li>
                         <li class="nav-item"><a class="nav-link" href="#views_beheer_examens">Examens beheer</a></li>
                         <li class="nav-item"><a class="nav-link" href="#views_beheer_examen_moment">Examen moment beheer</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#views_beheer_opleidingen">Opleidingen beheer</a></li>
                     </ul>
                 </li>
             </ul>
         </li>
+
         <li class="nav-item"><a class="nav-link" href="#javascript">JavaScript</a></li>
         <li class="nav-item"><a class="nav-link" href="#idocs_changelog">Changelog</a>
             <ul class="nav flex-column">

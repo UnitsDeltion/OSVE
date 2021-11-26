@@ -460,5 +460,57 @@
             </pre>
         </div>
 
+        <div id="views_beheer_opleidingen">
+            <h4>Opleidingen beheer</h4>
+            <p></p>
+
+            <table class="table mb-25">
+                <thead>
+                    <tr>
+                        <th>Rechten</th>
+                        <th>Docent</th>
+                        <th>Opleidingsmanagers</th>
+                        <th>Ontwikkelaar</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    <tr>
+                        <td>Opleidingen beheer</td>
+                        <td><i class="fas fa-times fc-red"></i></td>
+                        <td><i class="fas fa-check fc-green"></i></td>
+                        <td><i class="fas fa-times fc-red"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5 class="mb-0-r">Index</h5>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/opleidingen/index.blade.php') ?>
+                </code>
+            </pre>
+
+            <h5>Create</h5>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/opleidingen/create.blade.php') ?>
+                </code>
+            </pre>
+
+            <h5>Edit</h5>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/opleidingen/edit.blade.php') ?>
+                </code>
+            </pre>
+
+            <h5>Delete</h5>
+            <p class="mb-0">De delete pagina wordt weergegeven als een popup op de index en show paginas.</p>
+            <pre>
+                <code>
+<?php import('../../resources/views/beheer/opleidingen/delete.blade.php') ?>
+                </code>
+            </pre>
+        </div>
     </div>
 </section>
