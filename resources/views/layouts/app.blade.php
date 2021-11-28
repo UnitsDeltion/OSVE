@@ -35,8 +35,6 @@
         <script src="{{asset('js/Notify.js')}}"></script>
 
         <!-- <script src="https:/cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>-->
-
-       
         
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.3/b-2.0.1/b-html5-2.0.1/sl-1.3.3/datatables.min.css"/>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
