@@ -27,8 +27,6 @@ class DashboardBeheerController extends Controller
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
-
-
         $examens = Examen::all();
         $examenMomenten = ExamenMoment::orderBy('examenid', 'asc')->get();
 
@@ -67,9 +65,7 @@ class DashboardBeheerController extends Controller
                 $examen->startDatum = 'NB';
                 $examen->eindDatum = 'NB';
             }
-
         }
-
 
         $opleidingen = Opleidingen::all();
         $geplandeExamens = GeplandeExamens::all();
