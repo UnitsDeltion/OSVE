@@ -23,9 +23,7 @@ class OSVEController extends Controller
     {
         Session::forget(['voornaam', 'achternaam', 'studentnummer', 'klas', 'faciliteitenpas', 'opleiding_id', 'crebo_nr', 'opleiding', 'vak', 'examen', 'datum', 'tijd', 'token']);
 
-        $opleidingen = Opleidingen::get();
-
-        return view("p1", compact("opleidingen"));
+        return view("p1");
     }
 
     public function p2(Request $request)
