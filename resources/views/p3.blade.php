@@ -48,19 +48,35 @@
                                     <?php $examenVak = ""; ?>
                                     @foreach($examens as $examen)
                                         <?php
+                                        $huidigeDatum = date('d-m-Y');
+                                        $startDatum = date('d-m-Y', strtotime($examen->examen_opgeven_begin)); 
+                                        $eindDatum = date('d-m-Y', strtotime($examen->examen_opgeven_eind)); 
+                                        if($huidigeDatum > $startDatum && $huidigeDatum < $eindDatum){
+                                        
                                             if($examen->vak != $examenVak ){
                                                 if ($examenVak != ""){
                                                     echo "</div>";
                                                 }
+                
                                                 echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow\">";
                                                 echo "<h4 class=\"fc-secondary-nh\">" . $examen->vak . "</h4>";
                                             }
+                                        
                                             
                                             $examenVak = $examen->vak;
+                                        }
+                                        ?>
+                                        <?php
+                                        $huidigeDatum = date('d-m-Y');
+                                        $startDatum = date('d-m-Y', strtotime($examen->examen_opgeven_begin)); 
+                                        $eindDatum = date('d-m-Y', strtotime($examen->examen_opgeven_eind)); 
+                                        if($huidigeDatum > $startDatum && $huidigeDatum < $eindDatum){
+                                            
                                         ?>
                                         <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
                                             <div class="col-xs-8 col-8 fc-primary-nh">
                                                 {{ $examen->examen }} 
+                                                
                                             </div>
                                             <div class="col-xs-1 col-1">
                                                 <i class="fas fa-info-circle align-center" id="tooltipFaciliteitenpas" data-toggle="tooltip" data-bs-placement="bottom" title="{{ $examen->uitleg }}"></i>
@@ -69,6 +85,11 @@
                                                 <input type="radio" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
                                             </div>
                                         </div>
+                                        <?php 
+                                            }   
+                                        else{
+                                            }
+                                            ?>
                                         @endforeach
                                     </div>
                             </div>  
