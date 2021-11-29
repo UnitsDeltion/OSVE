@@ -67,9 +67,6 @@
                                         }
                                         ?>
                                         <?php
-                                        $huidigeDatum = date('d-m-Y');
-                                        $startDatum = date('d-m-Y', strtotime($examen->examen_opgeven_begin)); 
-                                        $eindDatum = date('d-m-Y', strtotime($examen->examen_opgeven_eind)); 
                                         if($huidigeDatum > $startDatum && $huidigeDatum < $eindDatum){
                                             
                                         ?>

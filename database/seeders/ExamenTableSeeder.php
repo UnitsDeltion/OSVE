@@ -20,8 +20,8 @@ class ExamenTableSeeder extends Seeder
                 'vak'                       =>      'Hospitality',
                 'uitleg'                    =>      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget magna maximus, cursus diam eu, malesuada odio. Curabitur accumsan mi eu mauris auctor maximus. Praesent ac urna eget velit pellentesque consectetur. Ut vitae consectetur nisi.",
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
-                'examen_opgeven_begin'      =>      '2021-10-28',
-                'examen_opgeven_eind'       =>      '2021-11-18',
+                'examen_opgeven_begin'      =>      '2021-11-28',
+                'examen_opgeven_eind'       =>      '2021-12-31',
 
             ],
             [
@@ -30,8 +30,8 @@ class ExamenTableSeeder extends Seeder
                 'vak'                       =>      'TREX',
                 'uitleg'                    =>      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget magna maximus, cursus diam eu, malesuada odio. Curabitur accumsan mi eu mauris auctor maximus. Praesent ac urna eget velit pellentesque consectetur. Ut vitae consectetur nisi.",
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
-                'examen_opgeven_begin'      =>      '2021-10-28',
-                'examen_opgeven_eind'       =>      '2021-11-18',
+                'examen_opgeven_begin'      =>      '2021-11-28',
+                'examen_opgeven_eind'       =>      '2021-12-31',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -39,8 +39,8 @@ class ExamenTableSeeder extends Seeder
                 'vak'                       =>      'Duits',
                 'uitleg'                    =>      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget magna maximus, cursus diam eu, malesuada odio. Curabitur accumsan mi eu mauris auctor maximus. Praesent ac urna eget velit pellentesque consectetur. Ut vitae consectetur nisi.",
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
-                'examen_opgeven_begin'      =>      '2021-10-28',
-                'examen_opgeven_eind'       =>      '2021-11-18',
+                'examen_opgeven_begin'      =>      '2021-11-28',
+                'examen_opgeven_eind'       =>      '2021-12-31',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -48,8 +48,8 @@ class ExamenTableSeeder extends Seeder
                 'vak'                       =>      'Duits',
                 'uitleg'                    =>      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget magna maximus, cursus diam eu, malesuada odio. Curabitur accumsan mi eu mauris auctor maximus. Praesent ac urna eget velit pellentesque consectetur. Ut vitae consectetur nisi.",
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
-                'examen_opgeven_begin'      =>      '2021-10-28',
-                'examen_opgeven_eind'       =>      '2021-11-18',
+                'examen_opgeven_begin'      =>      '2021-11-28',
+                'examen_opgeven_eind'       =>      '2021-12-31',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -57,8 +57,8 @@ class ExamenTableSeeder extends Seeder
                 'vak'                       =>      'Engels Generiek',
                 'uitleg'                    =>      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget magna maximus, cursus diam eu, malesuada odio. Curabitur accumsan mi eu mauris auctor maximus. Praesent ac urna eget velit pellentesque consectetur. Ut vitae consectetur nisi.",
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
-                'examen_opgeven_begin'      =>      '2021-10-28',
-                'examen_opgeven_eind'       =>      '2021-11-18',
+                'examen_opgeven_begin'      =>      '2021-11-28',
+                'examen_opgeven_eind'       =>      '2021-12-31',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -66,8 +66,8 @@ class ExamenTableSeeder extends Seeder
                 'vak'                       =>      'Engels Generiek',
                 'uitleg'                    =>      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget magna maximus, cursus diam eu, malesuada odio. Curabitur accumsan mi eu mauris auctor maximus. Praesent ac urna eget velit pellentesque consectetur. Ut vitae consectetur nisi.",
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
-                'examen_opgeven_begin'      =>      '2021-10-28',
-                'examen_opgeven_eind'       =>      '2021-11-18',
+                'examen_opgeven_begin'      =>      '2021-11-28',
+                'examen_opgeven_eind'       =>      '2021-12-31',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -75,8 +75,8 @@ class ExamenTableSeeder extends Seeder
                 'vak'                       =>      'Engels Generiek',
                 'uitleg'                    =>      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget magna maximus, cursus diam eu, malesuada odio. Curabitur accumsan mi eu mauris auctor maximus. Praesent ac urna eget velit pellentesque consectetur. Ut vitae consectetur nisi.",
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
-                'examen_opgeven_begin'      =>      '2021-10-28',
-                'examen_opgeven_eind'       =>      '2021-11-18',
+                'examen_opgeven_begin'      =>      '2021-11-28',
+                'examen_opgeven_eind'       =>      '2021-12-31',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -84,8 +84,8 @@ class ExamenTableSeeder extends Seeder
                 'vak'                       =>      'Engels Generiek',
                 'uitleg'                    =>      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget magna maximus, cursus diam eu, malesuada odio. Curabitur accumsan mi eu mauris auctor maximus. Praesent ac urna eget velit pellentesque consectetur. Ut vitae consectetur nisi.",
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
-                'examen_opgeven_begin'      =>      '2021-10-28',
-                'examen_opgeven_eind'       =>      '2021-11-18',
+                'examen_opgeven_begin'      =>      '2021-11-28',
+                'examen_opgeven_eind'       =>      '2021-12-31',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -93,8 +93,8 @@ class ExamenTableSeeder extends Seeder
                 'vak'                       =>      'Back Office',
                 'uitleg'                    =>      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget magna maximus, cursus diam eu, malesuada odio. Curabitur accumsan mi eu mauris auctor maximus. Praesent ac urna eget velit pellentesque consectetur. Ut vitae consectetur nisi.",
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
-                'examen_opgeven_begin'      =>      '2021-10-28',
-                'examen_opgeven_eind'       =>      '2021-11-18',
+                'examen_opgeven_begin'      =>      '2021-11-28',
+                'examen_opgeven_eind'       =>      '2021-12-31',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -102,8 +102,8 @@ class ExamenTableSeeder extends Seeder
                 'vak'                       =>      'Duits',
                 'uitleg'                    =>      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget magna maximus, cursus diam eu, malesuada odio. Curabitur accumsan mi eu mauris auctor maximus. Praesent ac urna eget velit pellentesque consectetur. Ut vitae consectetur nisi.",
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
-                'examen_opgeven_begin'      =>      '2021-10-28',
-                'examen_opgeven_eind'       =>      '2021-11-18',
+                'examen_opgeven_begin'      =>      '2021-11-28',
+                'examen_opgeven_eind'       =>      '2021-12-31',
             ],
             [
                 'opleiding_id'              =>      2,
@@ -111,8 +111,8 @@ class ExamenTableSeeder extends Seeder
                 'vak'                       =>      'Duits',
                 'uitleg'                    =>      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget magna maximus, cursus diam eu, malesuada odio. Curabitur accumsan mi eu mauris auctor maximus. Praesent ac urna eget velit pellentesque consectetur. Ut vitae consectetur nisi.",
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
-                'examen_opgeven_begin'      =>      '2021-10-28',
-                'examen_opgeven_eind'       =>      '2021-11-18',
+                'examen_opgeven_begin'      =>      '2021-11-28',
+                'examen_opgeven_eind'       =>      '2021-12-31',
             ],
 
         ];
