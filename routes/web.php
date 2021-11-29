@@ -34,6 +34,7 @@ Route::POST('/ics_handler', [ICSController::class, 'ics_handler'])->name('ics_ha
 
 Route::get('/beheer', [DashboardBeheerController::class, 'redirect']);
 Route::get('/beheer/dashboard', [DashboardBeheerController::class, 'index'])->name('dashboard.index');
+// Route::post('/beheer/dashboard', [DashboardBeheerController::class, 'index'])->name('dashboard.index.filter');
 Route::get('/beheer/json/datatabels/dutch', [DashboardBeheerController::class, 'dtDutch']);
 
 Route::resource('/beheer/users', UsersBeheerController::class);

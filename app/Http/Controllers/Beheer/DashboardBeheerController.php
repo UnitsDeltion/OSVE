@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DashboardBeheerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $users = User::all();
         $user = \Auth::user();
@@ -89,6 +89,20 @@ class DashboardBeheerController extends Controller
         // Bouncer::assign('opleidingsmanager')->to($user);
 
         // dd($geplandeExamens);
+
+        // if ($request->has('filterBtn')) {
+        //     $startDate = $request->input->startdate;
+        //     $endDate = $request->input->enddate;
+
+        //     dd('Hhfefedfjdjjdjjnnfnfnfnfnfnfnjfnjfjfjhfhj');
+        //     dd($startDate , $endDate);
+
+        //     $examens = GeplandeExamens::all()
+        //             ->whereBetween('created_at', [$startDate, $endDate])
+        //             ->get();
+
+        //     dd($examens);
+        // }
 
         return view('beheer.dashboard.index')
             ->with(compact('examens'))

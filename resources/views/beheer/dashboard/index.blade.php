@@ -114,15 +114,23 @@
             <hr>
 
             <h3>Toekomstige examens</h3>
+            {{-- <form action={{ route('dashboard.index.filter') }} method="POST"> --}}
             <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="toekomstigeExamens">
                 <thead>
                 <td>Minimum date:</td>
-            <td><input type="text" id="min" name="min"></td>
+            <td><input type="text" id="min" name="startdate"></td>
         </tr>
         <tr>
             <td>Maximum date:</td>
-            <td><input type="text" id="max" name="max"></td>
+            <td>
+                <input type="text" id="max" name="enddate">
+            </td>
+            <td>
+                <input type="submit" name="filterBtn" value="Submit">
+            </td>
         </tr>
+            
+        {{-- </form> --}}
                     <tr>
                         <th>Vak</th>
                         <th>Examen</th>
