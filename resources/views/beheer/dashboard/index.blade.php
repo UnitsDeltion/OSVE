@@ -116,6 +116,13 @@
             <h3>Toekomstige examens</h3>
             <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="toekomstigeExamens">
                 <thead>
+                <td>Minimum date:</td>
+            <td><input type="text" id="min" name="min"></td>
+        </tr>
+        <tr>
+            <td>Maximum date:</td>
+            <td><input type="text" id="max" name="max"></td>
+        </tr>
                     <tr>
                         <th>Vak</th>
                         <th>Examen</th>
@@ -173,10 +180,37 @@
         </div>
 
 </x-app-layout>
+<!-- 
+<script>
+    var minDate, maxDate;
+ 
+ // Custom filtering function which will search data in column four between two values
+ $.fn.dataTable.ext.search.push(
+     function( settings, data, dataIndex ) {
+         var min = minDate.val();
+         var max = maxDate.val();
+         var date = new Date( data[4] );
+ 
+         if (
+             ( min === null && max === null ) ||
+             ( min === null && date <= max ) ||
+             ( min <= date   && max === null ) ||
+             ( min <= date   && date <= max )
+         ) {
+             return true;
+         }
+         return false;
+     }
+ );
+</script> -->
+
 
 <script>
 $(document).ready(function() {
     $('#ingeplandeExamens').DataTable( {
+        // select: {
+        //     style: 'multi',
+        // },   
         "language": {
             "url": "{{asset('/beheer/json/datatabels/dutch')}}",
         },
@@ -184,6 +218,7 @@ $(document).ready(function() {
     
         buttons: [
              'excel', {
+            
             extend: 'pdfHtml5',
             customize: function(doc) {
                 doc.defaultStyle.alignment = 'right';
@@ -197,14 +232,17 @@ $(document).ready(function() {
                     page: 'current'
                 }
             }},
-        ],        
+        ]
+           ,
+      
+        
     });
-
     $('#actieveExamens').DataTable( {
         "language": {
             "url": "{{asset('/beheer/json/datatabels/dutch')}}"
         }
     });
+
 
     $('#toekomstigeExamens').DataTable( {
         "language": {
@@ -225,6 +263,9 @@ $(document).ready(function() {
             // $('#min, #max').on('change', function () {
             //     table.draw();
             // });
+            
+
+
     });
     $('#opleidingen').DataTable( {
         "language": {
