@@ -93,7 +93,7 @@
                                                         <span class="col-4 tablet-spots text-align-end ta-right"><i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }}</span>
                                                     </div>
                                                     <div class="col-xs-2 col-1">
-                                                        <input type="radio" name="examenMoment" id="{{ $examen->id }}" value="{{ $examen->datum }} - {{ $examen->tijd }}">
+                                                        <input type="radio" class="radio-hide" name="examenMoment" id="{{ $examen->id }}" value="{{ $examen->datum }} - {{ $examen->tijd }}">
                                                     </div>
                                                 </div>
                                             @endforeach

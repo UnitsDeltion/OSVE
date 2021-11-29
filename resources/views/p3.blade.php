@@ -66,7 +66,7 @@
                                                 <i class="fas fa-info-circle align-center" id="tooltipFaciliteitenpas" data-toggle="tooltip" data-bs-placement="bottom" title="{{ $examen->uitleg }}"></i>
                                             </div>
                                             <div class="col-xs-1 col-1">
-                                                <input type="radio" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
+                                                <input type="radio" class="radio-hide" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
                                             </div>
                                         </div>
                                         @endforeach

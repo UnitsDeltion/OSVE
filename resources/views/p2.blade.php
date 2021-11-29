@@ -35,7 +35,7 @@
                                 <tr class="selectInput" onclick="selectInput('p2', {{ $opleiding->id }})">
                                     <td>{{$opleiding['crebo_nr']}}</td>
                                     <td>{{$opleiding['opleiding']}}</td>
-                                    <td><input type="radio" name="opleiding_id" id="{{$opleiding['id']}}" value="{{$opleiding['id']}}"></td>
+                                    <td><input type="radio" class="radio-hide" name="opleiding_id" id="{{$opleiding['id']}}" value="{{$opleiding['id']}}"></td>
                                 </tr>
                             @endforeach
                         </table>
