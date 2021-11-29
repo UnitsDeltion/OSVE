@@ -120,7 +120,10 @@ class OSVEController extends Controller
         ])->first()->id;
 
         //Haalt alle examenmomenten op
-        $examenMomenten = examenMoment::where('examenid', $examenId)->orderBy("datum", "asc")->get();
+        $examenMomenten = examenMoment::where([
+                ['examenid', $examenId],
+                ['plaatsen', '>', 1]
+            ])->orderBy("datum", "asc")->get();
         foreach($examenMomenten as $examenMoment){
             //Haalt het aantal plaatsen uit het examenmoment
             $plaatsen = $examenMoment->plaatsen;
