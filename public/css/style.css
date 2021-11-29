@@ -471,6 +471,12 @@ button.dt-button:visited{
     }
 }
 
+/* verberg de radio buttons */
+/* .radio-hide {
+    visibility: hidden!important;
+    display: none!important;
+} */
+
 .CardWhite {
     background: rgba(255,255,255, 1)
 }
