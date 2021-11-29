@@ -74,7 +74,6 @@ class OSVEController extends Controller
                 "403 Forbidden"
             );
         }
-
         $examens = Examen::where(
             "opleiding_id",
             $request->session()->get("opleiding_id")
