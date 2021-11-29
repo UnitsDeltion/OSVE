@@ -142,8 +142,6 @@ class OSVEController extends Controller
             $examenMoment->plaatsen = $examenMoment->plaatsen - $plaatsenCount;
         }
 
-        // dd($examenMomenten);
-
         $examenMoment = $examenMomenten;
 
         return view("p4")
