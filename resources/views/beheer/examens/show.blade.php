@@ -41,21 +41,21 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="vak" class="block font-medium text-sm text-gray-700">Vak</lable>
+                        <label for="vak" class="block font-medium text-sm text-gray-700">Vak</label>
                         <input id="vak" class="block mt-1 w-full form-control" type="text" name="vak" value="{{ $examen['vak'] }}" disabled/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="examen" class="block font-medium text-sm text-gray-700">Examen</lable>
+                        <label for="examen" class="block font-medium text-sm text-gray-700">Examen</label>
                         <input id="examen" class="block mt-1 w-full form-control" type="text" name="examen" value="{{ $examen['examen'] }}" disabled/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="opleiding_id" class="block font-medium text-sm text-gray-700">Opleiding</lable>
+                        <label for="opleiding_id" class="block font-medium text-sm text-gray-700">Opleiding</label>
                         <select id="opleiding_id" class="block mt-1 w-full form-control" name="opleiding_id" value="{{ $examen['opleiding_id'] }}" disabled>
                             @foreach($opleidingen as $opleiding)
                                 <option value="{{ $opleiding['id'] }}" 
@@ -68,34 +68,37 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="geplande_docenten" class="block font-medium text-sm text-gray-700">Examinerende docenten</lable>
+                        <label for="geplande_docenten" class="block font-medium text-sm text-gray-700">Examinerende docenten</label>
                         <input id="geplande_docenten" class="block mt-1 w-full form-control" type="varchar" name="geplande_docenten" value="{{ $examen['geplande_docenten'] }}" disabled/>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <lable for="opgeven_examen_begin" class="block font-medium text-sm text-gray-700">Opgeven examen begin</lable>
+                        <label for="opgeven_examen_begin" class="block font-medium text-sm text-gray-700">Opgeven examen begin</label>
                         <input id="examen_opgeven_begin" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_begin" value="{{ $examen['examen_opgeven_begin'] }}" disabled/>
                     </div>
                 </div>
                 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <lable for="opgeven_examen_eind" class="block font-medium text-sm text-gray-700">Opgeven examen eind</lable>
+                    <label for="opgeven_examen_eind" class="block font-medium text-sm text-gray-700">Opgeven examen eind</label>
                         <input id="examen_opgeven_eind" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_eind" value="{{ $examen['examen_opgeven_eind'] }}" disabled/>
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
-                        <lable for="uitleg" class="block font-medium text-sm text-gray-700">Uitleg</lable>
+                        <label for="uitleg" class="block font-medium text-sm text-gray-700">Uitleg</label>
                         <textarea id="uitleg" class="block mt-1 w-full form-control" type="text" name="uitleg" rows="4"  disabled>{{ $examen['uitleg'] }}</textarea>
                     </div>
                 </div>
 
             </div>
         </form>
+
+        <h4 class="fc-secondary">Examen Momenten</h4>
+
         <table class="table fz-14 br-5">
             <thead>
                 <tr>
