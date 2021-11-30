@@ -114,15 +114,27 @@
             <hr>
 
             <h3>Toekomstige examens</h3>
+                    <!-- <form method="POST" action='dashboard#2'>
+                    
+                        <td>Minimum date:</td>
+                        <td><input type="text" id="min" name="min" value=""></td>
+                   
+                        <td>Maximum date:</td>
+                        <td><input type="text" id="max" name="max" value=""></td>
+                    
+                        <input type="submit" name="submit" value="Save"/>
+                    
+                    </form> -->
             <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="toekomstigeExamens">
                 <thead>
-                <td>Minimum date:</td>
-            <td><input type="text" id="min" name="min"></td>
-        </tr>
-        <tr>
-            <td>Maximum date:</td>
-            <td><input type="text" id="max" name="max"></td>
-        </tr>
+                <tr>
+                    <td>Minimum date:</td>
+                    <td><input type="text" id="min" name="min"></td>
+                </tr>
+                <tr>
+                    <td>Maximum date:</td>
+                    <td><input type="text" id="max" name="max"></td>
+                </tr>
                     <tr>
                         <th>Vak</th>
                         <th>Examen</th>
@@ -180,7 +192,7 @@
         </div>
 
 </x-app-layout>
-<!-- 
+
 <script>
     var minDate, maxDate;
  
@@ -189,11 +201,12 @@
      function( settings, data, dataIndex ) {
          var min = minDate.val();
          var max = maxDate.val();
-         var date = new Date( data[4] );
- 
+         var date = new Date( data[3] );
+         //var mdate = new Date( data[3] );
+         //alert(data[4] + '*' +  data[5])
          if (
              ( min === null && max === null ) ||
-             ( min === null && date <= max ) ||
+             ( min === null && mdate <= max ) ||
              ( min <= date   && max === null ) ||
              ( min <= date   && date <= max )
          ) {
@@ -202,7 +215,7 @@
          return false;
      }
  );
-</script> -->
+</script>
 
 
 <script>
@@ -271,6 +284,31 @@ $(document).ready(function() {
         "language": {
             "url": "{{asset('/beheer/json/datatabels/dutch')}}"
         }
+    });
+});
+
+
+
+
+</script>
+
+<script>
+    
+    $(document).ready(function() {
+    // Create date inputs
+    minDate = new DateTime($('#min'), {
+        format: 'MMMM Do YYYY'
+    });
+    maxDate = new DateTime($('#max'), {
+        format: 'MMMM Do YYYY'
+    });
+ 
+    // DataTables initialisation
+    var table = $('#toekomstigeExamens').DataTable();
+ 
+    // Refilter the table
+    $('#min, #max').on('change', function () {
+        table.draw();
     });
 });
 </script>
