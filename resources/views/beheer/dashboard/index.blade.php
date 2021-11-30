@@ -156,10 +156,10 @@
                                 {{ $examen->geplande_docenten }}
                             </td>
                             <td id="min">
-                                {{date('d-m-Y', strtotime($examen['startDatum']))}}
+                                {{ $examen->startDate}}
                             </td>
                             <td id="max">
-                                {{date('d-m-Y', strtotime($examen['eindDatum']))}}
+                                {{ $examen->eindDate}}
                             </td>
                         </tr>
                     @endforeach
