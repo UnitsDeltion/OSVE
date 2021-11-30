@@ -58,8 +58,6 @@ class ExamenBeheerController extends Controller
      */
     public function store(Request $request, Examen $examen, ExamenMoment $moment)
     {
-        
-
         $this->validate($request, [
             'vak' => 'required',
             'examen' => 'required',
