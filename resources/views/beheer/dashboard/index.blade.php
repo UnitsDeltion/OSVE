@@ -48,10 +48,10 @@
                             {{ $geplandExamen->gepland_examen }}
                         </td>
                         <td>
-                            {{ $geplandExamen->datum }}
+                            {{date('d-m-Y', strtotime($geplandExamen['datum']))}}
                         </td>
                         <td>
-                            {{ $geplandExamen->tijd }}
+                            {{date('H:i', strtotime($geplandExamen['tijd']))}}
                         </td>
                         <td>
                             @if($geplandExamen->std_bevestigd == '1')
@@ -144,10 +144,10 @@
                                 {{ $examen->geplande_docenten }}
                             </td>
                             <td id="min">
-                                {{ $examen->startDatum }}
+                                {{date('d-m-Y', strtotime($examen['startDatum']))}}
                             </td>
                             <td id="max">
-                                {{ $examen->eindDatum }}
+                                {{date('d-m-Y', strtotime($examen['eindDatum']))}}
                             </td>
                         </tr>
                     @endforeach
