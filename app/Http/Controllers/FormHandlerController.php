@@ -156,6 +156,7 @@ class FormHandlerController extends Controller
             "token" => $token,
             "exp_date" => $exp_date,
         ]);
+        
 
         //Zet token in sessie voor email view
         $request->session()->put("token", $token);
