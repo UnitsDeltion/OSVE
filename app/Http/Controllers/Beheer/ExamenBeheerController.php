@@ -26,12 +26,23 @@ class ExamenBeheerController extends Controller
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
+        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+
+        $opleidingen = Opleidingen::all();
+
+        if($bouncer){
+            return view('beheer.opleidingen.index', compact('opleidingen'));
+        }else{
+            //echo 'not allowed';  
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
         $opleidingsmanager = Bouncer::is($user)->a('opleidingsmanager');
-        $docent = Bouncer::is($user)->a('docent');
+        //$docent = Bouncer::is($user)->a('docent');
 
         $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
 
-        if($opleidingsmanager || $docent){
+        if($opleidingsmanager){
             return view('beheer.examens.index')->with(compact('examens'));
         }else{
             //echo 'not allowed';  
@@ -46,6 +57,24 @@ class ExamenBeheerController extends Controller
      */
     public function create()
     {
+        $user = \Auth::user();
+
+        if(!$user){
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
+        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+
+        $opleidingen = Opleidingen::all();
+
+        if($bouncer){
+            return view('beheer.opleidingen.index', compact('opleidingen'));
+        }else{
+            //echo 'not allowed';  
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
+
         $opleidingen = Opleidingen::all()->toArray();
         return view('beheer.examens.create', compact('opleidingen'));
     }
@@ -88,7 +117,22 @@ class ExamenBeheerController extends Controller
      */
     public function show(Request $request, $id)
     {
-        
+        $user = \Auth::user();
+
+        if(!$user){
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
+        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+
+        $opleidingen = Opleidingen::all();
+
+        if($bouncer){
+            return view('beheer.opleidingen.index', compact('opleidingen'));
+        }else{
+            //echo 'not allowed';  
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
 
         $opleidingen = Opleidingen::all()->toArray();
 
@@ -106,12 +150,26 @@ class ExamenBeheerController extends Controller
     public function edit( Request $request, $id)
     {
         
+        $user = \Auth::user();
 
-        $opleidingen = Opleidingen::all()->toArray();
+        if(!$user){
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
 
-        $examen = Examen::where('id', $id)->with( 'examen_moments')->get()->first()->toArray();
+        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+
+        $opleidingen = Opleidingen::all();
+
+        if($bouncer){
+            $opleidingen = Opleidingen::all()->toArray();
+
+            $examen = Examen::where('id', $id)->with( 'examen_moments')->get()->first()->toArray();
 
         return view('beheer.examens.edit')->with(compact('examen', 'opleidingen'));
+        }else{
+            //echo 'not allowed';  
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
         
     }
 
@@ -124,7 +182,22 @@ class ExamenBeheerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $user = \Auth::user();
+
+        if(!$user){
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
+        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+
+        $opleidingen = Opleidingen::all();
+
+        if($bouncer){
+            return view('beheer.opleidingen.index', compact('opleidingen'));
+        }else{
+            //echo 'not allowed';  
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
 
         $this->validate($request, [
             'vak' => 'required',
@@ -154,6 +227,23 @@ class ExamenBeheerController extends Controller
 
     public function delete($id)
     {
+        $user = \Auth::user();
+
+        if(!$user){
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
+        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+
+        $opleidingen = Opleidingen::all();
+
+        if($bouncer){
+            return view('beheer.opleidingen.index', compact('opleidingen'));
+        }else{
+            //echo 'not allowed';  
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
         $examen = Examen::find($id);
 
         return view('beheer.examens.delete', compact('examen'));
@@ -167,7 +257,22 @@ class ExamenBeheerController extends Controller
      */
     public function destroy($id, ExamenMoment $moment)
     {
-        
+        $user = \Auth::user();
+
+        if(!$user){
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
+        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+
+        $opleidingen = Opleidingen::all();
+
+        if($bouncer){
+            return view('beheer.opleidingen.index', compact('opleidingen'));
+        }else{
+            //echo 'not allowed';  
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
 
         if (Examen::where('id', $id)->exists()) {
             $examen = Examen::find($id);
