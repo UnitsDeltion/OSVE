@@ -24,6 +24,11 @@ class OpleidingBeheerController extends Controller
         //Bouncer::allow('opleidingsmanager')->to('everything');
         //Bouncer::assign('opleidingsmanager')->to($user);
 
+        if(!$user){
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        }
+
+
         $bouncer = Bouncer::is($user)->a('opleidingsmanager');
 
         $opleidingen = Opleidingen::all();
