@@ -18,8 +18,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DashboardBeheerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+       
         $users = User::all();
         $user = \Auth::user();
 
@@ -69,7 +70,7 @@ class DashboardBeheerController extends Controller
 
         $opleidingen = Opleidingen::all();
         $geplandeExamens = GeplandeExamens::all();
-
+        
         //Tijdelijk tot de relatie erin zit
         foreach($geplandeExamens as $geplandExamen){
             $examen = Examen::where('id', $geplandExamen->examen)->first();
@@ -89,6 +90,15 @@ class DashboardBeheerController extends Controller
         // Bouncer::assign('opleidingsmanager')->to($user);
 
         // dd($geplandeExamens);
+
+        if($request->submit == "Save"){
+            $startDate = $request->min;
+            $endDate = $request->max;
+            
+            dd($startDate);
+        }
+
+        //dd($startDate);
 
         return view('beheer.dashboard.index')
             ->with(compact('examens'))

@@ -112,10 +112,11 @@
                 @foreach($examen['examen_moments'] as $moment)
                     <tr>
                         <td class="px-6 text-sm text-gray-900">
-                            {{ $moment['datum'] }}
+                        {{ date('d-m-Y', strtotime($moment['datum'])) }}
                         </td>
                         <td class="px-6 text-sm text-gray-900">
-                            {{ $moment['tijd'] }}
+                        {{ date('H:i', strtotime($moment['tijd'])) }}
+                            
                         </td>
                         <td>
                             {{ $moment['plaatsen'] }}
