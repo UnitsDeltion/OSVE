@@ -99,8 +99,6 @@ class FormHandlerController extends Controller
             "tijd" => $request->session()->get("tijd"),
         ])->first()->id;
 
-        ExamenMoment::where("examenid", $examenId)->decrement("plaatsen", 1);
-
         $studentnummer = $request->session()->get("studentnummer");
 
         //Controleert of er al een examen met zelfde gegevens bestaat, zoja; stuurt door naar p9 met error
@@ -156,6 +154,7 @@ class FormHandlerController extends Controller
             "token" => $token,
             "exp_date" => $exp_date,
         ]);
+        
 
         //Zet token in sessie voor email view
         $request->session()->put("token", $token);
