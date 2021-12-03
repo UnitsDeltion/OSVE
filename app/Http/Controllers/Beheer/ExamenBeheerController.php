@@ -27,26 +27,15 @@ class ExamenBeheerController extends Controller
         }
 
         $bouncer = Bouncer::is($user)->a('opleidingsmanager');
-
+        
+        $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
         $opleidingen = Opleidingen::all();
 
         if($bouncer){
-            return view('beheer.opleidingen.index', compact('opleidingen'));
-        }else{
-            //echo 'not allowed';  
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
-
-        $opleidingsmanager = Bouncer::is($user)->a('opleidingsmanager');
-        //$docent = Bouncer::is($user)->a('docent');
-
-        $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
-
-        if($opleidingsmanager){
             return view('beheer.examens.index')->with(compact('examens'));
         }else{
             //echo 'not allowed';  
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
     }
 
