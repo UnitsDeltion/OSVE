@@ -16,46 +16,28 @@ class ExamenBeheerController extends Controller
     public function index()
     {
         $user = \Auth::user();
-
-        if(!$user){
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+        if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
         $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+        if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
         
         $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
         $opleidingen = Opleidingen::all();
 
-        if($bouncer){
-            return view('beheer.examens.index')->with(compact('examens'));
-        }else{
-            //echo 'not allowed';  
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+        return view('beheer.examens.index')->with(compact('examens'));
     }
 
     public function create()
     {
         $user = \Auth::user();
-
-        if(!$user){
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+        if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
         $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+        if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
         $opleidingen = Opleidingen::all();
 
-        if($bouncer){
-            return view('beheer.opleidingen.index', compact('opleidingen'));
-        }else{
-            //echo 'not allowed';  
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
-
-
-        $opleidingen = Opleidingen::all()->toArray();
-        return view('beheer.examens.create', compact('opleidingen'));
+        return view('beheer.opleidingen.index', compact('opleidingen'));
     }
 
     public function store(Request $request, Examen $examen, ExamenMoment $moment)
