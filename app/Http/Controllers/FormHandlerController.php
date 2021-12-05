@@ -1,6 +1,4 @@
 <?php
-// npm install --save-dev prettier @prettier/plugin-php
-
 namespace App\Http\Controllers;
 
 use App\Models\Examen;
@@ -101,7 +99,7 @@ class FormHandlerController extends Controller
 
         $studentnummer = $request->session()->get("studentnummer");
 
-        //Controleert of er al een examen met zelfde gegevens bestaat, zoja; stuurt door naar p9 met error
+        //Controleert of er al een examen met zelfde gegevens bestaat, zoja; stuurt door naar p8 met error
         $examenCheck = GeplandeExamens::where([
             "studentnummer" => $request->session()->get("studentnummer"),
             "examen" => $examenId,
@@ -117,7 +115,7 @@ class FormHandlerController extends Controller
                     "Het is niet mogelijk vaker voor hetzelfde examen in te plannen. Probeer het opnieuw of neem contact op met je docent."
                 );
             $request->session()->put("error", "Err: dubbele data.");
-            return redirect("p9");
+            return redirect("p8");
         }
 
         //Plant examen in
@@ -137,7 +135,7 @@ class FormHandlerController extends Controller
         //Tijd/datum wanneer token is gemaakt
         $cre_date = time();
         //Tijd/datum wanneer token verloopt
-        $exp_date = strtotime("+1 day", $cre_date); //config toevoegen
+        $exp_date = strtotime("+1 day", $cre_date);
 
         //Maakt token voor bevestiging
         $token = Hash::make($studentnummer);
@@ -155,8 +153,7 @@ class FormHandlerController extends Controller
             "exp_date" => $exp_date,
         ]);
         
-
-        //Zet token in sessie voor email view
+        //Zet token in sessie voor de email view
         $request->session()->put("token", $token);
         \Mail::to($studentnummer . "@st.deltion.nl")->send(
             new \App\Mail\examenInplannen()
@@ -211,7 +208,6 @@ class FormHandlerController extends Controller
         $dateDiff = $exp_date - $crt_date;
 
         //Als het verschil in de min staat is de token verlopen en laat error zien
-        //Wat nu? Verwijder afspraak/token of nieuwe token genereren?
         if ($dateDiff < 0) {
             $request->session()->put("title", "Ongeldige token");
             $request
