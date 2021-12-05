@@ -2,22 +2,17 @@
 
 namespace App\Http\Controllers\Beheer;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
-use Symfony\Component\HttpFoundation\Response;
-use App\Http\Controllers\Controller;
+use Bouncer;
 use App\Models\Examen;
 use App\Models\ExamenMoment;
 use App\Models\Opleidingen;
-use Bouncer;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class ExamenBeheerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $user = \Auth::user();
@@ -39,11 +34,6 @@ class ExamenBeheerController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $user = \Auth::user();
@@ -68,12 +58,6 @@ class ExamenBeheerController extends Controller
         return view('beheer.examens.create', compact('opleidingen'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request, Examen $examen, ExamenMoment $moment)
     {
         $this->validate($request, [
@@ -94,16 +78,9 @@ class ExamenBeheerController extends Controller
         $examen->uitleg = $request->uitleg;
         $examen->save();
         
-        
         return redirect()->route('examens.index')->with('success','Examen toegevoegd.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Request $request, $id)
     {
         $user = \Auth::user();
@@ -130,15 +107,8 @@ class ExamenBeheerController extends Controller
         return view('beheer.examens.show')->with(compact('examen', 'opleidingen'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit( Request $request, $id)
     {
-        
         $user = \Auth::user();
 
         if(!$user){
@@ -162,13 +132,6 @@ class ExamenBeheerController extends Controller
         
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $user = \Auth::user();
@@ -197,17 +160,17 @@ class ExamenBeheerController extends Controller
             'examen_opgeven_eind' => 'required',
         ]);
         
-    if (Examen::where('id', $id)->exists()) {
-        $examen = Examen::find($id);
-        $examen->vak = is_null($request->vak) ? $examen->vak : $request->vak;
-        $examen->examen = is_null($request->examen) ? $examen->examen : $request->examen;
-        $examen->opleiding_id = is_null($request->opleiding_id) ? $examen->opleiding_id : $request->opleiding_id;
-        $examen->geplande_docenten = is_null($request->geplande_docenten) ? $examen->geplande_docenten : $request->geplande_docenten;
-        $examen->examen_opgeven_begin = is_null($request->examen_opgeven_begin) ? $examen->examen_opgeven_begin : $request->examen_opgeven_begin;
-        $examen->examen_opgeven_eind = is_null($request->examen_opgeven_eind) ? $examen->examen_opgeven_eind : $request->examen_opgeven_eind;
-        $examen->uitleg = is_null($request->uitleg) ? $examen->uitleg : $request->uitleg;
-        $examen->save();
-        
+        if (Examen::where('id', $id)->exists()) {
+            $examen = Examen::find($id);
+            $examen->vak = is_null($request->vak) ? $examen->vak : $request->vak;
+            $examen->examen = is_null($request->examen) ? $examen->examen : $request->examen;
+            $examen->opleiding_id = is_null($request->opleiding_id) ? $examen->opleiding_id : $request->opleiding_id;
+            $examen->geplande_docenten = is_null($request->geplande_docenten) ? $examen->geplande_docenten : $request->geplande_docenten;
+            $examen->examen_opgeven_begin = is_null($request->examen_opgeven_begin) ? $examen->examen_opgeven_begin : $request->examen_opgeven_begin;
+            $examen->examen_opgeven_eind = is_null($request->examen_opgeven_eind) ? $examen->examen_opgeven_eind : $request->examen_opgeven_eind;
+            $examen->uitleg = is_null($request->uitleg) ? $examen->uitleg : $request->uitleg;
+            $examen->save();
+            
             return redirect()->route('examens.show', $id)->with('success','Examen aangepast.');
         }else {
             return redirect()->route('examens.index')->with('error','Examen niet gevonden.');
@@ -238,12 +201,6 @@ class ExamenBeheerController extends Controller
         return view('beheer.examens.delete', compact('examen'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id, ExamenMoment $moment)
     {
         $user = \Auth::user();
@@ -259,19 +216,16 @@ class ExamenBeheerController extends Controller
         if($bouncer){
             return view('beheer.opleidingen.index', compact('opleidingen'));
         }else{
-            //echo 'not allowed';  
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
         if (Examen::where('id', $id)->exists()) {
             $examen = Examen::find($id);
             $examen->delete();
-        
 
-        return redirect()->route('examens.index')->with('success','Examen verwijderd.');
+            return redirect()->route('examens.index')->with('success','Examen verwijderd.');
         }else {
             return redirect()->route('examens.index')->with('error','Examen niet gevonden.');
         }
     }
-
 }

@@ -24,7 +24,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#controllers_algemeen">Algemeen</a>
+                    <a class="nav-link" href="#controllers_beheer">Beheer</a>
                     <ul class="list-unmarked">
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_DashboardController">DashboardController</a></li>
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_ExamensBeheerController">ExamensBeheerController</a></li>

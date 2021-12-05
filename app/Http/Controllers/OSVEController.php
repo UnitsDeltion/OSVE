@@ -173,9 +173,12 @@ class OSVEController extends Controller
             );
         }
 
+        //Haalt het examen regelement op
         $reglementen = ReglementenBeheer::get()->first();
 
+        //Haalt de session data op in een collections
         $sessionData = collect(session()->all());
+        //Filtert de collection behalve login gegevens
         $data = $sessionData->except(["_previous", "_flash", "_token"]);
 
         return view("p5")->with(compact("data", "reglementen"));
