@@ -114,16 +114,17 @@
             <hr>
 
             <h3>Toekomstige examens</h3>
+            <div>
+                <br>
+                <td>Eerste datum:</td>
+                <td><input type="text" id="min" name="min"></td>
+
+                <td>Tweede datum:</td>
+                <td><input type="text" id="max" name="max"></td>
+            </div>
+    
             <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="toekomstigeExamens">
                 <thead>
-                <tr>
-                    <td>Minimum date:</td>
-                    <td><input type="text" id="min" name="min"></td>
-                </tr>
-                <tr>
-                    <td>Maximum date:</td>
-                    <td><input type="text" id="max" name="max"></td>
-                </tr>
                     <tr>
                         <th>Vak</th>
                         <th>Examen</th>

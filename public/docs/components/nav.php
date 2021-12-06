@@ -39,6 +39,20 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link" href="#models">Models</a>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="#models_Account">Account</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_Examen">Examen</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_ExamenMoment">ExamenMoment</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_GeplandeExamens">GeplandeExamens</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_GeplandeExamensTokens">GeplandeExamensTokens</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_Opleidingen">Opleidingen</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_ReglementenBeheer">ReglementenBeheer</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_User">User</a></li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link" href="#views">Views</a>
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link" href="#views_layout">Layout</a></li>
