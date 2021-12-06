@@ -35,7 +35,7 @@ class ExamenBeheerController extends Controller
         if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
         
-
+        $opleidingen = Opleidingen::all()->toArray();
         return view('beheer.examens.create', compact('opleidingen'));
     }
 
