@@ -87,7 +87,6 @@ class ExamenBeheerController extends Controller
         $examen = Examen::where('id', $id)->with( 'examen_moments')->get()->first()->toArray();
 
         return view('beheer.examens.edit')->with(compact('examen', 'opleidingen'));
-        
     }
 
     public function update(Request $request, $id)

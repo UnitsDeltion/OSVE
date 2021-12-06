@@ -6,7 +6,7 @@
         <?php
             $examenDatumFormatted = date('d-m-Y', strtotime($moment->datum)); 
         ?>
-        <h5 class="text-center">Weet je het zeker dat je het moment van <span class="fc-secondary">"{{ $moment->tijd }}"</span> op <span class="fc-secondary">"{{ $examenDatumFormatted }}"</span> wilt verwijderen?</h5>
+        <h5 class="text-center mt-0-r">Weet je het zeker dat je het moment van <span class="fc-secondary">"{{ $moment->tijd }}"</span> op <span class="fc-secondary">"{{ $examenDatumFormatted }}"</span> wilt verwijderen?</h5>
     </div>
     <div class="modal-footer-custom">
             <div class="mt-4">
