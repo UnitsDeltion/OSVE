@@ -10,11 +10,16 @@
                     {{__('Examen moment aanmaken')}}
                 </x-jet-button>
             </a>
-            <a href="{{ route('examens.edit', $examen['id']) }}" class="a-clear">
-                <x-jet-button title="Bewerken" class="button">
-                    {{__('Examen bewerken')}}
-                </x-jet-button>
-            </a>
+            <?php
+                $user = \Auth::user();
+            ?>
+            @if($user->isAn('opleidingsmanager'))
+                <a href="{{ route('examens.edit', $examen['id']) }}" class="a-clear">
+                    <x-jet-button title="Bewerken" class="button">
+                        {{__('Examen bewerken')}}
+                    </x-jet-button>
+                </a>
+            @endif
         </div>
     </x-slot>
 
