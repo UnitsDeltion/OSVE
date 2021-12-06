@@ -6,7 +6,7 @@
         <p></p>
         <pre>
             <code class="php">
-                <?php import('../../app/Models/Account.php') ?>
+<?php import('../../app/Models/Account.php') ?>
             </code>
         </pre>
     </div>
@@ -16,7 +16,7 @@
         <p></p>
         <pre>
             <code class="php">
-                <?php import('../../app/Models/Examen.php') ?>
+<?php import('../../app/Models/Examen.php') ?>
             </code>
         </pre>
     </div>
@@ -26,7 +26,7 @@
         <p></p>
         <pre>
             <code class="php">
-                <?php import('../../app/Models/ExamenMoment.php') ?>
+<?php import('../../app/Models/ExamenMoment.php') ?>
             </code>
         </pre>
     </div>
@@ -36,7 +36,7 @@
         <p></p>
         <pre>
             <code class="php">
-                <?php import('../../app/Models/GeplandeExamens.php') ?>
+<?php import('../../app/Models/GeplandeExamens.php') ?>
             </code>
         </pre>
     </div>
@@ -46,7 +46,7 @@
         <p></p>
         <pre>
             <code class="php">
-                <?php import('../../app/Models/GeplandeExamensTokens.php') ?>
+<?php import('../../app/Models/GeplandeExamensTokens.php') ?>
             </code>
         </pre>
     </div>
@@ -56,7 +56,7 @@
         <p></p>
         <pre>
             <code class="php">
-                <?php import('../../app/Models/Opleidingen.php') ?>
+<?php import('../../app/Models/Opleidingen.php') ?>
             </code>
         </pre>
     </div>
@@ -66,7 +66,7 @@
         <p></p>
         <pre>
             <code class="php">
-                <?php import('../../app/Models/ReglementenBeheer.php') ?>
+<?php import('../../app/Models/ReglementenBeheer.php') ?>
             </code>
         </pre>
     </div>
@@ -76,7 +76,7 @@
         <p></p>
         <pre>
             <code class="php">
-                <?php import('../../app/Models/User.php') ?>
+<?php import('../../app/Models/User.php') ?>
             </code>
         </pre>
     </div>
