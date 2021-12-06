@@ -44,31 +44,6 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <lable for="geplande_docenten" class="block font-medium text-sm text-gray-700">Examinerende docenten</lable>
-                        <input id="geplande_docenten" class="block mt-1 w-full form-control" type="varchar" name="geplande_docenten" :value="old('geplande_docenten')"/>
-                        @livewire('includes.validation.input', ['input' => 'geplande_docenten'])
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <lable for="opgeven_examen_begin" class="block font-medium text-sm text-gray-700">Opgeven examen begin</lable>
-                        <input id="examen_opgeven_begin" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_begin" :value="old('examen_opgeven_begin')"/>
-                        @livewire('includes.validation.input', ['input' => 'examen_opgeven_begin'])
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <lable for="opgeven_examen_eind" class="block font-medium text-sm text-gray-700">Opgeven examen eind</lable>
-                            <input id="examen_opgeven_eind" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_eind" :value="old('examen_opgeven_eind')"/>
-                            @livewire('includes.validation.input', ['input' => 'examen_opgeven_eind'])
-                        </div>
-                    </div>
-                </div>
-
                 <div class="col-md-12">
                     <div class="form-group">
                         <lable for="uitleg" class="block font-medium text-sm text-gray-700">Uitleg</lable>

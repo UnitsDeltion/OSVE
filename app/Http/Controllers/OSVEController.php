@@ -81,7 +81,9 @@ class OSVEController extends Controller
             ->orderBy("vak", "asc")
             ->get();
 
-        return view("p3", compact("examens"));
+        $moments = ExamenMoment::all();
+
+        return view("p3", compact("examens", "moments"));
     }
 
     public function p4(Request $request)
