@@ -23,9 +23,11 @@ class DashboardBeheerController extends Controller
         $user = \Auth::user();
         if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
+        $users = User::all();
         $examens = Examen::all();
         $examenMomenten = ExamenMoment::orderBy('examenid', 'asc')->get();
-        $users = User::all();
+
+        $activeExamens = array();
 
         foreach($examens as $examen){
             //Vervang de email die in het examen staat door de voor en achternaam
@@ -60,10 +62,23 @@ class DashboardBeheerController extends Controller
     
                 $examen->startDatum = $startDatum['datum'];
                 $examen->eindDatum = $eindDatum['datum'];
+
+                $examen->momenten = $data;
             }else{
                 //Als er geen examen momenten zijn gevonden bij een examen zet er dan NB van niet beschikbaar in
                 $examen->startDatum = 'NB';
                 $examen->eindDatum = 'NB';
+            }
+
+            //Active examens
+            date_default_timezone_set('Europe/Amsterdam');
+
+            //Voor elk examen moment check if de datum gelijk is aan de huidige datum
+            foreach($examen->momenten as $key){
+                //Als de datum gelijk is aan de huidige datum zet hem in de $activeExamens array
+                if($key['datum'] == date("Y-m-d")){
+                    array_push($activeExamens, $examen);
+                }
             }
         }
 
@@ -83,6 +98,7 @@ class DashboardBeheerController extends Controller
         return view('beheer.dashboard.index')
             ->with(compact('examens'))
             ->with(compact('opleidingen'))
+            ->with(compact('activeExamens'))
             ->with(compact('geplandeExamens'));
     }
 

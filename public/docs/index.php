@@ -41,7 +41,7 @@
 			<div class="container-fluid">
 				<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
 
-				<a class="logo ml-md-3" href="index.html" title="Deltion College"> <img src="images/logos/logo.svg" alt="Deltion College"/> </a> 
+				<a class="logo ml-md-3" href="" title="Deltion College"> <img src="images/logos/logo.svg" alt="Deltion College"/> </a> 
 				<span class="text-2 ml-2"><?php echo $config['docVersion']; ?></span> 
 			</div>
 		</header>

@@ -86,44 +86,8 @@
 
         <div id="elementTwo" style="display: none;">
             <h3>Actieve examens</h3>
+            <p>Active examens zijn examens waarbij vandaag een examen moment is ingepland.</p>
             <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="actieveExamens">
-                <thead>
-                    <tr>
-                        <th>Vak</th>
-                        <th>Examen</th>
-                        <th>Geplande docent</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($examens as $examen)
-                        <tr>
-                            <td>
-                                {{ $examen->vak }}
-                            </td>
-                            <td>
-                                {{ $examen->examen }}
-                            </td>
-                            <td>
-                                {{ $examen->geplande_docenten }}
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
-            <hr>
-
-            <h3>Toekomstige examens</h3>
-            <div>
-                <br>
-                <td>Eerste datum:</td>
-                <td><input type="text" id="min" name="min"></td>
-
-                <td>Tweede datum:</td>
-                <td><input type="text" id="max" name="max"></td>
-            </div>
-    
-            <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="toekomstigeExamens">
                 <thead>
                     <tr>
                         <th>Vak</th>
@@ -134,27 +98,77 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($examens as $examen)
+                    @foreach($activeExamens as $activeExamen)
                         <tr>
                             <td>
-                                {{ $examen->vak }}
+                                {{ $activeExamen->vak }}
                             </td>
                             <td>
-                                {{ $examen->examen }}
+                                {{ $activeExamen->examen }}
                             </td>
                             <td>
-                                {{ $examen->geplande_docenten }}
+                                {{ $activeExamen->geplande_docenten }}
                             </td>
-                            <td id="min">
-                                {{ $examen->startDatum}}
+                            <td>
+                                {{ $activeExamen->startDatum }}
                             </td>
-                            <td id="max">
-                                {{ $examen->eindDatum}}
+                            <td>
+                                {{ $activeExamen->eindDatum }}
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+
+            <hr>
+
+            <div class="mt-50">
+                <h3>Toekomstige examens</h3>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label for="min">Eerste datum</label>
+                        <input type="text" class="form-control" id="min" name="min" placeholder="Eerst datum">
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        <label for="min">Laatste datum</label>
+                        <input type="text" class="form-control" id="max" name="max" placeholder="Laatste datum">
+                    </div>
+                </div>
+        
+                <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="toekomstigeExamens">
+                    <thead>
+                        <tr>
+                            <th>Vak</th>
+                            <th>Examen</th>
+                            <th>Geplande docent</th>
+                            <th>Eerste datum</th>
+                            <th>Laatste datum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($examens as $examen)
+                            <tr>
+                                <td>
+                                    {{ $examen->vak }}
+                                </td>
+                                <td>
+                                    {{ $examen->examen }}
+                                </td>
+                                <td>
+                                    {{ $examen->geplande_docenten }}
+                                </td>
+                                <td id="min">
+                                    {{ $examen->startDatum }}
+                                </td>
+                                <td id="max">
+                                    {{ $examen->eindDatum }}
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div id="elementThree" style="display: none;">
