@@ -23,7 +23,6 @@ class ExamenBeheerController extends Controller
             $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
 
             return view('beheer.examens.index')->with(compact('examens'));
-            //bassie
     }
 
     public function create()
