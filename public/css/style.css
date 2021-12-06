@@ -521,6 +521,7 @@ code, .php{
 /*Breadcrumbs*/
 .breadcrumbs{
     color: white !important;
+    padding: 4px;
 }
 
 .breadcrumbs-active, .breadcrumbs-active > i{
