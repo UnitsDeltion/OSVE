@@ -79,6 +79,7 @@
 .mt-10{margin-top: 10px !important}
 .mt-15{margin-top: 15px !important}
 .mt-20{margin-top: 20px !important}
+.mt-20n{margin-top: -20px !important}
 .mt-25{margin-top: 25px !important}
 .mt-30{margin-top: 30px !important}
 .mt-35{margin-top: 35px !important}
@@ -149,6 +150,7 @@
 /* Font colors */
 .fc-white{color: white !important;}
 .fc-white:hover{color: var(--hover) !important}
+.fc-white-nh{color: white !important}
 .fc-black{color: black !important;}
 .fc-red{color: red !important;}
 .fc-primary{color: var(--fc-primary) !important;}
@@ -160,6 +162,7 @@
 .fc-h-white:hover{color: white !important;}
 .fc-h-white-fa:hover > .fa{color: var(--secondary) !important;}
 .fc-green{color: green !important;}
+
 /* Font weight */
 .fw-100{font-weight: 100 !important;}
 .fw-200{font-weight: 200 !important;}
@@ -513,4 +516,13 @@ code, .php, .html{
 
 code, .php{
     padding-bottom: 0rem !important;
+}
+
+/*Breadcrumbs*/
+.breadcrumbs{
+    color: white !important;
+}
+
+.breadcrumbs-active, .breadcrumbs-active > i{
+    color: var(--secondary) !important;
 }
