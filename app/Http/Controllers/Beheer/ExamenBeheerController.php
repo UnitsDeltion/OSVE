@@ -111,17 +111,6 @@ class ExamenBeheerController extends Controller
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
-        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
-
-        $opleidingen = Opleidingen::all();
-
-        if($bouncer){
-            return view('beheer.opleidingen.index', compact('opleidingen'));
-        }else{
-            //echo 'not allowed';  
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
-
         $this->validate($request, [
             'vak' => 'required',
             'examen' => 'required',
