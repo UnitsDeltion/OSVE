@@ -6,7 +6,7 @@
     "infoFiltered":   "(gefilterd uit _MAX_ totale records)",
     "infoPostFix":    "",
     "thousands":      ",",
-    "lengthMenu":     "Toon _MENU_ records per pagina",
+    "lengthMenu":     "Toont _MENU_ records per pagina",
     "loadingRecords": "Laden...",
     "processing":     "Verwerken...",
     "search":         "Zoeken:",
