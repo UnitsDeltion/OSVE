@@ -109,6 +109,7 @@
             <thead>
                 <tr>
                     <th>Rechten</th>
+                    <th>Student</th>
                     <th>Docent</th>
                     <th>Opleidingsmanagers</th>
                     <th>Ontwikkelaar</th>
@@ -117,6 +118,7 @@
             <tbody>
                 <tr>
                     <td>Dashboard</td>
+                    <td><i class="fas fa-times fc-red"></i></td>
                     <td><i class="fas fa-check fc-green"></i></td>
                     <td><i class="fas fa-check fc-green"></i></td>
                     <td><i class="fas fa-times fc-red"></i></td>
@@ -124,23 +126,27 @@
                 <tr>
                     <td>User beheer</td>
                     <td><i class="fas fa-times fc-red"></i></td>
+                    <td><i class="fas fa-times fc-red"></i></td>
                     <td><i class="fas fa-check fc-green"></i></td>
                     <td><i class="fas fa-times fc-red"></i></td>
                 </tr>
                 <tr>
                     <td>Reglementen update</td>
+                    <td><i class="fas fa-times fc-red"></i></td>
                     <td><i class="fas fa-check fc-green"></i></td>
                     <td><i class="fas fa-check fc-green"></i></td>
                     <td><i class="fas fa-times fc-red"></i></td>
                 </tr>
                 <tr>
                     <td>Examen beheer</td>
+                    <td><i class="fas fa-times fc-red"></i></td>
                     <td><i class="fas fa-check fc-green"></i></td>
                     <td><i class="fas fa-check fc-green"></i></td>
                     <td><i class="fas fa-times fc-red"></i></td>
                 </tr>
                 <tr>
                     <td>Examen moment beheer</td>
+                    <td><i class="fas fa-times fc-red"></i></td>
                     <td><i class="fas fa-check fc-green"></i></td>
                     <td><i class="fas fa-check fc-green"></i></td>
                     <td><i class="fas fa-times fc-red"></i></td>
@@ -148,11 +154,13 @@
                 <tr>
                     <td>Opleidingen beheer</td>
                     <td><i class="fas fa-times fc-red"></i></td>
+                    <td><i class="fas fa-times fc-red"></i></td>
                     <td><i class="fas fa-check fc-green"></i></td>
                     <td><i class="fas fa-times fc-red"></i></td>
                 </tr>
                 <tr>
                     <td>Documentatie</td>
+                    <td><i class="fas fa-times fc-red"></i></td>
                     <td><i class="fas fa-times fc-red"></i></td>
                     <td><i class="fas fa-times fc-red"></i></td>
                     <td><i class="fas fa-check fc-green"></i></td>
@@ -244,10 +252,11 @@
             <h4>Dashboard</h4>
             <p>Op het dashboard wordt een overzicht van verschillende tabellen getoond. Om deze pagina overzichterlijk te maken maken wij gebruik van een custom <code>JavaScript function</code>, zie <a href="#javascript">JS Scripts</a> voor meer informatie. Om de tabellen mooi te maken maken wij gebruik <code>jQuery DataTabes</code>.</p>
 
-            <table class="table mb-5">
+            <table class="table mb-25">
                 <thead>
                     <tr>
                         <th>Rechten</th>
+                        <th>Student</th>
                         <th>Docent</th>
                         <th>Opleidingsmanagers</th>
                         <th>Ontwikkelaar</th>
@@ -255,7 +264,8 @@
                 <thead>
                 <tbody>
                     <tr>
-                        <td>Dashboard</td>
+                        <td>Examens beheer</td>
+                        <td><i class="fas fa-check fc-red"></i></td>
                         <td><i class="fas fa-check fc-green"></i></td>
                         <td><i class="fas fa-check fc-green"></i></td>
                         <td><i class="fas fa-times fc-red"></i></td>
@@ -278,6 +288,7 @@
                 <thead>
                     <tr>
                         <th>Rechten</th>
+                        <th>Student</th>
                         <th>Docent</th>
                         <th>Opleidingsmanagers</th>
                         <th>Ontwikkelaar</th>
@@ -285,7 +296,8 @@
                 <thead>
                 <tbody>
                     <tr>
-                        <td>User beheer</td>
+                        <td>Examens beheer</td>
+                        <td><i class="fas fa-check fc-red"></i></td>
                         <td><i class="fas fa-check fc-green"></i></td>
                         <td><i class="fas fa-check fc-green"></i></td>
                         <td><i class="fas fa-times fc-red"></i></td>
@@ -331,6 +343,7 @@
                 <thead>
                     <tr>
                         <th>Rechten</th>
+                        <th>Student</th>
                         <th>Docent</th>
                         <th>Opleidingsmanagers</th>
                         <th>Ontwikkelaar</th>
@@ -338,7 +351,8 @@
                 <thead>
                 <tbody>
                     <tr>
-                        <td>Reglementen</td>
+                        <td>Examens beheer</td>
+                        <td><i class="fas fa-check fc-red"></i></td>
                         <td><i class="fas fa-check fc-green"></i></td>
                         <td><i class="fas fa-check fc-green"></i></td>
                         <td><i class="fas fa-times fc-red"></i></td>
@@ -362,6 +376,7 @@
                 <thead>
                     <tr>
                         <th>Rechten</th>
+                        <th>Student</th>
                         <th>Docent</th>
                         <th>Opleidingsmanagers</th>
                         <th>Ontwikkelaar</th>
@@ -370,6 +385,7 @@
                 <tbody>
                     <tr>
                         <td>Examens beheer</td>
+                        <td><i class="fas fa-check fc-red"></i></td>
                         <td><i class="fas fa-check fc-green"></i></td>
                         <td><i class="fas fa-check fc-green"></i></td>
                         <td><i class="fas fa-times fc-red"></i></td>

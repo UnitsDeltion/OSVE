@@ -82,15 +82,9 @@
 
 					<hr class="divider">
 
-					<!-- Controllers - algmeen
+					<!-- Controllers
 					============================ -->
-					<?php include './sections/controllers_algemeen.php' ?>
-
-					<hr class="divider">
-
-					<!-- Controllers - beheer
-					============================ -->
-					<?php include './sections/controllers_beheer.php' ?>
+					<?php include './sections/controllers.php' ?>
 
 					<hr class="divider">
 

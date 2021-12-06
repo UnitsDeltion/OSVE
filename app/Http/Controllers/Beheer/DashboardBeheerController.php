@@ -7,37 +7,36 @@ use DateTime;
 use App\Models\User;
 use App\Models\Examen;
 use App\Models\Opleidingen;
-
 use App\Models\ExamenMoment;
-use Illuminate\Http\Request;
 use App\Models\GeplandeExamens;
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 class DashboardBeheerController extends Controller
 {
     public function index(Request $request)
     {
-       
-        $users = User::all();
         $user = \Auth::user();
-
-        if(!$user){
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+        if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
         $examens = Examen::all();
         $examenMomenten = ExamenMoment::orderBy('examenid', 'asc')->get();
+        $users = User::all();
 
         foreach($examens as $examen){
+            //Vervang de email die in het examen staat door de voor en achternaam
             foreach($users as $user){
                 if($examen->geplande_docenten == $user->email){
                     $examen->geplande_docenten = $user->voornaam . " " . $user->achternaam;
                 }
             }
 
+            //Lege data array die wordt gevuld met de eerste en de laatste examen moment datum.
+            //Op deze manier kan er op het dashboard gefiltert worden
             $data = array();
 
             foreach($examenMomenten as $examenMoment){
@@ -71,7 +70,7 @@ class DashboardBeheerController extends Controller
         $opleidingen = Opleidingen::all();
         $geplandeExamens = GeplandeExamens::all();
         
-        //Tijdelijk tot de relatie erin zit
+        //Vervangt gepland_examen, datum en tijd door het examen / examenmoment tijd
         foreach($geplandeExamens as $geplandExamen){
             $examen = Examen::where('id', $geplandExamen->examen)->first();
             $examenMoment = ExamenMoment::where('id', $geplandExamen->examen_moment)->first();
@@ -80,25 +79,6 @@ class DashboardBeheerController extends Controller
             $geplandExamen->datum = $examenMoment->datum;
             $geplandExamen->tijd = $examenMoment->tijd;
         }
-        
-        $user = \Auth::user();
-        
-        // Bouncer::allow('docent')->to('examen-beheer');
-        // Bouncer::allow('opleidingsmanager')->to('examen-beheer');
-        // Bouncer::allow('opleidingsmanager')->to('everything');
-        // Bouncer::assign('docent')->to($user);
-        // Bouncer::assign('opleidingsmanager')->to($user);
-
-        // dd($geplandeExamens);
-
-        if($request->submit == "Save"){
-            $startDate = $request->min;
-            $endDate = $request->max;
-            
-            dd($startDate);
-        }
-
-        //dd($startDate);
 
         return view('beheer.dashboard.index')
             ->with(compact('examens'))
