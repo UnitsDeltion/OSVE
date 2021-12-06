@@ -8,6 +8,28 @@
         
         <div id="controllers_algemeen_OSVEController">
             <h4>OSVEController</h4>
+
+            <table class="table mb-25">
+                <thead>
+                    <tr>
+                        <th>Rechten</th>
+                        <th>Student</th>
+                        <th>Docent</th>
+                        <th>Opleidingsmanagers</th>
+                        <th>Ontwikkelaar</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    <tr>
+                        <td>OSVEController</td>
+                        <td><i class="fas fa-check fc-green"></i></td>
+                        <td><i class="fas fa-check fc-green"></i></td>
+                        <td><i class="fas fa-check fc-green"></i></td>
+                        <td><i class="fas fa-times fc-red"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
             <p>De <code>OSVEController</code> is voor studenten één van de belangrijkste controllers binnen <strong>OSVE</strong>. <code>OSVEController</code> zorgt ervoor dat de <a href="#views">views</a> worden ingeladen met de juiste data.</p>
             <p class="mb-0">Elke <code>function</code> binnen deze controller heeft dezelfde naam als de view.</p>
             <pre>
@@ -36,7 +58,6 @@ public function redirect(){
 public function p1(Request $request)
 {
     Session::forget(['voornaam', 'achternaam', 'studentnummer', 'klas', 'faciliteitenpas', 'opleiding_id', 'crebo_nr', 'opleiding', 'vak', 'examen', 'datum', 'tijd', 'token']);
-
 
     return view("p1");
 }
@@ -321,6 +342,27 @@ public function p8(Request $request)
     <div id="controllers_algemeen_ICSController">
         <h4>ICSController</h4>
 
+        <table class="table mb-25">
+            <thead>
+                <tr>
+                    <th>Rechten</th>
+                    <th>Student</th>
+                    <th>Docent</th>
+                    <th>Opleidingsmanagers</th>
+                    <th>Ontwikkelaar</th>
+                </tr>
+            <thead>
+            <tbody>
+                <tr>
+                    <td>ICSController</td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-times fc-red"></i></td>
+                </tr>
+            </tbody>
+        </table>
+
         <p>De <code>ICSController</code> wordt gebruikt om ICS agenda afspraken te maken. De code is geschreven door <strong>JakeBellaCera</strong> op <a href="https://gist.github.com/jakebellacera/635416" target="_blank">GitHub</a>.</p>
 
         <pre>
@@ -332,6 +374,27 @@ public function p8(Request $request)
 
     <div id="controllers_algemeen_FormHandlerController">
         <h4>FormHandlerController</h4>
+
+        <table class="table mb-25">
+            <thead>
+                <tr>
+                    <th>Rechten</th>
+                    <th>Student</th>
+                    <th>Docent</th>
+                    <th>Opleidingsmanagers</th>
+                    <th>Ontwikkelaar</th>
+                </tr>
+            <thead>
+            <tbody>
+                <tr>
+                    <td>ICSController</td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-check fc-green"></i></td>
+                    <td><i class="fas fa-times fc-red"></i></td>
+                </tr>
+            </tbody>
+        </table>
 
         <p>De <code>FormHandlerController</code> is voor studenten één van de belangrijkste controllers binnen <strong>OSVE</strong>. <code>FormHandlerController</code> zorgt ervoor dat de juiste data voor de <a href="#views">views</a> beschikbaar is. De eerste function zijn eenvoudig, ze valideren form data en zetten het in de session. Latere functions zijn inhoudelijk erg complex.</p>
 
@@ -657,6 +720,223 @@ public function f7(Request $request)
 }
                 </code>
             </pre>
+        </div>
+    </div>
+
+    <div id="controllers_beheer">
+        <h3>Beheer</h3>
+        
+        <div id="controllers_beheer_DashboardController">
+            <h4>DashboardController</h4>
+            <p>De <code>DashboardController</code> is voor docenten de eerste controller die gebruikt wordt zodra ze inlogd zijn.</p>
+
+            <pre>
+                <code class="php">
+<?php import('../../app/Http/Controllers/beheer/DashboardBeheerController.php') ?>
+                </code>
+            </pre>
+
+            <div>
+                <h5>Function index</h5>
+                <p class="mb-0">In <code>function index(Request $request)</code> worden de <strong>examens</strong>, <strong>opleidingen</strong> en <strong>geplandeExamens</strong> opgehaald en meegestuurd naar de view.</p>
+
+                <pre>
+                    <code>
+public function index(Request $request)
+{
+    $user = \Auth::user();
+    if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
+
+    $examens = Examen::all();
+    $examenMomenten = ExamenMoment::orderBy('examenid', 'asc')->get();
+    $users = User::all();
+
+    foreach($examens as $examen){
+        //Vervang de email die in het examen staat door de voor en achternaam
+        foreach($users as $user){
+            if($examen->geplande_docenten == $user->email){
+                $examen->geplande_docenten = $user->voornaam . " " . $user->achternaam;
+            }
+        }
+
+        //Lege data array die wordt gevuld met de eerste en de laatste examen moment datum.
+        //Op deze manier kan er op het dashboard gefiltert worden
+        $data = array();
+
+        foreach($examenMomenten as $examenMoment){
+            //Voor elk examen moment dat bij het examen id hoort
+            if($examenMoment->examenid == $examen->id){
+                //zet het examenmoment in de $data array
+                array_push($data, $examenMoment->toArray());
+            }
+        }
+
+        //Als data in de data array zit
+        if($data){
+            //Soort de array op basis van datum
+            $sortedArr = collect($data)->sortBy('datum')->all();
+
+            //Zet de eerste waarde van de array als startdatum
+            $startDatum = current($sortedArr);
+
+            //Zet de laatste waarde van de array als einddatum
+            $eindDatum = end($sortedArr);
+
+            $examen->startDatum = $startDatum['datum'];
+            $examen->eindDatum = $eindDatum['datum'];
+        }else{
+            //Als er geen examen momenten zijn gevonden bij een examen zet er dan NB van niet beschikbaar in
+            $examen->startDatum = 'NB';
+            $examen->eindDatum = 'NB';
+        }
+    }
+
+    $opleidingen = Opleidingen::all();
+    $geplandeExamens = GeplandeExamens::all();
+    
+    //Vervangt gepland_examen, datum en tijd door het examen / examenmoment tijd
+    foreach($geplandeExamens as $geplandExamen){
+        $examen = Examen::where('id', $geplandExamen->examen)->first();
+        $examenMoment = ExamenMoment::where('id', $geplandExamen->examen_moment)->first();
+
+        $geplandExamen->gepland_examen = $examen->examen;
+        $geplandExamen->datum = $examenMoment->datum;
+        $geplandExamen->tijd = $examenMoment->tijd;
+    }
+
+    return view('beheer.dashboard.index')
+        ->with(compact('examens'))
+        ->with(compact('opleidingen'))
+        ->with(compact('geplandeExamens'));
+}
+                    </code>
+                </pre>
+            </div>
+
+            <div>
+                <h5>Function dtDutch</h5>
+                <p class="mb-0">Het enige doel van deze function is het terugsturen van een Nederlandse versie van de datatabels</p>
+                
+                <pre>
+                    <code>
+public function dtDutch(){
+    return response()->file(resource_path('/json/datatabels/dutch.json'));
+}
+                    </code>
+                </pre>
+            </div>
+
+            <div>
+                <h5>Function redirect</h5>
+                <p class="mb-0">Het enige doel van deze function is het doorsturen van <strong>'/beheer'</strong> naar <strong>'/beheer/dashboard'</strong>.</p>
+
+                <pre>
+                    <code>
+public function redirect(){
+    return redirect('/beheer/dashboard');
+}
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+        <div id="controllers_beheer_ExamenBeheerController">
+            <h4>ExamenBeheerController</h4>
+            <p>De <code>ExamenBeheerController</code> maakt het voor docenten en opleidingsmangers mogelijk om examens en examenmomenten te beheren.</p>
+
+            <pre>
+                <code class="php">
+<?php import('../../app/Http/Controllers/beheer/ExamenBeheerController.php') ?>
+                </code>
+            </pre>
+
+            <div>
+                <h5>Function index</h5>
+                <p>Deze function haalt alle examens op en stuurt ze hem door naar <a href="#views_beheer_examens">view examens index</a>.</p>
+
+                <pre>
+                    <code>
+public function index()
+{
+    $user = \Auth::user();
+    if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
+
+    $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+    if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
+    
+    $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
+
+    return view('beheer.examens.index')->with(compact('examens'));
+}
+                    </code>
+                </pre>
+            </div>
+
+            <div>
+                <h5>Function create</h5>
+                <p><code>Function create</code> haalt alle opleidingen op en stuurt ze hem door naar <a href="#views_beheer_examens">view examens create</a>.</p>
+
+                <pre>
+                    <code>
+public function create()
+{
+    $user = \Auth::user();
+    if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
+
+    $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+    if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
+
+    $opleidingen = Opleidingen::all();
+
+    return view('beheer.opleidingen.index', compact('opleidingen'));
+}
+                    </code>
+                </pre>
+            </div>
+
+            <div>
+                <h5>Function store</h5>
+                <p><code>Function store</code> valideert <code>POST</code> data en zet de data in de db.</p>
+
+                <pre>
+                    <code>
+public function store(Request $request, Examen $examen, ExamenMoment $moment)
+{
+    $this->validate($request, [
+        'vak' => 'required',
+        'examen' => 'required',
+        'opleiding_id' => 'required|integer',
+        'geplande_docenten' => 'required',
+        'examen_opgeven_begin' => 'required',
+        'examen_opgeven_eind' => 'required',
+    ]);
+
+    $examen->vak = $request->vak;
+    $examen->examen = $request->examen;
+    $examen->opleiding_id = $request->opleiding_id;
+    $examen->geplande_docenten = $request->geplande_docenten;
+    $examen->examen_opgeven_begin = $request->examen_opgeven_begin;
+    $examen->examen_opgeven_eind = $request->examen_opgeven_eind;
+    $examen->uitleg = $request->uitleg;
+    $examen->save();
+    
+    return redirect()->route('examens.index')->with('success','Examen toegevoegd.');
+}
+                    </code>
+                </pre>
+            </div>
+
+            <div>
+                <h5>Function show</h5>
+                <p><code>Function show</code> haalt een individueel examen op een stuurt het mee naar de view.</p>
+
+                <pre>
+                    <code>
+                        
+                    </code>
+                </pre>
+            </div>
+
         </div>
     </div>
 
