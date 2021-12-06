@@ -44,50 +44,49 @@
                             <p class="fc-primary-nh mb-0-r">Kies uit de onderstaande lijst het juiste examen. Staat het juiste examen er niet bij? Neem dan contact op met je docent.</p>
                             <div class="container mb-10">
                                 <div class="row justify-content-center">
-
+                                    
                                     <?php $examenVak = ""; ?>
                                     @foreach($examens as $examen)
+
                                         <?php
-                                        $huidigeDatum = date('d-m-Y');
-                                        $startDatum = date('d-m-Y', strtotime($examen->examen_opgeven_begin)); 
-                                        $eindDatum = date('d-m-Y', strtotime($examen->examen_opgeven_eind)); 
-                                        if($huidigeDatum > $startDatum && $huidigeDatum < $eindDatum){
-                                        
-                                            if($examen->vak != $examenVak ){
-                                                if ($examenVak != ""){
-                                                    echo "</div>";
+                                            $huidigeDatum = strtotime(date('d-m-Y'));
+                                            $startDatum = strtotime(date('d-m-Y', strtotime($examen->examen_opgeven_begin))); 
+                                            $eindDatum = strtotime(date('d-m-Y', strtotime($examen->examen_opgeven_eind))); 
+
+                                            if($huidigeDatum > $startDatum && $huidigeDatum < $eindDatum){
+
+                                                if($examen->vak != $examenVak ){
+                                                    if ($examenVak != ""){
+                                                        echo "</div>";
+                                                    }
+                    
+                                                    echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow\">";
+                                                    echo "<h4 class=\"fc-secondary-nh\">" . $examen->vak . "</h4>";
                                                 }
-                
-                                                echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow\">";
-                                                echo "<h4 class=\"fc-secondary-nh\">" . $examen->vak . "</h4>";
-                                            }
-                                        
                                             
-                                            $examenVak = $examen->vak;
-                                        }
+                                                
+                                                $examenVak = $examen->vak;
+                                            }
                                         ?>
                                         <?php
-                                        if($huidigeDatum > $startDatum && $huidigeDatum < $eindDatum){
-                                            
+                                            if($huidigeDatum > $startDatum && $huidigeDatum < $eindDatum){
                                         ?>
-                                        <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
-                                            <div class="col-xs-8 col-8 fc-primary-nh">
-                                                {{ $examen->examen }} 
-                                                
-                                            </div>
-                                            <div class="col-xs-1 col-1">
-                                                <i class="fas fa-info-circle align-center" id="tooltipFaciliteitenpas" data-toggle="tooltip" data-bs-placement="bottom" title="{{ $examen->uitleg }}"></i>
-                                            </div>
-                                            <div class="col-xs-1 col-1">
-                                                <input type="radio" class="radio-hide" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
-                                            </div>
-                                        </div>
+                                                <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
+                                                    <div class="col-xs-8 col-8 fc-primary-nh">
+                                                        {{ $examen->examen }}
+                                                    </div>
+                                                    <div class="col-xs-1 col-1">
+                                                        <i class="fas fa-info-circle align-center" id="tooltipFaciliteitenpas" data-toggle="tooltip" data-bs-placement="bottom" title="{{ $examen->uitleg }}"></i>
+                                                    </div>
+                                                    <div class="col-xs-1 col-1">
+                                                        <input type="radio" class="radio-hide" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
+                                                    </div>
+                                                </div>
                                         <?php 
-                                            }   
-                                        else{
                                             }
-                                            ?>
-                                        @endforeach
+                                        ?>
+
+                                    @endforeach
                                     </div>
                             </div>  
 
