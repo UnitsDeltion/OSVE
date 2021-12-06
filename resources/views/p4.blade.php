@@ -48,6 +48,7 @@
                                             <?php $examenDatum = ""; ?>
                                             @foreach($examenMoment as $examen)
                                                 <?php
+                                                
                                                     $timestamp = strtotime($examen->datum);
                                                     $examenDatumFormatted = date('d-m-Y', strtotime($examen->datum)); 
 
