@@ -20,9 +20,10 @@ class ExamenBeheerController extends Controller
         $user = \Auth::user();
         if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
         
-        $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
+            $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
 
-        return view('beheer.examens.index')->with(compact('examens'));
+            return view('beheer.examens.index')->with(compact('examens'));
+            //bassie
     }
 
     public function create()
@@ -66,17 +67,11 @@ class ExamenBeheerController extends Controller
         $user = \Auth::user();
         if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-<<<<<<< Updated upstream
         $bouncer = Bouncer::is($user)->a('opleidingsmanager');
         if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-        $opleidingen = Opleidingen::all()->toArray();
-        $examen = Examen::where('id', $id)->with('examen_moments')->get()->first()->toArray();
-=======
-            $opleidingen = Opleidingen::all();
-
+            $opleidingen = Opleidingen::all()->toArray();
             $examen = Examen::where('id', $id)->with('examen_moments')->get()->first()->toArray();
->>>>>>> Stashed changes
 
             return view('beheer.examens.show')->with(compact('examen', 'opleidingen'));
     }
@@ -84,11 +79,9 @@ class ExamenBeheerController extends Controller
     public function edit( Request $request, $id)
     {
         $user = \Auth::user();
-
         if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
             $bouncer = Bouncer::is($user)->a('opleidingsmanager');
-
             if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
                 $opleidingen = Opleidingen::all();
