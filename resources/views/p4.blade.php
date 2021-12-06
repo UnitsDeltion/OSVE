@@ -81,7 +81,7 @@
                                                             echo "</div>";
                                                         }
                                                         echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow \">";
-                                                        echo "<div class=\"row\"><div class=\"col-md-7 col-4 tablet-day\"><h4 class=\"fc-secondary-nh\">" .  $day  . "</h4></div><div class=\"col-md-5 col-8 ta-right tablet-date\"><small>(" . $examenDatumFormatted . ")</small></div></div>";
+                                                        echo "<div class=\"row\"><div class=\"col-md-7 col-6 tablet-day\"><h4 class=\"fc-secondary-nh\">" .  $day  . "</h4></div><div class=\"col-md-5 col-6 ta-right tablet-date\"><small>(" . $examenDatumFormatted . ")</small></div></div>";
                                                     }
                                                     
                                                     $examenDatum = $examen->datum;          
