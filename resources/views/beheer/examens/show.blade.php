@@ -102,7 +102,7 @@
             </div>
         </form>
 
-        <h4 class="fc-secondary">Examen Momenten</h4>
+        <h4 class="fc-secondary">Examen momenten</h4>
 
         <table class="table fz-14 br-5">
             <thead>
