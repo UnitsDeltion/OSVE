@@ -114,17 +114,6 @@
             <hr>
 
             <h3>Toekomstige examens</h3>
-                    <!-- <form method="POST" action='dashboard#2'>
-                    
-                        <td>Minimum date:</td>
-                        <td><input type="text" id="min" name="min" value=""></td>
-                   
-                        <td>Maximum date:</td>
-                        <td><input type="text" id="max" name="max" value=""></td>
-                    
-                        <input type="submit" name="submit" value="Save"/>
-                    
-                    </form> -->
             <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="toekomstigeExamens">
                 <thead>
                 <tr>
@@ -196,119 +185,85 @@
 <script>
     var minDate, maxDate;
  
- // Custom filtering function which will search data in column four between two values
- $.fn.dataTable.ext.search.push(
-     function( settings, data, dataIndex ) {
-         var min = minDate.val();
-         var max = maxDate.val();
-         var date = new Date( data[3] );
-         //var mdate = new Date( data[3] );
-         //alert(data[4] + '*' +  data[5])
-         if (
-             ( min === null && max === null ) ||
-             ( min === null && mdate <= max ) ||
-             ( min <= date   && max === null ) ||
-             ( min <= date   && date <= max )
-         ) {
-             return true;
-         }
-         return false;
-     }
- );
-</script>
-
-
-<script>
-$(document).ready(function() {
-    $('#ingeplandeExamens').DataTable( {
-        // select: {
-        //     style: 'multi',
-        // },   
-        "language": {
-            "url": "{{asset('/beheer/json/datatabels/dutch')}}",
-        },
-        dom: 'Bfrtip',
-    
-        buttons: [
-             'excel', {
-            
-            extend: 'pdfHtml5',
-            customize: function(doc) {
-                doc.defaultStyle.alignment = 'right';
-                doc.styles.tableHeader.color = 'white';
-                doc.styles.tableHeader.fillColor = '#F58220';
-            },
-           
-            download: 'open',
-            exportOptions: {
-                modifier: {
-                    page: 'current'
-                }
-            }},
-        ]
-           ,
-      
-        
-    });
-    $('#actieveExamens').DataTable( {
-        "language": {
-            "url": "{{asset('/beheer/json/datatabels/dutch')}}"
+    $.fn.dataTable.ext.search.push(
+        function( settings, data, dataIndex ) {
+            var min = minDate.val();
+            var max = maxDate.val();
+            var date = new Date( data[3] );
+            if (
+                ( min === null && max === null ) ||
+                ( min === null && mdate <= max ) ||
+                ( min <= date   && max === null ) ||
+                ( min <= date   && date <= max )
+            ) {
+                return true;
+            }
+            return false;
         }
-    });
+    );
 
-
-    $('#toekomstigeExamens').DataTable( {
-        "language": {
-            "url": "{{asset('/beheer/json/datatabels/dutch')}}"
-        },
-        //Create date inputs
-            // minDate = new DateTime($('#min'), {
-            //     format: 'MMMM Do YYYY'
-            // });
-            // maxDate = new DateTime($('#max'), {
-            //     format: 'MMMM Do YYYY'
-            // });
-        
-            // //DataTables initialisation
-            // var table = $('#toekomstigeExamens').DataTable();
-        
-            // //Refilter the table
-            // $('#min, #max').on('change', function () {
-            //     table.draw();
-            // });
-            
-
-
-    });
-    $('#opleidingen').DataTable( {
-        "language": {
-            "url": "{{asset('/beheer/json/datatabels/dutch')}}"
-        }
-    });
-});
-
-
-
-
-</script>
-
-<script>
-    
     $(document).ready(function() {
-    // Create date inputs
-    minDate = new DateTime($('#min'), {
-        format: 'MMMM Do YYYY'
+        $('#ingeplandeExamens').DataTable( {
+            "language": {
+                "url": "{{asset('/beheer/json/datatabels/dutch')}}",
+            },
+            dom: 'Bfrtip',
+        
+            buttons: [
+                'excel', {
+                
+                extend: 'pdfHtml5',
+                customize: function(doc) {
+                    doc.defaultStyle.alignment = 'right';
+                    doc.styles.tableHeader.color = 'white';
+                    doc.styles.tableHeader.fillColor = '#F58220';
+                },
+            
+                download: 'open',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }},
+            ]
+            ,
+        
+            
+        });
+        $('#actieveExamens').DataTable( {
+            "language": {
+                "url": "{{asset('/beheer/json/datatabels/dutch')}}"
+            }
+        });
+
+
+        $('#toekomstigeExamens').DataTable( {
+            "language": {
+                "url": "{{asset('/beheer/json/datatabels/dutch')}}"
+            },
+        });
+        $('#opleidingen').DataTable( {
+            "language": {
+                "url": "{{asset('/beheer/json/datatabels/dutch')}}"
+            }
+        });
     });
-    maxDate = new DateTime($('#max'), {
-        format: 'MMMM Do YYYY'
+
+    $(document).ready(function() {
+        // Create date inputs
+        minDate = new DateTime($('#min'), {
+            format: 'MMMM Do YYYY'
+        });
+        maxDate = new DateTime($('#max'), {
+            format: 'MMMM Do YYYY'
+        });
+    
+        // DataTables initialisation
+        var table = $('#toekomstigeExamens').DataTable();
+    
+        // Refilter the table
+        $('#min, #max').on('change', function () {
+            table.draw();
+        });
     });
- 
-    // DataTables initialisation
-    var table = $('#toekomstigeExamens').DataTable();
- 
-    // Refilter the table
-    $('#min, #max').on('change', function () {
-        table.draw();
-    });
-});
 </script>
