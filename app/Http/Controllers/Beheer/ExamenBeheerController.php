@@ -19,9 +19,6 @@ class ExamenBeheerController extends Controller
     {
         $user = \Auth::user();
         if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
-
-        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
-        if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
         
         $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
 
@@ -36,9 +33,9 @@ class ExamenBeheerController extends Controller
         $bouncer = Bouncer::is($user)->a('opleidingsmanager');
         if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-        $opleidingen = Opleidingen::all();
+        
 
-        return view('beheer.opleidingen.index', compact('opleidingen'));
+        return view('beheer.examens.create', compact('opleidingen'));
     }
 
     public function store(Request $request, Examen $examen, ExamenMoment $moment)
@@ -69,37 +66,35 @@ class ExamenBeheerController extends Controller
         $user = \Auth::user();
         if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
+<<<<<<< Updated upstream
         $bouncer = Bouncer::is($user)->a('opleidingsmanager');
         if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
         $opleidingen = Opleidingen::all()->toArray();
         $examen = Examen::where('id', $id)->with('examen_moments')->get()->first()->toArray();
+=======
+            $opleidingen = Opleidingen::all();
 
-        return view('beheer.examens.show')->with(compact('examen', 'opleidingen'));
+            $examen = Examen::where('id', $id)->with('examen_moments')->get()->first()->toArray();
+>>>>>>> Stashed changes
+
+            return view('beheer.examens.show')->with(compact('examen', 'opleidingen'));
     }
 
     public function edit( Request $request, $id)
     {
         $user = \Auth::user();
 
-        if(!$user){
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+        if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+            $bouncer = Bouncer::is($user)->a('opleidingsmanager');
 
-        $opleidingen = Opleidingen::all();
+            if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-        if($bouncer){
-            $opleidingen = Opleidingen::all()->toArray();
+                $opleidingen = Opleidingen::all();
+                $examen = Examen::where('id', $id)->with( 'examen_moments')->get()->first()->toArray();
 
-            $examen = Examen::where('id', $id)->with( 'examen_moments')->get()->first()->toArray();
-
-        return view('beheer.examens.edit')->with(compact('examen', 'opleidingen'));
-        }else{
-            //echo 'not allowed';  
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+                return view('beheer.examens.edit')->with(compact('examen', 'opleidingen'));
         
     }
 
@@ -107,96 +102,70 @@ class ExamenBeheerController extends Controller
     {
         $user = \Auth::user();
 
-        if(!$user){
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+        if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+            $bouncer = Bouncer::is($user)->a('opleidingsmanager');
 
-        $opleidingen = Opleidingen::all();
+            if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-        if($bouncer){
-            return view('beheer.opleidingen.index', compact('opleidingen'));
-        }else{
-            //echo 'not allowed';  
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
-
-        $this->validate($request, [
-            'vak' => 'required',
-            'examen' => 'required',
-            'opleiding_id' => 'required|integer',
-            'geplande_docenten' => 'required',
-            'examen_opgeven_begin' => 'required',
-            'examen_opgeven_eind' => 'required',
-        ]);
-        
-        if (Examen::where('id', $id)->exists()) {
-            $examen = Examen::find($id);
-            $examen->vak = is_null($request->vak) ? $examen->vak : $request->vak;
-            $examen->examen = is_null($request->examen) ? $examen->examen : $request->examen;
-            $examen->opleiding_id = is_null($request->opleiding_id) ? $examen->opleiding_id : $request->opleiding_id;
-            $examen->geplande_docenten = is_null($request->geplande_docenten) ? $examen->geplande_docenten : $request->geplande_docenten;
-            $examen->examen_opgeven_begin = is_null($request->examen_opgeven_begin) ? $examen->examen_opgeven_begin : $request->examen_opgeven_begin;
-            $examen->examen_opgeven_eind = is_null($request->examen_opgeven_eind) ? $examen->examen_opgeven_eind : $request->examen_opgeven_eind;
-            $examen->uitleg = is_null($request->uitleg) ? $examen->uitleg : $request->uitleg;
-            $examen->save();
-            
-            return redirect()->route('examens.show', $id)->with('success','Examen aangepast.');
-        }else {
-            return redirect()->route('examens.index')->with('error','Examen niet gevonden.');
-        }
+                $this->validate($request, [
+                    'vak' => 'required',
+                    'examen' => 'required',
+                    'opleiding_id' => 'required|integer',
+                    'geplande_docenten' => 'required',
+                    'examen_opgeven_begin' => 'required',
+                    'examen_opgeven_eind' => 'required',
+                ]);
+                
+                if (Examen::where('id', $id)->exists()) {
+                    $examen = Examen::find($id);
+                    $examen->vak = is_null($request->vak) ? $examen->vak : $request->vak;
+                    $examen->examen = is_null($request->examen) ? $examen->examen : $request->examen;
+                    $examen->opleiding_id = is_null($request->opleiding_id) ? $examen->opleiding_id : $request->opleiding_id;
+                    $examen->geplande_docenten = is_null($request->geplande_docenten) ? $examen->geplande_docenten : $request->geplande_docenten;
+                    $examen->examen_opgeven_begin = is_null($request->examen_opgeven_begin) ? $examen->examen_opgeven_begin : $request->examen_opgeven_begin;
+                    $examen->examen_opgeven_eind = is_null($request->examen_opgeven_eind) ? $examen->examen_opgeven_eind : $request->examen_opgeven_eind;
+                    $examen->uitleg = is_null($request->uitleg) ? $examen->uitleg : $request->uitleg;
+                    $examen->save();
+                    
+                    return redirect()->route('examens.show', $id)->with('success','Examen aangepast.');
+                }else {
+                    return redirect()->route('examens.index')->with('error','Examen niet gevonden.');
+                }
     }
 
     public function delete($id)
     {
         $user = \Auth::user();
 
-        if(!$user){
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+        if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+            $bouncer = Bouncer::is($user)->a('opleidingsmanager');
 
-        $opleidingen = Opleidingen::all();
+            if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-        if($bouncer){
-            return view('beheer.opleidingen.index', compact('opleidingen'));
-        }else{
-            //echo 'not allowed';  
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+                $examen = Examen::find($id);
 
-        $examen = Examen::find($id);
-
-        return view('beheer.examens.delete', compact('examen'));
+                return view('beheer.examens.delete', compact('examen'));
     }
 
     public function destroy($id, ExamenMoment $moment)
     {
         $user = \Auth::user();
 
-        if(!$user){
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+        if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+            $bouncer = Bouncer::is($user)->a('opleidingsmanager');
 
-        $opleidingen = Opleidingen::all();
+                if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-        if($bouncer){
-            return view('beheer.opleidingen.index', compact('opleidingen'));
-        }else{
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+                    if (Examen::where('id', $id)->exists()) {
+                        $examen = Examen::find($id);
+                        $examen->delete();
 
-        if (Examen::where('id', $id)->exists()) {
-            $examen = Examen::find($id);
-            $examen->delete();
-
-            return redirect()->route('examens.index')->with('success','Examen verwijderd.');
-        }else {
-            return redirect()->route('examens.index')->with('error','Examen niet gevonden.');
-        }
+                        return redirect()->route('examens.index')->with('success','Examen verwijderd.');
+                    }else {
+                        return redirect()->route('examens.index')->with('error','Examen niet gevonden.');
+                    }
     }
 }
