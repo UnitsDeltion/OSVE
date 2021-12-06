@@ -27,7 +27,7 @@
                     <a class="nav-link" href="#controllers_beheer">Beheer</a>
                     <ul class="list-unmarked">
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_DashboardController">DashboardController</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#controllers_beheer_ExamensBeheerController">ExamensBeheerController</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#controllers_beheer_ExamenBeheerController">ExamensBeheerController</a></li>
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_ExamenMomentBeheerController">ExamenMomentBeheerController</a></li>
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_GeplandeExamensBeheerController">GeplandeExamensBeheerController</a></li>
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_OpleidingBeheerController">OpleidingBeheerController</a></li>
@@ -35,6 +35,20 @@
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_UserBeheerController">UserBeheerController</a></li>
                     </ul>
                 </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#models">Models</a>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="#models_Account">Account</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_Examen">Examen</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_ExamenMoment">ExamenMoment</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_GeplandeExamens">GeplandeExamens</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_GeplandeExamensTokens">GeplandeExamensTokens</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_Opleidingen">Opleidingen</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_ReglementenBeheer">ReglementenBeheer</a></li>
+                <li class="nav-item"><a class="nav-link" href="#models_User">User</a></li>
             </ul>
         </li>
 

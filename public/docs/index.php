@@ -94,6 +94,12 @@
 
 					<hr class="divider">
 
+					<!-- Models
+					============================ -->
+					<?php include './sections/models.php' ?>
+
+					<hr class="divider">
+
 					<!-- Views
 					============================ -->
 					<?php include './sections/views.php' ?>
