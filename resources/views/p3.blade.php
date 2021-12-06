@@ -49,11 +49,6 @@
                                     @foreach($examens as $examen)
 
                                         <?php
-                                            $huidigeDatum = strtotime(date('d-m-Y'));
-                                            $startDatum = strtotime(date('d-m-Y', strtotime($examen->examen_opgeven_begin))); 
-                                            $eindDatum = strtotime(date('d-m-Y', strtotime($examen->examen_opgeven_eind))); 
-
-                                            if($huidigeDatum > $startDatum && $huidigeDatum < $eindDatum){
 
                                                 if($examen->vak != $examenVak ){
                                                     if ($examenVak != ""){
@@ -66,9 +61,16 @@
                                             
                                                 
                                                 $examenVak = $examen->vak;
-                                            }
                                         ?>
+                                        @foreach($moments as $moment)
                                         <?php
+                                            $huidigeDatum = strtotime(date('d-m-Y'));
+                                            $startDatum = strtotime(date('d-m-Y', strtotime($moment->examen_opgeven_begin))); 
+                                            $eindDatum = strtotime(date('d-m-Y', strtotime($moment->examen_opgeven_eind))); 
+
+                                            dump($huidigeDatum);
+                                            dump($startDatum);
+                                            dump($eindDatum);
                                             if($huidigeDatum > $startDatum && $huidigeDatum < $eindDatum){
                                         ?>
                                                 <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
@@ -85,7 +87,7 @@
                                         <?php 
                                             }
                                         ?>
-
+                                    @endforeach
                                     @endforeach
                                     </div>
                             </div>  

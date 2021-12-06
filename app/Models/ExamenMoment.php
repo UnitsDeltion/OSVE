@@ -42,7 +42,10 @@ class ExamenMoment extends Model
 		'examenid',
 		'datum',
 		'tijd',
-		'plaatsen'
+		'plaatsen',
+		'geplande_docenten',
+		'examen_opgeven_begin',
+		'examen_opgeven_eind',
 		
 	];
 

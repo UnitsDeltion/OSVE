@@ -44,17 +44,11 @@ class ExamenBeheerController extends Controller
             'vak' => 'required',
             'examen' => 'required',
             'opleiding_id' => 'required|integer',
-            'geplande_docenten' => 'required',
-            'examen_opgeven_begin' => 'required',
-            'examen_opgeven_eind' => 'required',
         ]);
 
         $examen->vak = $request->vak;
         $examen->examen = $request->examen;
         $examen->opleiding_id = $request->opleiding_id;
-        $examen->geplande_docenten = $request->geplande_docenten;
-        $examen->examen_opgeven_begin = $request->examen_opgeven_begin;
-        $examen->examen_opgeven_eind = $request->examen_opgeven_eind;
         $examen->uitleg = $request->uitleg;
         $examen->save();
         
@@ -104,9 +98,6 @@ class ExamenBeheerController extends Controller
                     'vak' => 'required',
                     'examen' => 'required',
                     'opleiding_id' => 'required|integer',
-                    'geplande_docenten' => 'required',
-                    'examen_opgeven_begin' => 'required',
-                    'examen_opgeven_eind' => 'required',
                 ]);
                 
                 if (Examen::where('id', $id)->exists()) {
@@ -114,9 +105,6 @@ class ExamenBeheerController extends Controller
                     $examen->vak = is_null($request->vak) ? $examen->vak : $request->vak;
                     $examen->examen = is_null($request->examen) ? $examen->examen : $request->examen;
                     $examen->opleiding_id = is_null($request->opleiding_id) ? $examen->opleiding_id : $request->opleiding_id;
-                    $examen->geplande_docenten = is_null($request->geplande_docenten) ? $examen->geplande_docenten : $request->geplande_docenten;
-                    $examen->examen_opgeven_begin = is_null($request->examen_opgeven_begin) ? $examen->examen_opgeven_begin : $request->examen_opgeven_begin;
-                    $examen->examen_opgeven_eind = is_null($request->examen_opgeven_eind) ? $examen->examen_opgeven_eind : $request->examen_opgeven_eind;
                     $examen->uitleg = is_null($request->uitleg) ? $examen->uitleg : $request->uitleg;
                     $examen->save();
                     

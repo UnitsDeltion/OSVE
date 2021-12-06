@@ -40,6 +40,30 @@
                     </div>
                 </div>
 
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <lable for="geplande_docenten" class="block font-medium text-sm text-gray-700">Examinerende docenten</lable>
+                        <input id="geplande_docenten" class="block mt-1 w-full form-control" type="varchar" name="geplande_docenten" value="{{ $moment['geplande_docenten'] }}"/>
+                        @livewire('includes.validation.input', ['input' => 'geplande_docenten'])
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <lable for="opgeven_examen_begin" class="block font-medium text-sm text-gray-700">Opgeven examen begin</lable>
+                        <input id="examen_opgeven_begin" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_begin" value="{{ $moment['examen_opgeven_begin'] }}"/>
+                        @livewire('includes.validation.input', ['input' => 'examen_opgeven_begin'])
+                    </div>
+                </div>
+                        
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <lable for="opgeven_examen_eind" class="block font-medium text-sm text-gray-700">Opgeven examen eind</lable>
+                        <input id="examen_opgeven_eind" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_eind" value="{{ $moment['examen_opgeven_eind'] }}"/>
+                        @livewire('includes.validation.input', ['input' => 'examen_opgeven_eind'])
+                    </div>
+                </div>
+
                 <div class="mt-4">
                     <a href="{{ route('examens.show', $examen['id']) }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">
                         <i class="fas fa-backward mr-2"></i> Terug
