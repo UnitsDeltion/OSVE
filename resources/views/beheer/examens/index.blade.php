@@ -42,11 +42,16 @@
                             </a>
                         </td>
                         <td>
-                        <a class="a-clear" data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{ route('examenDelete', $examen['id']) }}" title="Delete Examen">
-                            <x-jet-button class="button" title="Verwijderen">
-                                    <i class="fas fa-trash"></i>
-                            </x-jet-button>
-                         </a>
+                        <?php
+                            $user = \Auth::user();
+                        ?>
+                        @if($user->isAn('opleidingsmanager'))    
+                            <a class="a-clear" data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{ route('examenDelete', $examen['id']) }}" title="Delete Examen">
+                                <x-jet-button class="button" title="Verwijderen">
+                                        <i class="fas fa-trash"></i>
+                                </x-jet-button>
+                            </a>
+                         @endif
                         </td>
                     </tr>
                 @endforeach
