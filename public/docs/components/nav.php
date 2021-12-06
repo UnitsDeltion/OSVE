@@ -27,7 +27,7 @@
                     <a class="nav-link" href="#controllers_beheer">Beheer</a>
                     <ul class="list-unmarked">
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_DashboardController">DashboardController</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#controllers_beheer_ExamenBeheerController">ExamensBeheerController</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#controllers_beheer_ExamenBeheerController">ExamenBeheerController</a></li>
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_ExamenMomentBeheerController">ExamenMomentBeheerController</a></li>
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_GeplandeExamensBeheerController">GeplandeExamensBeheerController</a></li>
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_OpleidingBeheerController">OpleidingBeheerController</a></li>

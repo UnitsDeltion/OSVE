@@ -6,9 +6,11 @@ use Bouncer;
 use App\Models\Examen;
 use App\Models\ExamenMoment;
 use App\Models\Opleidingen;
-use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+
+use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 class ExamenBeheerController extends Controller
@@ -22,7 +24,6 @@ class ExamenBeheerController extends Controller
         if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
         
         $examens = (new Examen())->with( 'examen_moments')->get()->toArray();
-        $opleidingen = Opleidingen::all();
 
         return view('beheer.examens.index')->with(compact('examens'));
     }
@@ -66,24 +67,12 @@ class ExamenBeheerController extends Controller
     public function show(Request $request, $id)
     {
         $user = \Auth::user();
-
-        if(!$user){
-            abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+        if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
         $bouncer = Bouncer::is($user)->a('opleidingsmanager');
-
-        $opleidingen = Opleidingen::all();
-
-        if($bouncer){
-            return view('beheer.opleidingen.index', compact('opleidingen'));
-        }else{
-            //echo 'not allowed';  
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        }
+        if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
         $opleidingen = Opleidingen::all()->toArray();
-
         $examen = Examen::where('id', $id)->with('examen_moments')->get()->first()->toArray();
 
         return view('beheer.examens.show')->with(compact('examen', 'opleidingen'));
