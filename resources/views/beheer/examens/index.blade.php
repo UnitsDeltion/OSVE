@@ -41,22 +41,55 @@
                                 </x-jet-button>
                             </a>
                         </td>
-                        <td>
-                        <?php
-                            $user = \Auth::user();
-                        ?>
-                        @if($user->isAn('opleidingsmanager'))    
+                        <td> 
                             <a class="a-clear" data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{ route('examenDelete', $examen['id']) }}" title="Delete Examen">
                                 <x-jet-button class="button" title="Verwijderen">
                                         <i class="fas fa-trash"></i>
                                 </x-jet-button>
                             </a>
-                         @endif
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+
+        <?php
+            $user = \Auth::user();
+        ?>
+        @if($user->isAn('opleidingsmanager')) 
+        <table class="table mt-4" id="examens">
+            <h3 class="mt-50">Verwijderde    examens</h3>
+            <thead>
+                <tr>
+                    <th>Vak</th>
+                    <th>Examen</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($inactiveExamens as $inactiveExamen)
+                    <tr class="va-middle">
+                        <td>{{ $inactiveExamen['vak'] }}</td>
+                        <td>{{ $inactiveExamen['examen'] }}</td>
+                        <td class="align-right pr-0">
+                            <a href="{{ route('examens.show', $inactiveExamen['id'] ) }}" class="mr-2 a-clear">
+                                <x-jet-button class="button">
+                                    <i class="fas fa-eye"></i>
+                                </x-jet-button>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="a-clear" data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{ route('examenDelete', $inactiveExamen['id']) }}" title="Delete Examen">
+                                <x-jet-button class="button" title="Verwijderen">
+                                        <i class="fas fa-history"></i>
+                                </x-jet-button>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @endif
 
         <!-- large modal -->
         <div class="modal fade" id="largeModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
