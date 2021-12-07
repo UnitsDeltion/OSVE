@@ -124,6 +124,7 @@
 
             <div class="mt-50">
                 <h3>Toekomstige examens</h3>
+                <p>Toekomstige exmanens zijn examens die na vandaag worden gehouden.</p>
                 <div class="row">
                     <div class="col-sm-6 form-group">
                         <label for="min">Eerste datum</label>
