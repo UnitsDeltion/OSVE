@@ -124,22 +124,28 @@
 
             <hr>
 
-            <div class="mt-50">
-                <h3>Alle examens</h3>
-                <div class="row">
-                    <div class="col-sm-6 form-group">
-                        <label for="min">Eerste datum</label>
-                        <input type="text" class="form-control" id="min" name="min" placeholder="Eerst datum">
-                    </div>
+            <h3>Toekomstige examens</h3>
+            <div>
+                <br>
+                <td>Start datum:</td>
+                <td><input type="text" id="min" name="min"></td>
 
-                    <div class="col-sm-6 form-group">
-                        <label for="min">Laatste datum</label>
-                        <input type="text" class="form-control" id="max" name="max" placeholder="Laatste datum">
-                    </div>
-                </div>
-        
-                <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="toekomstigeExamens">
-                    <thead>
+                <!-- <td>Tweede datum:</td>
+                <td><input type="text" id="max" name="max"></td> -->
+            </div>
+    
+            <table class="table table-bordered" style="margin: 10px 0 10px 0;" id="toekomstigeExamens">
+                <thead>
+                    <tr>
+                        <th>Vak</th>
+                        <th>Examen</th>
+                        <th>Geplande docent</th>
+                        <th>Eerste datum</th>
+                        <th>Laatste datum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($examens as $examen)
                         <tr>
                             <th>Vak</th>
                             <th>Examen</th>
