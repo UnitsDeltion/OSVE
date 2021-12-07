@@ -80,6 +80,7 @@ class DashboardBeheerController extends Controller
                     array_push($activeExamens, $examen);
                 }
             }
+
         }
 
         $opleidingen = Opleidingen::all();
