@@ -22,6 +22,7 @@ class CreateExamensTable extends Migration
             $table->string('geplande_docenten');
             $table->date('examen_opgeven_begin');
             $table->date('examen_opgeven_eind');
+            $table->integer('active');
             
             $table->foreign('opleiding_id', 'examens_ibfk_1')->references('id')->on('opleidingen')->onDelete('cascade')->onUpdate('restrict');
         });

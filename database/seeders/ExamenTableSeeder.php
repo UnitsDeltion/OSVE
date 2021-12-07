@@ -22,6 +22,7 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin'      =>      '2021-11-28',
                 'examen_opgeven_eind'       =>      '2021-12-31',
+                'active'                    =>      '1',
 
             ],
             [
@@ -32,6 +33,7 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin'      =>      '2021-11-28',
                 'examen_opgeven_eind'       =>      '2021-12-31',
+                'active'                    =>      '1',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -41,6 +43,7 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin'      =>      '2021-11-28',
                 'examen_opgeven_eind'       =>      '2021-12-31',
+                'active'                    =>      '1',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -50,6 +53,7 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin'      =>      '2021-10-28',
                 'examen_opgeven_eind'       =>      '2021-11-24',
+                'active'                    =>      '1',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -59,6 +63,7 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin'      =>      '2021-11-28',
                 'examen_opgeven_eind'       =>      '2021-12-31',
+                'active'                    =>      '1',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -68,6 +73,7 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin'      =>      '2021-11-28',
                 'examen_opgeven_eind'       =>      '2021-12-31',
+                'active'                    =>      '1',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -77,6 +83,7 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin'      =>      '2021-11-28',
                 'examen_opgeven_eind'       =>      '2021-12-31',
+                'active'                    =>      '1',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -86,6 +93,7 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin'      =>      '2021-11-28',
                 'examen_opgeven_eind'       =>      '2021-12-31',
+                'active'                    =>      '1',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -95,6 +103,7 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin'      =>      '2021-11-28',
                 'examen_opgeven_eind'       =>      '2021-12-31',
+                'active'                    =>      '1',
             ],
             [
                 'opleiding_id'              =>      1,
@@ -104,6 +113,7 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin'      =>      '2021-11-28',
                 'examen_opgeven_eind'       =>      '2021-12-31',
+                'active'                    =>      '1',
             ],
             [
                 'opleiding_id'              =>      2,
@@ -113,6 +123,7 @@ class ExamenTableSeeder extends Seeder
                 'geplande_docenten'         =>      '97071583@st.deltion.nl',
                 'examen_opgeven_begin'      =>      '2021-11-28',
                 'examen_opgeven_eind'       =>      '2021-12-31',
+                'active'                    =>      '1',
             ],
 
         ];
