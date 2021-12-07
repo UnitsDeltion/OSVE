@@ -31,11 +31,23 @@ class DashboardBeheerController extends Controller
 
         foreach($examens as $examen){
             //Vervang de email die in het examen staat door de voor en achternaam
-            foreach($users as $user){
-                if($examen->geplande_docenten == $user->email){
-                    $examen->geplande_docenten = $user->voornaam . " " . $user->achternaam;
+            $docenten = explode(', ', $examen->geplande_docenten);
+
+            $geplandeDocenten = array();
+
+            //Voor elke docent die gekoppeld is aan het examen
+            foreach($docenten as $docent){
+                //Loop door alle gebruikers heen
+                foreach($users as $user){
+                    //Als de docent gelijk is aan de $user zet de docent in de $geplandeDocenten array
+                    if($docent == $user->email){
+                        array_push($geplandeDocenten, $user->voornaam . " " . $user->achternaam);
+                    }
                 }
             }
+
+            //Zet alle geplandeDocenten in het examen
+            $examen->geplande_docenten = $geplandeDocenten;
 
             //Lege data array die wordt gevuld met de eerste en de laatste examen moment datum.
             //Op deze manier kan er op het dashboard gefiltert worden
@@ -81,8 +93,6 @@ class DashboardBeheerController extends Controller
                 }
             }
         }
-
-        // dd($activeExamens);
 
         $opleidingen = Opleidingen::all();
         $geplandeExamens = GeplandeExamens::all();

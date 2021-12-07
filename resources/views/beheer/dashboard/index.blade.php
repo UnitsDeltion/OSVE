@@ -107,7 +107,9 @@
                                 {{ $activeExamen->examen }}
                             </td>
                             <td>
-                                {{ $activeExamen->geplande_docenten }}
+                                @foreach($activeExamen->geplande_docenten as $docent)
+                                    {{ $docent }},
+                                @endforeach
                             </td>
                             <td>
                                 {{ $activeExamen->startDatum }}
@@ -156,7 +158,9 @@
                                     {{ $examen->examen }}
                                 </td>
                                 <td>
-                                    {{ $examen->geplande_docenten }}
+                                    @foreach($examen->geplande_docenten as $docent)
+                                        {{ $docent }},
+                                    @endforeach
                                 </td>
                                 <td id="min">
                                     {{ $examen->startDatum }}
