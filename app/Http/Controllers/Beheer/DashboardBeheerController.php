@@ -84,12 +84,14 @@ class DashboardBeheerController extends Controller
 
             //Active examens
             date_default_timezone_set('Europe/Amsterdam');
-
-            //Voor elk examen moment check if de datum gelijk is aan de huidige datum
-            foreach($examen->momenten as $key){
-                //Als de datum gelijk is aan de huidige datum zet hem in de $activeExamens array
-                if($key['datum'] == date("Y-m-d")){
-                    array_push($activeExamens, $examen);
+            
+            if(null != $examen->momenten){
+                //Voor elk examen moment check if de datum gelijk is aan de huidige datum
+                foreach($examen->momenten as $key){
+                    //Als de datum gelijk is aan de huidige datum zet hem in de $activeExamens array
+                    if($key['datum'] == date("Y-m-d")){
+                        array_push($activeExamens, $examen);
+                    }
                 }
             }
         }
