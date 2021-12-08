@@ -81,10 +81,6 @@ class OSVEController extends Controller
             ->orderBy("vak", "asc")
             ->get();
 
-            // [
-            //     ['examenid', $examenId],
-            //     ['plaatsen', '>=', 1]
-
         return view("p3", compact("examens"));
     }
 
