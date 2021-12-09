@@ -104,6 +104,7 @@ class DashboardBeheerController extends Controller
             $examen = Examen::where('id', $geplandExamen->examen)->first();
             $examenMoment = ExamenMoment::where('id', $geplandExamen->examen_moment)->first();
 
+            $geplandExamen->vak = $examen->vak;
             $geplandExamen->gepland_examen = $examen->examen;
             $geplandExamen->datum = $examenMoment->datum;
             $geplandExamen->tijd = $examenMoment->tijd;
