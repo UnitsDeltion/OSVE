@@ -78,8 +78,6 @@
             $return = null;
         }
 
-        var_dump($page);
-
         echo $return;
     ?>
 </div>

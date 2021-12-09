@@ -90,6 +90,16 @@
             </pre>
         </div>
 
+        <div id="views_components_breadcrumbs">
+            <h4>Breadcrumbs</h4>
+            <p class="lead">In de content components worden breadcrumbs ingeladen. Om de content components overzichterlijk te houden hebben we hier een component voor.</p>
+            <pre>
+                <code class="html">
+<?php import('../../resources/views/livewire/includes/breadcrumbs.blade.php') ?>
+                </code>
+            </pre>
+        </div>
+
         <div id="views_components_footer">
             <h4>Footer</h4>
             <p class="lead">Elke site heeft een footer nodig. Omdat deze site in opdracht van het Deltion College is gemaakt, maken wij gebruik van de <a target="_blank" rel="noopener" href="http://www.deltion.nl">deltion.nl</a> footer.</p>
