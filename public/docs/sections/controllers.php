@@ -308,6 +308,11 @@
             </pre>
 
             <div>
+                <h5>Function index</h5>
+                <p>Deze function haalt alle examens op en stuurt ze hem door naar de view.</p>
+            </div>
+
+            <div>
                 <h5>Function create</h5>
                 <p>Bij <code>function create</code> worden alle examens opgehaald en doorgestuurd naar de view.</p>
             </div>
@@ -319,7 +324,7 @@
 
             <div>
                 <h5>Function edit</h5>
-                <p><code>Function edit</code> wordt het examen en het examenMoment opgehaald en doorgestuurd naar de view.</p>
+                <p>Bij <code>Function edit</code> wordt het examen en het examenMoment opgehaald en doorgestuurd naar de view.</p>
             </div>
 
             <div>
@@ -335,6 +340,132 @@
             <div>
                 <h5>Function destroy</h5>
                 <p>Bij <code>function destroy</code> wordt het examenMoment definitief verwijderd.</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="mt-50 mb-50" id="controllers_beheer_GeplandeExamensBeheerController">
+            <h4>GeplandeExamensBeheerController</h4>
+            <p>De <code>GeplandeExamensBeheerController</code> maakt het voor docenten en opleidingsmangers mogelijk om geplande examens te bevestigen.</p>
+
+            <pre>
+                <code class="php">
+<?php import('../../app/Http/Controllers/beheer/GeplandeExamensBeheerController.php') ?>
+                </code>
+            </pre>
+        </div>
+
+        <div class="mt-50 mb-50" id="controllers_beheer_OpleidingBeheerController">
+            <h4>OpleidingBeheerController</h4>
+            <p>De <code>OpleidingBeheerController</code> maakt het voor opleidingsmangers mogelijk om opleidingen te beheren.</p>
+
+            <pre>
+                <code class="php">
+<?php import('../../app/Http/Controllers/beheer/OpleidingBeheerController.php') ?>
+                </code>
+            </pre>
+
+            <div>
+                <h5>Function index</h5>
+                <p>Deze function haalt de opleidingen op en stuurt ze door naar de view.</p>
+            </div>
+
+            <div>
+                <h5>Function create</h5>
+                <p>Bij <code>function create</code> worden alle opleidingen opgehaald en doorgestuurd naar de view.</p>
+            </div>
+
+            <div>
+                <h5>Function store</h5>
+                <p><code>Function store</code> valideert <code>POST</code> data en zet de data in de db.</p>
+            </div>
+
+            <div>
+                <h5>Function edit</h5>
+                <p>Bij <code>Function edit</code> wordt de opleiding opgehaald en doorgestuurd naar de view.</p>
+            </div>
+
+            <div>
+                <h5>Function update</h5>
+                <p><code>Function update</code> valideert <code>POST</code> data en zet werkt de data bij in de db.</p>
+            </div>
+
+            <div>
+                <h5>Function delete</h5>
+                <p>Bij <code>function delete</code> wordt een popup weergegeven waarna de opleiding definitief verwijderd kan worden.</p>
+            </div>
+
+            <div>
+                <h5>Function destroy</h5>
+                <p>Bij <code>function destroy</code> wordt de opleiding definitief verwijderd.</p>
+            </div>
+        </div>
+
+        <div class="mt-50 mb-50" id="controllers_beheer_ReglementenBeheerController">
+            <h4>ReglementenBeheerController</h4>
+            <p>De <code>ReglementenBeheerController</code> maakt het voor opleidingsmangers mogelijk om het examen reglementen te beheren.</p>
+
+            <pre>
+                <code class="php">
+<?php import('../../app/Http/Controllers/beheer/ReglementenBeheerController.php') ?>
+                </code>
+            </pre>
+
+            <div>
+                <h5>Function index</h5>
+                <p>Deze function haalt het examen regelement op en stuurt ze het door naar de view.</p>
+            </div>
+
+            <div>
+                <h5>Function store</h5>
+                <p><code>Function store</code> valideert <code>POST</code> data en zet de data in de db.</p>
+            </div>
+        </div>
+
+        <div class="mt-50 mb-50" id="controllers_beheer_UsersBeheerController">
+            <h4>UsersBeheerController</h4>
+            <p>De <code>UsersBeheerController</code> maakt het voor opleidingsmangers mogelijk om gebruikers te beheren.</p>
+
+            <pre>
+                <code class="php">
+<?php import('../../app/Http/Controllers/beheer/UsersBeheerController.php') ?>
+                </code>
+            </pre>
+
+            <div>
+                <h5>Function index</h5>
+                <p>Deze function haalt alle gebruikers op en stuurt ze door naar de view.</p>
+            </div>
+
+            <div>
+                <h5>Function create</h5>
+                <p>Bij <code>function create</code> worden alle gebruikers opgehaald en doorgestuurd naar de view.</p>
+            </div>
+
+            <div>
+                <h5>Function store</h5>
+                <p><code>Function store</code> valideert <code>POST</code> data en zet de data in de db.</p>
+            </div>
+
+            <div>
+                <h5>Function edit</h5>
+                <p>Bij <code>Function edit</code> wordt de gebruiker opgehaald en doorgestuurd naar de view.</p>
+            </div>
+
+            <div>
+                <h5>Function update</h5>
+                <p><code>Function update</code> valideert <code>POST</code> data en zet werkt de data bij in de db.</p>
+            </div>
+
+            <div>
+                <h5>Function delete</h5>
+                <p>Bij <code>function delete</code> wordt een popup weergegeven waarna de gebruiker definitief verwijderd kan worden.</p>
+            </div>
+
+            <div>
+                <h5>Function destroy</h5>
+                <p>Bij <code>function destroy</code> wordt de gebruiker definitief verwijderd.</p>
             </div>
         </div>
 

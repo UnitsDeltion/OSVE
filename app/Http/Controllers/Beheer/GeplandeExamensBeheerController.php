@@ -32,7 +32,7 @@ class GeplandeExamensBeheerController extends Controller
             );
         }
         
-        //Stuurt terug nar dashboard
+        //Stuurt terug naar dashboard
         return redirect("/beheer/dashboard");
     }
 }

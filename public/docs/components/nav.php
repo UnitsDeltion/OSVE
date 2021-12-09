@@ -32,7 +32,7 @@
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_GeplandeExamensBeheerController">GeplandeExamensBeheerController</a></li>
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_OpleidingBeheerController">OpleidingBeheerController</a></li>
                         <li class="nav-item"><a class="nav-link" href="#controllers_beheer_ReglementenBeheerController">ReglementenBeheerController</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#controllers_beheer_UserBeheerController">UserBeheerController</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#controllers_beheer_UsersBeheerController">UserBeheerController</a></li>
                     </ul>
                 </li>
             </ul>
@@ -61,6 +61,7 @@
                     <ul class="list-unmarked">
                         <li class="nav-item"><a class="nav-link" href="#view_components_validation">Validation</a></li>
                         <li class="nav-item"><a class="nav-link" href="#views_components_content">Content</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#views_components_breadcrumbs">Breadcrumbs</a></li>
                         <li class="nav-item"><a class="nav-link" href="#views_components_footer">Footer</a></li>
                     </ul>
                 </li>
