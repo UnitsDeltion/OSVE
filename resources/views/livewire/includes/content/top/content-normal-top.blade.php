@@ -8,8 +8,8 @@
 
     @livewire('includes.breadcrumbs', ['page' => $name])
 
-    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <div class="content">
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <div class="content">

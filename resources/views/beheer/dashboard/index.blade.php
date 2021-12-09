@@ -45,7 +45,7 @@
                             {{ $geplandExamen->klas }}
                         </td>
                         <td>
-                            {{ $geplandExamen->gepland_examen }}
+                            {{ $geplandExamen->vak }} {{ $geplandExamen->gepland_examen }}
                         </td>
                         <td>
                             {{date('d-m-Y', strtotime($geplandExamen['datum']))}}
@@ -92,7 +92,7 @@
                     <tr>
                         <th>Vak</th>
                         <th>Examen</th>
-                        <th>Geplande docent</th>
+                        <th>Geplande docenten</th>
                         <th>Eerste datum</th>
                         <th>Laatste datum</th>
                     </tr>
@@ -137,7 +137,7 @@
                     <tr>
                         <th>Vak</th>
                         <th>Examen</th>
-                        <th>Geplande docent</th>
+                        <th>Geplande docenten</th>
                         <th>Eerste datum</th>
                         <th>Laatste datum</th>
                     </tr>
