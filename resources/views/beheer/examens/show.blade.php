@@ -71,6 +71,13 @@
                     </div>
                 </div>
 
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="vak_docent" class="block font-medium text-sm text-gray-700">Vak docent</label>
+                        <input id="vak_docent" class="block mt-1 w-full form-control" type="text" name="vak_docent" value="{{ $examen['vak_docent'] }}" disabled/>
+                    </div>
+                </div>
+
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="uitleg" class="block font-medium text-sm text-gray-700">Uitleg</label>

@@ -45,6 +45,14 @@
                         @livewire('includes.validation.input', ['input' => 'opleiding_id'])
                     </div>
                 </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <lable for="vak_docent" class="block font-medium text-sm text-gray-700">Vak docent</lable>
+                        <input id="vak_docent" class="block mt-1 w-full form-control" type="varchar" name="vak_docent" value="{{ $examen['vak_docent'] }}"/>
+                        @livewire('includes.validation.input', ['input' => 'vak_docent'])
+                    </div>
+                </div>
   
                 <div class="col-md-12">
                     <div class="form-group">
