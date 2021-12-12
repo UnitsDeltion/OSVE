@@ -74,6 +74,9 @@
         }elseif($page == 'reglementen.index'){
             $return = '<a href="/beheer/dashboard" class="a-clear fc-white"><i class="fas fa-home"></i> Dashboard</a>';
             $return .= '<i class="fas fa-angle-right ml-2 mr-2"></i> <a href="/beheer/reglementen" class="a-clear fc-white breadcrumbs-active"><i class="fas fa-graduation-cap"></i> Reglementen beheer</a>';
+        }elseif($page == 'geplandeExamens.index'){
+            $return = '<a href="/beheer/dashboard" class="a-clear fc-white"><i class="fas fa-home"></i> Dashboard</a>';
+            $return .= '<i class="fas fa-angle-right ml-2 mr-2"></i> <a href="/beheer/geplandeExamens" class="a-clear fc-white breadcrumbs-active"><i class="fas fa-graduation-cap"></i> Geplande examens beheer</a>';
         }else{
             $return = null;
         }
