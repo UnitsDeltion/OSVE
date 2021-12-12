@@ -45,10 +45,13 @@ Route::resource('/beheer/examens', ExamenBeheerController::class);
 Route::resource('/beheer/moments', ExamenMomentBeheerController::class)->except('create', 'store');
 Route::get('/beheer/moment/{id}', [ExamenMomentBeheerController::class, 'create'])->name('momentsCreate');
 Route::POST('/beheer/moment/{id}', [ExamenMomentBeheerController::class, 'store'])->name('momentsStore');
-Route::POST('/beheer/bevestigExamen', [GeplandeExamensBeheerController::class, 'bevestigExamen'])->name('bevestigExamen');
+
+Route::resource('/beheer/geplandeExamens', GeplandeExamensBeheerController::class);
+Route::POST('/beheer/geplandeExamens/bevestigExamen', [GeplandeExamensBeheerController::class, 'bevestigExamen'])->name('bevestigExamen');
 
 //Delete popup
 Route::get('/beheer/user/delete/{id}', [UsersBeheerController::class, 'delete'])->name('usersDelete');
 Route::get('/beheer/moment/delete/{id}', [ExamenMomentBeheerController::class, 'delete'])->name('momentsDelete');
 Route::get('/beheer/examen/delete/{id}', [ExamenBeheerController::class, 'delete'])->name('examenDelete');
 Route::get('/beheer/opleidingen/delete/{id}', [OpleidingBeheerController::class, 'delete'])->name('opleidingDelete');
+Route::get('/beheer/geplandeExamens/delete/{id}', [GeplandeExamensBeheerController::class, 'delete'])->name('geplandExamenDelete');

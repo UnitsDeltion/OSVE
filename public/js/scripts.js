@@ -11,7 +11,7 @@ function selectInput($page, $id, $element){
                     duration: 7500,
                     position: 'top center',
                     title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
-                    html: '<p class="align-center mb-0 fw-600 fc-primary-nh">Er kan maar <span class="fw-900 fc-secondary-nh">één</span> opleiding <br> per keer worden geselecteerd.</p>',
+                    html: '<p class="align-center mb-0 fw-600 fc-primary-nh">Je bent gewisseld van <span class="fw-900 fc-secondary-nh">opleiding</span>. <br> Weet je dit zeker?</p>',
                 });
             }
         });
@@ -25,7 +25,7 @@ function selectInput($page, $id, $element){
                     duration: 7500,
                     position: 'top center',
                     title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
-                    html: '<p class="align-center mb-0 fw-600 fc-primary-nh">Je bent gewisseld van <span class="fw-900 fc-secondary-nh">examen</span> <br> Weet je dit zeker?</p>',
+                    html: '<p class="align-center mb-0 fw-600 fc-primary-nh">Je bent gewisseld van <span class="fw-900 fc-secondary-nh">examen</span>. <br> Weet je dit zeker?</p>',
                 });
             }
         });
@@ -39,7 +39,7 @@ function selectInput($page, $id, $element){
                     duration: 7500,
                     position: 'top center',
                     title: '<p class="align-center fc-secondary-nh mb-0">OSVE | Deltion College</p>',
-                    html: '<p class="align-center mb-0 fw-600 fc-primary-nh">Er kan maar <span class="fw-900 fc-secondary-nh">één</span> examen moment <br> per keer worden ingepland.</p>',
+                    html: '<p class="align-center mb-0 fw-600 fc-primary-nh">Je bent gewisseld van <span class="fw-900 fc-secondary-nh">examen moment</span>. <br> Weet je dit zeker?</p>',
                 });
             }
         });
