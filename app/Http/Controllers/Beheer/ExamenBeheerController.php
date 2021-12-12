@@ -44,11 +44,13 @@ class ExamenBeheerController extends Controller
             'vak' => 'required',
             'examen' => 'required',
             'opleiding_id' => 'required|integer',
+            'vak_docent' => 'required',
         ]);
 
         $examen->vak = $request->vak;
         $examen->examen = $request->examen;
         $examen->opleiding_id = $request->opleiding_id;
+        $examen->vak_docent = $request->vak_docent;
         $examen->uitleg = $request->uitleg;
         $examen->save();
         
@@ -98,6 +100,7 @@ class ExamenBeheerController extends Controller
                     'vak' => 'required',
                     'examen' => 'required',
                     'opleiding_id' => 'required|integer',
+                    'vak_docent' => 'required',
                 ]);
                 
                 if (Examen::where('id', $id)->exists()) {
@@ -105,6 +108,7 @@ class ExamenBeheerController extends Controller
                     $examen->vak = is_null($request->vak) ? $examen->vak : $request->vak;
                     $examen->examen = is_null($request->examen) ? $examen->examen : $request->examen;
                     $examen->opleiding_id = is_null($request->opleiding_id) ? $examen->opleiding_id : $request->opleiding_id;
+                    $examen->vak_docent = is_null($request->vak_docent) ? $examen->vak_docent : $request->vak_docent;
                     $examen->uitleg = is_null($request->uitleg) ? $examen->uitleg : $request->uitleg;
                     $examen->save();
                     

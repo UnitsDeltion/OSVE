@@ -41,6 +41,7 @@ class Examen extends Model
 		'examen',
 		'examen_type',
 		'uitleg',
+		'vak_docent',
 		
 	];
 
