@@ -64,11 +64,11 @@
                                         ?>
                                         
                                         <?php
-                                            $huidigeDatum = strtotime(date('d-m-Y'));
-                                            $startDatum = strtotime(date('d-m-Y', strtotime($examen->examen_moments->examen_opgeven_begin))); 
-                                            $eindDatum = strtotime(date('d-m-Y', strtotime($examen->examen_moments->examen_opgeven_eind))); 
+                                            // $huidigeDatum = strtotime(date('d-m-Y'));
+                                            // $startDatum = strtotime(date('d-m-Y', strtotime($examen->examen_moments->examen_opgeven_begin))); 
+                                            // $eindDatum = strtotime(date('d-m-Y', strtotime($examen->examen_moments->examen_opgeven_eind))); 
 
-                                            if($huidigeDatum > $startDatum && $huidigeDatum < $eindDatum){
+                                            // if($huidigeDatum > $startDatum && $huidigeDatum < $eindDatum){
                                         ?>
                                                 <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
                                                     <div class="col-xs-8 col-8 fc-primary-nh">
@@ -82,7 +82,7 @@
                                                     </div>
                                                 </div>
                                         <?php 
-                                            }
+                                            // }
                                         ?>
                                     @endforeach
                                     </div>

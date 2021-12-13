@@ -92,7 +92,6 @@ class OSVEController extends Controller
             ->get();
 
         $moments = ExamenMoment::all();
-
         return view("p3", compact("examens", "moments"));
     }
 
@@ -135,7 +134,10 @@ class OSVEController extends Controller
         $examenMomenten = examenMoment::where([
                 ['examenid', $examenId],
                 ['plaatsen', '>=', 1]
-            ])->orderBy("datum", "asc")->get();
+            ])
+            ->whereDate('starts_at', '>=', $request->ExamenMoment->examen_opgeven_begin)
+            ->whereDate('starts_at', '<=', $request->ExamenMoment->examen_opgeven_eind)
+            ->orderBy("datum", "asc")->get();
 
         foreach($examenMomenten as $examenMoment){
             //Haalt het aantal plaatsen uit het examenmoment
