@@ -47,6 +47,9 @@
                                             <?php $examenDatum = ""; ?>
                                             @foreach($examenMomenten as $examen)
                                                 <?php
+                                                
+                                                    $timestamp = strtotime($examen->datum);
+                                                    $examenDatumFormatted = date('d-m-Y', strtotime($examen->datum)); 
 
                                                     if($examen->plaatsen >= 1){
                                                         

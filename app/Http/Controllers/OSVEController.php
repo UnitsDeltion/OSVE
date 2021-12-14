@@ -74,14 +74,25 @@ class OSVEController extends Controller
                 "403 Forbidden"
             );
         }
-        $examens = Examen::where([
-            ["opleiding_id", $request->session()->get("opleiding_id")],
-            ["active", "=", 1],
-        ])
-            ->orderBy("vak", "asc")
+
+
+        $examens = Examen::where(
+            "opleiding_id",
+            $request->session()->get("opleiding_id")
+        )
+            ->orderBy("vak", "asc")->with('examen_moments')
             ->get();
 
-        return view("p3", compact("examens"));
+
+        $examens = Examen::where(
+            "opleiding_id",
+            $request->session()->get("opleiding_id")
+        )
+            ->orderBy("vak", "asc")->with('examen_moments')
+            ->get();
+
+        $moments = ExamenMoment::all();
+        return view("p3", compact("examens", "moments"));
     }
 
     public function p4(Request $request)
@@ -121,26 +132,43 @@ class OSVEController extends Controller
 
         //Haalt alle examenmomenten op
         $examenMomenten = examenMoment::where([
-            ['examenid', $examenId],
-            ['plaatsen', '>=', 1]
-        ])->orderBy("datum", "asc")->get();
+                ['examenid', $examenId],
+                ['plaatsen', '>=', 1]
+            ])
+            ->orderBy("datum", "asc")->get();
 
+            //maakt leeg array aan
+            $examenChecked = array();
         foreach($examenMomenten as $examenMoment){
-            //Haalt het aantal plaatsen uit het examenmoment
-            $plaatsen = $examenMoment->plaatsen;
+            //maakt examen check variabelen aan
+            $huidigeDatum = strtotime(date('d-m-Y'));
+            $startDatum = strtotime(date('d-m-Y', strtotime($examenMoment['examen_opgeven_begin']))); 
+            $eindDatum = strtotime(date('d-m-Y', strtotime($examenMoment['examen_opgeven_eind']))); 
 
-            //Haalt alle geplande examens op die gekoppeld zijn aan dit examenmoment id en is bevestigd door een student
-            $geplandeExamens = GeplandeExamens::where([
-                ['examen', $examenMoment->examenid],
-                ['std_bevestigd', '1']
-            ])->get();
+            //checked op datum
+            if($huidigeDatum >= $startDatum && $huidigeDatum <= $eindDatum){
+                //Haalt het aantal plaatsen uit het examenmoment
+                $plaatsen = $examenMoment->plaatsen;
 
-            //Telt het aantal records
-            $plaatsenCount = count($geplandeExamens);
+                //Haalt alle geplande examens op die gekoppeld zijn aan dit examenmoment id en is bevestigd door een student
+                $geplandeExamens = GeplandeExamens::where([
+                    ['examen', $examenMoment->examenid],
+                    ['std_bevestigd', '1']
+                ])->get();
 
-            //Beschikbare plaatsen = het aantal plaatsen in het moment min het aantal geplande examens
-            $examenMoment->plaatsen = $examenMoment->plaatsen - $plaatsenCount;
+                //Telt het aantal records
+                $plaatsenCount = count($geplandeExamens);
+
+                //Beschikbare plaatsen = het aantal plaatsen in het moment min het aantal geplande examens
+                $examenMoment->plaatsen = $examenMoment->plaatsen - $plaatsenCount;
+                
+                //pushed gechecked array
+                array_push($examenChecked, $examenMoment);
+            }
+            
         }
+
+        $examenMoment = $examenChecked;
 
         return view("p4")
             ->with(compact("vak"))

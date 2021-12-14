@@ -68,22 +68,8 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="geplande_docenten" class="block font-medium text-sm text-gray-700">Examinerende docenten</label>
-                        <input id="geplande_docenten" class="block mt-1 w-full form-control" type="varchar" name="geplande_docenten" value="{{ $examen['geplande_docenten'] }}" disabled/>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="opgeven_examen_begin" class="block font-medium text-sm text-gray-700">Opgeven examen begin</label>
-                        <input id="examen_opgeven_begin" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_begin" value="{{ $examen['examen_opgeven_begin'] }}" disabled/>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="opgeven_examen_eind" class="block font-medium text-sm text-gray-700">Opgeven examen eind</label>
-                        <input id="examen_opgeven_eind" class="block mt-1 w-full form-control" type="date" name="examen_opgeven_eind" value="{{ $examen['examen_opgeven_eind'] }}" disabled/>
+                        <label for="vak_docent" class="block font-medium text-sm text-gray-700">Vak docent</label>
+                        <input id="vak_docent" class="block mt-1 w-full form-control" type="text" name="vak_docent" value="{{ $examen['vak_docent'] }}" disabled/>
                     </div>
                 </div>
 

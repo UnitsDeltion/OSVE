@@ -24,14 +24,19 @@ class ExamenMomentBeheerController extends Controller
         $this->validate($request, [
             'datum' => 'required',
             'tijd' => 'required',
-            'plaatsen' => 'required'
+            'plaatsen' => 'required',
+            'geplande_docenten' => 'required',
+            'examen_opgeven_begin' => 'required',
+            'examen_opgeven_eind' => 'required',
         ]);
 
         $moment->examenid = $request->id;
         $moment->datum = $request->datum;
         $moment->tijd = $request->tijd;
-        $moment->plaatsen = $request->plaatsen;
-
+        $moment->plaatsen = $request->plaatsen;  
+        $moment->geplande_docenten = $request->geplande_docenten;
+        $moment->examen_opgeven_begin = $request->examen_opgeven_begin;
+        $moment->examen_opgeven_eind = $request->examen_opgeven_eind;  
         $moment->save();
 
         return redirect()->route('examens.show', $id)->with('success','Examen moment toegevoegd.');
@@ -51,16 +56,22 @@ class ExamenMomentBeheerController extends Controller
             'datum' => 'required',
             'tijd' => 'required',
             'plaatsen' => 'required|integer',
+            'geplande_docenten' => 'required',
+            'examen_opgeven_begin' => 'required',
+            'examen_opgeven_eind' => 'required',
         ]);
         
-        if(ExamenMoment::where('id', $id)->exists()){
-            $moment = ExamenMoment::find($id);
-            $moment->datum = is_null($request->datum) ? $moment->datum : $request->datum;
-            $moment->tijd = is_null($request->tijd) ? $moment->tijd : $request->tijd;
-            $moment->plaatsen = is_null($request->plaatsen) ? $moment->plaatsen : $request->plaatsen;
-            $moment->save();
-            $examenId = $moment->examenid;
-            
+    if (ExamenMoment::where('id', $id)->exists()) {
+        $moment = ExamenMoment::find($id);
+        $moment->datum = is_null($request->datum) ? $moment->datum : $request->datum;
+        $moment->tijd = is_null($request->tijd) ? $moment->tijd : $request->tijd;
+        $moment->plaatsen = is_null($request->plaatsen) ? $moment->plaatsen : $request->plaatsen;
+        $moment->geplande_docenten = is_null($request->geplande_docenten) ? $moment->geplande_docenten : $request->geplande_docenten;
+        $moment->examen_opgeven_begin = is_null($request->examen_opgeven_begin) ? $moment->examen_opgeven_begin : $request->examen_opgeven_begin;
+        $moment->examen_opgeven_eind = is_null($request->examen_opgeven_eind) ? $moment->examen_opgeven_eind : $request->examen_opgeven_eind;
+        $moment->save();
+        $examenId = $moment->examenid;
+        
             return redirect()->route('examens.show', $examenId)->with('success','Examen moment aangepast.');
         }else{
             return redirect()->route('examens.index')->with('error','Examen moment niet gevonden.');
