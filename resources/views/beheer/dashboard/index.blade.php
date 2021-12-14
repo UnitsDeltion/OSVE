@@ -91,7 +91,7 @@
                     <tr>
                         <th>Vak</th>
                         <th>Examen</th>
-                        <th>Geplande docent</th>
+                        <th>Vak docent</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -104,7 +104,7 @@
                                 {{ $examen->examen }}
                             </td>
                             <td>
-                                {{ $examen->geplande_docenten }}
+                                {{ $examen->vak_docent }}
                             </td>
                         </tr>
                     @endforeach
@@ -128,7 +128,7 @@
                     <tr>
                         <th>Vak</th>
                         <th>Examen</th>
-                        <th>Geplande docent</th>
+                        <th>Vak docent</th>
                         <th>Eerste datum</th>
                         <th>Laatste datum</th>
                     </tr>
@@ -143,7 +143,7 @@
                                 {{ $examen->examen }}
                             </td>
                             <td>
-                                {{ $examen->geplande_docenten }}
+                                {{ $examen->vak_docent }}
                             </td>
                             <td id="min">
                                 {{ $examen->startDatum}}

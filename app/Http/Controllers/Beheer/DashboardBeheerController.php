@@ -30,8 +30,8 @@ class DashboardBeheerController extends Controller
         foreach($examens as $examen){
             //Vervang de email die in het examen staat door de voor en achternaam
             foreach($users as $user){
-                if($examen->geplande_docenten == $user->email){
-                    $examen->geplande_docenten = $user->voornaam . " " . $user->achternaam;
+                if($examen->vak_docent == $user->email){
+                    $examen->vak_docent = $user->voornaam . " " . $user->achternaam;
                 }
             }
 
