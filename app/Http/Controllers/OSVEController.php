@@ -135,28 +135,40 @@ class OSVEController extends Controller
                 ['examenid', $examenId],
                 ['plaatsen', '>=', 1]
             ])
-            ->whereDate('starts_at', '>=', $request->ExamenMoment->examen_opgeven_begin)
-            ->whereDate('starts_at', '<=', $request->ExamenMoment->examen_opgeven_eind)
             ->orderBy("datum", "asc")->get();
 
+            //maakt leeg array aan
+            $examenChecked = array();
         foreach($examenMomenten as $examenMoment){
-            //Haalt het aantal plaatsen uit het examenmoment
-            $plaatsen = $examenMoment->plaatsen;
+            //maakt examen check variabelen aan
+            $huidigeDatum = strtotime(date('d-m-Y'));
+            $startDatum = strtotime(date('d-m-Y', strtotime($examenMoment['examen_opgeven_begin']))); 
+            $eindDatum = strtotime(date('d-m-Y', strtotime($examenMoment['examen_opgeven_eind']))); 
 
-            //Haalt alle geplande examens op die gekoppeld zijn aan dit examenmoment id en is bevestigd door een student
-            $geplandeExamens = GeplandeExamens::where([
-                ['examen', $examenMoment->examenid],
-                ['std_bevestigd', '1']
-            ])->get();
+            //checked op datum
+            if($huidigeDatum >= $startDatum && $huidigeDatum <= $eindDatum){
+                //Haalt het aantal plaatsen uit het examenmoment
+                $plaatsen = $examenMoment->plaatsen;
 
-            //Telt het aantal records
-            $plaatsenCount = count($geplandeExamens);
+                //Haalt alle geplande examens op die gekoppeld zijn aan dit examenmoment id en is bevestigd door een student
+                $geplandeExamens = GeplandeExamens::where([
+                    ['examen', $examenMoment->examenid],
+                    ['std_bevestigd', '1']
+                ])->get();
 
-            //Beschikbare plaatsen = het aantal plaatsen in het moment min het aantal geplande examens
-            $examenMoment->plaatsen = $examenMoment->plaatsen - $plaatsenCount;
+                //Telt het aantal records
+                $plaatsenCount = count($geplandeExamens);
+
+                //Beschikbare plaatsen = het aantal plaatsen in het moment min het aantal geplande examens
+                $examenMoment->plaatsen = $examenMoment->plaatsen - $plaatsenCount;
+                
+                //pushed gechecked array
+                array_push($examenChecked, $examenMoment);
+            }
+            
         }
 
-        $examenMoment = $examenMomenten;
+        $examenMoment = $examenChecked;
 
         return view("p4")
             ->with(compact("vak"))
