@@ -43,17 +43,13 @@ class ExamenBeheerController extends Controller
             'vak' => 'required',
             'examen' => 'required',
             'opleiding_id' => 'required|integer',
-            'geplande_docenten' => 'required',
-            'examen_opgeven_begin' => 'required',
-            'examen_opgeven_eind' => 'required',
+            'vak_docent' => 'required',
         ]);
 
         $examen->vak = $request->vak;
         $examen->examen = $request->examen;
         $examen->opleiding_id = $request->opleiding_id;
-        $examen->geplande_docenten = $request->geplande_docenten;
-        $examen->examen_opgeven_begin = $request->examen_opgeven_begin;
-        $examen->examen_opgeven_eind = $request->examen_opgeven_eind;
+        $examen->vak_docent = $request->vak_docent;
         $examen->uitleg = $request->uitleg;
         $examen->save();
         
@@ -87,30 +83,30 @@ class ExamenBeheerController extends Controller
         $user = \Auth::user();
         if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-            $this->validate($request, [
-                'vak' => 'required',
-                'examen' => 'required',
-                'opleiding_id' => 'required|integer',
-                'geplande_docenten' => 'required',
-                'examen_opgeven_begin' => 'required',
-                'examen_opgeven_eind' => 'required',
-            ]);
-            
-            if (Examen::where('id', $id)->exists()) {
-                $examen = Examen::find($id);
-                $examen->vak = is_null($request->vak) ? $examen->vak : $request->vak;
-                $examen->examen = is_null($request->examen) ? $examen->examen : $request->examen;
-                $examen->opleiding_id = is_null($request->opleiding_id) ? $examen->opleiding_id : $request->opleiding_id;
-                $examen->geplande_docenten = is_null($request->geplande_docenten) ? $examen->geplande_docenten : $request->geplande_docenten;
-                $examen->examen_opgeven_begin = is_null($request->examen_opgeven_begin) ? $examen->examen_opgeven_begin : $request->examen_opgeven_begin;
-                $examen->examen_opgeven_eind = is_null($request->examen_opgeven_eind) ? $examen->examen_opgeven_eind : $request->examen_opgeven_eind;
-                $examen->uitleg = is_null($request->uitleg) ? $examen->uitleg : $request->uitleg;
-                $examen->save();
+            $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+
+            if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
+
+                $this->validate($request, [
+                    'vak' => 'required',
+                    'examen' => 'required',
+                    'opleiding_id' => 'required|integer',
+                    'vak_docent' => 'required',
+                ]);
                 
-                return redirect()->route('examens.show', $id)->with('success','Examen aangepast.');
-            }else {
-                return redirect()->route('examens.index')->with('error','Examen niet gevonden.');
-            }
+                if (Examen::where('id', $id)->exists()) {
+                    $examen = Examen::find($id);
+                    $examen->vak = is_null($request->vak) ? $examen->vak : $request->vak;
+                    $examen->examen = is_null($request->examen) ? $examen->examen : $request->examen;
+                    $examen->opleiding_id = is_null($request->opleiding_id) ? $examen->opleiding_id : $request->opleiding_id;
+                    $examen->vak_docent = is_null($request->vak_docent) ? $examen->vak_docent : $request->vak_docent;
+                    $examen->uitleg = is_null($request->uitleg) ? $examen->uitleg : $request->uitleg;
+                    $examen->save();
+                    
+                    return redirect()->route('examens.show', $id)->with('success','Examen aangepast.');
+                }else {
+                    return redirect()->route('examens.index')->with('error','Examen niet gevonden.');
+                }
     }
 
     public function delete($id)

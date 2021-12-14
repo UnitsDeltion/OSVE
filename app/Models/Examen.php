@@ -39,12 +39,10 @@ class Examen extends Model
 		'vak',
 		'crebo_nr',
 		'examen',
-		'geplande_docenten',
 		'examen_type',
-		'examen_opgeven_begin',
-		'examen_opgeven_eind',
 		'uitleg',
 		'active',
+		'vak_docent',
 		
 	];
 

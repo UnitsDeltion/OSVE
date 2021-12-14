@@ -43,8 +43,12 @@ class DashboardBeheerController extends Controller
                     if($docent == $user->email){
                         array_push($geplandeDocenten, $user->voornaam . " " . $user->achternaam);
                     }
-                }
-            }
+                    foreach($users as $user){
+                        if($examen->vak_docent == $user->email){
+                            $examen->vak_docent = $user->voornaam . " " . $user->achternaam;
+                        }
+                    }
+                }}
 
             //Zet alle geplandeDocenten in het examen
             $examen->geplande_docenten = $geplandeDocenten;
