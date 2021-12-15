@@ -262,7 +262,7 @@ class FormHandlerController extends Controller
             ->session()
             ->put(
                 "message",
-                "Voordat het examen definitief is ingepland moet deze nog worden goedgekeurd door een docent. Zodra dit is gebeurt ontvang je een bevestiging."
+                "Voordat het examen definitief is ingepland moet deze nog worden goedgekeurd door een docent. Zodra dit is gebeurt ontvang je een bevestiging per email."
             );
         return redirect("p8");
     }

@@ -1,8 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            @section('title', 'Opgave systeem voor examens')
-            @yield('title')
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight r-title-big">
+            Opgave systeem voor examens
+        </h2>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight r-title-small align-center">
+            OSVE
         </h2>
     </x-slot>
 
@@ -44,17 +46,14 @@
                                     <div class="container mb-10">
                                         <div class="row justify-content-center">
 
-                                            <?php $examenDatum = ""; ?>
-                                            @foreach($examenMomenten as $examen)
-                                                <?php
+                                            <?php $examenDatum = "";
+                                            foreach($examenMomenten as $examen){
                                                 
                                                     $timestamp = strtotime($examen->datum);
                                                     $examenDatumFormatted = date('d-m-Y', strtotime($examen->datum)); 
 
                                                     if($examen->plaatsen >= 1){
                                                         
-                                                    
-
                                                         $timestamp = strtotime($examen->datum);
                                                         $examenDatumFormatted = date('d-m-Y', strtotime($examen->datum)); 
 
@@ -87,27 +86,26 @@
                                                             if ($examenDatum != ""){
                                                                 echo "</div>";
                                                             }
-                                                            echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow \">";
-                                                            echo "<div class=\"row\"><div class=\"col-md-7 col-6 tablet-day\"><h4 class=\"fc-secondary-nh\">" .  $day  . "</h4></div><div class=\"col-md-5 col-6 ta-right tablet-date\"><small>(" . $examenDatumFormatted . ")</small></div></div>";
+                                                            echo "<div class=\"col-xs-12 col-sm-5 mr-10 ml-10 mt-20 p-3 shadow\">";
+                                                            echo "<div class=\"row\"><div class=\"col-7 col-xs-8 col-sm-12 col-md-7\"><h4 class=\"fc-secondary-nh\">" . $day . "</h4></div><div class=\"col-5 col-xs-4 col-sm-12 p4-date col-md-5 ta-right \"><small>(" . $examenDatumFormatted . ")</small></div></div>";
                                                         }
                                                         
-                                                        $examenDatum = $examen->datum;          
+                                                        $examenDatum = $examen->datum;    
+                                                    }      
                                                 ?>
 
-                                                <div class="row selectInput pb-1" onclick="selectInput('p4', {{ $examen->id }})">
-                                                    <div class="col-xs-10 col-11 row justify-content-between" title="Resterende aantal plaatsen">
-                                                        <span class="col-4 tablet-time"> {{ date('H:i', strtotime($examen->tijd)); }} </span>
-                                                        <span class="col-4 tablet-spots text-align-end ta-right"><i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }}</span>
+                                                    <div class="row selectInput pb-1" onclick="selectInput('p4', {{ $examen->id }})">
+                                                        <div class="col-sm-12 row" title="Resterende aantal plaatsen">
+                                                            <span class="col-5 col-sm-5 col-md-5 col-lg-7"> {{ date('H:i', strtotime($examen->tijd)); }} </span>
+                                                            <span class="col-5 col-sm-5 col-md-5 col-lg-3 text-align-end"><i class="far fa-user fc-secondary"></i> {{ $examen->plaatsen }}</span>
+                                                            <div class="col-2 col-sm-2 col-md-2 col-lg-2">
+                                                                <input type="radio" name="examenMoment" id="{{ $examen->id }}" value="{{ $examen->datum }} - {{ $examen->tijd }}">
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-xs-2 col-1">
-                                                        <input type="radio" class="radio-hide" name="examenMoment" id="{{ $examen->id }}" value="{{ $examen->datum }} - {{ $examen->tijd }}">
-                                                    </div>
-                                                </div>
-
-                                                <?php
-                                                }
-                                                ?>
-                                            @endforeach      
+                                            <?php
+                                                }    
+                                            ?>  
                                     </div>
                                 </div>
                             </div>
