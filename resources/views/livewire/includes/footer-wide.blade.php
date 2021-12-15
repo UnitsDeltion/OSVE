@@ -7,7 +7,7 @@
                         <div class="footer__contact">
                             <div class="row align-items-center-xs">
                                 <div class="col-md-3"></div>
-                                <div class="col-sm-2"></div>
+                                <div class="col-sm-2 col-sm-2-f"></div>
                                 <div class="col-xs-12 col-sm-8 col-md-6 col-xl-3">
                                     <div class="footer__contact-logo"><img src="{{ asset('images/logos/logo-invert.svg') }}" alt="Deltion"></div>
                                 </div>
@@ -45,11 +45,11 @@
                         <div class="footer__legal">
                             <nav class="footer__legal-navigation">
                                 <ul class="footer__legal-list">
-                                    <li class="footer__legal-item"><a class="footer__legal-link" href="https://www.deltion.nl/privacy">Privacyverklaring</a></li>
-                                    <li class="footer__legal-item"><a class="footer__legal-link" href="https://www.deltion.nl/disclaimer">Disclaimer</a></li>
-                                    <li class="footer__legal-item"><a class="footer__legal-link" href="https://www.deltion.nl/responsible-disclosure">Responsible disclosure</a>
-                                    <li class="footer__legal-item"><a class="footer__legal-link" href="https://www.deltion.nl/cert">CERT</a>
-                                    <li class="footer__legal-item"><a class="footer__legal-link" href="https://www.deltion.nl/cookieverklaring">Cookieverklaring</a>
+                                    <li class="footer__legal-item"><a class="footer__legal-link" target="_blank" href="https://www.deltion.nl/privacy">Privacyverklaring</a></li>
+                                    <li class="footer__legal-item"><a class="footer__legal-link" target="_blank" href="https://www.deltion.nl/disclaimer">Disclaimer</a></li>
+                                    <li class="footer__legal-item"><a class="footer__legal-link" target="_blank" href="https://www.deltion.nl/responsible-disclosure">Responsible disclosure</a>
+                                    <li class="footer__legal-item"><a class="footer__legal-link" target="_blank" href="https://www.deltion.nl/cert">CERT</a>
+                                    <li class="footer__legal-item"><a class="footer__legal-link" target="_blank" href="https://www.deltion.nl/cookieverklaring">Cookieverklaring</a>
                                 </ul>
                             </nav>
                         </div>

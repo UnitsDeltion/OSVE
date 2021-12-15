@@ -1,8 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            @section('title', 'Opgave systeem voor examens')
-            @yield('title')
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight r-title-big">
+            Opgave systeem voor examens
+        </h2>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight r-title-small align-center">
+            OSVE
         </h2>
     </x-slot>
 

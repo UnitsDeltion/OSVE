@@ -1,8 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            @section('title', 'Opgave systeem voor examens')
-            @yield('title')
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight r-title-big">
+            Opgave systeem voor examens
+        </h2>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight r-title-small align-center">
+            OSVE
         </h2>
     </x-slot>
 
@@ -47,43 +49,30 @@
                                     
                                     <?php $examenVak = ""; ?>
                                     @foreach($examens as $examen)
-
                                         <?php
-
-                                                if($examen->vak != $examenVak ){
-                                                    if ($examenVak != ""){
-                                                        echo "</div>";
-                                                    }
-                    
-                                                    echo "<div class=\"col-xs-5 mr-10 ml-10 mt-20 p-3 shadow\">";
-                                                    echo "<h4 class=\"fc-secondary-nh\">" . $examen->vak . "</h4>";
+                                            if($examen->vak != $examenVak ){
+                                                if ($examenVak != ""){
+                                                    echo "</div>";
                                                 }
-                                            
-                                                
-                                                $examenVak = $examen->vak;
-                                        ?>
+                
+                                                echo "<div class=\"col-xs-12 col-sm-5 mr-10 ml-10 mt-20 p-3 shadow\">";
+                                                echo "<h4 class=\"fc-secondary-nh\">" . $examen->vak . "</h4>";
+                                            }
                                         
-                                        <?php
-                                            // $huidigeDatum = strtotime(date('d-m-Y'));
-                                            // $startDatum = strtotime(date('d-m-Y', strtotime($examen->examen_moments->examen_opgeven_begin))); 
-                                            // $eindDatum = strtotime(date('d-m-Y', strtotime($examen->examen_moments->examen_opgeven_eind))); 
-
-                                            // if($huidigeDatum > $startDatum && $huidigeDatum < $eindDatum){
+                                            $examenVak = $examen->vak;
                                         ?>
-                                                <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
-                                                    <div class="col-xs-8 col-8 fc-primary-nh">
-                                                        {{ $examen->examen }}
-                                                    </div>
-                                                    <div class="col-xs-1 col-1">
-                                                        <i class="fas fa-info-circle align-center" id="tooltipFaciliteitenpas" data-toggle="tooltip" data-bs-placement="bottom" title="{{ $examen->uitleg }}"></i>
-                                                    </div>
-                                                    <div class="col-xs-1 col-1">
-                                                        <input type="radio" class="radio-hide" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
-                                                    </div>
+                                            <div class="row selectInput pb-1" onclick="selectInput('p3', {{ $examen->id }})">
+                                                <div class="col-xs-9 col-9 fc-primary-nh">
+                                                    {{ $examen->examen }}
                                                 </div>
-                                        <?php 
-                                            // }
-                                        ?>
+                                                <div class="col-xs-1 col-1 examenInfo">
+                                                    <i class="fas fa-info-circle align-center" id="tooltipFaciliteitenpas" data-toggle="tooltip" data-bs-placement="bottom" title="{{ $examen->uitleg }}"></i>
+                                                </div>
+                                                <div class="col-xs-1 col-1">
+                                                    <input type="radio" class="radio-hide" name="examen" id="{{ $examen->id }}" value="{{ $examen->vak }} - {{ $examen->examen }}">
+                                                </div>
+                                            </div>
+
                                     @endforeach
                                     </div>
                             </div>  

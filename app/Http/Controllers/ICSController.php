@@ -18,7 +18,7 @@ class ICSController extends Controller
             'description' => "",
             'dtstart' => $request->session()->get('datum') . ' ' . $request->session()->get('tijd'),
             'dtend' => $request->session()->get('datum') . ' ' . $request->session()->get('tijd'),
-            'summary' => session('vak') . " " . session('examen'),
+            'summary' => session('vak') . " " . session('examen') . "examen",
             'url' => "https://deltion.nl"
         ));
 

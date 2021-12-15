@@ -12,7 +12,6 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="https:/cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-        <!--link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css">-->
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/b-2.0.1/b-html5-2.0.1/sl-1.3.3/datatables.min.css"/>
 
         <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css" />
@@ -21,6 +20,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/fonts.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/footer.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/responsiveness.css')}}">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
@@ -32,8 +32,6 @@
         
 
         <script src="{{asset('js/Notify.js')}}"></script>
-
-        <!-- <script src="https:/cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>-->
         
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.3/b-2.0.1/b-html5-2.0.1/sl-1.3.3/datatables.min.css"/>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -41,7 +39,6 @@
         
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-       <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.3/b-2.0.1/b-colvis-2.0.1/b-html5-2.0.1/b-print-2.0.1/datatables.min.js"></script>-->
        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.11.3/b-2.0.1/b-html5-2.0.1/sl-1.3.3/datatables.min.js"></script>
 
 
