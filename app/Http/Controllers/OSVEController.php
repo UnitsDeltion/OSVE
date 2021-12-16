@@ -7,7 +7,7 @@ use App\Models\Examen;
 use App\Models\Opleidingen;
 use App\Models\ExamenMoment;
 use App\Models\GeplandeExamens;
-use App\Models\ReglementenBeheer;
+use App\Models\Reglement;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
@@ -137,8 +137,9 @@ class OSVEController extends Controller
             ])
             ->orderBy("datum", "asc")->get();
 
-            //maakt leeg array aan
-            $examenChecked = array();
+        //maakt leeg array aan
+        $examenChecked = array();
+
         foreach($examenMomenten as $examenMoment){
             //maakt examen check variabelen aan
             $huidigeDatum = strtotime(date('d-m-Y'));
@@ -200,14 +201,14 @@ class OSVEController extends Controller
         }
 
         //Haalt het examen regelement op
-        $reglementen = ReglementenBeheer::get()->first();
+        $reglement = Reglement::get()->first();
 
         //Haalt de session data op in een collections
         $sessionData = collect(session()->all());
         //Filtert de collection behalve login gegevens
         $data = $sessionData->except(["_previous", "_flash", "_token"]);
 
-        return view("p5")->with(compact("data", "reglementen"));
+        return view("p5")->with(compact("data", "reglement"));
     }
 
     public function p6(Request $request)
