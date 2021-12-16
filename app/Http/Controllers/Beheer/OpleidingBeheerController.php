@@ -16,13 +16,9 @@ class OpleidingBeheerController extends Controller
         $user = \Auth::user();
         if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
-<<<<<<< Updated upstream
         
-        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
-        if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
-=======
         $bouncer = Bouncer::is($user)->a('beheerder');
->>>>>>> Stashed changes
+        if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
 
         $opleidingen = Opleidingen::all();
         return view('beheer.opleidingen.index', compact('opleidingen'));
