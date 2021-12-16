@@ -24,7 +24,7 @@ class UsersBeheerController extends Controller{
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         }
 
-        $bouncer = Bouncer::is($user)->a('opleidingsmanager');
+        $bouncer = Bouncer::is($user)->a('beheerder');
 
         if(!$bouncer){
             abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');

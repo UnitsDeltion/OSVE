@@ -47,13 +47,13 @@ class BouncerSeeder extends Seeder
             'password'          =>      bcrypt('ontwikkeling'),
         ]);
 
-        $user1->assign('opleidingsmanager');
-        $user2->assign('opleidingsmanager');
-        $user3->assign('opleidingsmanager');
-        $user4->assign('opleidingsmanager');
-        $user5->assign('docent');
+        $user1->assign('beheerder');
+        $user2->assign('beheerder');
+        $user3->assign('beheerder');
+        $user4->assign('beheerder');
+        $user5->assign('beheerder');
 
-        Bouncer::allow('opleidingsmanager')->everything();
+        Bouncer::allow('beheerder')->everything();
         //Bouncer::forbid('admin')->toManage(User::class);
 
         Bouncer::allow('docent')->to('examen-beheer');

@@ -48,7 +48,7 @@
                                 <?php
                                     $user = \Auth::user();
                                 ?>
-                                @if($user->isAn('opleidingsmanager'))
+                                @if($user->isAn('beheerder'))
                                     <x-jet-dropdown-link href="{{ route('opleidingen.index') }}" class="fc-primary">
                                         {{ __('Opleidingen beheer') }}
                                     </x-jet-dropdown-link>
