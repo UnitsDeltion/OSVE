@@ -29,17 +29,16 @@
                         @livewire('includes.validation.input', ['input' => 'tijd'])
                     </div>
                 </div>
-            </div>  
 
-            <div class="col-md-6">
-                <div class="form-group">
-                    <lable for="plaatsen" class="block font-medium text-sm text-gray-700">Beschikbare plekken</lable>
-                    <input id="plaatsen" class="block mt-1 w-full form-control" type="number" name="plaatsen" :value="old('plaatsen')"/>
-                    @livewire('includes.validation.input', ['input' => 'plaatsen'])
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <lable for="plaatsen" class="block font-medium text-sm text-gray-700">Beschikbare plekken</lable>
+                        <input id="plaatsen" class="block mt-1 w-full form-control" type="number" name="plaatsen" :value="old('plaatsen')"/>
+                        @livewire('includes.validation.input', ['input' => 'plaatsen'])
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-6">
+                <div class="col-md-6">
                     <div class="form-group">
                         <lable for="geplande_docenten" class="block font-medium text-sm text-gray-700">Examinerende docenten</lable>
                         <input id="geplande_docenten" class="block mt-1 w-full form-control" type="varchar" name="geplande_docenten" :value="old('geplande_docenten')"/>

@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Beheer;
 use Bouncer;
 use App\Models\Opleidingen;
 use Illuminate\Http\Request;
-use App\Models\ReglementenBeheer;
+use App\Models\Reglement;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
-class ReglementenBeheerController extends Controller
+class ReglementBeheerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,9 +25,9 @@ class ReglementenBeheerController extends Controller
         $bouncer = Bouncer::is($user)->a('beheerder');
 
         if(!$bouncer){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
-            $reglementen = ReglementenBeheer::get()->first();
+            $reglement = Reglement::get()->first();
 
-            return view('beheer.reglementen.index')->with(compact('reglementen'));
+            return view('beheer.reglement.index')->with(compact('reglement'));
     }
 
     /**
@@ -40,16 +40,16 @@ class ReglementenBeheerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'regelement' => 'required|max:255|URL',
+            'reglement' => 'required|max:255',
         ]);
 
-        if (ReglementenBeheer::where('id', '1')->exists()) {
-            $regelement = ReglementenBeheer::find('1');
+        if (Reglement::where('id', '1')->exists()) {
+            $reglement = Reglement::find('1');
 
-            $regelement->regelement = is_null($request->regelement) ? $regelement->regelement : $request->regelement;
-            $regelement->save();
+            $reglement->reglement = is_null($request->reglement) ? $reglement->reglement : $request->reglement;
+            $reglement->save();
         }
 
-        return redirect()->route('regelementen.index')->with('success','Regelement bijgewerkt');
+        return redirect()->route('reglement.index')->with('success','Reglement bijgewerkt');
     }
 }

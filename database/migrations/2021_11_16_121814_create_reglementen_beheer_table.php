@@ -13,9 +13,9 @@ class CreateReglementenBeheerTable extends Migration
      */
     public function up()
     {
-        Schema::create('reglementen', function (Blueprint $table) {
+        Schema::create('reglement', function (Blueprint $table) {
             $table->id();
-            $table->string('reglementen');
+            $table->string('reglement');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateReglementenBeheerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reglementen');
+        Schema::dropIfExists('reglement');
     }
 }
