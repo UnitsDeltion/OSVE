@@ -34,25 +34,24 @@ class DashboardBeheerController extends Controller
             //Vervang de email die in het examen staat door de voor en achternaam
             $docenten = explode(', ', $examen->geplande_docenten);
 
-            $geplandeDocenten = array();
+            $vak_docent = array();
 
             //Voor elke docent die gekoppeld is aan het examen
             foreach($docenten as $docent){
-                //Loop door alle gebruikers heen
+                //Loop door alle gebruikers heen               
                 foreach($users as $user){
-                    //Als de docent gelijk is aan de $user zet de docent in de $geplandeDocenten array
                     if($docent == $user->email){
-                        array_push($geplandeDocenten, $user->voornaam . " " . $user->achternaam);
+                        //Als de docent gelijk is aan de $user zet de docent in de $vak_docent array
+                        array_push($vak_docent, $user->voornaam . " " . $user->achternaam);
+                    }else{
+                        //Als de docent niet gelijk is aan de $user zet de docent email in de $vak_docent array
+                        $vak_docent = $examen->vak_docent;
                     }
-                    foreach($users as $user){
-                        if($examen->vak_docent == $user->email){
-                            $examen->vak_docent = $user->voornaam . " " . $user->achternaam;
-                        }
-                    }
-                }}
+                }
+            }
 
             //Zet alle geplandeDocenten in het examen
-            $examen->geplande_docenten = $geplandeDocenten;
+            $examen->vak_docent = $vak_docent;
 
             //Lege data array die wordt gevuld met de eerste en de laatste examen moment datum.
             //Op deze manier kan er op het dashboard gefiltert worden
@@ -95,6 +94,7 @@ class DashboardBeheerController extends Controller
                 foreach($examen->momenten as $key){
                     //Als de datum gelijk is aan de huidige datum zet hem in de $activeExamens array
                     if($key['datum'] == date("Y-m-d")){
+                        $examen->geplande_docenten = $key['geplande_docenten'];
                         array_push($activeExamens, $examen);
                     }
                 }
