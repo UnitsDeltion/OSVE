@@ -56,7 +56,7 @@
         <?php
             $user = \Auth::user();
         ?>
-        @if($user->isAn('opleidingsmanager')) 
+        @if($user->isAn('beheerder')) 
         <table class="table mt-4" id="examens">
             <h3 class="mt-50">Verwijderde    examens</h3>
             <thead>
@@ -79,7 +79,7 @@
                             </a>
                         </td>
                         <td>
-                            <a class="a-clear" data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{ route('examenDelete', $inactiveExamen['id']) }}" title="Delete Examen">
+                            <a class="a-clear" data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{ route('examenReturn', $inactiveExamen['id']) }}" title="Delete Examen">
                                 <x-jet-button class="button" title="Verwijderen">
                                         <i class="fas fa-history"></i>
                                 </x-jet-button>

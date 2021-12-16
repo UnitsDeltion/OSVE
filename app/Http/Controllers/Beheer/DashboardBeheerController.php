@@ -20,8 +20,9 @@ class DashboardBeheerController extends Controller
 {
     public function index(Request $request)
     {
-        $user = \Auth::user();
-        if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
+         $user = \Auth::user();
+         if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
+
 
         $users = User::all();
         $examens = Examen::all();
