@@ -71,7 +71,7 @@
             $return = '<a href="/beheer/dashboard" class="a-clear fc-white"><i class="fas fa-home"></i> Dashboard</a>';
             $return .= '<i class="fas fa-angle-right ml-2 mr-2"></i> <a href="/beheer/users" class="a-clear fc-white"><i class="fas fa-graduation-cap"></i> Gebruikers beheer</a>';
             $return .= '<i class="fas fa-angle-right ml-2 mr-2"></i> <a href="' . Request::url() . '" class="a-clear fc-white breadcrumbs-active"><i class="fas fa-plus"></i> Gebruiker toevoegen</a>';
-        }elseif($page == 'reglementen.index'){
+        }elseif($page == 'reglement.index'){
             $return = '<a href="/beheer/dashboard" class="a-clear fc-white"><i class="fas fa-home"></i> Dashboard</a>';
             $return .= '<i class="fas fa-angle-right ml-2 mr-2"></i> <a href="/beheer/reglementen" class="a-clear fc-white breadcrumbs-active"><i class="fas fa-graduation-cap"></i> Reglementen beheer</a>';
         }elseif($page == 'geplandeExamens.index'){
