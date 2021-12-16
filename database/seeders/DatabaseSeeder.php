@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             OpleidingenTableSeeder::class,
             ExamenTableSeeder::class,
             ExamenMomentTableSeeder::class,
-            RegelmentenTableSeeder::class,
+            ReglementTableSeeder::class,
             BouncerSeeder::class
         ]);
     }

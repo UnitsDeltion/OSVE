@@ -11,7 +11,7 @@ use App\Http\Controllers\Beheer\UsersBeheerController;
 use App\Http\Controllers\Beheer\ExamenBeheerController;
 use App\Http\Controllers\Beheer\OpleidingBeheerController;
 use App\Http\Controllers\Beheer\DashboardBeheerController;
-use App\Http\Controllers\Beheer\ReglementenBeheerController;
+use App\Http\Controllers\Beheer\ReglementBeheerController;
 use App\Http\Controllers\Beheer\ExamenMomentBeheerController;
 use App\Http\Controllers\Beheer\GeplandeExamensBeheerController;
 
@@ -39,7 +39,7 @@ Route::get('/beheer/json/datatabels/dutch', [DashboardBeheerController::class, '
 
 Route::resource('/beheer/users', UsersBeheerController::class);
 Route::resource('/beheer/opleidingen', OpleidingBeheerController::class);
-Route::resource('/beheer/reglementen', ReglementenBeheerController::class);
+Route::resource('/beheer/reglement', ReglementBeheerController::class);
 Route::resource('/beheer/examens', ExamenBeheerController::class);
 
 Route::resource('/beheer/moments', ExamenMomentBeheerController::class)->except('create', 'store');

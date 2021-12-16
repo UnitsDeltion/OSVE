@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="d-flex" style="width: 100%;">
             <h2 class="align-self-start font-semibold text-xl text-gray-800 leading-tight row">
-                @section('title', 'Reglementen beheer')
+                @section('title', 'Reglement beheer')
                 @yield('title')
             </h2>
         </div>
@@ -18,13 +18,13 @@
             </div>
         @endif
 
-        <form method="post" action="{{ route('reglementen.store') }}" class="mt-10">
+        <form method="post" action="{{ route('reglement.store') }}" class="mt-10">
             @csrf
 
             <div class="form-group">
-                <lable for="reglementen" class="block font-medium text-sm text-gray-700">Reglementen URL</lable>
-                <input id="reglementen" class="block mt-1 w-full form-control" type="text" name="reglementen" value="{{ $reglementen->reglementen }}"/>
-                @livewire('includes.validation.input', ['input' => 'reglementen'])
+                <lable for="reglement" class="block font-medium text-sm text-gray-700">Reglement URL</lable>
+                <input id="reglement" class="block mt-1 w-full form-control" type="text" name="reglement" value="{{ $reglement->reglement }}"/>
+                @livewire('includes.validation.input', ['input' => 'reglement'])
             </div>
 
             <div class="mt-4">
