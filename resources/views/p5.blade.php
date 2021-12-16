@@ -80,7 +80,7 @@
                                 </div>
                             </div>
 
-                            <p><small>Met het versturen ga ik akkoord met de <a class="fc-primary" target="popup" onclick="window.open('{{$reglementen->reglementen}}','popup','width=600,height=600'); return false;">reglementen</a> van de examinering.</small></p>
+                            <p><small>Met het versturen ga ik akkoord met de <a class="fc-primary" target="popup" onclick="window.open('{{$reglement->reglement}}','popup','width=600,height=600'); return false;">reglement</a> van de examinering.</small></p>
 
                             <div class="mt-4">
                                 <a href="{{ route('p4') }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">

@@ -93,6 +93,7 @@
                         <th>Vak</th>
                         <th>Examen</th>
                         <th>Vak docent</th>
+                        <th>Geplande docent</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -105,7 +106,10 @@
                                 {{ $activeExamen->examen }}
                             </td>
                             <td>
-                                {{ $examen->vak_docent }}
+                                {{ $activeExamen->vak_docent }}
+                            </td>
+                            <td>
+                                {{ $activeExamen->geplande_docenten }}
                             </td>
                         </tr>
                     @endforeach
