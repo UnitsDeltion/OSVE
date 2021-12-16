@@ -109,6 +109,17 @@ class ExamenBeheerController extends Controller
                 }
     }
 
+    public function returndelete($id)
+    {
+        $user = \Auth::user();
+        if(!$user){abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');}
+
+            $examen = Examen::find($id);
+
+            return view('beheer.examens.returndelete', compact('examen'));
+    }
+
+
     public function delete($id)
     {
         $user = \Auth::user();
