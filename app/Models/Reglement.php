@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ReglementenBeheer extends Model
+class Reglement extends Model
 {
     use HasFactory;
     
-    protected $table = 'reglementen';
+    protected $table = 'reglement';
     public $timestamps = false;
 
     protected $fillable = [
-		  'reglementen',
+        'reglement',
 	];
 }

@@ -55,7 +55,7 @@
                                     <x-jet-dropdown-link href="{{ route('users.index') }}" class="fc-primary">
                                         {{ __('Docenten beheer') }}
                                     </x-jet-dropdown-link>
-                                    <x-jet-dropdown-link href="{{ route('reglementen.index') }}" class="fc-primary">
+                                    <x-jet-dropdown-link href="{{ route('reglement.index') }}" class="fc-primary">
                                         {{ __('Regelement beheer') }}
                                     </x-jet-dropdown-link>
                                 @endif

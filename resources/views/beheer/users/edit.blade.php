@@ -37,14 +37,14 @@
 
                 <div class="form-group">
                     <label for="role" class="block font-medium text-sm text-gray-700">Rol</label>
-                        <select id="role" name="role" class="form-select block font-medium text-sm text-gray-700" aria-label="Default select current">
-                            <option
-                                @if ($user->isAn('opleidingsmanager'))selected @endif value="1">Opleidingsmanager
-                            </option>
-                            <option 
-                                @if ($user->isAn('docent'))selected @endif value="2">Docent
-                            </option>
-                        </select>
+                    <select id="role" name="role" class="form-select block font-medium text-sm text-gray-700" aria-label="Default select current">
+                        <option
+                            @if ($user->isAn('opleidingsmanager'))selected @endif value="1">Beheerder
+                        </option>
+                        <option 
+                            @if ($user->isAn('docent'))selected @endif value="2">Docent
+                        </option>
+                    </select>
                 </div>
                 
                 <div class="mt-4">

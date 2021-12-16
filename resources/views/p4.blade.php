@@ -112,16 +112,20 @@
                         @endif
                     </div>
 
+                    </div>
+
                     <div class="mt-4">
-                        <a href="{{ route('p3') }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">
+                        <a href="{{ route('p2') }}" class="fc-h-white a-clear float-left mb-2 button inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition button float-right">
                             <i class="fas fa-backward mr-2"></i> Terug
                         </a>
-                        
-                        <div class="form-group">
-                            <x-jet-button class="button" style="float: right">
-                                Verder <i class="fas fa-forward ml-2"></i> 
-                            </x-jet-button>
-                        </div>
+
+                        @if(isset($examenMomenten))
+                            <div class="form-group">
+                                <x-jet-button class="button" style="float: right">
+                                    Verder <i class="fas fa-forward ml-2"></i> 
+                                </x-jet-button>
+                            </div>
+                        @endif
                     </div>
                 </form>
             </div>
