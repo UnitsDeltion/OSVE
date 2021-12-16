@@ -55,3 +55,6 @@ Route::get('/beheer/moment/delete/{id}', [ExamenMomentBeheerController::class, '
 Route::get('/beheer/examen/delete/{id}', [ExamenBeheerController::class, 'delete'])->name('examenDelete');
 Route::get('/beheer/opleidingen/delete/{id}', [OpleidingBeheerController::class, 'delete'])->name('opleidingDelete');
 Route::get('/beheer/geplandeExamens/delete/{id}', [GeplandeExamensBeheerController::class, 'delete'])->name('geplandExamenDelete');
+
+//zet de softdelete terug
+Route::get('/beheer/examen/returndelete/{id}', [ExamenBeheerController::class, 'returndelete'])->name('examenReturn');
