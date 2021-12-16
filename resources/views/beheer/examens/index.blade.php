@@ -56,7 +56,7 @@
         <?php
             $user = \Auth::user();
         ?>
-        @if($user->isAn('opleidingsmanager')) 
+        @if($user->isAn('beheerder')) 
         <table class="table mt-4" id="examens">
             <h3 class="mt-50">Verwijderde    examens</h3>
             <thead>
