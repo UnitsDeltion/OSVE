@@ -95,8 +95,9 @@
         <li class="nav-item"><a class="nav-link" href="#javascript">JavaScript</a></li>
         <li class="nav-item"><a class="nav-link" href="#idocs_changelog">Changelog</a>
             <ul class="nav flex-column">
-                <li class="nav-item"><a class="nav-link" href="#v1-1">v1.1</a></li>
-                <li class="nav-item"><a class="nav-link" href="#v1-0">v1.0</a></li>
+                <li class="nav-item"><a class="nav-link" href="#changelog_v3.0">v3.0</a></li>
+                <li class="nav-item"><a class="nav-link" href="#changelog_v2.0">v2.0</a></li>
+                <li class="nav-item"><a class="nav-link" href="#changelog_v1.0">v1.0</a></li>
             </ul>
         </li>
     </ul>
