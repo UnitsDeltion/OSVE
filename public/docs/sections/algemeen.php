@@ -6,7 +6,7 @@
             <div class="col-sm-6 col-lg-6">
                 <ul class="list-unstyled">
                     <li><strong>Versie:</strong> <?php echo $config['OSVEVersion']; ?></li>
-                    <li><strong>Auterus:</strong> <a href="http://www.martijnschuman.nl" target="_blank" rel="noopener">Martijn Schuman</a>, <a href="http://www.x.nl" target="_blank" rel="noopener">Pascal Palmbergen</a>, <a href="http://www.x.nl" target="_blank" rel="noopener">Jesse Koldewijn</a>, <a href="http://www.x.nl" target="_blank" rel="noopener">Bas Plat</a></li>
+                    <li><strong>Auteurs:</strong> <a href="http://www.martijnschuman.nl" target="_blank" rel="noopener">Martijn Schuman</a>, <a href="http://www.x.nl" target="_blank" rel="noopener">Pascal Palmbergen</a>, <a href="http://www.x.nl" target="_blank" rel="noopener">Jesse Koldewijn</a>, <a href="http://www.x.nl" target="_blank" rel="noopener">Bas Plat</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-4">
@@ -24,7 +24,7 @@
             <div class="col-sm-6 col-lg-6">
                 <ul class="list-unstyled">
                     <li><strong>Versie:</strong> <?php echo $config['docVersion']; ?></li>
-                    <li><strong>Auterus:</strong> <a href="http://www.martijnschuman.nl" target="_blank" rel="noopener">Martijn Schuman</a>, <a href="http://www.x.nl" target="_blank" rel="noopener">Bas Plat</a></li>
+                    <li><strong>Auteurs:</strong> <a href="http://www.martijnschuman.nl" target="_blank" rel="noopener">Martijn Schuman</a>, <a href="http://www.x.nl" target="_blank" rel="noopener">Bas Plat</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-4">
