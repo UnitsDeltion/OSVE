@@ -93,7 +93,7 @@
         </li>
 
         <li class="nav-item"><a class="nav-link" href="#javascript">JavaScript</a></li>
-        <li class="nav-item"><a class="nav-link" href="#idocs_changelog">Changelog</a>
+        <li class="nav-item"><a class="nav-link" href="#changelog">Changelog</a>
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link" href="#changelog_v3.0">v3.0</a></li>
                 <li class="nav-item"><a class="nav-link" href="#changelog_v2.0">v2.0</a></li>
