@@ -1,13 +1,12 @@
-<section id="idocs_changelog">
+<section id="changelog">
     <h2>OSVE-changelog</h2>
     <p class="text-4">Bekijk wat er nieuw is toegevoegd, gewijzigd, gerepareerd, verbeterd of bijgewerkt in de nieuwste versies.</p>
     
     <h3 id="changelog_v3.0">Versie 3.0 <small class="text-muted">(16 december 2021)</small></h3>
     <ul class="changelog">
-        <li><span class="badge badge-success">Toegevoegd</span> Bevestigings email zodra de docent een afspraak heeft bevestigd</li>
+        <li><span class="badge badge-success">Toegevoegd</span> Bevestigingsmail  zodra de docent een afspraak heeft bevestigd</li>
         <li><span class="badge badge-success">Toegevoegd</span> Docent examen bevestigen</li>
         <li><span class="badge badge-success">Toegevoegd</span> Gebruikers rollen</li>
-        <li><span class="badge badge-success">Toegevoegd</span> Controllers en views bijgewerkt qua code</li>
         <li><span class="badge badge-success">Toegevoegd</span> Waarschuwing popup verbeteren</li>
         <li><span class="badge badge-success">Toegevoegd</span> Afspraak validatie via e-mail</li>
         <li><span class="badge badge-success">Toegevoegd</span> Achtergrond sfeerbeeld</li>
@@ -21,7 +20,11 @@
         <li><span class="badge badge-fixed">Opgelost</span> Enkele kleine bugs voor responsiveness</li>
         <li><span class="badge badge-info">Bijgewerkt</span> CSS & JS verbeteringen</li>
         <li><span class="badge badge-info">Bijgewerkt</span> Spelling & zinsopbouw</li>
+        <li><span class="badge badge-info">Bijgewerkt</span> Controllers en views bijgewerkt qua code</li>
+
     </ul>
+
+    <hr class="divider">
     
     <h3 id="changelog_v2.0">Versie 2.0 <small class="text-muted">(5 november 2021)</small></h3>
     <ul class="changelog">
