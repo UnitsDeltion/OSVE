@@ -63,7 +63,7 @@
 					<h1 id="inleiding">OSVE Documentatie</h1>
 
 					<div>
-						<p class="lead"><strong>OSVE</strong> staat voor 'Opagave systeem voor examens'. <strong>OSVE</strong> kan door studenten worden gebruikt om examens in te plannen. Om een examen in te plannen moet de student acht pagina's doorlopen. Elke pagina heeft zijn eigen functie.</p>
+						<p class="lead"><strong>OSVE</strong> staat voor 'Opgave systeem voor examens'. <strong>OSVE</strong> kan door studenten worden gebruikt om examens in te plannen. Om een examen in te plannen moet de student acht pagina's doorlopen. Elke pagina heeft zijn eigen functie.</p>
 						<p class="lead">In deze documentatie wordt per view, model, controller, migration en seeder uitgelegd wat de functie ervan is, hoe het werkt en hoe het bij te werken is. Er wordt wel enige basiskennis van Laravel en PHP verwacht. Zonder deze basis kennis gaat het lastig worden om dit project te begrijpen.</p>
 						<p class="lead"><strong>OSVE</strong> is ontwikkeld door Martijn Schuman, Pascal Palmbergen, Jesse Koldewijn & Bas Plat</p>
 					</div>
