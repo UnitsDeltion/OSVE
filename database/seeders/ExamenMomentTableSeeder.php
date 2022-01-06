@@ -24,9 +24,9 @@ class ExamenMomentTableSeeder extends Seeder
                 'datum'                 =>      '2022-01-' . $datums[array_rand($datums)],
                 'tijd'                  =>      random_int(8, 17) . ':' . $tijden[array_rand($tijden)] . ":00",
                 'plaatsen'              =>      random_int(10, 60),
-                'geplande_docenten'     =>     $docenten[array_rand($docenten)],
+                'geplande_docenten'     =>      $docenten[array_rand($docenten)],
                 'examen_opgeven_begin'  =>      '2021-12-' . $datumsBegin[array_rand($datumsBegin)],
-                'examen_opgeven_eind'   =>      '2021-12-' . $datumsEind[array_rand($datumsEind)],
+                'examen_opgeven_eind'   =>      '2022-01-' . $datumsEind[array_rand($datumsEind)],
             ];
             array_push($examenMoment, $data);
         }
