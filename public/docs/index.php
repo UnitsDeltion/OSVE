@@ -20,11 +20,11 @@
 		<title>OSVE Documentatie</title>
 
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="docs/assets/css/github.css" />
-		<link rel="stylesheet" type="text/css" href="docs/assets/css/stylesheet.css" />
+		<link rel="stylesheet" type="text/css" href="/docs/assets/css/github.css" />
+		<link rel="stylesheet" type="text/css" href="/docs/assets/css/stylesheet.css" />
 
 		<!-- Custom Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
 	</head>
 
 	<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
@@ -41,7 +41,7 @@
 			<div class="container-fluid">
 				<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
 
-				<a class="logo ml-md-3" href="" title="Deltion College"> <img src="images/logos/logo.svg" alt="Deltion College"/> </a> 
+				<a class="logo ml-md-3" href="" title="Deltion College"> <img src="/images/logos/logo.svg" alt="Deltion College"/> </a> 
 				<span class="text-2 ml-2"><?php echo $config['docVersion']; ?></span> 
 			</div>
 		</header>
@@ -127,13 +127,13 @@
 	<!-- JavaScript
 	============================ -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="docs/assets/bootstrap/js/bootstrap.bundle.min.js"></script> 
+	<script src="/docs/assets/bootstrap/js/bootstrap.bundle.min.js"></script> 
 
 	<script src="https://kit.fontawesome.com/44ec8f704b.js" crossorigin="anonymous"></script>
 	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
 	<!-- Sidebar -->
-	<script src="docs/assets/js/theme.js"></script>
+	<script src="/docs/assets/js/theme.js"></script>
 </body>
 </html>
