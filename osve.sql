@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Gegenereerd op: 06 jan 2022 om 16:47
+-- Gegenereerd op: 06 jan 2022 om 17:47
 -- Serverversie: 5.7.33
 -- PHP-versie: 8.0.10
 
@@ -70,9 +70,10 @@ CREATE TABLE `assigned_roles` (
 --
 
 INSERT INTO `assigned_roles` (`id`, `role_id`, `entity_id`, `entity_type`, `restricted_to_id`, `restricted_to_type`, `scope`) VALUES
-(1, 1, 1, 'App\\Models\\User', NULL, NULL, NULL),
-(2, 2, 2, 'App\\Models\\User', NULL, NULL, NULL),
-(3, 3, 3, 'App\\Models\\User', NULL, NULL, NULL);
+(1, 3, 1, 'App\\Models\\User', NULL, NULL, NULL),
+(5, 2, 4, 'App\\Models\\User', NULL, NULL, NULL),
+(6, 3, 3, 'App\\Models\\User', NULL, NULL, NULL),
+(7, 3, 2, 'App\\Models\\User', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -395,6 +396,14 @@ CREATE TABLE `sessions` (
   `last_activity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Gegevens worden geëxporteerd voor tabel `sessions`
+--
+
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('8gWWzV77E1ahgUMHtfgAfNprJ9YvuhC9QkoL0j8H', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiWGdMUXZVUnJkSUdpY3M1aUdYVG1yMmttT2ZwQW9vMVk3Z0U0RVJiQyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9iZWhlZXIvdXNlcnMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkb0FCOGVHSkg1bFFQejBqbm84QXlJLlc1SlViMDJ5SC93Z1BZLmlhTUlxQWhjblJJQVhLeW0iO30=', 1641491200),
+('m7MGOWpu2NSqvirBX88uA3AbLrp0iwvWJlHm8PCI', 4, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiUndIbGw2cUdDcXhLZkQwVmJDN1Z6ZEFTbEY3dmVPWHExVndIRk5mVCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9iZWhlZXIvZXhhbWVucyI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjQ7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCRoMy5rbWZVWDRMeWpOLnF3b29UdG9PYnJBeEZaeWdkVFhoQjh4WFJYamVuVm9mazNDNGlrVyI7fQ==', 1641491234);
+
 -- --------------------------------------------------------
 
 --
@@ -421,9 +430,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `voornaam`, `achternaam`, `email`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Martijn', 'Schuman', '97047008@st.deltion.nl', '$2y$10$oAB8eGJH5lQPz0jno8AyI.W5JUb02yH/wgPY.iaMIqAhcnRIAXKym', NULL, NULL, NULL, NULL, NULL, '2022-01-06 15:46:31', '2022-01-06 15:46:31'),
-(2, 'Test', 'Docent', 'docent@deltion.nl', '$2y$10$snAljEHB5oCkvMrCnGv2.eh6UvXw/I2nCcYVa67G02qf/TVQ979W.', NULL, NULL, NULL, NULL, NULL, '2022-01-06 15:46:31', '2022-01-06 15:46:31'),
-(3, 'Annelies', 'van Midwoud', 'amidwoud@deltion.nl', '$2y$10$A3ud4rBip6r54bps7nR0he8w24uBNIHmu/tW8eKy5gDopNwlZucpq', NULL, NULL, NULL, NULL, NULL, '2022-01-06 15:46:31', '2022-01-06 15:46:31');
+(1, 'Martijn', 'Schuman', 'martijnschuman@hotmail.com', '$2y$10$oAB8eGJH5lQPz0jno8AyI.W5JUb02yH/wgPY.iaMIqAhcnRIAXKym', NULL, NULL, NULL, NULL, NULL, '2022-01-06 15:46:31', '2022-01-06 15:46:31'),
+(2, 'Koos', 'Starreveld', 'kstarreveld@deltion.nl', '$2y$10$sqtrZlPE6.3cKzViO4o.wOUZY03MVFkux8RkrLX0508.Qsg4L8xdm', NULL, NULL, NULL, NULL, NULL, '2022-01-06 16:43:48', '2022-01-06 16:43:48'),
+(3, 'Annelies', 'van Midwoud', 'amidwoud@deltion.nl', '$2y$10$o/trMVhgW47LsJtrFAvVG.ArAUlieL.CuqQ3gLj/Zj3OBNDVhp38.', NULL, NULL, NULL, NULL, NULL, '2022-01-06 16:45:08', '2022-01-06 16:45:08'),
+(4, 'Test', 'Docent', 'testdocent@deltion.nl', '$2y$10$h3.kmfUX4LyjN.qwooTtoObrAxFZygdTXhB8xXRXjenVofk3C4ikW', NULL, NULL, NULL, NULL, NULL, '2022-01-06 16:46:03', '2022-01-06 16:46:03');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -560,7 +570,7 @@ ALTER TABLE `abilities`
 -- AUTO_INCREMENT voor een tabel `assigned_roles`
 --
 ALTER TABLE `assigned_roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT voor een tabel `examens`
@@ -632,7 +642,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Beperkingen voor geëxporteerde tabellen
