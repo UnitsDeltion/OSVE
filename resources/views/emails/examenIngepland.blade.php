@@ -110,15 +110,9 @@
 									<br />
 
 									<p>
-                                        Je examen is door een docent bevestigd op de eerder gekozen 
-                                        datum en tijd.
+										Je examen afspraak is zojuist door een docent goedgekeurd. Neem contact op met je docent voor meer informatie.
 										<br />
                                     </p>
-                                    <p>    
-                                        Deze data is te vinden in de registratie-mail en 
-                                        de examen afspraak die je kon downloaden bij het aanvragen van het examen.
-                                    </p>
-
 									<br />
 								</td>
 							</tr>

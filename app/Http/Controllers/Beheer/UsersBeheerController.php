@@ -68,8 +68,6 @@ class UsersBeheerController extends Controller{
     }
 
     public function update(Request $request, User $user){
-
-
         $validated = $request->validate([
             'voornaam' => 'required|max:255|string',
             'achternaam' => 'required|max:255|string',

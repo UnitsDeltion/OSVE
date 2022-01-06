@@ -53,7 +53,7 @@
                                         {{ __('Opleidingen beheer') }}
                                     </x-jet-dropdown-link>
                                     <x-jet-dropdown-link href="{{ route('users.index') }}" class="fc-primary">
-                                        {{ __('Docenten beheer') }}
+                                        {{ __('Gebruikers beheer') }}
                                     </x-jet-dropdown-link>
                                     <x-jet-dropdown-link href="{{ route('reglement.index') }}" class="fc-primary">
                                         {{ __('Regelement beheer') }}
