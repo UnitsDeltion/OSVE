@@ -97,7 +97,7 @@
 						<table>
 							<tr>
 								<td>
-									<h1 align="center">OSVE-examenregistratie</h1>
+									<h1 align="center">OSVE examenregistratie</h1>
 								</td>
 							</tr>
 

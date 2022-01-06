@@ -123,35 +123,33 @@ class OSVEController extends Controller
         $vak = $request->session()->get("vak");
         $examen = $request->session()->get("examen");
 
-        //Haalt het ID van het examen op, aangezien examen en vak strings zijn.
+        //Haalt het ID van het examen op, aangezien examen en vak strings zijn kunnen deze niet worden gebruikt
         $examenId = Examen::where([
             "opleiding_id" => $request->session()->get("opleiding_id"),
             "vak" => $request->session()->get("vak"),
             "examen" => $request->session()->get("examen"),
         ])->first()->id;
 
-        //Haalt alle examenmomenten op
+        //Haalt alle examenmomenten op waarbij het aantal plaatsen gelijk of groter is dan 1
         $examenMomenten = examenMoment::where([
                 ['examenid', $examenId],
                 ['plaatsen', '>=', 1]
             ])
             ->orderBy("datum", "asc")->get();
 
-        //maakt leeg array aan
+        //Maakt een leeg array aan die door de foreach wordt gevuld
+        //ExamenChecked zijn alle examenMomenten waarbij de huidige datum tussen het opgeven begin en eind ligt en waar nog plek is
         $examenChecked = array();
 
         foreach($examenMomenten as $examenMoment){
-            //maakt examen check variabelen aan
+            //Maakt examen check variabelen aan waarmee gecontrolleert wordt of de huidige datum tussen de start en eind datum ligt
             $huidigeDatum = strtotime(date('d-m-Y'));
             $startDatum = strtotime(date('d-m-Y', strtotime($examenMoment['examen_opgeven_begin']))); 
             $eindDatum = strtotime(date('d-m-Y', strtotime($examenMoment['examen_opgeven_eind']))); 
 
-            //checked op datum
+            //Controleert of de huidige datum tussen de start en eind datum liggen
             if($huidigeDatum >= $startDatum && $huidigeDatum <= $eindDatum){
-                //Haalt het aantal plaatsen uit het examenmoment
-                $plaatsen = $examenMoment->plaatsen;
-
-                //Haalt alle geplande examens op die gekoppeld zijn aan dit examenmoment id en is bevestigd door een student
+                //Haalt alle geplande examens op die gekoppeld zijn aan dit examenmoment en die zijn bevestigd door een student
                 $geplandeExamens = GeplandeExamens::where([
                     ['examen', $examenMoment->examenid],
                     ['std_bevestigd', '1']
@@ -160,13 +158,15 @@ class OSVEController extends Controller
                 //Telt het aantal records
                 $plaatsenCount = count($geplandeExamens);
 
-                //Beschikbare plaatsen = het aantal plaatsen in het moment min het aantal geplande examens
+                //Beschikbare plaatsen is het aantal plaatsen in het moment min het aantal geplande examens
                 $examenMoment->plaatsen = $examenMoment->plaatsen - $plaatsenCount;
                 
-                //pushed gechecked array
-                array_push($examenChecked, $examenMoment);
+                //Als er de count gelijk of groter is dan 1 zet het moment in de examenChecked array
+                if($examenMoment->plaatsen >= 1){
+                    //pushed gechecked array
+                    array_push($examenChecked, $examenMoment);
+                }
             }
-            
         }
 
         $examenMomenten = $examenChecked;
@@ -215,6 +215,11 @@ class OSVEController extends Controller
     {
         if (null == $request->session()->get("studentnummer")) {
             $request->session()->flush();
+            abort_if(
+                Gate::denies("user_access"),
+                Response::HTTP_FORBIDDEN,
+                "403 Forbidden"
+            );
         }
 
         $studentnummer = $request->session()->get("studentnummer");
