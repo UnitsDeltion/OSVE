@@ -31,7 +31,7 @@
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Wachtwoord') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" value="ontwikkeling"/>
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password"/>
             </div>
 
             <div class="block mt-4">

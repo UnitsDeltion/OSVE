@@ -19,6 +19,7 @@ class OSVEController extends Controller
         return redirect('/');
     }
 
+    //Home pagina
     public function p1(Request $request)
     {
         Session::forget(['voornaam', 'achternaam', 'studentnummer', 'klas', 'faciliteitenpas', 'opleiding_id', 'crebo_nr', 'opleiding', 'vak', 'examen', 'datum', 'tijd', 'token']);
@@ -26,6 +27,7 @@ class OSVEController extends Controller
         return view("p1");
     }
 
+    //Opleidingen
     public function p2(Request $request)
     {
         $request->session()->forget("opleiding_id");
@@ -52,6 +54,7 @@ class OSVEController extends Controller
         return view("p2", compact("opleidingen"));
     }
 
+    //Examen
     public function p3(Request $request)
     {
         $request->session()->forget("vak");
@@ -75,19 +78,10 @@ class OSVEController extends Controller
             );
         }
 
-
-        $examens = Examen::where(
-            "opleiding_id",
-            $request->session()->get("opleiding_id")
-        )
-            ->orderBy("vak", "asc")->with('examen_moments')
-            ->get();
-
-
-        $examens = Examen::where(
-            "opleiding_id",
-            $request->session()->get("opleiding_id")
-        )
+        $examens = Examen::where([
+            "opleiding_id" => $request->session()->get("opleiding_id"),
+            "active" => '1'
+        ])
             ->orderBy("vak", "asc")->with('examen_moments')
             ->get();
 
@@ -95,6 +89,7 @@ class OSVEController extends Controller
         return view("p3", compact("examens", "moments"));
     }
 
+    //Examen moment
     public function p4(Request $request)
     {
         $request->session()->forget("datum");
@@ -177,6 +172,7 @@ class OSVEController extends Controller
             ->with(compact("examenMomenten"));
     }
 
+    //Overzicht
     public function p5(Request $request)
     {
         if (
@@ -211,6 +207,7 @@ class OSVEController extends Controller
         return view("p5")->with(compact("data", "reglement"));
     }
 
+    //Inplannen bevestigd
     public function p6(Request $request)
     {
         if (null == $request->session()->get("studentnummer")) {
@@ -229,6 +226,7 @@ class OSVEController extends Controller
 
     //p7 token page/check -> FormHandlerController
 
+    //Success of fallback pagina
     public function p8(Request $request)
     {
         if (
