@@ -169,7 +169,7 @@ class OSVEController extends Controller
             
         }
 
-        $examenMoment = $examenChecked;
+        $examenMomenten = $examenChecked;
 
         return view("p4")
             ->with(compact("vak"))
