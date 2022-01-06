@@ -114,7 +114,7 @@ class OSVEController extends Controller
                 "403 Forbidden"
             );
         }
-
+        
         $vak = $request->session()->get("vak");
         $examen = $request->session()->get("examen");
 
@@ -132,6 +132,7 @@ class OSVEController extends Controller
             ])
             ->orderBy("datum", "asc")->get();
 
+
         //Maakt een leeg array aan die door de foreach wordt gevuld
         //ExamenChecked zijn alle examenMomenten waarbij de huidige datum tussen het opgeven begin en eind ligt en waar nog plek is
         $examenChecked = array();
@@ -144,14 +145,11 @@ class OSVEController extends Controller
 
             //Controleert of de huidige datum tussen de start en eind datum liggen
             if($huidigeDatum >= $startDatum && $huidigeDatum <= $eindDatum){
-                //Haalt alle geplande examens op die gekoppeld zijn aan dit examenmoment en die zijn bevestigd door een student
-                $geplandeExamens = GeplandeExamens::where([
+                //Telt het aantal records
+                $plaatsenCount = GeplandeExamens::where([
                     ['examen', $examenMoment->examenid],
                     ['std_bevestigd', '1']
-                ])->get();
-
-                //Telt het aantal records
-                $plaatsenCount = count($geplandeExamens);
+                ])->count();
 
                 //Beschikbare plaatsen is het aantal plaatsen in het moment min het aantal geplande examens
                 $examenMoment->plaatsen = $examenMoment->plaatsen - $plaatsenCount;
@@ -160,7 +158,7 @@ class OSVEController extends Controller
                 if($examenMoment->plaatsen >= 1){
                     //pushed gechecked array
                     array_push($examenChecked, $examenMoment);
-                }
+                }                          
             }
         }
 
