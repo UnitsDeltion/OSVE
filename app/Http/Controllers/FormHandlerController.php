@@ -101,7 +101,7 @@ class FormHandlerController extends Controller
 
         //Controleert of er al een examen met zelfde gegevens bestaat, zoja; stuurt door naar p8 met error
         $examenCheck = GeplandeExamens::where([
-            "studentnummer" => $request->session()->get("studentnummer"),
+            "studentnummer" => $studentnummer,
             "examen" => $examenId,
             "examen_moment" => $examenMomentId,
         ])->exists();
@@ -159,9 +159,6 @@ class FormHandlerController extends Controller
             new \App\Mail\examenInplannen()
         );
 
-        //Zet data in sessie voor p7 pagina
-        $request->session()->put("studentnummer", $studentnummer);
-
         return redirect("p6");
     }
 
@@ -182,8 +179,7 @@ class FormHandlerController extends Controller
 
         //Haalt de token data op basis van de token
         $tokenData = GeplandeExamensTokens::where(
-            "token",
-            $request->token
+            "token", $request->token
         )->first();
 
         //Als query leeg is laat error zien
