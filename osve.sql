@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Gegenereerd op: 06 jan 2022 om 17:47
+-- Gegenereerd op: 21 jun 2022 om 12:17
 -- Serverversie: 5.7.33
 -- PHP-versie: 8.0.10
 
@@ -45,9 +45,9 @@ CREATE TABLE `abilities` (
 --
 
 INSERT INTO `abilities` (`id`, `name`, `title`, `entity_id`, `entity_type`, `only_owned`, `options`, `scope`, `created_at`, `updated_at`) VALUES
-(1, '*', 'All abilities', NULL, '*', 0, NULL, NULL, '2022-01-06 15:46:31', '2022-01-06 15:46:31'),
-(2, 'examen-beheer', 'Examen beheer', NULL, NULL, 0, NULL, NULL, '2022-01-06 15:46:31', '2022-01-06 15:46:31'),
-(3, 'documentatie', 'Documentatie', NULL, NULL, 0, NULL, NULL, '2022-01-06 15:46:31', '2022-01-06 15:46:31');
+(1, '*', 'All abilities', NULL, '*', 0, NULL, NULL, '2022-06-21 10:17:21', '2022-06-21 10:17:21'),
+(2, 'examen-beheer', 'Examen beheer', NULL, NULL, 0, NULL, NULL, '2022-06-21 10:17:21', '2022-06-21 10:17:21'),
+(3, 'documentatie', 'Documentatie', NULL, NULL, 0, NULL, NULL, '2022-06-21 10:17:21', '2022-06-21 10:17:21');
 
 -- --------------------------------------------------------
 
@@ -70,10 +70,9 @@ CREATE TABLE `assigned_roles` (
 --
 
 INSERT INTO `assigned_roles` (`id`, `role_id`, `entity_id`, `entity_type`, `restricted_to_id`, `restricted_to_type`, `scope`) VALUES
-(1, 3, 1, 'App\\Models\\User', NULL, NULL, NULL),
-(5, 2, 4, 'App\\Models\\User', NULL, NULL, NULL),
-(6, 3, 3, 'App\\Models\\User', NULL, NULL, NULL),
-(7, 3, 2, 'App\\Models\\User', NULL, NULL, NULL);
+(1, 1, 1, 'App\\Models\\User', NULL, NULL, NULL),
+(2, 2, 2, 'App\\Models\\User', NULL, NULL, NULL),
+(3, 3, 3, 'App\\Models\\User', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -130,56 +129,56 @@ CREATE TABLE `examen_moment` (
 --
 
 INSERT INTO `examen_moment` (`id`, `examenid`, `datum`, `tijd`, `plaatsen`, `geplande_docenten`, `examen_opgeven_begin`, `examen_opgeven_eind`) VALUES
-(1, 5, '2022-01-24', '12:15:00', 54, '97071583@st.deltion.nl', '2021-12-12', '2022-01-24'),
-(2, 6, '2022-01-10', '15:30:00', 31, '97047008@st.deltion.nl', '2021-12-06', '2022-01-10'),
-(3, 4, '2022-01-10', '08:30:00', 56, '97047008@st.deltion.nl', '2021-12-17', '2022-01-10'),
-(4, 11, '2022-01-18', '09:30:00', 32, '97047005@st.deltion.nl', '2021-12-17', '2022-01-18'),
-(5, 5, '2022-01-07', '14:30:00', 28, '97047008@st.deltion.nl', '2021-12-12', '2022-01-07'),
-(6, 4, '2022-01-06', '16:45:00', 11, '97071583@st.deltion.nl', '2021-12-14', '2022-01-06'),
-(7, 4, '2022-01-28', '08:15:00', 5, '97071583@st.deltion.nl', '2021-12-14', '2022-01-28'),
-(8, 4, '2022-01-12', '13:45:00', 27, '97047005@st.deltion.nl', '2021-12-13', '2022-01-12'),
-(9, 10, '2022-01-04', '10:00:00', 26, '97047008@st.deltion.nl', '2021-12-14', '2022-01-04'),
-(10, 11, '2022-01-19', '13:45:00', 22, '97071583@st.deltion.nl', '2021-12-10', '2022-01-19'),
-(11, 10, '2022-01-26', '14:45:00', 17, '97071583@st.deltion.nl', '2021-12-03', '2022-01-26'),
-(12, 1, '2022-01-27', '13:00:00', 31, '97047008@st.deltion.nl', '2021-12-04', '2022-01-27'),
-(13, 6, '2022-01-27', '10:15:00', 17, '97047005@st.deltion.nl', '2021-12-10', '2022-01-27'),
-(14, 9, '2022-01-25', '13:30:00', 22, '97071583@st.deltion.nl', '2021-12-03', '2022-01-25'),
-(15, 4, '2022-01-28', '16:30:00', 32, '97047008@st.deltion.nl', '2021-12-14', '2022-01-28'),
-(16, 8, '2022-01-19', '17:30:00', 16, '97047005@st.deltion.nl', '2021-12-14', '2022-01-19'),
-(17, 6, '2022-01-21', '11:15:00', 16, '97071583@st.deltion.nl', '2021-12-14', '2022-01-21'),
-(18, 5, '2022-01-14', '15:00:00', 4, '97047008@st.deltion.nl', '2021-12-12', '2022-01-14'),
-(19, 4, '2022-01-03', '16:00:00', 24, '97047008@st.deltion.nl', '2021-12-04', '2022-01-03'),
-(20, 7, '2022-01-31', '11:15:00', 42, '97047005@st.deltion.nl', '2021-12-13', '2022-01-31'),
-(21, 7, '2022-01-11', '08:00:00', 10, '97071583@st.deltion.nl', '2021-12-10', '2022-01-11'),
-(22, 1, '2022-01-13', '12:00:00', 8, '97047008@st.deltion.nl', '2021-12-11', '2022-01-13'),
-(23, 6, '2022-01-14', '17:30:00', 50, '97047008@st.deltion.nl', '2021-12-13', '2022-01-14'),
-(24, 10, '2022-01-06', '14:45:00', 60, '97047008@st.deltion.nl', '2021-12-03', '2022-01-06'),
-(25, 5, '2022-01-13', '14:30:00', 14, '97047005@st.deltion.nl', '2021-12-05', '2022-01-13'),
-(26, 8, '2022-01-18', '09:30:00', 25, '97047005@st.deltion.nl', '2021-12-12', '2022-01-18'),
-(27, 8, '2022-01-06', '12:45:00', 53, '97071583@st.deltion.nl', '2021-12-05', '2022-01-06'),
-(28, 3, '2022-01-28', '14:15:00', 3, '97047005@st.deltion.nl', '2021-12-05', '2022-01-28'),
-(29, 6, '2022-01-24', '13:15:00', 46, '97047008@st.deltion.nl', '2021-12-17', '2022-01-24'),
-(30, 6, '2022-01-20', '17:00:00', 1, '97071583@st.deltion.nl', '2021-12-10', '2022-01-20'),
-(31, 2, '2022-01-03', '17:30:00', 14, '97047008@st.deltion.nl', '2021-12-05', '2022-01-03'),
-(32, 6, '2022-01-18', '10:00:00', 16, '97047005@st.deltion.nl', '2021-12-06', '2022-01-18'),
-(33, 6, '2022-01-04', '15:00:00', 9, '97071583@st.deltion.nl', '2021-12-11', '2022-01-04'),
-(34, 10, '2022-01-05', '11:00:00', 16, '97047005@st.deltion.nl', '2021-12-12', '2022-01-05'),
-(35, 9, '2022-01-05', '09:30:00', 36, '97047008@st.deltion.nl', '2021-12-07', '2022-01-05'),
-(36, 5, '2022-01-10', '15:00:00', 12, '97047008@st.deltion.nl', '2021-12-14', '2022-01-10'),
-(37, 6, '2022-01-21', '11:00:00', 8, '97047008@st.deltion.nl', '2021-12-05', '2022-01-21'),
-(38, 10, '2022-01-11', '15:45:00', 27, '97047008@st.deltion.nl', '2021-12-10', '2022-01-11'),
-(39, 7, '2022-01-11', '13:15:00', 16, '97047005@st.deltion.nl', '2021-12-07', '2022-01-11'),
-(40, 11, '2022-01-19', '08:45:00', 6, '97071583@st.deltion.nl', '2021-12-10', '2022-01-19'),
-(41, 7, '2022-01-25', '10:15:00', 54, '97047005@st.deltion.nl', '2021-12-06', '2022-01-25'),
-(42, 10, '2022-01-13', '11:30:00', 11, '97047008@st.deltion.nl', '2021-12-17', '2022-01-13'),
-(43, 6, '2022-01-06', '17:00:00', 15, '97071583@st.deltion.nl', '2021-12-05', '2022-01-06'),
-(44, 11, '2022-01-27', '11:15:00', 43, '97047005@st.deltion.nl', '2021-12-07', '2022-01-27'),
-(45, 7, '2022-01-07', '17:30:00', 33, '97071583@st.deltion.nl', '2021-12-11', '2022-01-07'),
-(46, 1, '2022-01-17', '08:15:00', 37, '97047008@st.deltion.nl', '2021-12-07', '2022-01-17'),
-(47, 1, '2022-01-06', '08:00:00', 41, '97071583@st.deltion.nl', '2021-12-03', '2022-01-06'),
-(48, 11, '2022-01-12', '13:15:00', 32, '97071583@st.deltion.nl', '2021-12-05', '2022-01-12'),
-(49, 7, '2022-01-17', '08:30:00', 32, '97071583@st.deltion.nl', '2021-12-10', '2022-01-17'),
-(50, 8, '2022-01-21', '12:45:00', 23, '97071583@st.deltion.nl', '2021-12-10', '2022-01-21');
+(1, 7, '2022-04-10', '16:15:00', 52, '97047008@st.deltion.nl', '2022-01-11', '2022-04-10'),
+(2, 6, '2022-04-05', '13:45:00', 35, '97047005@st.deltion.nl', '2022-01-12', '2022-04-05'),
+(3, 9, '2022-04-14', '13:30:00', 28, '97047005@st.deltion.nl', '2022-01-07', '2022-04-14'),
+(4, 4, '2022-04-13', '13:45:00', 57, '97047005@st.deltion.nl', '2022-01-13', '2022-04-13'),
+(5, 4, '2022-04-21', '13:15:00', 27, '97047005@st.deltion.nl', '2022-01-07', '2022-04-21'),
+(6, 8, '2022-04-20', '13:15:00', 45, '97047008@st.deltion.nl', '2022-01-07', '2022-04-20'),
+(7, 5, '2022-04-06', '15:15:00', 30, '97071583@st.deltion.nl', '2022-01-17', '2022-04-06'),
+(8, 11, '2022-04-11', '16:30:00', 47, '97071583@st.deltion.nl', '2022-01-03', '2022-04-11'),
+(9, 2, '2022-04-04', '08:15:00', 1, '97071583@st.deltion.nl', '2022-01-13', '2022-04-04'),
+(10, 10, '2022-04-27', '11:30:00', 30, '97047008@st.deltion.nl', '2022-01-04', '2022-04-27'),
+(11, 7, '2022-04-10', '09:30:00', 56, '97047005@st.deltion.nl', '2022-01-04', '2022-04-10'),
+(12, 1, '2022-04-14', '09:15:00', 1, '97071583@st.deltion.nl', '2022-01-11', '2022-04-14'),
+(13, 7, '2022-04-28', '17:00:00', 35, '97047008@st.deltion.nl', '2022-01-04', '2022-04-28'),
+(14, 6, '2022-04-27', '08:15:00', 15, '97047005@st.deltion.nl', '2022-01-12', '2022-04-27'),
+(15, 8, '2022-04-10', '13:00:00', 27, '97071583@st.deltion.nl', '2022-01-12', '2022-04-10'),
+(16, 1, '2022-04-06', '08:30:00', 46, '97071583@st.deltion.nl', '2022-01-14', '2022-04-06'),
+(17, 11, '2022-04-06', '14:45:00', 24, '97071583@st.deltion.nl', '2022-01-17', '2022-04-06'),
+(18, 2, '2022-04-14', '14:45:00', 28, '97047005@st.deltion.nl', '2022-01-05', '2022-04-14'),
+(19, 11, '2022-04-12', '17:00:00', 22, '97047008@st.deltion.nl', '2022-01-13', '2022-04-12'),
+(20, 7, '2022-04-04', '15:15:00', 13, '97047008@st.deltion.nl', '2022-01-04', '2022-04-04'),
+(21, 11, '2022-04-27', '13:00:00', 26, '97071583@st.deltion.nl', '2022-01-14', '2022-04-27'),
+(22, 4, '2022-04-06', '08:30:00', 21, '97047005@st.deltion.nl', '2022-01-03', '2022-04-06'),
+(23, 5, '2022-04-05', '10:00:00', 16, '97047008@st.deltion.nl', '2022-01-05', '2022-04-05'),
+(24, 1, '2022-04-10', '14:45:00', 44, '97071583@st.deltion.nl', '2022-01-06', '2022-04-10'),
+(25, 4, '2022-04-18', '17:30:00', 56, '97071583@st.deltion.nl', '2022-01-04', '2022-04-18'),
+(26, 2, '2022-04-17', '10:30:00', 47, '97071583@st.deltion.nl', '2022-01-11', '2022-04-17'),
+(27, 1, '2022-04-21', '11:00:00', 25, '97047005@st.deltion.nl', '2022-01-17', '2022-04-21'),
+(28, 11, '2022-04-10', '16:00:00', 29, '97047005@st.deltion.nl', '2022-01-05', '2022-04-10'),
+(29, 5, '2022-04-12', '09:45:00', 38, '97071583@st.deltion.nl', '2022-01-13', '2022-04-12'),
+(30, 6, '2022-04-20', '15:30:00', 52, '97071583@st.deltion.nl', '2022-01-06', '2022-04-20'),
+(31, 6, '2022-04-25', '09:30:00', 18, '97047008@st.deltion.nl', '2022-01-04', '2022-04-25'),
+(32, 6, '2022-04-26', '14:15:00', 23, '97071583@st.deltion.nl', '2022-01-17', '2022-04-26'),
+(33, 8, '2022-04-13', '16:45:00', 42, '97047008@st.deltion.nl', '2022-01-06', '2022-04-13'),
+(34, 8, '2022-04-12', '08:45:00', 55, '97071583@st.deltion.nl', '2022-01-07', '2022-04-12'),
+(35, 8, '2022-04-05', '09:15:00', 1, '97047005@st.deltion.nl', '2022-01-14', '2022-04-05'),
+(36, 1, '2022-04-12', '17:30:00', 24, '97047005@st.deltion.nl', '2022-01-06', '2022-04-12'),
+(37, 4, '2022-04-28', '15:15:00', 30, '97071583@st.deltion.nl', '2022-01-06', '2022-04-28'),
+(38, 11, '2022-04-28', '09:00:00', 52, '97047005@st.deltion.nl', '2022-01-06', '2022-04-28'),
+(39, 8, '2022-04-06', '14:15:00', 51, '97047005@st.deltion.nl', '2022-01-03', '2022-04-06'),
+(40, 4, '2022-04-18', '17:15:00', 48, '97047008@st.deltion.nl', '2022-01-11', '2022-04-18'),
+(41, 7, '2022-04-17', '09:45:00', 16, '97047005@st.deltion.nl', '2022-01-07', '2022-04-17'),
+(42, 2, '2022-04-11', '10:30:00', 35, '97047005@st.deltion.nl', '2022-01-13', '2022-04-11'),
+(43, 2, '2022-04-18', '12:15:00', 52, '97071583@st.deltion.nl', '2022-01-12', '2022-04-18'),
+(44, 10, '2022-04-27', '09:30:00', 26, '97047005@st.deltion.nl', '2022-01-12', '2022-04-27'),
+(45, 7, '2022-04-21', '13:00:00', 31, '97047008@st.deltion.nl', '2022-01-10', '2022-04-21'),
+(46, 1, '2022-04-28', '12:15:00', 9, '97047005@st.deltion.nl', '2022-01-14', '2022-04-28'),
+(47, 7, '2022-04-27', '08:00:00', 35, '97047005@st.deltion.nl', '2022-01-13', '2022-04-27'),
+(48, 1, '2022-04-12', '08:15:00', 3, '97071583@st.deltion.nl', '2022-01-04', '2022-04-12'),
+(49, 5, '2022-04-17', '16:45:00', 7, '97047005@st.deltion.nl', '2022-01-06', '2022-04-17'),
+(50, 8, '2022-04-05', '11:15:00', 43, '97047008@st.deltion.nl', '2022-01-14', '2022-04-05');
 
 -- --------------------------------------------------------
 
@@ -377,9 +376,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `title`, `level`, `scope`, `created_at`, `updated_at`) VALUES
-(1, 'ontwikkelaar', 'Ontwikkelaar', NULL, NULL, '2022-01-06 15:46:31', '2022-01-06 15:46:31'),
-(2, 'docent', 'Docent', NULL, NULL, '2022-01-06 15:46:31', '2022-01-06 15:46:31'),
-(3, 'beheerder', 'Beheerder', NULL, NULL, '2022-01-06 15:46:31', '2022-01-06 15:46:31');
+(1, 'ontwikkelaar', 'Ontwikkelaar', NULL, NULL, '2022-06-21 10:17:21', '2022-06-21 10:17:21'),
+(2, 'docent', 'Docent', NULL, NULL, '2022-06-21 10:17:21', '2022-06-21 10:17:21'),
+(3, 'beheerder', 'Beheerder', NULL, NULL, '2022-06-21 10:17:21', '2022-06-21 10:17:21');
 
 -- --------------------------------------------------------
 
@@ -401,8 +400,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('8gWWzV77E1ahgUMHtfgAfNprJ9YvuhC9QkoL0j8H', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiWGdMUXZVUnJkSUdpY3M1aUdYVG1yMmttT2ZwQW9vMVk3Z0U0RVJiQyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9iZWhlZXIvdXNlcnMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkb0FCOGVHSkg1bFFQejBqbm84QXlJLlc1SlViMDJ5SC93Z1BZLmlhTUlxQWhjblJJQVhLeW0iO30=', 1641491200),
-('m7MGOWpu2NSqvirBX88uA3AbLrp0iwvWJlHm8PCI', 4, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiUndIbGw2cUdDcXhLZkQwVmJDN1Z6ZEFTbEY3dmVPWHExVndIRk5mVCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9iZWhlZXIvZXhhbWVucyI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjQ7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCRoMy5rbWZVWDRMeWpOLnF3b29UdG9PYnJBeEZaeWdkVFhoQjh4WFJYamVuVm9mazNDNGlrVyI7fQ==', 1641491234);
+('yN8m4kI1UHdTOZrRXSRcTs1Kp6JrGUESiKxBMHqu', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiN2lPZk4yMkhvUERncHNjOFVWVHJCbWg2QVlZTjMxZVNiSTY3RGVZNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1655813847);
 
 -- --------------------------------------------------------
 
@@ -430,10 +428,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `voornaam`, `achternaam`, `email`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Martijn', 'Schuman', 'martijnschuman@hotmail.com', '$2y$10$oAB8eGJH5lQPz0jno8AyI.W5JUb02yH/wgPY.iaMIqAhcnRIAXKym', NULL, NULL, NULL, NULL, NULL, '2022-01-06 15:46:31', '2022-01-06 15:46:31'),
-(2, 'Koos', 'Starreveld', 'kstarreveld@deltion.nl', '$2y$10$sqtrZlPE6.3cKzViO4o.wOUZY03MVFkux8RkrLX0508.Qsg4L8xdm', NULL, NULL, NULL, NULL, NULL, '2022-01-06 16:43:48', '2022-01-06 16:43:48'),
-(3, 'Annelies', 'van Midwoud', 'amidwoud@deltion.nl', '$2y$10$o/trMVhgW47LsJtrFAvVG.ArAUlieL.CuqQ3gLj/Zj3OBNDVhp38.', NULL, NULL, NULL, NULL, NULL, '2022-01-06 16:45:08', '2022-01-06 16:45:08'),
-(4, 'Test', 'Docent', 'testdocent@deltion.nl', '$2y$10$h3.kmfUX4LyjN.qwooTtoObrAxFZygdTXhB8xXRXjenVofk3C4ikW', NULL, NULL, NULL, NULL, NULL, '2022-01-06 16:46:03', '2022-01-06 16:46:03');
+(1, 'Martijn', 'Schuman', 'martijnschuman@hotmail.com', '$2y$10$BYehzU1mdRX2Ml9YNju2DuTG2wEKChzLmMiwIl1QLYXt5IZZMKW5.', NULL, NULL, NULL, NULL, NULL, '2022-06-21 10:17:21', '2022-06-21 10:17:21'),
+(2, 'Koos', 'Starreveld', 'kstarreveld@deltion.nl', '$2y$10$qmZ2UhlIEk7RskfaXI8gYOCX04BpErN3dwbe85i7LXs0jGDDNnP6C', NULL, NULL, NULL, NULL, NULL, '2022-06-21 10:17:21', '2022-06-21 10:17:21'),
+(3, 'Annelies', 'van Midwoud', 'amidwoud@deltion.nl', '$2y$10$d9nC5jTdkcLQ7RsGecJG.ONZFTQLd4Gascee7aiER6zgIBpk9P9OS', NULL, NULL, NULL, NULL, NULL, '2022-06-21 10:17:21', '2022-06-21 10:17:21');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -570,7 +567,7 @@ ALTER TABLE `abilities`
 -- AUTO_INCREMENT voor een tabel `assigned_roles`
 --
 ALTER TABLE `assigned_roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT voor een tabel `examens`
@@ -642,7 +639,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Beperkingen voor geëxporteerde tabellen
