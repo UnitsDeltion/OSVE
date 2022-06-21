@@ -15,14 +15,14 @@ class BouncerSeeder extends Seeder
             'id'                =>      1,
             'voornaam'          =>      'Martijn',
             'achternaam'        =>      'Schuman',
-            'email'             =>      '97047008@st.deltion.nl',
+            'email'             =>      'martijnschuman@hotmail.com',
             'password'          =>      bcrypt('ontwikkeling'),
         ]);
         $user2 = User::create([
             'id'                =>      2,
-            'voornaam'          =>      'Test',
-            'achternaam'        =>      'Docent',
-            'email'             =>      'docent@deltion.nl',
+            'voornaam'          =>      'Koos',
+            'achternaam'        =>      'Starreveld',
+            'email'             =>      'kstarreveld@deltion.nl',
             'password'          =>      bcrypt('ontwikkeling'),
         ]);
         $user3 = User::create([
